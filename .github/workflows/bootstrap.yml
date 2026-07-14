@@ -15,25 +15,44 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Validate package
+      - name: Validate and extract package
         run: |
-          test -s collector-package.zip
-          unzip -tq collector-package.zip
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import BadZipFile, ZipFile
+
+          archive = Path("collector-package.zip")
+          if not archive.is_file() or archive.stat().st_size == 0:
+              raise SystemExit("collector-package.zip is missing or empty")
+
+          target = Path("/tmp/rrcollector")
+          if target.exists():
+              import shutil
+              shutil.rmtree(target)
+          target.mkdir(parents=True)
+
+          try:
+              with ZipFile(archive) as bundle:
+                  corrupt = bundle.testzip()
+                  if corrupt:
+                      raise SystemExit(f"Corrupt member in collector package: {corrupt}")
+                  bundle.extractall(target)
+          except BadZipFile as exc:
+              raise SystemExit(f"collector-package.zip is not a valid ZIP archive: {exc}") from exc
+
+          roots = sorted({p.parent for p in target.rglob("pyproject.toml")})
+          if len(roots) != 1:
+              raise SystemExit(f"Expected exactly one package root, found {len(roots)}: {roots}")
+          Path("/tmp/rrcollector-root.txt").write_text(str(roots[0]), encoding="utf-8")
+          print(f"Validated package root: {roots[0]}")
+          PY
 
       - name: Install and harden collector
         shell: bash
         run: |
           set -euo pipefail
-          rm -rf /tmp/rrcollector
-          mkdir -p /tmp/rrcollector
-          unzip -q collector-package.zip -d /tmp/rrcollector
-
-          PACKAGE_ROOT="$(find /tmp/rrcollector -type f -name pyproject.toml -printf '%h\n' | head -n 1)"
-          if [ -z "$PACKAGE_ROOT" ]; then
-            echo 'No pyproject.toml found inside collector-package.zip' >&2
-            find /tmp/rrcollector -maxdepth 3 -type f -print >&2
-            exit 1
-          fi
+          PACKAGE_ROOT="$(cat /tmp/rrcollector-root.txt)"
 
           # Copy package contents without touching existing workflow files.
           rsync -a \
@@ -74,6 +93,7 @@ jobs:
           ## 0.2.1 — 2026-07-14
 
           - Installed the complete collector directly in the repository.
+          - Replaced the external `unzip` bootstrap with Python's standard `zipfile` validation and extraction.
           - Disabled unnecessary HTTP/2 mode, removing a hidden runtime dependency.
           - Preserved GitHub workflow files during bootstrap to avoid GitHub App workflow-scope failures.
           - Made bootstrap independent of the ZIP top-level directory name.
