@@ -23,7 +23,13 @@ jobs:
           rm -rf /tmp/rrcollector
           mkdir -p /tmp/rrcollector
           unzip -q collector-package.zip -d /tmp/rrcollector
-          rsync -a --delete --exclude='.git/' /tmp/rrcollector/royal-road-longitudinal-collector/ ./
+
+          # Preserve existing workflow files. GitHub blocks workflow files created
+          # by the Actions installation token when it lacks the workflows scope.
+          rsync -a --delete \
+            --exclude='.git/' \
+            --exclude='.github/workflows/' \
+            /tmp/rrcollector/royal-road-longitudinal-collector/ ./
 
           python - <<'PY'
           from pathlib import Path
@@ -35,11 +41,6 @@ jobs:
               Path('rrlab/config.py'): [
                   ('os.getenv("RR_USER_AGENT", "RoyalRoadLongitudinalLab/0.2")',
                    'os.getenv("RR_USER_AGENT") or "RoyalRoadLongitudinalLab/0.2.1 (public research; github.com/LNothing0010)"')
-              ],
-              Path('.github/workflows/hourly.yml'): [
-                  ('run: pip install -e .', 'run: pip install -e ".[dev]"'),
-                  ('git add data reports', 'git add data/rrlab.sqlite data/raw reports'),
-                  ('retention-days: 30', 'retention-days: 90'),
               ],
           }
 
@@ -58,51 +59,19 @@ jobs:
           gitignore.write_text(text, encoding='utf-8')
           PY
 
-          cat > .github/workflows/ci.yml <<'YAML'
-          name: Collector CI
-
-          on:
-            push:
-              branches: [main]
-              paths-ignore:
-                - "data/**"
-                - "reports/**"
-            pull_request:
-              paths-ignore:
-                - "data/**"
-                - "reports/**"
-
-          permissions:
-            contents: read
-
-          jobs:
-            test:
-              runs-on: ubuntu-latest
-              steps:
-                - uses: actions/checkout@v4
-                - uses: actions/setup-python@v5
-                  with:
-                    python-version: "3.12"
-                    cache: pip
-                - run: pip install -e ".[dev]"
-                - run: pytest -q
-          YAML
-
           cat > CHANGELOG.md <<'MD'
           # Changelog
 
           ## 0.2.1 — 2026-07-14
 
           - Installed the complete collector directly in the repository.
-          - Fixed the hourly workflow so test dependencies are installed reliably.
           - Disabled unnecessary HTTP/2 mode, removing a hidden runtime dependency.
-          - Added CI that ignores hourly data-only commits.
-          - Stopped committing generated ZIP exports every hour; exports remain available as 90-day workflow artifacts.
+          - Preserved GitHub workflow files during bootstrap to avoid GitHub App workflow-scope failures.
+          - Stopped committing generated ZIP exports every hour; exports will remain available as workflow artifacts.
           - Kept canonical SQLite, compressed raw JSON and validation reports under version control for the pilot.
           MD
 
           rm -f collector-package.zip
-          rm -f .github/workflows/bootstrap.yml
 
       - name: Verify package
         run: |
@@ -114,6 +83,6 @@ jobs:
         run: |
           git config user.name "rr-longitudinal-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add -A
-          git commit -m "Install Royal Road longitudinal collector v0.2.1"
+          git add -A -- ':!.github/workflows'
+          git diff --cached --quiet || git commit -m "Install Royal Road longitudinal collector v0.2.1"
           git push origin HEAD:main
