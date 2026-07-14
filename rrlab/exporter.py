@@ -51,9 +51,17 @@ def export_archive(settings: Settings | None = None, latest_alias: bool = True) 
             "fiction_count": conn.execute("SELECT COUNT(*) FROM fiction").fetchone()[0],
             "membership_count": conn.execute("SELECT COUNT(*) FROM listing_membership").fetchone()[0],
             "metric_observation_count": conn.execute("SELECT COUNT(*) FROM metric_observation").fetchone()[0],
+            "prospective_newest_fiction_count": conn.execute(
+                "SELECT COUNT(DISTINCT fiction_id) FROM listing_membership WHERE source_name='newest'"
+            ).fetchone()[0],
+            "historical_catalog_fiction_count": conn.execute(
+                "SELECT COUNT(DISTINCT fiction_id) FROM listing_membership WHERE source_name='catalog_backfill'"
+            ).fetchone()[0],
         }
     (staging / "manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
     shutil.copy2(settings.db_path, staging / settings.db_path.name)
+    if settings.catalog_state_path.exists():
+        shutil.copy2(settings.catalog_state_path, staging / "catalog_state.json")
     dictionary = Path("DATA_DICTIONARY.md")
     if dictionary.exists():
         shutil.copy2(dictionary, staging / dictionary.name)

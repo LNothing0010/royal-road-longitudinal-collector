@@ -1,0 +1,160 @@
+name: Royal Road catalog backfill
+
+on:
+  schedule:
+    - cron: "37 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: royal-road-data-writer-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      RR_USER_AGENT: ${{ secrets.RR_USER_AGENT }}
+      RR_DB_PATH: data/rrlab.sqlite
+      RR_RAW_DIR: data/raw
+      RR_REPORT_DIR: reports
+      RR_MIN_DELAY_SECONDS: "3.5"
+      RR_TIMEOUT_SECONDS: "45"
+      RR_CATALOG_STATE_PATH: data/catalog_state.json
+      RR_BACKFILL_PAGES_PER_RUN: "75"
+      RR_BACKFILL_OVERLAP_PAGES: "3"
+      RR_SAVE_RAW_HTML: "0"
+      RR_USE_BROWSER_FALLBACK: "0"
+
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install collector
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check --retries 5 --timeout 60 -e ".[dev]"
+
+      - name: Preflight
+        run: |
+          set -euo pipefail
+          rrlab doctor
+          python -m compileall -q rrlab tests
+          pytest -q
+          ruff check rrlab tests
+          rrlab init-db
+
+      - name: Collect bounded historical catalog chunk
+        run: |
+          set -euo pipefail
+          mkdir -p reports
+          rrlab backfill-catalog | tee reports/catalog_backfill_output_latest.json
+
+      - name: Validate catalog chunk
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import sqlite3
+          from pathlib import Path
+
+          report = json.loads(
+              Path("reports/catalog_backfill_output_latest.json").read_text(encoding="utf-8")
+          )
+          if report.get("pages_fetched", 0) <= 0:
+              raise SystemExit("Catalog backfill fetched no pages")
+          if report.get("observed_unique_fictions", 0) <= 0:
+              raise SystemExit("Catalog backfill produced no fiction rows")
+          with sqlite3.connect("data/rrlab.sqlite") as conn:
+              integrity = conn.execute("PRAGMA integrity_check").fetchone()[0]
+          if integrity != "ok":
+              raise SystemExit(f"SQLite integrity check failed after backfill: {integrity}")
+          print(json.dumps(report, indent=2))
+          PY
+
+      - name: Write catalog status
+        if: always()
+        run: |
+          set -euo pipefail
+          if command -v rrlab >/dev/null 2>&1 && [ -s data/rrlab.sqlite ]; then
+            rrlab catalog-status | tee reports/catalog_status_latest.json
+          fi
+
+      - name: Export canonical archive
+        if: always()
+        run: |
+          set -euo pipefail
+          if command -v rrlab >/dev/null 2>&1 && [ -s data/rrlab.sqlite ]; then
+            rrlab export
+            test -s data/export/royal_road_longitudinal_latest.zip
+          fi
+
+      - name: Write job summary
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          summary = Path(os.environ["GITHUB_STEP_SUMMARY"])
+          report_path = Path("reports/catalog_backfill_latest.json")
+          lines = ["# Royal Road catalog backfill", ""]
+          if report_path.exists():
+              report = json.loads(report_path.read_text(encoding="utf-8"))
+              lines += [
+                  f"- Pass: `{report.get('pass')}`",
+                  f"- Pages: `{report.get('start_page')}`–`{report.get('end_page')}`",
+                  f"- Pages fetched: `{report.get('pages_fetched')}`",
+                  f"- New registry fictions: `{report.get('new_fictions')}`",
+                  f"- Public last page seen: `{report.get('last_page_seen')}`",
+                  f"- Completed one full pass: `{report.get('catalog_complete_once')}`",
+              ]
+          else:
+              lines.append("- No backfill report was generated.")
+          summary.write_text("\n".join(lines) + "\n", encoding="utf-8")
+          PY
+
+      - name: Upload catalog archive and diagnostics
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: royal-road-catalog-${{ github.run_id }}
+          path: |
+            data/export/royal_road_longitudinal_latest.zip
+            reports/*.json
+          if-no-files-found: warn
+          retention-days: 90
+
+      - name: Persist catalog data and diagnostics
+        if: always()
+        run: |
+          set -euo pipefail
+          mkdir -p data reports
+          git config user.name "rr-longitudinal-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A -- data reports
+          if git diff --cached --quiet; then
+            echo "No catalog changes to commit"
+            exit 0
+          fi
+          git commit -m "Backfill Royal Road catalog $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          for attempt in 1 2 3; do
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              exit 0
+            fi
+            echo "Push attempt ${attempt} failed; rebasing onto origin/${GITHUB_REF_NAME}"
+            git fetch origin "${GITHUB_REF_NAME}"
+            git rebase "origin/${GITHUB_REF_NAME}"
+            sleep $((attempt * 2))
+          done
+          echo "Unable to persist catalog data after three push attempts" >&2
+          exit 1

@@ -4,6 +4,11 @@ import asyncio
 from datetime import datetime, timezone
 
 from . import __version__
+from .catalog import (
+    collect_newest_frontier,
+    persist_frontier_state,
+    write_frontier_report,
+)
 from .config import SOURCES, Settings
 from .derive import derive_run
 from .http_source import PublicHtmlClient
@@ -22,22 +27,33 @@ async def collect(settings: Settings | None = None, enrich_details: bool = True)
     source_results: list[SourceSnapshot] = []
     source_errors: list[str] = []
     detail_warnings: list[str] = []
+    frontier_summary: dict | None = None
     try:
         for spec in SOURCES:
             try:
-                fetched = await client.get(spec.url)
-                snapshot = parse_listing_html(
-                    fetched.text,
-                    spec,
-                    timestamp,
-                    http_status=fetched.status_code,
-                    fetch_seconds=fetched.elapsed_seconds,
-                )
-                storage.persist_source(
-                    run_id,
-                    snapshot,
-                    fetched.text if settings.save_raw_html else None,
-                )
+                if spec.name == "newest":
+                    frontier = await collect_newest_frontier(
+                        client, storage, settings, timestamp
+                    )
+                    snapshot = frontier.snapshot
+                    frontier_summary = frontier.summary
+                    storage.persist_source(run_id, snapshot, None)
+                    persist_frontier_state(settings, frontier_summary)
+                    write_frontier_report(settings, run_id, frontier_summary)
+                else:
+                    fetched = await client.get(spec.url)
+                    snapshot = parse_listing_html(
+                        fetched.text,
+                        spec,
+                        timestamp,
+                        http_status=fetched.status_code,
+                        fetch_seconds=fetched.elapsed_seconds,
+                    )
+                    storage.persist_source(
+                        run_id,
+                        snapshot,
+                        fetched.text if settings.save_raw_html else None,
+                    )
                 source_results.append(snapshot)
             except Exception as exc:  # keep the run append-only even if one source fails
                 message = f"{spec.name}: {type(exc).__name__}: {exc}"
@@ -107,6 +123,7 @@ async def collect(settings: Settings | None = None, enrich_details: bool = True)
                 }
                 for snapshot in source_results
             ],
+            "newest_frontier": frontier_summary,
             "details_enriched": detail_count,
             "errors": source_errors,
             "warnings": detail_warnings,

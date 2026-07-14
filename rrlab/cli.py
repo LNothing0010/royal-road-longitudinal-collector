@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 
+from .catalog import catalog_status, run_catalog_backfill
 from .collector import run_collection
 from .config import SOURCE_MAP, Settings
 from .doctor import print_doctor
@@ -19,6 +20,8 @@ def main() -> None:
     sub.add_parser("init-db")
     collect = sub.add_parser("collect")
     collect.add_argument("--no-details", action="store_true")
+    sub.add_parser("backfill-catalog")
+    sub.add_parser("catalog-status")
     sub.add_parser("export")
     sub.add_parser("validate-latest")
     latest = sub.add_parser("latest")
@@ -40,6 +43,10 @@ def main() -> None:
         print(settings.db_path)
     elif args.command == "collect":
         print(json.dumps(run_collection(settings, not args.no_details), indent=2, ensure_ascii=False))
+    elif args.command == "backfill-catalog":
+        print(json.dumps(run_catalog_backfill(settings), indent=2, ensure_ascii=False))
+    elif args.command == "catalog-status":
+        print(json.dumps(catalog_status(settings), indent=2, ensure_ascii=False))
     elif args.command == "export":
         print(export_archive(settings))
     elif args.command == "validate-latest":

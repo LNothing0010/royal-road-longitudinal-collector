@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "frontier_anchor_ids": [],
+  "frontier_last_run_utc": null,
+  "frontier_last_complete": false,
+  "backfill_pass": 1,
+  "backfill_next_page": 2,
+  "backfill_passes_completed": 0,
+  "catalog_complete_once": false
+}

@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.4.0 — 2026-07-14
+
+- Replaced the fixed one-page Newest sample with a verified moving frontier that follows pagination until the prior fiction-ID anchor is reached.
+- Added a hard page ceiling, explicit completeness result and non-advancing recovery behavior when the anchor cannot be found.
+- Labelled as new only fiction positioned before the first prior anchor; unknown overlap rows are excluded from the prospective cohort.
+- Added atomic `data/catalog_state.json` frontier/cursor persistence.
+- Added a bounded daily historical catalog backfill with page overlap, last-page detection and repeated verification passes.
+- Added `rrlab backfill-catalog` and `rrlab catalog-status`.
+- Kept catalog-only runs separate from latest Rising Stars panel validation.
+- Added shared workflow write-concurrency so hourly collection and daily backfill cannot write SQLite simultaneously.
+- Added frontier and catalog regression tests, reports and 90-day artifacts.
+
 ## 0.3.1 — 2026-07-14
 
 - Fixed punctuation-only Royal Road metric placeholders such as `.` being parsed as floats.
