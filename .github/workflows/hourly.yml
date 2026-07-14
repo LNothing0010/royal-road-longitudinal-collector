@@ -1,0 +1,161 @@
+name: Royal Road hourly collection
+
+on:
+  schedule:
+    - cron: "7 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: royal-road-hourly-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    env:
+      RR_USER_AGENT: ${{ secrets.RR_USER_AGENT }}
+      RR_DB_PATH: data/rrlab.sqlite
+      RR_RAW_DIR: data/raw
+      RR_REPORT_DIR: reports
+      RR_MIN_DELAY_SECONDS: "2.5"
+      RR_TIMEOUT_SECONDS: "45"
+      RR_DETAIL_LIMIT_PER_RUN: "40"
+      RR_DETAIL_REFRESH_HOURS: "12"
+      RR_NEW_FICTION_DETAIL_HOURS: "3"
+      RR_SAVE_RAW_HTML: "0"
+      RR_USE_BROWSER_FALLBACK: "0"
+
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install collector
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check --retries 5 --timeout 60 -e .
+
+      - name: Preflight
+        run: |
+          set -euo pipefail
+          rrlab doctor
+          rrlab init-db
+          python - <<'PY'
+          import sqlite3
+          from pathlib import Path
+
+          db = Path("data/rrlab.sqlite")
+          if not db.exists():
+              raise SystemExit("Database was not created")
+          with sqlite3.connect(db) as conn:
+              result = conn.execute("PRAGMA integrity_check").fetchone()[0]
+          if result != "ok":
+              raise SystemExit(f"SQLite integrity check failed before collection: {result}")
+          PY
+
+      - name: Collect public Royal Road panel
+        run: |
+          set -euo pipefail
+          mkdir -p reports
+          rrlab collect | tee reports/latest_run_output.json
+
+      - name: Validate collected data
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import sqlite3
+          from pathlib import Path
+
+          db = Path("data/rrlab.sqlite")
+          with sqlite3.connect(db) as conn:
+              integrity = conn.execute("PRAGMA integrity_check").fetchone()[0]
+              latest = conn.execute(
+                  "SELECT run_id, status, started_utc, completed_utc FROM run ORDER BY run_id DESC LIMIT 1"
+              ).fetchone()
+              memberships = conn.execute(
+                  "SELECT COUNT(*) FROM listing_membership WHERE run_id = ?", (latest[0],)
+              ).fetchone()[0]
+              sources = conn.execute(
+                  "SELECT source_name, observed_count, expected_count, status "
+                  "FROM source_snapshot WHERE run_id = ? ORDER BY source_name",
+                  (latest[0],),
+              ).fetchall()
+
+          if integrity != "ok":
+              raise SystemExit(f"SQLite integrity check failed after collection: {integrity}")
+          if latest is None:
+              raise SystemExit("No collection run was recorded")
+          if memberships == 0:
+              raise SystemExit("Latest run produced zero listing memberships")
+
+          payload = {
+              "run_id": latest[0],
+              "status": latest[1],
+              "started_utc": latest[2],
+              "completed_utc": latest[3],
+              "membership_count": memberships,
+              "sources": [
+                  {
+                      "source_name": row[0],
+                      "observed_count": row[1],
+                      "expected_count": row[2],
+                      "status": row[3],
+                  }
+                  for row in sources
+              ],
+          }
+          Path("reports/latest_validation.json").write_text(
+              json.dumps(payload, indent=2), encoding="utf-8"
+          )
+          print(json.dumps(payload, indent=2))
+          PY
+
+      - name: Export canonical archive
+        run: |
+          set -euo pipefail
+          rrlab export
+          test -s data/export/royal_road_longitudinal_latest.zip
+
+      - name: Upload latest archive and diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: royal-road-longitudinal-${{ github.run_id }}
+          path: |
+            data/export/royal_road_longitudinal_latest.zip
+            reports/*.json
+          if-no-files-found: warn
+          retention-days: 90
+
+      - name: Persist canonical data
+        if: success()
+        run: |
+          set -euo pipefail
+          git config user.name "rr-longitudinal-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/rrlab.sqlite data/raw reports
+          if git diff --cached --quiet; then
+            echo "No canonical data changes to commit"
+            exit 0
+          fi
+          git commit -m "Collect Royal Road snapshot $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          for attempt in 1 2 3; do
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              exit 0
+            fi
+            echo "Push attempt ${attempt} failed; rebasing onto origin/${GITHUB_REF_NAME}"
+            git fetch origin "${GITHUB_REF_NAME}"
+            git rebase "origin/${GITHUB_REF_NAME}"
+            sleep $((attempt * 2))
+          done
+          echo "Unable to persist collected data after three push attempts" >&2
+          exit 1
