@@ -109,6 +109,7 @@ jobs:
           if result != "ok":
               raise SystemExit(f"SQLite integrity check failed before collection: {result}")
           PY
+          touch .source_migration_verified
 
       - name: Collect public Royal Road panel
         run: |
@@ -177,7 +178,12 @@ jobs:
           mkdir -p data reports
           git config user.name "rr-longitudinal-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add -A -- rrlab tests pyproject.toml CHANGELOG.md data reports
+          if [ -f .source_migration_verified ]; then
+            git add -A -- rrlab tests pyproject.toml CHANGELOG.md
+          else
+            echo "Source migration was not verified; source changes will not be committed"
+          fi
+          git add -A -- data reports
           if git diff --cached --quiet; then
             echo "No canonical changes to commit"
             exit 0
