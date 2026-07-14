@@ -20,20 +20,28 @@ async def collect(settings: Settings | None = None, enrich_details: bool = True)
     run_id = storage.begin_run(timestamp, __version__)
     client = PublicHtmlClient(settings)
     source_results: list[SourceSnapshot] = []
-    errors: list[str] = []
+    source_errors: list[str] = []
+    detail_warnings: list[str] = []
     try:
         for spec in SOURCES:
             try:
                 fetched = await client.get(spec.url)
                 snapshot = parse_listing_html(
-                    fetched.text, spec, timestamp,
+                    fetched.text,
+                    spec,
+                    timestamp,
                     http_status=fetched.status_code,
                     fetch_seconds=fetched.elapsed_seconds,
                 )
-                storage.persist_source(run_id, snapshot, fetched.text if settings.save_raw_html else None)
+                storage.persist_source(
+                    run_id,
+                    snapshot,
+                    fetched.text if settings.save_raw_html else None,
+                )
                 source_results.append(snapshot)
             except Exception as exc:  # keep the run append-only even if one source fails
-                errors.append(f"{spec.name}: {type(exc).__name__}: {exc}")
+                message = f"{spec.name}: {type(exc).__name__}: {exc}"
+                source_errors.append(message)
                 empty = SourceSnapshot(
                     run_timestamp_utc=timestamp,
                     source_name=spec.name,
@@ -42,7 +50,7 @@ async def collect(settings: Settings | None = None, enrich_details: bool = True)
                     expected_count=spec.expected_count,
                     observed_count=0,
                     complete=False if spec.expected_count is not None else None,
-                    warnings=[errors[-1]],
+                    warnings=[message],
                 )
                 storage.persist_source(run_id, empty)
                 source_results.append(empty)
@@ -59,22 +67,49 @@ async def collect(settings: Settings | None = None, enrich_details: bool = True)
                 try:
                     fetched = await client.get(candidate["url"])
                     detail = parse_detail_html(fetched.text, candidate["url"], timestamp)
-                    storage.persist_detail(run_id, detail, fetched.text if settings.save_raw_html else None)
+                    storage.persist_detail(
+                        run_id,
+                        detail,
+                        fetched.text if settings.save_raw_html else None,
+                    )
                     detail_count += 1
                 except Exception as exc:
-                    errors.append(f"detail {candidate['fiction_id']}: {type(exc).__name__}: {exc}")
+                    # Detail enrichment is optional. A malformed or temporarily changed
+                    # detail page must not invalidate a complete six-list RS snapshot.
+                    detail_warnings.append(
+                        f"detail {candidate['fiction_id']}: {type(exc).__name__}: {exc}"
+                    )
 
         derive_run(settings.db_path, run_id)
-        status = "complete" if not errors and all(s.complete is not False for s in source_results if s.expected_count is not None) else "partial"
-        storage.finish_run(run_id, status, "\n".join(errors) if errors else None)
+        required_sources_complete = all(
+            snapshot.complete is not False
+            for snapshot in source_results
+            if snapshot.expected_count is not None
+        )
+        status = (
+            "complete"
+            if not source_errors and required_sources_complete
+            else "partial"
+        )
+        notes = "\n".join([*source_errors, *detail_warnings]) or None
+        storage.finish_run(run_id, status, notes)
         validation_path = validate_run(settings.db_path, run_id, settings.report_dir)
         return {
             "run_id": run_id,
             "timestamp_utc": timestamp.isoformat(),
             "status": status,
-            "sources": [{"name": s.source_name, "count": s.observed_count, "complete": s.complete, "warnings": s.warnings} for s in source_results],
+            "sources": [
+                {
+                    "name": snapshot.source_name,
+                    "count": snapshot.observed_count,
+                    "complete": snapshot.complete,
+                    "warnings": snapshot.warnings,
+                }
+                for snapshot in source_results
+            ],
             "details_enriched": detail_count,
-            "errors": errors,
+            "errors": source_errors,
+            "warnings": detail_warnings,
             "validation_report": str(validation_path),
         }
     except Exception as exc:
