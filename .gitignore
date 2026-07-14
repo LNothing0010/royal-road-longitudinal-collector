@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.env
+*.egg-info/
+data/*.sqlite-shm
+data/*.sqlite-wal
+data/export/*.zip
