@@ -1,6 +1,6 @@
 {
-  "run_id": 1,
-  "timestamp_utc": "2026-07-14T21:34:14+00:00",
+  "run_id": 2,
+  "timestamp_utc": "2026-07-14T23:21:02+00:00",
   "status": "complete",
   "sources": [
     {
@@ -42,7 +42,7 @@
     {
       "name": "newest",
       "count": 20,
-      "complete": null,
+      "complete": true,
       "warnings": []
     },
     {
@@ -64,8 +64,71 @@
       "warnings": []
     }
   ],
+  "newest_frontier": {
+    "mode": "prospective_newest_census",
+    "timestamp_utc": "2026-07-14T23:21:02+00:00",
+    "pages_fetched": 2,
+    "first_page": 1,
+    "last_page": 2,
+    "boundary_page": 1,
+    "boundary_index": 19,
+    "boundary_reached": true,
+    "coverage_complete": true,
+    "max_pages": 25,
+    "overlap_pages_after_anchor": 1,
+    "anchor_count_before": 20,
+    "scanned_unique_fictions": 40,
+    "observed_unique_fictions": 20,
+    "new_fictions": 19,
+    "new_fiction_ids": [
+      "180514",
+      "180513",
+      "180512",
+      "180511",
+      "180510",
+      "180509",
+      "180508",
+      "180507",
+      "180506",
+      "180505",
+      "180504",
+      "180503",
+      "180502",
+      "180501",
+      "180500",
+      "180499",
+      "180498",
+      "180497",
+      "180496"
+    ],
+    "overlap_unknown_fictions_excluded": 1,
+    "next_anchor_ids": [
+      "180514",
+      "180513",
+      "180512",
+      "180511",
+      "180510",
+      "180509",
+      "180508",
+      "180507",
+      "180506",
+      "180505",
+      "180504",
+      "180503",
+      "180502",
+      "180501",
+      "180500",
+      "180499",
+      "180498",
+      "180497",
+      "180496",
+      "180495"
+    ],
+    "initialize_anchor": false,
+    "warnings": []
+  },
   "details_enriched": 40,
   "errors": [],
   "warnings": [],
-  "validation_report": "reports/validation_run_1.json"
+  "validation_report": "reports/validation_run_2.json"
 }
