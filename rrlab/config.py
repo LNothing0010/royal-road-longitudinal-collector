@@ -27,10 +27,18 @@ SOURCES: tuple[SourceSpec, ...] = (
     SourceSpec("weekly_popular", "https://www.royalroad.com/fictions/weekly-popular", "comparison", None, True, False),
     SourceSpec("active_popular", "https://www.royalroad.com/fictions/active-popular", "comparison", None, True, False),
 )
-SOURCE_MAP = {source.name: source for source in SOURCES}
+CATALOG_BACKFILL_SOURCE = SourceSpec(
+    "catalog_backfill",
+    "https://www.royalroad.com/fictions/new",
+    "catalog",
+    None,
+    True,
+    False,
+)
+SOURCE_MAP = {source.name: source for source in (*SOURCES, CATALOG_BACKFILL_SOURCE)}
 RS_SOURCES = tuple(source.name for source in SOURCES if source.is_rs)
 DEFAULT_USER_AGENT = (
-    "RoyalRoadLongitudinalLab/0.3.0 "
+    "RoyalRoadLongitudinalLab/0.4.0 "
     "(non-commercial public-page research; github.com/LNothing0010)"
 )
 
@@ -89,6 +97,24 @@ class Settings:
     )
     new_fiction_detail_hours: int = field(
         default_factory=lambda: _env_int("RR_NEW_FICTION_DETAIL_HOURS", 3, 1)
+    )
+    newest_max_pages: int = field(
+        default_factory=lambda: _env_int("RR_NEWEST_MAX_PAGES", 25, 2)
+    )
+    frontier_overlap_pages: int = field(
+        default_factory=lambda: _env_int("RR_FRONTIER_OVERLAP_PAGES", 1, 0)
+    )
+    frontier_anchor_limit: int = field(
+        default_factory=lambda: _env_int("RR_FRONTIER_ANCHOR_LIMIT", 100, 20)
+    )
+    catalog_state_path: Path = field(
+        default_factory=lambda: Path(_env_text("RR_CATALOG_STATE_PATH", "data/catalog_state.json"))
+    )
+    backfill_pages_per_run: int = field(
+        default_factory=lambda: _env_int("RR_BACKFILL_PAGES_PER_RUN", 75, 1)
+    )
+    backfill_overlap_pages: int = field(
+        default_factory=lambda: _env_int("RR_BACKFILL_OVERLAP_PAGES", 3, 0)
     )
     save_raw_html: bool = field(default_factory=lambda: _env_bool("RR_SAVE_RAW_HTML"))
     browser_fallback: bool = field(
