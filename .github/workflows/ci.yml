@@ -1,0 +1,43 @@
+name: Collector CI
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "data/**"
+      - "reports/**"
+  pull_request:
+    paths-ignore:
+      - "data/**"
+      - "reports/**"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: collector-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install development dependencies
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check --retries 5 --timeout 60 -e ".[dev]"
+
+      - name: Static and runtime checks
+        run: |
+          set -euo pipefail
+          rrlab doctor
+          python -m compileall -q rrlab tests
+          pytest -q
+          ruff check rrlab tests
