@@ -38,15 +38,64 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Apply v0.3.1 compatibility migration
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          parser_path = Path("rrlab/parsers.py")
+          parser_text = parser_path.read_text(encoding="utf-8")
+          old_number_re = 'NUMBER_RE = re.compile(r"([\\d,.]+)\\s*([kKmMbB]?)")'
+          new_number_re = 'NUMBER_RE = re.compile(r"(\\d[\\d,]*(?:\\.\\d+)?)\\s*([kKmMbB]?)")'
+          if old_number_re in parser_text:
+              parser_text = parser_text.replace(old_number_re, new_number_re)
+              parser_path.write_text(parser_text, encoding="utf-8")
+          elif new_number_re not in parser_text:
+              raise SystemExit("Unexpected NUMBER_RE definition; refusing an unsafe automatic edit")
+
+          tests_path = Path("tests/test_parsers.py")
+          tests_text = tests_path.read_text(encoding="utf-8")
+          old_import = "from rrlab.parsers import parse_detail_html, parse_listing_html"
+          new_import = (
+              "from rrlab.parsers import metric_from_text, parse_detail_html, "
+              "parse_listing_html, parse_number"
+          )
+          if old_import in tests_text:
+              tests_text = tests_text.replace(old_import, new_import)
+          if "def test_numeric_placeholders_are_treated_as_missing" not in tests_text:
+              tests_text += '''\n\ndef test_numeric_placeholders_are_treated_as_missing():\n    assert parse_number(".") is None\n    assert parse_number("—") is None\n    assert metric_from_text("Ratings: .", ("ratings", "rating")) is None\n    assert parse_number("1.2k") == 1200\n'''
+          tests_path.write_text(tests_text, encoding="utf-8")
+
+          pyproject = Path("pyproject.toml")
+          pyproject_text = pyproject.read_text(encoding="utf-8")
+          pyproject_text = pyproject_text.replace('version = "0.3.0"', 'version = "0.3.1"')
+          pyproject.write_text(pyproject_text, encoding="utf-8")
+
+          init_path = Path("rrlab/__init__.py")
+          init_text = init_path.read_text(encoding="utf-8").replace('0.3.0', '0.3.1')
+          init_path.write_text(init_text, encoding="utf-8")
+
+          changelog = Path("CHANGELOG.md")
+          changelog_text = changelog.read_text(encoding="utf-8")
+          if "## 0.3.1" not in changelog_text:
+              entry = '''# Changelog\n\n## 0.3.1 — 2026-07-14\n\n- Fixed punctuation-only Royal Road metric placeholders such as `.` being parsed as floats.\n- Separated optional detail-enrichment warnings from core list-collection failures.\n- Replaced schema-coupled inline workflow SQL with the collector's versioned validator.\n- Persisted partial runs and diagnostics even when validation fails, preventing silent data loss.\n- Upgraded artifact upload to the Node 24-compatible official action major.\n\n'''
+              changelog_text = entry + changelog_text.removeprefix("# Changelog\n\n")
+              changelog.write_text(changelog_text, encoding="utf-8")
+          PY
+
       - name: Install collector
         run: |
           set -euo pipefail
-          python -m pip install --disable-pip-version-check --retries 5 --timeout 60 -e .
+          python -m pip install --disable-pip-version-check --retries 5 --timeout 60 -e ".[dev]"
 
       - name: Preflight
         run: |
           set -euo pipefail
           rrlab doctor
+          python -m compileall -q rrlab tests
+          pytest -q
+          ruff check rrlab tests
           rrlab init-db
           python - <<'PY'
           import sqlite3
@@ -70,64 +119,49 @@ jobs:
       - name: Validate collected data
         run: |
           set -euo pipefail
-          python - <<'PY'
-          import json
-          import sqlite3
-          from pathlib import Path
-
-          db = Path("data/rrlab.sqlite")
-          with sqlite3.connect(db) as conn:
-              integrity = conn.execute("PRAGMA integrity_check").fetchone()[0]
-              latest = conn.execute(
-                  "SELECT run_id, status, started_utc, completed_utc FROM run ORDER BY run_id DESC LIMIT 1"
-              ).fetchone()
-              memberships = conn.execute(
-                  "SELECT COUNT(*) FROM listing_membership WHERE run_id = ?", (latest[0],)
-              ).fetchone()[0]
-              sources = conn.execute(
-                  "SELECT source_name, observed_count, expected_count, status "
-                  "FROM source_snapshot WHERE run_id = ? ORDER BY source_name",
-                  (latest[0],),
-              ).fetchall()
-
-          if integrity != "ok":
-              raise SystemExit(f"SQLite integrity check failed after collection: {integrity}")
-          if latest is None:
-              raise SystemExit("No collection run was recorded")
-          if memberships == 0:
-              raise SystemExit("Latest run produced zero listing memberships")
-
-          payload = {
-              "run_id": latest[0],
-              "status": latest[1],
-              "started_utc": latest[2],
-              "completed_utc": latest[3],
-              "membership_count": memberships,
-              "sources": [
-                  {
-                      "source_name": row[0],
-                      "observed_count": row[1],
-                      "expected_count": row[2],
-                      "status": row[3],
-                  }
-                  for row in sources
-              ],
-          }
-          Path("reports/latest_validation.json").write_text(
-              json.dumps(payload, indent=2), encoding="utf-8"
-          )
-          print(json.dumps(payload, indent=2))
-          PY
+          rrlab validate-latest | tee reports/latest_validation_output.json
 
       - name: Export canonical archive
+        if: always()
         run: |
           set -euo pipefail
-          rrlab export
-          test -s data/export/royal_road_longitudinal_latest.zip
+          if command -v rrlab >/dev/null 2>&1 && [ -s data/rrlab.sqlite ]; then
+            rrlab export
+            test -s data/export/royal_road_longitudinal_latest.zip
+          else
+            echo "Collector or database unavailable; skipping export"
+          fi
+
+      - name: Write run summary
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          summary = Path(os.environ["GITHUB_STEP_SUMMARY"])
+          report_path = Path("reports/validation_latest.json")
+          lines = ["# Royal Road collection", ""]
+          if report_path.exists():
+              report = json.loads(report_path.read_text(encoding="utf-8"))
+              run = report.get("run") or {}
+              lines += [
+                  f"- Run ID: `{run.get('run_id', 'unknown')}`",
+                  f"- Run status: `{run.get('status', 'unknown')}`",
+                  f"- Complete RS analysis: `{report.get('valid_for_complete_rs_analysis', False)}`",
+                  f"- Validation issues: `{report.get('issue_count', 0)}`",
+              ]
+              for issue in report.get("issues", []):
+                  lines.append(f"  - `{issue.get('severity')}` `{issue.get('code')}`: {issue}")
+          else:
+              lines.append("- No validation report was generated.")
+          summary.write_text("\n".join(lines) + "\n", encoding="utf-8")
+          PY
 
       - name: Upload latest archive and diagnostics
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: royal-road-longitudinal-${{ github.run_id }}
           path: |
@@ -136,15 +170,16 @@ jobs:
           if-no-files-found: warn
           retention-days: 90
 
-      - name: Persist canonical data
-        if: success()
+      - name: Persist canonical data and diagnostics
+        if: always()
         run: |
           set -euo pipefail
+          mkdir -p data reports
           git config user.name "rr-longitudinal-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/rrlab.sqlite data/raw reports
+          git add -A -- rrlab tests pyproject.toml CHANGELOG.md data reports
           if git diff --cached --quiet; then
-            echo "No canonical data changes to commit"
+            echo "No canonical changes to commit"
             exit 0
           fi
           git commit -m "Collect Royal Road snapshot $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
