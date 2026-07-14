@@ -175,7 +175,11 @@ async def collect_newest_frontier(
 
     page_snapshots: list[tuple[int, SourceSnapshot]] = []
     boundary_page: int | None = None
+    boundary_index: int | None = None
     pages_after_boundary = 0
+    candidate_ids: list[str] = []
+    persist_ids: list[str] = []
+    overlap_ids: list[str] = []
     warnings: list[str] = []
 
     for page in range(1, settings.newest_max_pages + 1):
@@ -191,12 +195,36 @@ async def collect_newest_frontier(
             warnings.append(f"frontier_empty_page={page}")
             break
         page_snapshots.append((page, snapshot))
-        page_ids = {item.fiction_id for item in snapshot.observations}
+        page_ids = [item.fiction_id for item in snapshot.observations]
 
-        if boundary_page is None and anchor_set.intersection(page_ids):
-            boundary_page = page
-            pages_after_boundary = 0
-        elif boundary_page is not None:
+        if boundary_page is None:
+            anchor_positions = [
+                index for index, fiction_id in enumerate(page_ids) if fiction_id in anchor_set
+            ]
+            if anchor_positions:
+                boundary_page = page
+                boundary_index = min(anchor_positions)
+                candidate_ids.extend(page_ids[:boundary_index])
+                # Preserve every candidate before the first prior anchor, plus rows that
+                # were already known. Unknown rows after the anchor belong to the overlap
+                # region and must not be mislabeled as newly launched fiction.
+                persist_ids.extend(page_ids[:boundary_index])
+                persist_ids.extend(
+                    fiction_id
+                    for fiction_id in page_ids[boundary_index:]
+                    if fiction_id in known_before
+                )
+                overlap_ids.extend(
+                    fiction_id
+                    for fiction_id in page_ids[boundary_index + 1 :]
+                    if fiction_id not in known_before
+                )
+                pages_after_boundary = 0
+            else:
+                candidate_ids.extend(page_ids)
+                persist_ids.extend(page_ids)
+        else:
+            overlap_ids.extend(page_ids)
             pages_after_boundary += 1
 
         if boundary_page is not None and pages_after_boundary >= settings.frontier_overlap_pages:
@@ -204,16 +232,29 @@ async def collect_newest_frontier(
         if not anchor_set:
             # A new installation has no previous frontier. Establish a one-page baseline;
             # the next run can prove prospective continuity against these anchors.
+            persist_ids = page_ids
             break
 
     boundary_reached = boundary_page is not None
-    all_ids = [
+    all_scanned_ids = [
         observation.fiction_id
         for _, snapshot in page_snapshots
         for observation in snapshot.observations
     ]
-    unique_ordered_ids = list(dict.fromkeys(all_ids))
-    new_ids = [fiction_id for fiction_id in unique_ordered_ids if fiction_id not in known_before]
+    unique_scanned_ids = list(dict.fromkeys(all_scanned_ids))
+    unique_persist_ids = list(dict.fromkeys(persist_ids))
+    persist_set = set(unique_persist_ids)
+    unique_candidate_ids = list(dict.fromkeys(candidate_ids))
+    new_ids = (
+        [fiction_id for fiction_id in unique_candidate_ids if fiction_id not in known_before]
+        if anchor_set
+        else []
+    )
+    overlap_unknown_ids = [
+        fiction_id
+        for fiction_id in dict.fromkeys(overlap_ids)
+        if fiction_id not in known_before and fiction_id not in persist_set
+    ]
     max_exhausted = (
         bool(anchor_set)
         and not boundary_reached
@@ -235,7 +276,23 @@ async def collect_newest_frontier(
         complete=coverage_complete if anchor_set else None,
         warnings=warnings,
     )
-    next_anchor_ids = unique_ordered_ids[: settings.frontier_anchor_limit]
+    if anchor_set:
+        filtered_observations = [
+            item for item in merged.observations if item.fiction_id in persist_set
+        ]
+        filtered_fiction_ids = {item.fiction_id for item in filtered_observations}
+        filtered_releases = [
+            item for item in merged.releases if item.fiction_id in filtered_fiction_ids
+        ]
+        merged = merged.model_copy(
+            update={
+                "observed_count": len(filtered_observations),
+                "observations": filtered_observations,
+                "releases": filtered_releases,
+            }
+        )
+
+    next_anchor_ids = unique_persist_ids[: settings.frontier_anchor_limit]
     summary = {
         "mode": "prospective_newest_census",
         "timestamp_utc": timestamp.isoformat(),
@@ -243,14 +300,17 @@ async def collect_newest_frontier(
         "first_page": page_snapshots[0][0] if page_snapshots else None,
         "last_page": page_snapshots[-1][0] if page_snapshots else None,
         "boundary_page": boundary_page,
+        "boundary_index": boundary_index,
         "boundary_reached": boundary_reached,
         "coverage_complete": coverage_complete,
         "max_pages": settings.newest_max_pages,
         "overlap_pages_after_anchor": settings.frontier_overlap_pages,
         "anchor_count_before": len(anchor_ids),
-        "observed_unique_fictions": len(unique_ordered_ids),
+        "scanned_unique_fictions": len(unique_scanned_ids),
+        "observed_unique_fictions": merged.observed_count,
         "new_fictions": len(new_ids),
         "new_fiction_ids": new_ids,
+        "overlap_unknown_fictions_excluded": len(overlap_unknown_ids),
         "next_anchor_ids": next_anchor_ids,
         "initialize_anchor": not anchor_set and bool(next_anchor_ids),
         "warnings": warnings,
