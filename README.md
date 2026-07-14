@@ -1,3 +1,3 @@
 # Royal Road Longitudinal Collector
 
-Hourly longitudinal research collector for Royal Road discovery and Rising Stars analytics.
+Bootstrap in progress. The repository will automatically unpack and install the full collector package through GitHub Actions.
