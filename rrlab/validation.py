@@ -30,6 +30,9 @@ def validate_run(db_path: Path, run_id: int, report_dir: Path) -> Path:
             (run_id,),
         ).fetchall()
         source_map = {source["source_name"]: source for source in sources}
+        is_panel_run = any(
+            source["source_family"] == "rising_stars" for source in sources
+        )
 
         if run is None:
             issues.append({"severity": "error", "code": "missing_run", "run_id": run_id})
@@ -42,44 +45,45 @@ def validate_run(db_path: Path, run_id: int, report_dir: Path) -> Path:
                 }
             )
 
-        for source_name in RS_SOURCES:
-            source = source_map.get(source_name)
-            if source is None:
-                issues.append(
-                    {
-                        "severity": "error",
-                        "code": "missing_rs_source",
-                        "source": source_name,
-                    }
-                )
-                continue
-            expected = source["expected_count"]
-            observed = source["observed_count"]
-            if expected is None or observed != expected or source["complete"] != 1:
-                issues.append(
-                    {
-                        "severity": "error",
-                        "code": "incomplete_rs_source",
-                        "source": source_name,
-                        "expected": expected,
-                        "observed": observed,
-                        "complete": source["complete"],
-                    }
-                )
-            membership_count = conn.execute(
-                "SELECT COUNT(*) FROM listing_membership WHERE run_id=? AND source_name=?",
-                (run_id, source_name),
-            ).fetchone()[0]
-            if expected is not None and membership_count != expected:
-                issues.append(
-                    {
-                        "severity": "error",
-                        "code": "rs_membership_count",
-                        "source": source_name,
-                        "expected": expected,
-                        "observed": membership_count,
-                    }
-                )
+        if is_panel_run:
+            for source_name in RS_SOURCES:
+                source = source_map.get(source_name)
+                if source is None:
+                    issues.append(
+                        {
+                            "severity": "error",
+                            "code": "missing_rs_source",
+                            "source": source_name,
+                        }
+                    )
+                    continue
+                expected = source["expected_count"]
+                observed = source["observed_count"]
+                if expected is None or observed != expected or source["complete"] != 1:
+                    issues.append(
+                        {
+                            "severity": "error",
+                            "code": "incomplete_rs_source",
+                            "source": source_name,
+                            "expected": expected,
+                            "observed": observed,
+                            "complete": source["complete"],
+                        }
+                    )
+                membership_count = conn.execute(
+                    "SELECT COUNT(*) FROM listing_membership WHERE run_id=? AND source_name=?",
+                    (run_id, source_name),
+                ).fetchone()[0]
+                if expected is not None and membership_count != expected:
+                    issues.append(
+                        {
+                            "severity": "error",
+                            "code": "rs_membership_count",
+                            "source": source_name,
+                            "expected": expected,
+                            "observed": membership_count,
+                        }
+                    )
 
         for source in sources:
             dup_rank = conn.execute(
@@ -127,28 +131,47 @@ def validate_run(db_path: Path, run_id: int, report_dir: Path) -> Path:
         for row in decreases:
             issues.append({"severity": "warning", "code": "counter_decrease", **dict(row)})
 
+        no_errors = not any(issue["severity"] == "error" for issue in issues)
         report = {
             "generated_utc": datetime.now(timezone.utc).isoformat(),
             "run": dict(run) if run else None,
+            "scope": "panel" if is_panel_run else "catalog",
             "sources": [dict(row) for row in sources],
             "issue_count": len(issues),
             "issues": issues,
-            "valid_for_complete_rs_analysis": not any(
-                issue["severity"] == "error" for issue in issues
-            ),
+            "valid_for_complete_rs_analysis": is_panel_run and no_errors,
+            "valid_for_catalog_registry": bool(sources) and no_errors,
         }
         path = report_dir / f"validation_run_{run_id}.json"
         payload = json.dumps(report, indent=2, ensure_ascii=False)
         path.write_text(payload, encoding="utf-8")
-        (report_dir / "validation_latest.json").write_text(payload, encoding="utf-8")
+        if is_panel_run:
+            (report_dir / "validation_latest.json").write_text(payload, encoding="utf-8")
+        else:
+            (report_dir / "catalog_validation_latest.json").write_text(
+                payload, encoding="utf-8"
+            )
         return path
     finally:
         conn.close()
 
 
-def validate_latest(db_path: Path, report_dir: Path) -> Path:
+def latest_panel_run_id(db_path: Path) -> int:
     with sqlite3.connect(db_path) as conn:
-        row = conn.execute("SELECT MAX(run_id) FROM run").fetchone()
+        row = conn.execute(
+            """
+            SELECT MAX(r.run_id)
+            FROM run r
+            WHERE EXISTS (
+                SELECT 1 FROM source_snapshot s
+                WHERE s.run_id=r.run_id AND s.source_family='rising_stars'
+            )
+            """
+        ).fetchone()
     if row is None or row[0] is None:
-        raise RuntimeError("No collection run is available for validation")
-    return validate_run(db_path, int(row[0]), report_dir)
+        raise RuntimeError("No Rising Stars panel run is available for validation")
+    return int(row[0])
+
+
+def validate_latest(db_path: Path, report_dir: Path) -> Path:
+    return validate_run(db_path, latest_panel_run_id(db_path), report_dir)
