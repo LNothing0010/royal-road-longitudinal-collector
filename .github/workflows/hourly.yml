@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: royal-road-hourly-${{ github.ref }}
+  group: royal-road-data-writer-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -26,6 +26,10 @@ jobs:
       RR_DETAIL_LIMIT_PER_RUN: "40"
       RR_DETAIL_REFRESH_HOURS: "12"
       RR_NEW_FICTION_DETAIL_HOURS: "3"
+      RR_NEWEST_MAX_PAGES: "25"
+      RR_FRONTIER_OVERLAP_PAGES: "1"
+      RR_FRONTIER_ANCHOR_LIMIT: "100"
+      RR_CATALOG_STATE_PATH: data/catalog_state.json
       RR_SAVE_RAW_HTML: "0"
       RR_USE_BROWSER_FALLBACK: "0"
 
@@ -37,52 +41,6 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
-
-      - name: Apply v0.3.1 compatibility migration
-        run: |
-          set -euo pipefail
-          python - <<'PY'
-          from pathlib import Path
-
-          parser_path = Path("rrlab/parsers.py")
-          parser_text = parser_path.read_text(encoding="utf-8")
-          old_number_re = 'NUMBER_RE = re.compile(r"([\\d,.]+)\\s*([kKmMbB]?)")'
-          new_number_re = 'NUMBER_RE = re.compile(r"(\\d[\\d,]*(?:\\.\\d+)?)\\s*([kKmMbB]?)")'
-          if old_number_re in parser_text:
-              parser_text = parser_text.replace(old_number_re, new_number_re)
-              parser_path.write_text(parser_text, encoding="utf-8")
-          elif new_number_re not in parser_text:
-              raise SystemExit("Unexpected NUMBER_RE definition; refusing an unsafe automatic edit")
-
-          tests_path = Path("tests/test_parsers.py")
-          tests_text = tests_path.read_text(encoding="utf-8")
-          old_import = "from rrlab.parsers import parse_detail_html, parse_listing_html"
-          new_import = (
-              "from rrlab.parsers import metric_from_text, parse_detail_html, "
-              "parse_listing_html, parse_number"
-          )
-          if old_import in tests_text:
-              tests_text = tests_text.replace(old_import, new_import)
-          if "def test_numeric_placeholders_are_treated_as_missing" not in tests_text:
-              tests_text += '''\n\ndef test_numeric_placeholders_are_treated_as_missing():\n    assert parse_number(".") is None\n    assert parse_number("—") is None\n    assert metric_from_text("Ratings: .", ("ratings", "rating")) is None\n    assert parse_number("1.2k") == 1200\n'''
-          tests_path.write_text(tests_text, encoding="utf-8")
-
-          pyproject = Path("pyproject.toml")
-          pyproject_text = pyproject.read_text(encoding="utf-8")
-          pyproject_text = pyproject_text.replace('version = "0.3.0"', 'version = "0.3.1"')
-          pyproject.write_text(pyproject_text, encoding="utf-8")
-
-          init_path = Path("rrlab/__init__.py")
-          init_text = init_path.read_text(encoding="utf-8").replace('0.3.0', '0.3.1')
-          init_path.write_text(init_text, encoding="utf-8")
-
-          changelog = Path("CHANGELOG.md")
-          changelog_text = changelog.read_text(encoding="utf-8")
-          if "## 0.3.1" not in changelog_text:
-              entry = '''# Changelog\n\n## 0.3.1 — 2026-07-14\n\n- Fixed punctuation-only Royal Road metric placeholders such as `.` being parsed as floats.\n- Separated optional detail-enrichment warnings from core list-collection failures.\n- Replaced schema-coupled inline workflow SQL with the collector's versioned validator.\n- Persisted partial runs and diagnostics even when validation fails, preventing silent data loss.\n- Upgraded artifact upload to the Node 24-compatible official action major.\n\n'''
-              changelog_text = entry + changelog_text.removeprefix("# Changelog\n\n")
-              changelog.write_text(changelog_text, encoding="utf-8")
-          PY
 
       - name: Install collector
         run: |
@@ -109,15 +67,34 @@ jobs:
           if result != "ok":
               raise SystemExit(f"SQLite integrity check failed before collection: {result}")
           PY
-          touch .source_migration_verified
 
-      - name: Collect public Royal Road panel
+      - name: Collect public Royal Road panel and complete Newest frontier
         run: |
           set -euo pipefail
           mkdir -p reports
           rrlab collect | tee reports/latest_run_output.json
 
-      - name: Validate collected data
+      - name: Validate complete prospective frontier
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          payload = json.loads(Path("reports/latest_run_output.json").read_text(encoding="utf-8"))
+          frontier = payload.get("newest_frontier")
+          if not frontier:
+              raise SystemExit("No Newest frontier result was produced")
+          if frontier.get("initialize_anchor"):
+              print("Frontier baseline initialized; completeness begins with the next run")
+          elif not frontier.get("coverage_complete"):
+              raise SystemExit(
+                  "Newest frontier is incomplete: previous anchor was not reached within the page ceiling"
+              )
+          print(json.dumps(frontier, indent=2))
+          PY
+
+      - name: Validate Rising Stars panel
         run: |
           set -euo pipefail
           rrlab validate-latest | tee reports/latest_validation_output.json
@@ -142,10 +119,11 @@ jobs:
           from pathlib import Path
 
           summary = Path(os.environ["GITHUB_STEP_SUMMARY"])
-          report_path = Path("reports/validation_latest.json")
+          validation_path = Path("reports/validation_latest.json")
+          frontier_path = Path("reports/frontier_latest.json")
           lines = ["# Royal Road collection", ""]
-          if report_path.exists():
-              report = json.loads(report_path.read_text(encoding="utf-8"))
+          if validation_path.exists():
+              report = json.loads(validation_path.read_text(encoding="utf-8"))
               run = report.get("run") or {}
               lines += [
                   f"- Run ID: `{run.get('run_id', 'unknown')}`",
@@ -153,10 +131,18 @@ jobs:
                   f"- Complete RS analysis: `{report.get('valid_for_complete_rs_analysis', False)}`",
                   f"- Validation issues: `{report.get('issue_count', 0)}`",
               ]
-              for issue in report.get("issues", []):
-                  lines.append(f"  - `{issue.get('severity')}` `{issue.get('code')}`: {issue}")
           else:
-              lines.append("- No validation report was generated.")
+              lines.append("- No panel validation report was generated.")
+          if frontier_path.exists():
+              frontier = json.loads(frontier_path.read_text(encoding="utf-8"))
+              lines += [
+                  f"- Complete Newest frontier: `{frontier.get('coverage_complete', False)}`",
+                  f"- New fictions captured: `{frontier.get('new_fictions', 0)}`",
+                  f"- Pages fetched: `{frontier.get('pages_fetched', 0)}`",
+                  f"- Boundary page: `{frontier.get('boundary_page')}`",
+              ]
+          else:
+              lines.append("- No frontier report was generated.")
           summary.write_text("\n".join(lines) + "\n", encoding="utf-8")
           PY
 
@@ -178,11 +164,6 @@ jobs:
           mkdir -p data reports
           git config user.name "rr-longitudinal-bot"
           git config user.email "actions@users.noreply.github.com"
-          if [ -f .source_migration_verified ]; then
-            git add -A -- rrlab tests pyproject.toml CHANGELOG.md
-          else
-            echo "Source migration was not verified; source changes will not be committed"
-          fi
           git add -A -- data reports
           if git diff --cached --quiet; then
             echo "No canonical changes to commit"
