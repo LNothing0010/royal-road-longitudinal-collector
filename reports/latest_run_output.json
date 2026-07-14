@@ -1,0 +1,71 @@
+{
+  "run_id": 1,
+  "timestamp_utc": "2026-07-14T21:34:14+00:00",
+  "status": "complete",
+  "sources": [
+    {
+      "name": "rs_main",
+      "count": 50,
+      "complete": true,
+      "warnings": []
+    },
+    {
+      "name": "rs_fantasy",
+      "count": 50,
+      "complete": true,
+      "warnings": []
+    },
+    {
+      "name": "rs_action",
+      "count": 50,
+      "complete": true,
+      "warnings": []
+    },
+    {
+      "name": "rs_adventure",
+      "count": 50,
+      "complete": true,
+      "warnings": []
+    },
+    {
+      "name": "rs_drama",
+      "count": 50,
+      "complete": true,
+      "warnings": []
+    },
+    {
+      "name": "rs_psychological",
+      "count": 50,
+      "complete": true,
+      "warnings": []
+    },
+    {
+      "name": "newest",
+      "count": 20,
+      "complete": null,
+      "warnings": []
+    },
+    {
+      "name": "latest_updates",
+      "count": 20,
+      "complete": null,
+      "warnings": []
+    },
+    {
+      "name": "weekly_popular",
+      "count": 20,
+      "complete": null,
+      "warnings": []
+    },
+    {
+      "name": "active_popular",
+      "count": 20,
+      "complete": null,
+      "warnings": []
+    }
+  ],
+  "details_enriched": 40,
+  "errors": [],
+  "warnings": [],
+  "validation_report": "reports/validation_run_1.json"
+}

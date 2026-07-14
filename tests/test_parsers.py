@@ -2,7 +2,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from rrlab.config import SOURCE_MAP
-from rrlab.parsers import parse_detail_html, parse_listing_html
+from rrlab.parsers import metric_from_text, parse_detail_html, parse_listing_html, parse_number
 
 FIXTURES = Path("tests/fixtures")
 NOW = datetime(2026, 7, 14, tzinfo=timezone.utc)
@@ -43,3 +43,10 @@ def test_detail_parser():
     assert len(detail.releases) == 2
     assert obs.first_chapter_utc is not None
     assert "patreon.com" in obs.marketing_urls[0]
+
+
+def test_numeric_placeholders_are_treated_as_missing():
+    assert parse_number(".") is None
+    assert parse_number("—") is None
+    assert metric_from_text("Ratings: .", ("ratings", "rating")) is None
+    assert parse_number("1.2k") == 1200

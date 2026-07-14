@@ -13,7 +13,7 @@ from .models import DetailSnapshot, FictionObservation, ReleaseObservation, Sour
 BASE = "https://www.royalroad.com"
 FICTION_RE = re.compile(r"/fiction/(\d+)(?:/[^/?#]+)?")
 CHAPTER_RE = re.compile(r"/chapter/(\d+)(?:/[^/?#]+)?")
-NUMBER_RE = re.compile(r"([\d,.]+)\s*([kKmMbB]?)")
+NUMBER_RE = re.compile(r"(\d[\d,]*(?:\.\d+)?)\s*([kKmMbB]?)")
 DATE_RE = re.compile(r"\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{1,2},\s+\d{4}\b", re.I)
 ABSOLUTE_DATE_RE = re.compile(
     r"(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\s+"
