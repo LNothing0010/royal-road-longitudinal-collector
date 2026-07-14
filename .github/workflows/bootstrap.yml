@@ -9,54 +9,63 @@ permissions:
 jobs:
   bootstrap:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Validate package
-        run: test -f collector-package.zip
+        run: |
+          test -s collector-package.zip
+          unzip -tq collector-package.zip
 
       - name: Install and harden collector
+        shell: bash
         run: |
+          set -euo pipefail
           rm -rf /tmp/rrcollector
           mkdir -p /tmp/rrcollector
           unzip -q collector-package.zip -d /tmp/rrcollector
 
-          # Preserve existing workflow files. GitHub blocks workflow files created
-          # by the Actions installation token when it lacks the workflows scope.
-          rsync -a --delete \
+          PACKAGE_ROOT="$(find /tmp/rrcollector -type f -name pyproject.toml -printf '%h\n' | head -n 1)"
+          if [ -z "$PACKAGE_ROOT" ]; then
+            echo 'No pyproject.toml found inside collector-package.zip' >&2
+            find /tmp/rrcollector -maxdepth 3 -type f -print >&2
+            exit 1
+          fi
+
+          # Copy package contents without touching existing workflow files.
+          rsync -a \
             --exclude='.git/' \
             --exclude='.github/workflows/' \
-            /tmp/rrcollector/royal-road-longitudinal-collector/ ./
+            "$PACKAGE_ROOT/" ./
 
           python - <<'PY'
           from pathlib import Path
 
-          replacements = {
-              Path('pyproject.toml'): [('version = "0.2.0"', 'version = "0.2.1"')],
-              Path('rrlab/__init__.py'): [('0.2.0', '0.2.1')],
-              Path('rrlab/http_source.py'): [('http2=True', 'http2=False')],
-              Path('rrlab/config.py'): [
-                  ('os.getenv("RR_USER_AGENT", "RoyalRoadLongitudinalLab/0.2")',
-                   'os.getenv("RR_USER_AGENT") or "RoyalRoadLongitudinalLab/0.2.1 (public research; github.com/LNothing0010)"')
-              ],
-          }
+          def replace_if_present(path: str, old: str, new: str) -> None:
+              p = Path(path)
+              if not p.exists():
+                  return
+              text = p.read_text(encoding="utf-8")
+              if old in text:
+                  p.write_text(text.replace(old, new), encoding="utf-8")
 
-          for path, edits in replacements.items():
-              text = path.read_text(encoding='utf-8')
-              for old, new in edits:
-                  if old not in text:
-                      raise SystemExit(f'Expected text not found in {path}: {old}')
-                  text = text.replace(old, new)
-              path.write_text(text, encoding='utf-8')
+          replace_if_present("pyproject.toml", 'version = "0.2.0"', 'version = "0.2.1"')
+          replace_if_present("rrlab/__init__.py", "0.2.0", "0.2.1")
+          replace_if_present("rrlab/http_source.py", "http2=True", "http2=False")
+          replace_if_present(
+              "rrlab/config.py",
+              'os.getenv("RR_USER_AGENT", "RoyalRoadLongitudinalLab/0.2")',
+              'os.getenv("RR_USER_AGENT") or "RoyalRoadLongitudinalLab/0.2.1 (public research; github.com/LNothing0010)"',
+          )
 
-          gitignore = Path('.gitignore')
-          text = gitignore.read_text(encoding='utf-8')
-          if 'data/export/*.zip' not in text:
-              text += '\ndata/export/*.zip\n'
-          gitignore.write_text(text, encoding='utf-8')
+          gitignore = Path(".gitignore")
+          text = gitignore.read_text(encoding="utf-8") if gitignore.exists() else ""
+          if "data/export/*.zip" not in text:
+              text += "\ndata/export/*.zip\n"
+          gitignore.write_text(text, encoding="utf-8")
           PY
 
           cat > CHANGELOG.md <<'MD'
@@ -67,7 +76,9 @@ jobs:
           - Installed the complete collector directly in the repository.
           - Disabled unnecessary HTTP/2 mode, removing a hidden runtime dependency.
           - Preserved GitHub workflow files during bootstrap to avoid GitHub App workflow-scope failures.
-          - Stopped committing generated ZIP exports every hour; exports will remain available as workflow artifacts.
+          - Made bootstrap independent of the ZIP top-level directory name.
+          - Made hardening edits tolerant of harmless package-version drift.
+          - Stopped committing generated ZIP exports every hour; exports remain workflow artifacts.
           - Kept canonical SQLite, compressed raw JSON and validation reports under version control for the pilot.
           MD
 
@@ -75,12 +86,15 @@ jobs:
 
       - name: Verify package
         run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
           python -m pip install -e ".[dev]"
           pytest -q
           python -m compileall -q rrlab tests
 
       - name: Commit collector source
         run: |
+          set -euo pipefail
           git config user.name "rr-longitudinal-bot"
           git config user.email "actions@users.noreply.github.com"
           git add -A -- ':!.github/workflows'
