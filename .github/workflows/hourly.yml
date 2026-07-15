@@ -139,6 +139,7 @@ jobs:
           validation_path = Path("reports/validation_latest.json")
           frontier_path = Path("reports/frontier_latest.json")
           lines = ["# Royal Road collection", ""]
+          cadence = {}
           if cadence_path.exists():
               cadence = json.loads(cadence_path.read_text(encoding="utf-8"))
               lines += [
@@ -150,25 +151,31 @@ jobs:
               ]
           else:
               lines.append("- No cadence report was generated.")
-          if validation_path.exists():
-              report = json.loads(validation_path.read_text(encoding="utf-8"))
-              run = report.get("run") or {}
-              lines += [
-                  f"- Run ID: `{run.get('run_id', 'unknown')}`",
-                  f"- Run status: `{run.get('status', 'unknown')}`",
-                  f"- Complete RS analysis: `{report.get('valid_for_complete_rs_analysis', False)}`",
-                  f"- Validation issues: `{report.get('issue_count', 0)}`",
-              ]
-          elif os.environ.get("RR_CADENCE_FORCE") == "1":
-              lines.append("- No panel validation report was generated.")
-          if frontier_path.exists():
-              frontier = json.loads(frontier_path.read_text(encoding="utf-8"))
-              lines += [
-                  f"- Complete Newest frontier: `{frontier.get('coverage_complete', False)}`",
-                  f"- New fictions captured: `{frontier.get('new_fictions', 0)}`",
-                  f"- Pages fetched: `{frontier.get('pages_fetched', 0)}`",
-                  f"- Boundary page: `{frontier.get('boundary_page')}`",
-              ]
+
+          if cadence.get("should_collect"):
+              if validation_path.exists():
+                  report = json.loads(validation_path.read_text(encoding="utf-8"))
+                  run = report.get("run") or {}
+                  lines += [
+                      f"- Run ID: `{run.get('run_id', 'unknown')}`",
+                      f"- Run status: `{run.get('status', 'unknown')}`",
+                      f"- Complete RS analysis: `{report.get('valid_for_complete_rs_analysis', False)}`",
+                      f"- Validation issues: `{report.get('issue_count', 0)}`",
+                  ]
+              else:
+                  lines.append("- No panel validation report was generated.")
+              if frontier_path.exists():
+                  frontier = json.loads(frontier_path.read_text(encoding="utf-8"))
+                  lines += [
+                      f"- Complete Newest frontier: `{frontier.get('coverage_complete', False)}`",
+                      f"- New fictions captured: `{frontier.get('new_fictions', 0)}`",
+                      f"- Pages fetched: `{frontier.get('pages_fetched', 0)}`",
+                      f"- Boundary page: `{frontier.get('boundary_page')}`",
+                  ]
+              else:
+                  lines.append("- No frontier report was generated.")
+          else:
+              lines.append("- No Royal Road requests were made during this schedule opportunity.")
           summary.write_text("\n".join(lines) + "\n", encoding="utf-8")
           PY
 
