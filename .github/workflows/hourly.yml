@@ -2,7 +2,7 @@ name: Royal Road hourly collection
 
 on:
   schedule:
-    - cron: "7 * * * *"
+    - cron: "13,33,53 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -32,6 +32,8 @@ jobs:
       RR_CATALOG_STATE_PATH: data/catalog_state.json
       RR_SAVE_RAW_HTML: "0"
       RR_USE_BROWSER_FALLBACK: "0"
+      RR_CADENCE_MIN_AGE_MINUTES: "55"
+      RR_CADENCE_REPORT: reports/cadence_gate_latest.json
 
     steps:
       - uses: actions/checkout@v5
@@ -42,12 +44,23 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Decide whether an hourly collection is due
+        id: cadence
+        env:
+          RR_CADENCE_FORCE: ${{ github.event_name == 'workflow_dispatch' && '1' || '0' }}
+          RR_CADENCE_TRIGGER: ${{ github.event.schedule }}
+        run: |
+          set -euo pipefail
+          python -m rrlab.cadence
+
       - name: Install collector
+        if: steps.cadence.outputs.should_collect == 'true'
         run: |
           set -euo pipefail
           python -m pip install --disable-pip-version-check --retries 5 --timeout 60 -e ".[dev]"
 
       - name: Preflight
+        if: steps.cadence.outputs.should_collect == 'true'
         run: |
           set -euo pipefail
           rrlab doctor
@@ -69,12 +82,14 @@ jobs:
           PY
 
       - name: Collect public Royal Road panel and complete Newest frontier
+        if: steps.cadence.outputs.should_collect == 'true'
         run: |
           set -euo pipefail
           mkdir -p reports
           rrlab collect | tee reports/latest_run_output.json
 
       - name: Validate complete prospective frontier
+        if: steps.cadence.outputs.should_collect == 'true'
         run: |
           set -euo pipefail
           python - <<'PY'
@@ -95,12 +110,13 @@ jobs:
           PY
 
       - name: Validate Rising Stars panel
+        if: steps.cadence.outputs.should_collect == 'true'
         run: |
           set -euo pipefail
           rrlab validate-latest | tee reports/latest_validation_output.json
 
       - name: Export canonical archive
-        if: always()
+        if: always() && steps.cadence.outputs.should_collect == 'true'
         run: |
           set -euo pipefail
           if command -v rrlab >/dev/null 2>&1 && [ -s data/rrlab.sqlite ]; then
@@ -119,35 +135,52 @@ jobs:
           from pathlib import Path
 
           summary = Path(os.environ["GITHUB_STEP_SUMMARY"])
+          cadence_path = Path("reports/cadence_gate_latest.json")
           validation_path = Path("reports/validation_latest.json")
           frontier_path = Path("reports/frontier_latest.json")
           lines = ["# Royal Road collection", ""]
-          if validation_path.exists():
-              report = json.loads(validation_path.read_text(encoding="utf-8"))
-              run = report.get("run") or {}
+          cadence = {}
+          if cadence_path.exists():
+              cadence = json.loads(cadence_path.read_text(encoding="utf-8"))
               lines += [
-                  f"- Run ID: `{run.get('run_id', 'unknown')}`",
-                  f"- Run status: `{run.get('status', 'unknown')}`",
-                  f"- Complete RS analysis: `{report.get('valid_for_complete_rs_analysis', False)}`",
-                  f"- Validation issues: `{report.get('issue_count', 0)}`",
+                  f"- Cadence decision: `{cadence.get('reason')}`",
+                  f"- Collection due: `{cadence.get('should_collect')}`",
+                  f"- Last complete panel: `{cadence.get('last_complete_panel_utc')}`",
+                  f"- Panel age in minutes: `{cadence.get('age_minutes')}`",
+                  f"- Trigger: `{cadence.get('trigger')}`",
               ]
           else:
-              lines.append("- No panel validation report was generated.")
-          if frontier_path.exists():
-              frontier = json.loads(frontier_path.read_text(encoding="utf-8"))
-              lines += [
-                  f"- Complete Newest frontier: `{frontier.get('coverage_complete', False)}`",
-                  f"- New fictions captured: `{frontier.get('new_fictions', 0)}`",
-                  f"- Pages fetched: `{frontier.get('pages_fetched', 0)}`",
-                  f"- Boundary page: `{frontier.get('boundary_page')}`",
-              ]
+              lines.append("- No cadence report was generated.")
+
+          if cadence.get("should_collect"):
+              if validation_path.exists():
+                  report = json.loads(validation_path.read_text(encoding="utf-8"))
+                  run = report.get("run") or {}
+                  lines += [
+                      f"- Run ID: `{run.get('run_id', 'unknown')}`",
+                      f"- Run status: `{run.get('status', 'unknown')}`",
+                      f"- Complete RS analysis: `{report.get('valid_for_complete_rs_analysis', False)}`",
+                      f"- Validation issues: `{report.get('issue_count', 0)}`",
+                  ]
+              else:
+                  lines.append("- No panel validation report was generated.")
+              if frontier_path.exists():
+                  frontier = json.loads(frontier_path.read_text(encoding="utf-8"))
+                  lines += [
+                      f"- Complete Newest frontier: `{frontier.get('coverage_complete', False)}`",
+                      f"- New fictions captured: `{frontier.get('new_fictions', 0)}`",
+                      f"- Pages fetched: `{frontier.get('pages_fetched', 0)}`",
+                      f"- Boundary page: `{frontier.get('boundary_page')}`",
+                  ]
+              else:
+                  lines.append("- No frontier report was generated.")
           else:
-              lines.append("- No frontier report was generated.")
+              lines.append("- No Royal Road requests were made during this schedule opportunity.")
           summary.write_text("\n".join(lines) + "\n", encoding="utf-8")
           PY
 
       - name: Upload latest archive and diagnostics
-        if: always()
+        if: always() && steps.cadence.outputs.should_collect == 'true'
         uses: actions/upload-artifact@v7
         with:
           name: royal-road-longitudinal-${{ github.run_id }}
@@ -158,7 +191,7 @@ jobs:
           retention-days: 90
 
       - name: Persist canonical data and diagnostics
-        if: always()
+        if: always() && steps.cadence.outputs.should_collect == 'true'
         run: |
           set -euo pipefail
           mkdir -p data reports

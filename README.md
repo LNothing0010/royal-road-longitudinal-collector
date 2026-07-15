@@ -95,7 +95,9 @@ rrlab export
 
 ## GitHub Actions
 
-- **Royal Road hourly collection** runs at minute 7 of every hour.
+- **Royal Road hourly collection** receives redundant schedule opportunities at minutes 13, 33 and 53.
+- A persisted-data cadence gate performs a collection only when the latest complete six-list panel is at least 55 minutes old; manual dispatch always forces a run.
+- This compensates for delayed or dropped GitHub schedule events without increasing the intended collection rate beyond approximately hourly.
 - **Royal Road catalog backfill** runs once daily at 03:37 UTC.
 - Both workflows share one write-concurrency group, so they cannot modify the SQLite database simultaneously.
 - Canonical data and diagnostics are committed even when a quality gate fails.

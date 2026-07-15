@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- Replaced the single hourly cron opportunity with three staggered schedule opportunities at minutes 13, 33 and 53.
+- Added a persisted-data cadence gate that runs the collector only when the latest complete six-list panel is at least 55 minutes old.
+- Kept manual workflow dispatch as a forced collection path.
+- Added cadence diagnostics and regression tests so redundant triggers do not increase the intended request rate.
+
 ## 0.4.0 — 2026-07-14
 
 - Replaced the fixed one-page Newest sample with a verified moving frontier that follows pagination until the prior fiction-ID anchor is reached.
