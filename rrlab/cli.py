@@ -32,14 +32,14 @@ def main() -> None:
     analyze.add_argument("--lookback-hours", type=int, default=168)
     exposure = sub.add_parser("analyze-exposure")
     exposure.add_argument("--lookback-hours", type=int, default=168)
-    impressions = sub.add_parser("estimate-impression-opportunity")
-    impressions.add_argument(
+    page_visits = sub.add_parser("estimate-page-visit-opportunity")
+    page_visits.add_argument(
         "--exposure-json",
         default="reports/exposure_analysis_latest.json",
     )
-    impressions.add_argument(
-        "--probe-csv",
-        default="data/traffic_probe.csv",
+    page_visits.add_argument(
+        "--traffic-csv",
+        default="data/external_page_traffic.csv",
     )
     sub.add_parser("export")
     sub.add_parser("validate-latest")
@@ -95,10 +95,10 @@ def main() -> None:
             lookback_hours=args.lookback_hours,
         )
         print(json.dumps(output, indent=2, ensure_ascii=False))
-    elif args.command == "estimate-impression-opportunity":
+    elif args.command == "estimate-page-visit-opportunity":
         output = write_impression_report(
             Path(args.exposure_json),
-            Path(args.probe_csv),
+            Path(args.traffic_csv),
             settings.report_dir,
         )
         print(json.dumps(output, indent=2, ensure_ascii=False))
