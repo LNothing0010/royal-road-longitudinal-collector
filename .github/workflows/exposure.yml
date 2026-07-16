@@ -48,6 +48,14 @@ jobs:
           rrlab init-db
           rrlab collect-exposure | tee reports/exposure_run_output_latest.json
 
+      - name: Build independent impression-opportunity report
+        run: |
+          set -euo pipefail
+          rrlab estimate-impression-opportunity \
+            --exposure-json reports/exposure_analysis_latest.json \
+            --probe-csv data/traffic_probe.csv \
+            | tee reports/impression_run_output_latest.json
+
       - name: Validate exposure output
         run: |
           set -euo pipefail
@@ -67,9 +75,23 @@ jobs:
               "reports/exposure_analysis_latest.json",
               "reports/exposure_analysis_latest.md",
               "reports/exposure_analysis_latest.csv",
+              "reports/impression_opportunity_latest.json",
+              "reports/impression_opportunity_latest.md",
           ):
               if not Path(required).exists() or Path(required).stat().st_size == 0:
                   raise SystemExit(f"Missing exposure analysis output: {required}")
+          impression = json.loads(
+              Path("reports/impression_opportunity_latest.json").read_text(
+                  encoding="utf-8"
+              )
+          )
+          methodology = impression.get("methodology", {})
+          if methodology.get("novel_views_used") is not False:
+              raise SystemExit("Impression opportunity must never use novel views")
+          if methodology.get("novel_followers_used") is not False:
+              raise SystemExit("Impression opportunity must never use novel followers")
+          if methodology.get("absolute_impressions_available") is not False:
+              raise SystemExit("Absolute impressions must remain unavailable without calibration")
           with sqlite3.connect("data/rrlab.sqlite") as conn:
               integrity = conn.execute("PRAGMA integrity_check").fetchone()[0]
           if integrity != "ok":
@@ -88,6 +110,7 @@ jobs:
           summary_path = Path(os.environ["GITHUB_STEP_SUMMARY"])
           output_path = Path("reports/exposure_run_output_latest.json")
           analysis_path = Path("reports/exposure_analysis_latest.json")
+          impression_path = Path("reports/impression_opportunity_latest.json")
           lines = ["# Royal Road organic exposure", ""]
           if output_path.exists():
               output = json.loads(output_path.read_text(encoding="utf-8"))
@@ -103,12 +126,24 @@ jobs:
               overview = report.get("summary", {})
               lines += [
                   "",
-                  "## Rolling analysis",
+                  "## Residence and turnover",
                   f"- Samples: `{overview.get('latest_updates_samples')}`",
                   f"- Homepage Latest median residence: `{overview.get('home_latest_median_residence_minutes')}` minutes",
                   f"- Full Latest Updates median residence: `{overview.get('latest_updates_median_residence_minutes')}` minutes",
                   f"- Newest median residence: `{overview.get('newest_median_residence_minutes')}` minutes",
-                  f"- Exposure/traction linkages: `{overview.get('traction_linkages')}`",
+              ]
+          if impression_path.exists():
+              report = json.loads(impression_path.read_text(encoding="utf-8"))
+              traffic = report.get("traffic_profile", {})
+              lines += [
+                  "",
+                  "## Independent impression opportunity",
+                  f"- Status: `{report.get('status')}`",
+                  f"- Traffic calibration: `{traffic.get('status')}`",
+                  f"- Probe intervals: `{traffic.get('valid_interval_count')}`",
+                  "- Novel views used: `false`",
+                  "- Novel followers used: `false`",
+                  "- Absolute impressions claimed: `false`",
               ]
           summary_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
           PY
