@@ -22,31 +22,73 @@ from .validation import validate_run
 def _ordered_required_detail_candidates(
     storage: Storage,
     fiction_ids: Sequence[str],
+    backlog_limit: int,
 ) -> list[dict]:
     ordered_ids = list(dict.fromkeys(str(fiction_id) for fiction_id in fiction_ids))
-    if not ordered_ids:
-        return []
+    explicit_rows: list[dict] = []
+    backlog_rows: list[dict] = []
 
-    placeholders = ",".join("?" for _ in ordered_ids)
     with storage.connect() as conn:
-        rows = conn.execute(
-            f"""
-            SELECT fiction_id, url, first_seen_utc
-            FROM fiction
-            WHERE fiction_id IN ({placeholders})
-            """,
-            ordered_ids,
-        ).fetchall()
+        if ordered_ids:
+            placeholders = ",".join("?" for _ in ordered_ids)
+            rows = conn.execute(
+                f"""
+                SELECT fiction_id, url, first_seen_utc
+                FROM fiction
+                WHERE fiction_id IN ({placeholders})
+                """,
+                ordered_ids,
+            ).fetchall()
+            by_id = {str(row["fiction_id"]): dict(row) for row in rows}
+            explicit_rows = [
+                by_id[fiction_id]
+                for fiction_id in ordered_ids
+                if fiction_id in by_id
+            ]
 
-    by_id = {str(row["fiction_id"]): dict(row) for row in rows}
+        if backlog_limit > 0:
+            rows = conn.execute(
+                """
+                SELECT f.fiction_id, f.url, f.first_seen_utc
+                FROM fiction AS f
+                WHERE f.first_seen_source='newest'
+                  AND NOT EXISTS (
+                    SELECT 1
+                    FROM metric_observation AS mo
+                    WHERE mo.fiction_id=f.fiction_id
+                      AND mo.source_name='fiction_detail'
+                      AND mo.followers IS NOT NULL
+                      AND mo.total_views IS NOT NULL
+                      AND mo.chapter_count IS NOT NULL
+                  )
+                ORDER BY f.first_seen_utc ASC
+                LIMIT ?
+                """,
+                (backlog_limit + len(ordered_ids),),
+            ).fetchall()
+            explicit_set = set(ordered_ids)
+            backlog_rows = [
+                dict(row)
+                for row in rows
+                if str(row["fiction_id"]) not in explicit_set
+            ][:backlog_limit]
+
     return [
         {
-            **by_id[fiction_id],
+            **row,
             "priority": 200,
             "required_initial_detail": True,
+            "current_launch": True,
         }
-        for fiction_id in ordered_ids
-        if fiction_id in by_id
+        for row in explicit_rows
+    ] + [
+        {
+            **row,
+            "priority": 190,
+            "required_initial_detail": True,
+            "current_launch": False,
+        }
+        for row in backlog_rows
     ]
 
 
@@ -173,6 +215,7 @@ async def collect(settings: Settings | None = None, enrich_details: bool = True)
             required_candidates = _ordered_required_detail_candidates(
                 storage,
                 new_fiction_ids,
+                backlog_limit=settings.detail_limit_per_run,
             )
             regular_candidates = storage.detail_candidates(
                 run_id,
@@ -201,16 +244,29 @@ async def collect(settings: Settings | None = None, enrich_details: bool = True)
                         f"detail {candidate['fiction_id']}: {type(exc).__name__}: {exc}"
                     )
 
-            missing_new_fiction_details = _missing_new_fiction_metrics(
+            required_detail_ids = [
+                str(candidate["fiction_id"])
+                for candidate in required_candidates
+            ]
+            missing_required_details = _missing_new_fiction_metrics(
                 storage,
                 run_id,
-                new_fiction_ids,
+                required_detail_ids,
             )
-            if missing_new_fiction_details:
+            missing_required_set = set(missing_required_details)
+            missing_new_fiction_details = [
+                fiction_id
+                for fiction_id in new_fiction_ids
+                if fiction_id in missing_required_set
+            ]
+            if missing_required_details:
                 source_errors.append(
                     "newest_detail_coverage: missing core launch metrics for "
-                    + ",".join(missing_new_fiction_details)
+                    + ",".join(missing_required_details)
                 )
+        else:
+            required_candidates = []
+            missing_required_details = []
 
         derive_run(settings.db_path, run_id)
         required_sources_complete = all(
@@ -226,6 +282,7 @@ async def collect(settings: Settings | None = None, enrich_details: bool = True)
         notes = "\n".join([*source_errors, *detail_warnings]) or None
         storage.finish_run(run_id, status, notes)
         validation_path = validate_run(settings.db_path, run_id, settings.report_dir)
+        new_fiction_id_set = set(new_fiction_ids)
         return {
             "run_id": run_id,
             "timestamp_utc": timestamp.isoformat(),
@@ -248,6 +305,16 @@ async def collect(settings: Settings | None = None, enrich_details: bool = True)
                 else 0
             ),
             "new_fiction_details_missing": missing_new_fiction_details,
+            "new_fiction_backfill_requested": sum(
+                1
+                for candidate in required_candidates
+                if not candidate.get("current_launch", False)
+            ),
+            "new_fiction_backfill_missing": [
+                fiction_id
+                for fiction_id in missing_required_details
+                if fiction_id not in new_fiction_id_set
+            ],
             "errors": source_errors,
             "warnings": detail_warnings,
             "validation_report": str(validation_path),
