@@ -1,0 +1,179 @@
+name: Royal Road longitudinal panel
+
+on:
+  schedule:
+    - cron: "42 * * * *"
+  workflow_dispatch:
+    inputs:
+      max_fictions:
+        description: "Optional cap; empty means the entire tracked cohort"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: royal-road-data-writer-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    env:
+      RR_USER_AGENT: ${{ secrets.RR_USER_AGENT }}
+      RR_DB_PATH: data/rrlab.sqlite
+      RR_RAW_DIR: data/raw
+      RR_REPORT_DIR: reports
+      RR_MIN_DELAY_SECONDS: "2.5"
+      RR_TIMEOUT_SECONDS: "45"
+      RR_SAVE_RAW_HTML: "0"
+      RR_USE_BROWSER_FALLBACK: "0"
+      RR_LONGITUDINAL_MAX_PER_RUN: "0"
+
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install collector
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check --retries 5 --timeout 60 -e .
+
+      - name: Refresh every tracked fiction and repeat the analysis
+        env:
+          REQUESTED_MAX: ${{ inputs.max_fictions }}
+        run: |
+          set -euo pipefail
+          mkdir -p data reports
+          rrlab init-db
+          if [ -n "${REQUESTED_MAX:-}" ]; then
+            rrlab refresh-longitudinal --max-fictions "$REQUESTED_MAX" \
+              | tee reports/longitudinal_run_output_latest.json
+          else
+            rrlab refresh-longitudinal \
+              | tee reports/longitudinal_run_output_latest.json
+          fi
+
+      - name: Validate append-only longitudinal outputs
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import sqlite3
+          from pathlib import Path
+
+          output = json.loads(
+              Path("reports/longitudinal_run_output_latest.json").read_text(
+                  encoding="utf-8"
+              )
+          )
+          for required in (
+              "reports/longitudinal_analysis_latest.json",
+              "reports/longitudinal_analysis_latest.md",
+              "reports/longitudinal_analysis_latest.csv",
+              "reports/longitudinal_history_latest.csv",
+          ):
+              path = Path(required)
+              if not path.exists() or path.stat().st_size == 0:
+                  raise SystemExit(f"missing longitudinal output: {required}")
+
+          report = json.loads(
+              Path("reports/longitudinal_analysis_latest.json").read_text(
+                  encoding="utf-8"
+              )
+          )
+          if report.get("analysis_version") != "longitudinal-launch-v1":
+              raise SystemExit("unexpected longitudinal analysis version")
+          if report.get("methodology", {}).get("raw_storage") != "append_only_by_run_id":
+              raise SystemExit("raw observations are not declared append-only")
+
+          with sqlite3.connect("data/rrlab.sqlite") as conn:
+              integrity = conn.execute("PRAGMA integrity_check").fetchone()[0]
+              if integrity != "ok":
+                  raise SystemExit(f"SQLite integrity check failed: {integrity}")
+              duplicate_raw = conn.execute(
+                  """
+                  SELECT COUNT(*) FROM (
+                    SELECT run_id,source_name,fiction_id,COUNT(*) AS n
+                    FROM metric_observation
+                    GROUP BY run_id,source_name,fiction_id
+                    HAVING n>1
+                  )
+                  """
+              ).fetchone()[0]
+              if duplicate_raw:
+                  raise SystemExit("duplicate raw metric keys found")
+              derived = conn.execute(
+                  "SELECT COUNT(*) FROM analysis_observation WHERE run_id=?",
+                  (int(output["run_id"]),),
+              ).fetchone()[0]
+              tracked = conn.execute(
+                  "SELECT COUNT(*) FROM longitudinal_tracking WHERE active=1"
+              ).fetchone()[0]
+              if derived != tracked:
+                  raise SystemExit(
+                      f"analysis coverage mismatch: derived={derived}, tracked={tracked}"
+                  )
+          print(json.dumps(output.get("analysis_summary", {}), indent=2))
+          PY
+
+      - name: Write job summary
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          output_path = Path("reports/longitudinal_run_output_latest.json")
+          lines = ["# Royal Road longitudinal panel", ""]
+          if output_path.exists():
+              output = json.loads(output_path.read_text(encoding="utf-8"))
+              summary = output.get("analysis_summary", {})
+              lines += [
+                  f"- Run: `{output.get('run_id')}`",
+                  f"- Status: `{output.get('status')}`",
+                  f"- Analysis version: `{output.get('analysis_version')}`",
+                  f"- Tracked candidates: `{output.get('tracked_candidates')}`",
+                  f"- Successful details: `{output.get('details_successful')}`",
+                  f"- Unavailable details: `{output.get('details_unavailable')}`",
+                  f"- Transient failures: `{output.get('details_transient_failure')}`",
+                  f"- With previous observation: `{summary.get('with_previous_observation')}`",
+                  f"- Positive view delta: `{summary.get('positive_view_delta')}`",
+                  f"- Positive follower delta: `{summary.get('positive_follower_delta')}`",
+              ]
+          Path(os.environ["GITHUB_STEP_SUMMARY"]).write_text(
+              "\n".join(lines) + "\n",
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Persist database and reports
+        if: always()
+        run: |
+          set -euo pipefail
+          git config user.name "rr-longitudinal-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A -- data reports
+          if git diff --cached --quiet; then
+            echo "No longitudinal changes to commit"
+            exit 0
+          fi
+          git commit -m "Refresh Royal Road longitudinal panel $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          for attempt in 1 2 3; do
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              exit 0
+            fi
+            git fetch origin "${GITHUB_REF_NAME}"
+            git rebase "origin/${GITHUB_REF_NAME}"
+            sleep $((attempt * 2))
+          done
+          exit 1
