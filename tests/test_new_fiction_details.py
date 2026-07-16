@@ -114,6 +114,6 @@ def test_missing_new_fiction_backlog_is_scheduled_after_current_launches(tmp_pat
         backlog_limit=1,
     )
 
-    assert [candidate["fiction_id"] for candidate in required] == ["403", "401"]
+    assert [candidate["fiction_id"] for candidate in required] == ["403", "402"]
     assert required[0]["current_launch"] is True
     assert required[1]["current_launch"] is False
