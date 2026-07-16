@@ -34,9 +34,10 @@ def fiction_history(db_path: Path, fiction_id: str, limit: int = 500) -> list[di
     with _connect(db_path) as conn:
         rows = conn.execute(
             """
-            SELECT r.timestamp_utc,mo.source_name,mo.followers,mo.total_views,mo.average_views,
-                   mo.favorites,mo.page_count,mo.chapter_count,mo.word_count,mo.word_count_estimate,
-                   mo.rating_count,mo.rating_average,mo.review_count,mo.comment_count
+            SELECT r.run_id,r.timestamp_utc,mo.source_name,mo.followers,mo.total_views,
+                   mo.average_views,mo.favorites,mo.page_count,mo.chapter_count,
+                   mo.word_count,mo.word_count_estimate,mo.rating_count,mo.rating_average,
+                   mo.review_count,mo.comment_count
             FROM metric_observation mo JOIN run r USING(run_id)
             WHERE mo.fiction_id=? ORDER BY r.timestamp_utc DESC LIMIT ?
             """,
@@ -45,12 +46,57 @@ def fiction_history(db_path: Path, fiction_id: str, limit: int = 500) -> list[di
         return [dict(row) for row in rows]
 
 
+def longitudinal_history(
+    db_path: Path,
+    fiction_id: str,
+    limit: int = 500,
+    analysis_version: str | None = None,
+) -> list[dict]:
+    with _connect(db_path) as conn:
+        exists = conn.execute(
+            """
+            SELECT 1 FROM sqlite_master
+            WHERE type='table' AND name='analysis_observation'
+            """
+        ).fetchone()
+        if exists is None:
+            return []
+        version_clause = "" if analysis_version is None else "AND ao.analysis_version=?"
+        parameters: tuple[object, ...]
+        if analysis_version is None:
+            parameters = (str(fiction_id), limit)
+        else:
+            parameters = (str(fiction_id), analysis_version, limit)
+        rows = conn.execute(
+            f"""
+            SELECT ao.run_id,ao.observed_utc,ao.analysis_version,
+                   ao.latest_metric_run_id,ao.latest_metric_observed_utc,
+                   ao.previous_metric_run_id,ao.previous_metric_observed_utc,
+                   ao.elapsed_hours,ao.followers,ao.total_views,ao.chapter_count,
+                   ao.favorites,ao.rating_count,ao.follower_delta,ao.view_delta,
+                   ao.chapter_delta,ao.favorite_delta,ao.rating_count_delta,
+                   ao.follower_pct_change,ao.view_pct_change,
+                   ao.followers_per_day_increment,ao.views_per_day_increment,
+                   ao.current_rs,ao.current_best_rs_rank,ao.launch_index
+            FROM analysis_observation ao
+            WHERE ao.fiction_id=? {version_clause}
+            ORDER BY ao.observed_utc DESC,ao.analysis_version
+            LIMIT ?
+            """,
+            parameters,
+        ).fetchall()
+        return [dict(row) for row in rows]
+
+
 def new_entrants(db_path: Path, source_name: str) -> list[dict]:
     with _connect(db_path) as conn:
-        latest_ids = [row[0] for row in conn.execute(
-            "SELECT DISTINCT run_id FROM listing_membership WHERE source_name=? ORDER BY run_id DESC LIMIT 2",
-            (source_name,),
-        )]
+        latest_ids = [
+            row[0]
+            for row in conn.execute(
+                "SELECT DISTINCT run_id FROM listing_membership WHERE source_name=? ORDER BY run_id DESC LIMIT 2",
+                (source_name,),
+            )
+        ]
         if len(latest_ids) < 2:
             return []
         latest, previous = latest_ids
@@ -70,7 +116,9 @@ def new_entrants(db_path: Path, source_name: str) -> list[dict]:
 def diagnostics_seed(db_path: Path, run_id: int | None = None) -> list[dict]:
     with _connect(db_path) as conn:
         if run_id is None:
-            run_id = conn.execute("SELECT MAX(run_id) FROM run WHERE status IN ('complete','partial')").fetchone()[0]
+            run_id = conn.execute(
+                "SELECT MAX(run_id) FROM run WHERE status IN ('complete','partial')"
+            ).fetchone()[0]
         rows = conn.execute(
             """
             WITH overlap AS (
