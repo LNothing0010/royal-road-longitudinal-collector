@@ -26,6 +26,9 @@ pythonpath = ["."]
 [tool.ruff]
 line-length = 100
 
+[tool.ruff.lint.per-file-ignores]
+"rrlab/exposure.py" = ["F401"]
+
 [tool.setuptools.packages.find]
 include = ["rrlab*"]
 exclude = ["data*", "tests*", "reports*"]
