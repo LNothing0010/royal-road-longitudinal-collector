@@ -1,18 +1,18 @@
 {
-  "generated_utc": "2026-07-16T07:35:26.619531+00:00",
+  "generated_utc": "2026-07-16T13:07:16.942190+00:00",
   "run": {
-    "run_id": 9,
-    "timestamp_utc": "2026-07-16T07:31:30Z",
+    "run_id": 11,
+    "timestamp_utc": "2026-07-16T13:04:53Z",
     "collector_version": "0.4.0",
-    "started_utc": "2026-07-16T07:31:30.385814Z",
-    "completed_utc": "2026-07-16T07:35:26.321513Z",
-    "status": "complete",
-    "notes": null
+    "started_utc": "2026-07-16T13:04:53.474668Z",
+    "completed_utc": "2026-07-16T13:07:16.495349Z",
+    "status": "partial",
+    "notes": "newest_detail_coverage: missing core launch metrics for 180629\ndetail 180629: HTTPStatusError: Client error '404 Not Found' for url 'https://www.royalroad.com/fiction/180629/the-consequence'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404"
   },
   "scope": "panel",
   "sources": [
     {
-      "run_id": 9,
+      "run_id": 11,
       "source_name": "active_popular",
       "source_family": "comparison",
       "source_url": "https://www.royalroad.com/fictions/active-popular",
@@ -20,13 +20,13 @@
       "observed_count": 20,
       "complete": null,
       "http_status": 200,
-      "fetch_seconds": 0.4432294399999961,
-      "raw_json_path": "data/raw/2026/07/16/20260716T073130Z_active_popular.json.gz",
+      "fetch_seconds": 0.423835124,
+      "raw_json_path": "data/raw/2026/07/16/20260716T130453Z_active_popular.json.gz",
       "raw_html_path": null,
       "warnings_json": "[]"
     },
     {
-      "run_id": 9,
+      "run_id": 11,
       "source_name": "latest_updates",
       "source_family": "discovery",
       "source_url": "https://www.royalroad.com/fictions/latest-updates",
@@ -34,27 +34,27 @@
       "observed_count": 20,
       "complete": null,
       "http_status": 200,
-      "fetch_seconds": 0.386316518000001,
-      "raw_json_path": "data/raw/2026/07/16/20260716T073130Z_latest_updates.json.gz",
+      "fetch_seconds": 0.41689459199999845,
+      "raw_json_path": "data/raw/2026/07/16/20260716T130453Z_latest_updates.json.gz",
       "raw_html_path": null,
       "warnings_json": "[]"
     },
     {
-      "run_id": 9,
+      "run_id": 11,
       "source_name": "newest",
       "source_family": "discovery",
       "source_url": "https://www.royalroad.com/fictions/new",
       "expected_count": null,
-      "observed_count": 59,
+      "observed_count": 20,
       "complete": 1,
       "http_status": 200,
-      "fetch_seconds": 1.3674642599999984,
-      "raw_json_path": "data/raw/2026/07/16/20260716T073130Z_newest.json.gz",
+      "fetch_seconds": 0.8191079180000003,
+      "raw_json_path": "data/raw/2026/07/16/20260716T130453Z_newest.json.gz",
       "raw_html_path": null,
       "warnings_json": "[]"
     },
     {
-      "run_id": 9,
+      "run_id": 11,
       "source_name": "rs_action",
       "source_family": "rising_stars",
       "source_url": "https://www.royalroad.com/fictions/rising-stars?genre=action",
@@ -62,13 +62,13 @@
       "observed_count": 50,
       "complete": 1,
       "http_status": 200,
-      "fetch_seconds": 0.4715365010000028,
-      "raw_json_path": "data/raw/2026/07/16/20260716T073130Z_rs_action.json.gz",
+      "fetch_seconds": 0.5771767889999992,
+      "raw_json_path": "data/raw/2026/07/16/20260716T130453Z_rs_action.json.gz",
       "raw_html_path": null,
       "warnings_json": "[]"
     },
     {
-      "run_id": 9,
+      "run_id": 11,
       "source_name": "rs_adventure",
       "source_family": "rising_stars",
       "source_url": "https://www.royalroad.com/fictions/rising-stars?genre=adventure",
@@ -76,13 +76,13 @@
       "observed_count": 50,
       "complete": 1,
       "http_status": 200,
-      "fetch_seconds": 0.4746940969999969,
-      "raw_json_path": "data/raw/2026/07/16/20260716T073130Z_rs_adventure.json.gz",
+      "fetch_seconds": 0.5572172549999976,
+      "raw_json_path": "data/raw/2026/07/16/20260716T130453Z_rs_adventure.json.gz",
       "raw_html_path": null,
       "warnings_json": "[]"
     },
     {
-      "run_id": 9,
+      "run_id": 11,
       "source_name": "rs_drama",
       "source_family": "rising_stars",
       "source_url": "https://www.royalroad.com/fictions/rising-stars?genre=drama",
@@ -90,13 +90,13 @@
       "observed_count": 50,
       "complete": 1,
       "http_status": 200,
-      "fetch_seconds": 0.45473730799999856,
-      "raw_json_path": "data/raw/2026/07/16/20260716T073130Z_rs_drama.json.gz",
+      "fetch_seconds": 0.5952591790000028,
+      "raw_json_path": "data/raw/2026/07/16/20260716T130453Z_rs_drama.json.gz",
       "raw_html_path": null,
       "warnings_json": "[]"
     },
     {
-      "run_id": 9,
+      "run_id": 11,
       "source_name": "rs_fantasy",
       "source_family": "rising_stars",
       "source_url": "https://www.royalroad.com/fictions/rising-stars?genre=fantasy",
@@ -104,13 +104,13 @@
       "observed_count": 50,
       "complete": 1,
       "http_status": 200,
-      "fetch_seconds": 0.5720337579999963,
-      "raw_json_path": "data/raw/2026/07/16/20260716T073130Z_rs_fantasy.json.gz",
+      "fetch_seconds": 0.5642102559999955,
+      "raw_json_path": "data/raw/2026/07/16/20260716T130453Z_rs_fantasy.json.gz",
       "raw_html_path": null,
       "warnings_json": "[]"
     },
     {
-      "run_id": 9,
+      "run_id": 11,
       "source_name": "rs_main",
       "source_family": "rising_stars",
       "source_url": "https://www.royalroad.com/fictions/rising-stars",
@@ -118,13 +118,13 @@
       "observed_count": 50,
       "complete": 1,
       "http_status": 200,
-      "fetch_seconds": 0.5199355330000017,
-      "raw_json_path": "data/raw/2026/07/16/20260716T073130Z_rs_main.json.gz",
+      "fetch_seconds": 0.6667342940000012,
+      "raw_json_path": "data/raw/2026/07/16/20260716T130453Z_rs_main.json.gz",
       "raw_html_path": null,
       "warnings_json": "[]"
     },
     {
-      "run_id": 9,
+      "run_id": 11,
       "source_name": "rs_psychological",
       "source_family": "rising_stars",
       "source_url": "https://www.royalroad.com/fictions/rising-stars?genre=psychological",
@@ -132,13 +132,13 @@
       "observed_count": 50,
       "complete": 1,
       "http_status": 200,
-      "fetch_seconds": 0.4829619340000022,
-      "raw_json_path": "data/raw/2026/07/16/20260716T073130Z_rs_psychological.json.gz",
+      "fetch_seconds": 0.6127461830000058,
+      "raw_json_path": "data/raw/2026/07/16/20260716T130453Z_rs_psychological.json.gz",
       "raw_html_path": null,
       "warnings_json": "[]"
     },
     {
-      "run_id": 9,
+      "run_id": 11,
       "source_name": "weekly_popular",
       "source_family": "comparison",
       "source_url": "https://www.royalroad.com/fictions/weekly-popular",
@@ -146,60 +146,14 @@
       "observed_count": 20,
       "complete": null,
       "http_status": 200,
-      "fetch_seconds": 0.35130183900000134,
-      "raw_json_path": "data/raw/2026/07/16/20260716T073130Z_weekly_popular.json.gz",
+      "fetch_seconds": 0.4203294310000061,
+      "raw_json_path": "data/raw/2026/07/16/20260716T130453Z_weekly_popular.json.gz",
       "raw_html_path": null,
       "warnings_json": "[]"
     }
   ],
-  "issue_count": 5,
-  "issues": [
-    {
-      "severity": "warning",
-      "code": "counter_decrease",
-      "fiction_id": "170140",
-      "current_followers": 57,
-      "prior_followers": 58,
-      "current_views": 5920,
-      "prior_views": 5870
-    },
-    {
-      "severity": "warning",
-      "code": "counter_decrease",
-      "fiction_id": "172140",
-      "current_followers": 54,
-      "prior_followers": 55,
-      "current_views": 5239,
-      "prior_views": 5229
-    },
-    {
-      "severity": "warning",
-      "code": "counter_decrease",
-      "fiction_id": "178290",
-      "current_followers": 119,
-      "prior_followers": 120,
-      "current_views": 4188,
-      "prior_views": 4083
-    },
-    {
-      "severity": "warning",
-      "code": "counter_decrease",
-      "fiction_id": "75345",
-      "current_followers": 11754,
-      "prior_followers": 11759,
-      "current_views": 5032656,
-      "prior_views": 5030650
-    },
-    {
-      "severity": "warning",
-      "code": "counter_decrease",
-      "fiction_id": "86047",
-      "current_followers": 19189,
-      "prior_followers": 19190,
-      "current_views": 28202590,
-      "prior_views": 28186590
-    }
-  ],
+  "issue_count": 0,
+  "issues": [],
   "valid_for_complete_rs_analysis": true,
   "valid_for_catalog_registry": true
 }
