@@ -15,6 +15,8 @@ class SourceSpec:
     is_rs: bool = False
 
 
+HOME_URL = "https://www.royalroad.com/home"
+
 SOURCES: tuple[SourceSpec, ...] = (
     SourceSpec("rs_main", "https://www.royalroad.com/fictions/rising-stars", "rising_stars", 50, True, True),
     SourceSpec("rs_fantasy", "https://www.royalroad.com/fictions/rising-stars?genre=fantasy", "rising_stars", 50, True, True),
@@ -27,6 +29,31 @@ SOURCES: tuple[SourceSpec, ...] = (
     SourceSpec("weekly_popular", "https://www.royalroad.com/fictions/weekly-popular", "comparison", None, True, False),
     SourceSpec("active_popular", "https://www.royalroad.com/fictions/active-popular", "comparison", None, True, False),
 )
+
+EXPOSURE_SOURCES: tuple[SourceSpec, ...] = (
+    SourceSpec(
+        "latest_updates_live",
+        "https://www.royalroad.com/fictions/latest-updates",
+        "organic_exposure",
+        20,
+        True,
+        False,
+    ),
+    SourceSpec(
+        "newest_live",
+        "https://www.royalroad.com/fictions/new",
+        "organic_exposure",
+        20,
+        True,
+        False,
+    ),
+)
+
+HOME_EXPOSURE_SOURCES: tuple[SourceSpec, ...] = (
+    SourceSpec("home_latest_updates", HOME_URL, "organic_exposure", None, True, False),
+    SourceSpec("home_rising_stars", HOME_URL, "organic_exposure", None, True, False),
+)
+
 CATALOG_BACKFILL_SOURCE = SourceSpec(
     "catalog_backfill",
     "https://www.royalroad.com/fictions/new",
@@ -35,7 +62,15 @@ CATALOG_BACKFILL_SOURCE = SourceSpec(
     True,
     False,
 )
-SOURCE_MAP = {source.name: source for source in (*SOURCES, CATALOG_BACKFILL_SOURCE)}
+SOURCE_MAP = {
+    source.name: source
+    for source in (
+        *SOURCES,
+        *EXPOSURE_SOURCES,
+        *HOME_EXPOSURE_SOURCES,
+        CATALOG_BACKFILL_SOURCE,
+    )
+}
 RS_SOURCES = tuple(source.name for source in SOURCES if source.is_rs)
 DEFAULT_USER_AGENT = (
     "RoyalRoadLongitudinalLab/0.4.0 "
