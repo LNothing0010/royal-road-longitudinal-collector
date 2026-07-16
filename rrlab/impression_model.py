@@ -2,19 +2,23 @@ from __future__ import annotations
 
 import csv
 import json
-from collections import defaultdict
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 from pathlib import Path
 from statistics import median
 from typing import Any
 
 
 TRAFFIC_COLUMNS = (
-    "observed_utc",
-    "campaign_id",
-    "ad_format",
-    "cumulative_impressions",
+    "provider",
+    "target_url",
+    "scope",
+    "granularity",
+    "period_start_utc",
+    "period_end_utc",
+    "visits",
 )
+PAGE_TARGET = "royalroad.com/fictions/latest-updates"
+DOMAIN_TARGET = "royalroad.com"
 
 
 def _parse_utc(value: str) -> datetime:
@@ -28,11 +32,11 @@ def _utc_text(value: datetime) -> str:
     return value.astimezone(timezone.utc).isoformat().replace("+00:00", "Z")
 
 
-def _median_or_none(values: list[float]) -> float | None:
-    return median(values) if values else None
+def _normalize_target(value: str) -> str:
+    return value.strip().lower().replace("https://", "").replace("http://", "").rstrip("/")
 
 
-def load_probe_snapshots(path: Path) -> list[dict[str, Any]]:
+def load_external_traffic(path: Path) -> list[dict[str, Any]]:
     if not path.exists():
         return []
     rows: list[dict[str, Any]] = []
@@ -40,203 +44,181 @@ def load_probe_snapshots(path: Path) -> list[dict[str, Any]]:
         reader = csv.DictReader(handle)
         missing = [column for column in TRAFFIC_COLUMNS if column not in (reader.fieldnames or [])]
         if missing:
-            raise ValueError(f"traffic probe CSV missing columns: {','.join(missing)}")
+            raise ValueError(f"external traffic CSV missing columns: {','.join(missing)}")
         for line_number, row in enumerate(reader, start=2):
             try:
-                observed = _parse_utc(str(row["observed_utc"]))
-                cumulative = int(str(row["cumulative_impressions"]).replace(",", ""))
+                start = _parse_utc(str(row["period_start_utc"]))
+                end = _parse_utc(str(row["period_end_utc"]))
+                visits = float(str(row["visits"]).replace(",", ""))
             except (TypeError, ValueError) as exc:
-                raise ValueError(f"invalid traffic probe row {line_number}: {exc}") from exc
-            if cumulative < 0:
-                raise ValueError(f"negative cumulative impressions at row {line_number}")
-            campaign_id = str(row["campaign_id"]).strip()
-            ad_format = str(row["ad_format"]).strip().lower()
-            if not campaign_id or not ad_format:
-                raise ValueError(f"empty campaign_id/ad_format at row {line_number}")
+                raise ValueError(f"invalid external traffic row {line_number}: {exc}") from exc
+            provider = str(row["provider"]).strip().lower()
+            scope = str(row["scope"]).strip().lower()
+            granularity = str(row["granularity"]).strip().lower()
+            target = _normalize_target(str(row["target_url"]))
+            if not provider or scope not in {"page", "domain", "subfolder"}:
+                raise ValueError(f"invalid provider/scope at row {line_number}")
+            if granularity not in {"hour", "day", "month"}:
+                raise ValueError(f"invalid granularity at row {line_number}")
+            if end <= start or visits < 0:
+                raise ValueError(f"invalid interval/visits at row {line_number}")
             rows.append(
                 {
-                    "observed_utc": observed,
-                    "campaign_id": campaign_id,
-                    "ad_format": ad_format,
-                    "cumulative_impressions": cumulative,
+                    "provider": provider,
+                    "target_url": target,
+                    "scope": scope,
+                    "granularity": granularity,
+                    "start": start,
+                    "end": end,
+                    "visits": visits,
                 }
             )
     return rows
 
 
-def build_traffic_profile(rows: list[dict[str, Any]]) -> dict[str, Any]:
-    by_campaign: dict[str, list[dict[str, Any]]] = defaultdict(list)
+def _overlap_minutes(start: datetime, end: datetime, row: dict[str, Any]) -> float:
+    overlap_start = max(start, row["start"])
+    overlap_end = min(end, row["end"])
+    return max(0.0, (overlap_end - overlap_start).total_seconds() / 60)
+
+
+def _direct_page_hour_estimates(
+    rows: list[dict[str, Any]], start: datetime, end: datetime
+) -> dict[str, float]:
+    estimates: dict[str, float] = {}
     for row in rows:
-        by_campaign[str(row["campaign_id"])].append(row)
-
-    intervals: list[dict[str, Any]] = []
-    campaign_rates: dict[str, list[float]] = defaultdict(list)
-    campaign_formats: dict[str, str] = {}
-    rejected = 0
-    for campaign_id, snapshots in by_campaign.items():
-        snapshots.sort(key=lambda item: item["observed_utc"])
-        campaign_formats[campaign_id] = str(snapshots[0]["ad_format"])
-        for before, after in zip(snapshots, snapshots[1:]):
-            elapsed_minutes = (
-                after["observed_utc"] - before["observed_utc"]
-            ).total_seconds() / 60
-            increment = (
-                int(after["cumulative_impressions"])
-                - int(before["cumulative_impressions"])
-            )
-            if elapsed_minutes <= 0 or elapsed_minutes > 90 or increment < 0:
-                rejected += 1
-                continue
-            rate = increment / elapsed_minutes
-            midpoint = before["observed_utc"] + (
-                after["observed_utc"] - before["observed_utc"]
-            ) / 2
-            campaign_rates[campaign_id].append(rate)
-            intervals.append(
-                {
-                    "campaign_id": campaign_id,
-                    "ad_format": campaign_formats[campaign_id],
-                    "start_utc": before["observed_utc"],
-                    "end_utc": after["observed_utc"],
-                    "midpoint_utc": midpoint,
-                    "elapsed_minutes": elapsed_minutes,
-                    "impression_increment": increment,
-                    "impressions_per_minute": rate,
-                }
-            )
-
-    baselines = {
-        campaign_id: _median_or_none(rates)
-        for campaign_id, rates in campaign_rates.items()
-    }
-    valid_intervals: list[dict[str, Any]] = []
-    for interval in intervals:
-        baseline = baselines.get(interval["campaign_id"])
-        if baseline is None or baseline <= 0:
-            rejected += 1
+        if row["scope"] != "page" or row["granularity"] != "hour":
             continue
-        valid_intervals.append(
-            {
-                **interval,
-                "traffic_factor": interval["impressions_per_minute"] / baseline,
-            }
+        if _normalize_target(row["target_url"]) != PAGE_TARGET:
+            continue
+        overlap = _overlap_minutes(start, end, row)
+        if overlap <= 0:
+            continue
+        interval_minutes = (row["end"] - row["start"]).total_seconds() / 60
+        estimates[row["provider"]] = estimates.get(row["provider"], 0.0) + (
+            row["visits"] * overlap / interval_minutes
         )
+    return estimates
 
-    by_hour: dict[int, list[float]] = defaultdict(list)
-    by_hour_format: dict[int, dict[str, list[float]]] = defaultdict(
-        lambda: defaultdict(list)
+
+def _provider_proxy_estimate(
+    rows: list[dict[str, Any]], provider: str, start: datetime, end: datetime
+) -> float | None:
+    provider_rows = [row for row in rows if row["provider"] == provider]
+    page_baselines = [
+        row
+        for row in provider_rows
+        if row["scope"] == "page"
+        and _normalize_target(row["target_url"]) == PAGE_TARGET
+        and row["granularity"] in {"day", "month"}
+        and row["start"] <= start < row["end"]
+    ]
+    if not page_baselines:
+        return None
+    page_baseline = min(
+        page_baselines,
+        key=lambda row: (row["end"] - row["start"]).total_seconds(),
     )
-    for interval in valid_intervals:
-        hour = int(interval["midpoint_utc"].hour)
-        factor = float(interval["traffic_factor"])
-        by_hour[hour].append(factor)
-        by_hour_format[hour][str(interval["ad_format"])].append(factor)
-
-    hourly: list[dict[str, Any]] = []
-    for hour in range(24):
-        values = by_hour.get(hour, [])
-        format_values = by_hour_format.get(hour, {})
-        format_medians = {
-            ad_format: round(median(factors), 6)
-            for ad_format, factors in sorted(format_values.items())
-            if factors
-        }
-        hourly.append(
-            {
-                "hour_utc": hour,
-                "traffic_factor": round(median(values), 6) if values else None,
-                "interval_count": len(values),
-                "format_medians": format_medians,
-            }
-        )
-
-    formats = sorted(set(campaign_formats.values()))
-    status = "ready"
-    warnings: list[str] = []
-    if len(valid_intervals) < 48:
-        status = "insufficient_baseline"
-        warnings.append("fewer than 48 valid traffic-probe intervals")
-    if len(formats) < 2:
-        warnings.append(
-            "only one ad format is present; delivery pacing cannot be cross-checked"
-        )
-    missing_hours = [row["hour_utc"] for row in hourly if row["traffic_factor"] is None]
-    if missing_hours:
-        status = "insufficient_baseline"
-        warnings.append(f"missing UTC hours: {missing_hours}")
-
-    return {
-        "status": status,
-        "method": "independent_rr_ad_impression_probe",
-        "snapshot_count": len(rows),
-        "campaign_count": len(by_campaign),
-        "formats": formats,
-        "valid_interval_count": len(valid_intervals),
-        "rejected_interval_count": rejected,
-        "hourly": hourly,
-        "warnings": warnings,
-        "guardrails": {
-            "novel_views_used": False,
-            "novel_followers_used": False,
-            "absolute_homepage_impressions": False,
-            "interpretation": (
-                "The profile estimates relative site demand by UTC hour. It does "
-                "not reveal the absolute number of visits to Latest Updates or the homepage."
-            ),
-        },
-    }
+    domain_baselines = [
+        row
+        for row in provider_rows
+        if row["scope"] == "domain"
+        and _normalize_target(row["target_url"]) == DOMAIN_TARGET
+        and row["start"] == page_baseline["start"]
+        and row["end"] == page_baseline["end"]
+        and row["visits"] > 0
+    ]
+    if not domain_baselines:
+        return None
+    domain_baseline = domain_baselines[0]
+    page_share = page_baseline["visits"] / domain_baseline["visits"]
+    hourly_domain = [
+        row
+        for row in provider_rows
+        if row["scope"] == "domain"
+        and _normalize_target(row["target_url"]) == DOMAIN_TARGET
+        and row["granularity"] == "hour"
+    ]
+    if not hourly_domain:
+        return None
+    estimate = 0.0
+    covered = 0.0
+    episode_minutes = (end - start).total_seconds() / 60
+    for row in hourly_domain:
+        overlap = _overlap_minutes(start, end, row)
+        if overlap <= 0:
+            continue
+        interval_minutes = (row["end"] - row["start"]).total_seconds() / 60
+        estimate += row["visits"] * page_share * overlap / interval_minutes
+        covered += overlap
+    if covered + 1e-9 < episode_minutes:
+        return None
+    return estimate
 
 
-def _traffic_factor_by_hour(profile: dict[str, Any]) -> dict[int, float]:
-    return {
-        int(row["hour_utc"]): float(row["traffic_factor"])
-        for row in profile.get("hourly", [])
-        if row.get("traffic_factor") is not None
-    }
-
-
-def _split_by_hour(start: datetime, end: datetime) -> list[tuple[datetime, datetime]]:
-    segments: list[tuple[datetime, datetime]] = []
-    cursor = start
-    while cursor < end:
-        next_hour = cursor.replace(minute=0, second=0, microsecond=0) + timedelta(
-            hours=1
-        )
-        boundary = min(next_hour, end)
-        segments.append((cursor, boundary))
-        cursor = boundary
-    return segments
-
-
-def impression_opportunity(
-    exposure_report: dict[str, Any],
-    traffic_profile: dict[str, Any],
+def estimate_page_visits(
+    rows: list[dict[str, Any]], start: datetime, end: datetime
 ) -> dict[str, Any]:
-    factors = _traffic_factor_by_hour(traffic_profile)
-    results: list[dict[str, Any]] = []
+    estimates = _direct_page_hour_estimates(rows, start, end)
+    providers = sorted({row["provider"] for row in rows})
+    for provider in providers:
+        if provider in estimates:
+            continue
+        estimate = _provider_proxy_estimate(rows, provider, start, end)
+        if estimate is not None:
+            estimates[provider] = estimate
+    values = list(estimates.values())
+    return {
+        "estimated_page_visits": round(median(values), 6) if values else None,
+        "provider_estimates": {
+            provider: round(value, 6) for provider, value in sorted(estimates.items())
+        },
+        "provider_count": len(values),
+        "estimate_min": round(min(values), 6) if values else None,
+        "estimate_max": round(max(values), 6) if values else None,
+        "method": (
+            "direct_page_hourly"
+            if any(
+                row["scope"] == "page" and row["granularity"] == "hour"
+                for row in rows
+            )
+            else "page_baseline_times_domain_hourly_share"
+            if values
+            else "unavailable"
+        ),
+    }
+
+
+def _traction_map(exposure_report: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    return {
+        str(row["fiction_id"]): row
+        for row in exposure_report.get("exposure_traction", [])
+    }
+
+
+def page_visit_opportunity(
+    exposure_report: dict[str, Any], traffic_rows: list[dict[str, Any]]
+) -> dict[str, Any]:
+    traction = _traction_map(exposure_report)
+    episodes: list[dict[str, Any]] = []
     for source_name, surface in exposure_report.get("surfaces", {}).items():
+        if source_name not in {"latest_updates_live", "home_latest_updates"}:
+            continue
         for episode in surface.get("episodes", []):
             start = _parse_utc(str(episode["first_seen_utc"]))
             exit_upper = episode.get("exit_upper_utc")
-            if exit_upper:
-                end = _parse_utc(str(exit_upper))
-            else:
-                end = _parse_utc(str(episode["last_seen_utc"]))
+            end = _parse_utc(str(exit_upper or episode["last_seen_utc"]))
             if end <= start:
                 continue
-            demand_minutes = 0.0
-            missing_minutes = 0.0
-            for segment_start, segment_end in _split_by_hour(start, end):
-                minutes = (segment_end - segment_start).total_seconds() / 60
-                factor = factors.get(segment_start.hour)
-                if factor is None:
-                    missing_minutes += minutes
-                else:
-                    demand_minutes += minutes * factor
+            estimate = estimate_page_visits(traffic_rows, start, end)
+            outcome = traction.get(str(episode["fiction_id"]), {})
+            view_delta = outcome.get("view_delta")
+            visits = estimate["estimated_page_visits"]
+            views_per_1000 = None
+            if visits is not None and visits > 0 and view_delta is not None:
+                views_per_1000 = 1000 * float(view_delta) / float(visits)
             rank = episode.get("median_rank")
-            top5_units = demand_minutes if rank is not None and float(rank) <= 5 else 0.0
-            top10_units = demand_minutes if rank is not None and float(rank) <= 10 else 0.0
-            results.append(
+            episodes.append(
                 {
                     "source_name": source_name,
                     "fiction_id": episode["fiction_id"],
@@ -245,104 +227,78 @@ def impression_opportunity(
                     "url": episode.get("url"),
                     "first_seen_utc": episode["first_seen_utc"],
                     "exit_upper_utc": exit_upper,
-                    "best_rank": episode.get("best_rank"),
-                    "median_rank": rank,
                     "residence_estimated_minutes": episode.get(
                         "residence_estimated_minutes"
                     ),
-                    "relative_impression_opportunity_units": round(
-                        demand_minutes, 6
+                    "best_rank": episode.get("best_rank"),
+                    "median_rank": rank,
+                    "top5_during_episode": rank is not None and float(rank) <= 5,
+                    "top10_during_episode": rank is not None and float(rank) <= 10,
+                    **estimate,
+                    "view_delta": view_delta,
+                    "views_per_1000_estimated_page_visits": (
+                        round(views_per_1000, 6) if views_per_1000 is not None else None
                     ),
-                    "top5_opportunity_units": round(top5_units, 6),
-                    "top10_opportunity_units": round(top10_units, 6),
-                    "traffic_uncovered_minutes": round(missing_minutes, 6),
-                    "absolute_impressions": None,
                 }
             )
-
-    hourly_experiments: list[dict[str, Any]] = []
-    for row in traffic_profile.get("hourly", []):
-        factor = row.get("traffic_factor")
-        if factor is None:
-            continue
-        hourly_experiments.append(
-            {
-                "hour_utc": int(row["hour_utc"]),
-                "traffic_factor": float(factor),
-                "five_minute_opportunity": round(5 * float(factor), 6),
-                "ten_minute_opportunity": round(10 * float(factor), 6),
-                "twenty_minute_opportunity": round(20 * float(factor), 6),
-                "minutes_needed_to_match_average_10_minutes": round(
-                    10 / float(factor), 6
-                )
-                if float(factor) > 0
-                else None,
-            }
-        )
-
+    calibrated = [row for row in episodes if row["estimated_page_visits"] is not None]
     return {
-        "status": (
-            "ready"
-            if traffic_profile.get("status") == "ready"
-            else "uncalibrated"
-        ),
+        "status": "ready" if calibrated else "uncalibrated",
         "generated_utc": _utc_text(datetime.now(timezone.utc)),
         "methodology": {
-            "formula": (
-                "relative opportunity = sum(duration_minutes * independent_traffic_factor)"
+            "impression_definition": (
+                "A potential impression is a visit to Royal Road's official Latest Updates "
+                "page while the fiction is present."
             ),
+            "page_traffic_is_input": True,
+            "novel_views_used_to_estimate_page_traffic": False,
+            "novel_views_used_as_outcome": True,
             "rank_handling": (
-                "No invented scroll probability is applied. Top-5 and top-10 "
-                "opportunity are reported as separate observable rank bands."
+                "Page visits are reported separately from top-5/top-10 membership; no "
+                "unsupported scroll-depth probability is invented."
             ),
-            "novel_views_used": False,
-            "novel_followers_used": False,
-            "absolute_impressions_available": False,
             "causal_claim": False,
         },
-        "traffic_profile": traffic_profile,
-        "episodes": results,
-        "hourly_counterfactuals": hourly_experiments,
+        "traffic_rows": len(traffic_rows),
+        "calibrated_episodes": len(calibrated),
+        "episodes": episodes,
     }
 
 
 def _markdown(report: dict[str, Any]) -> str:
     lines = [
-        "# Royal Road potential-impression experiment",
+        "# Latest Updates page-visit opportunity",
         "",
         f"- Status: `{report['status']}`",
-        "- Novel views used in impression model: `false`",
-        "- Novel followers used in impression model: `false`",
-        "- Absolute impressions available: `false`",
+        "- Page traffic is supplied by external traffic-estimation data.",
+        "- Novel views are outcomes, never inputs to page-traffic estimation.",
         "",
-        "The report measures relative opportunity-to-see, not clicks and not "
-        "first-party page impressions.",
-        "",
-        "## Hourly counterfactuals",
-        "",
-        "| UTC hour | Traffic factor | 5 min | 10 min | 20 min | Minutes matching average 10 min |",
-        "|---:|---:|---:|---:|---:|---:|",
+        "| Fiction | Surface | Residence min | Est. page visits | Providers | View delta | Views / 1k page visits |",
+        "|---|---|---:|---:|---:|---:|---:|",
     ]
-    for row in report.get("hourly_counterfactuals", []):
+    for row in report["episodes"][:100]:
         lines.append(
-            "| {hour:02d} | {factor:.3f} | {five:.3f} | {ten:.3f} | "
-            "{twenty:.3f} | {match:.3f} |".format(
-                hour=row["hour_utc"],
-                factor=row["traffic_factor"],
-                five=row["five_minute_opportunity"],
-                ten=row["ten_minute_opportunity"],
-                twenty=row["twenty_minute_opportunity"],
-                match=row["minutes_needed_to_match_average_10_minutes"],
+            "| {title} | {source} | {residence} | {visits} | {providers} | {views} | {rate} |".format(
+                title=str(row["title"]).replace("|", "\\|"),
+                source=row["source_name"],
+                residence=row.get("residence_estimated_minutes") or "—",
+                visits=row.get("estimated_page_visits") or "—",
+                providers=row.get("provider_count", 0),
+                views=row.get("view_delta") if row.get("view_delta") is not None else "—",
+                rate=(
+                    row.get("views_per_1000_estimated_page_visits")
+                    if row.get("views_per_1000_estimated_page_visits") is not None
+                    else "—"
+                ),
             )
         )
-    if not report.get("hourly_counterfactuals"):
-        lines.append("| — | — | — | — | — | — |")
+    if not report["episodes"]:
+        lines.append("| — | — | — | — | — | — | — |")
     lines += [
         "",
-        "## Guardrail",
-        "",
-        "Views and followers may be evaluated later as conversion outcomes, but "
-        "they never calibrate impression opportunity.",
+        "> A monthly or daily page total alone cannot identify 12:00–13:00 versus "
+        "18:00–19:00. An hourly page series, or an hourly domain series combined with "
+        "a page/domain baseline from the same provider and period, is required.",
         "",
     ]
     return "\n".join(lines)
@@ -350,18 +306,17 @@ def _markdown(report: dict[str, Any]) -> str:
 
 def write_impression_report(
     exposure_json_path: Path,
-    probe_csv_path: Path,
+    traffic_csv_path: Path,
     report_dir: Path,
 ) -> dict[str, Any]:
     if not exposure_json_path.exists():
         raise FileNotFoundError(exposure_json_path)
     exposure = json.loads(exposure_json_path.read_text(encoding="utf-8"))
-    snapshots = load_probe_snapshots(probe_csv_path)
-    profile = build_traffic_profile(snapshots)
-    report = impression_opportunity(exposure, profile)
+    traffic_rows = load_external_traffic(traffic_csv_path)
+    report = page_visit_opportunity(exposure, traffic_rows)
     report_dir.mkdir(parents=True, exist_ok=True)
-    json_path = report_dir / "impression_opportunity_latest.json"
-    markdown_path = report_dir / "impression_opportunity_latest.md"
+    json_path = report_dir / "page_visit_opportunity_latest.json"
+    markdown_path = report_dir / "page_visit_opportunity_latest.md"
     json_path.write_text(
         json.dumps(report, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
@@ -369,12 +324,8 @@ def write_impression_report(
     markdown_path.write_text(_markdown(report), encoding="utf-8")
     return {
         "status": report["status"],
-        "traffic_profile_status": profile["status"],
-        "probe_snapshots": profile["snapshot_count"],
-        "valid_probe_intervals": profile["valid_interval_count"],
+        "traffic_rows": report["traffic_rows"],
+        "calibrated_episodes": report["calibrated_episodes"],
         "episode_count": len(report["episodes"]),
-        "files": {
-            "json": str(json_path),
-            "markdown": str(markdown_path),
-        },
+        "files": {"json": str(json_path), "markdown": str(markdown_path)},
     }
