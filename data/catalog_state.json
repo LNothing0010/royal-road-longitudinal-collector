@@ -3,6 +3,7 @@
   "backfill_next_page": 227,
   "backfill_pass": 1,
   "frontier_anchor_ids": [
+    "180758",
     "180757",
     "180756",
     "180755",
@@ -21,13 +22,12 @@
     "180742",
     "180741",
     "180740",
-    "180739",
-    "180738"
+    "180739"
   ],
-  "frontier_last_run_utc": "2026-07-16T13:04:53+00:00",
+  "frontier_last_run_utc": "2026-07-16T15:05:50+00:00",
   "frontier_last_complete": true,
   "frontier_last_pages_fetched": 2,
-  "updated_utc": "2026-07-16T13:05:11.513116Z",
+  "updated_utc": "2026-07-16T15:06:08.048314Z",
   "backfill_last_page_seen": 6597,
   "backfill_last_run_utc": "2026-07-16T10:47:00+00:00",
   "backfill_last_start_page": 149,

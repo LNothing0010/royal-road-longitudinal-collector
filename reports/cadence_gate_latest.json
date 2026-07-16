@@ -1,11 +1,11 @@
 {
-  "generated_utc": "2026-07-16T13:04:44.387142+00:00",
+  "generated_utc": "2026-07-16T15:05:37.964961+00:00",
   "should_collect": true,
-  "reason": "panel_due",
+  "reason": "manual_dispatch",
   "minimum_age_minutes": 55.0,
   "last_complete_panel_utc": "2026-07-16T07:31:30Z",
-  "age_minutes": 333.24,
-  "force": false,
-  "trigger": "13,33,53 * * * *",
+  "age_minutes": 454.133,
+  "force": true,
+  "trigger": null,
   "database_error": null
 }

@@ -1,28 +1,25 @@
 {
   "mode": "prospective_newest_census",
-  "timestamp_utc": "2026-07-16T13:04:53+00:00",
+  "timestamp_utc": "2026-07-16T15:05:50+00:00",
   "pages_fetched": 2,
   "first_page": 1,
   "last_page": 2,
   "boundary_page": 1,
-  "boundary_index": 6,
+  "boundary_index": 1,
   "boundary_reached": true,
   "coverage_complete": true,
   "max_pages": 25,
   "overlap_pages_after_anchor": 1,
-  "anchor_count_before": 59,
+  "anchor_count_before": 20,
   "scanned_unique_fictions": 40,
   "observed_unique_fictions": 20,
-  "new_fictions": 5,
+  "new_fictions": 1,
   "new_fiction_ids": [
-    "180757",
-    "180756",
-    "180755",
-    "180754",
-    "180753"
+    "180758"
   ],
   "overlap_unknown_fictions_excluded": 0,
   "next_anchor_ids": [
+    "180758",
     "180757",
     "180756",
     "180755",
@@ -41,10 +38,9 @@
     "180742",
     "180741",
     "180740",
-    "180739",
-    "180738"
+    "180739"
   ],
   "initialize_anchor": false,
   "warnings": [],
-  "run_id": 11
+  "run_id": 12
 }
