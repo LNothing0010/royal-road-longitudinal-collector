@@ -1,6 +1,6 @@
 {
-  "run_id": 13,
-  "timestamp_utc": "2026-07-16T17:48:36+00:00",
+  "run_id": 15,
+  "timestamp_utc": "2026-07-16T20:38:34+00:00",
   "status": "partial",
   "sources": [
     {
@@ -41,7 +41,7 @@
     },
     {
       "name": "newest",
-      "count": 20,
+      "count": 60,
       "complete": true,
       "warnings": []
     },
@@ -66,43 +66,87 @@
   ],
   "newest_frontier": {
     "mode": "prospective_newest_census",
-    "timestamp_utc": "2026-07-16T17:48:36+00:00",
-    "pages_fetched": 2,
+    "timestamp_utc": "2026-07-16T20:38:34+00:00",
+    "pages_fetched": 4,
     "first_page": 1,
-    "last_page": 2,
-    "boundary_page": 1,
-    "boundary_index": 19,
+    "last_page": 4,
+    "boundary_page": 3,
+    "boundary_index": 2,
     "boundary_reached": true,
     "coverage_complete": true,
     "max_pages": 25,
     "overlap_pages_after_anchor": 1,
     "anchor_count_before": 20,
-    "scanned_unique_fictions": 40,
-    "observed_unique_fictions": 20,
-    "new_fictions": 19,
+    "scanned_unique_fictions": 80,
+    "observed_unique_fictions": 60,
+    "new_fictions": 21,
     "new_fiction_ids": [
-      "180777",
-      "180776",
-      "180775",
-      "180774",
-      "180773",
-      "180772",
-      "180771",
-      "180770",
-      "180769",
-      "180768",
-      "180767",
-      "180766",
-      "180765",
-      "180764",
-      "180763",
-      "180762",
-      "180761",
-      "180760",
-      "180759"
+      "180819",
+      "180798",
+      "180797",
+      "180796",
+      "180795",
+      "180794",
+      "180793",
+      "180792",
+      "180791",
+      "180790",
+      "180789",
+      "180788",
+      "180787",
+      "180785",
+      "180784",
+      "180783",
+      "180782",
+      "180781",
+      "180780",
+      "180779",
+      "180778"
     ],
     "overlap_unknown_fictions_excluded": 0,
     "next_anchor_ids": [
+      "180819",
+      "180818",
+      "180817",
+      "180816",
+      "180815",
+      "180814",
+      "180813",
+      "180812",
+      "180811",
+      "180810",
+      "180809",
+      "180808",
+      "180807",
+      "180806",
+      "180805",
+      "180804",
+      "180803",
+      "180802",
+      "180801",
+      "180800",
+      "180799",
+      "180798",
+      "180797",
+      "180796",
+      "180795",
+      "180794",
+      "180793",
+      "180792",
+      "180791",
+      "180790",
+      "180789",
+      "180788",
+      "180787",
+      "180786",
+      "180785",
+      "180784",
+      "180783",
+      "180782",
+      "180781",
+      "180780",
+      "180779",
+      "180778",
       "180777",
       "180776",
       "180775",
@@ -120,55 +164,35 @@
       "180763",
       "180762",
       "180761",
-      "180760",
-      "180759",
-      "180758"
+      "180760"
     ],
     "initialize_anchor": false,
     "warnings": []
   },
-  "details_enriched": 57,
-  "new_fiction_details_expected": 19,
-  "new_fiction_details_enriched": 19,
+  "details_enriched": 61,
+  "new_fiction_details_expected": 21,
+  "new_fiction_details_enriched": 21,
   "new_fiction_details_unavailable": [],
   "new_fiction_details_missing": [],
   "new_fiction_backfill_requested": 40,
-  "new_fiction_backfill_unavailable": [
-    "180629",
-    "180611"
-  ],
+  "new_fiction_backfill_unavailable": [],
   "new_fiction_backfill_missing": [
     "180563"
   ],
-  "detail_failure_states": [
-    {
-      "fiction_id": "180629",
-      "availability": "unavailable",
-      "http_status": 404,
-      "consecutive_failures": 1,
-      "next_retry_utc": "2026-07-23T17:48:36Z"
-    },
-    {
-      "fiction_id": "180611",
-      "availability": "unavailable",
-      "http_status": 404,
-      "consecutive_failures": 1,
-      "next_retry_utc": "2026-07-23T17:48:36Z"
-    }
-  ],
+  "detail_failure_states": [],
   "launch_analysis": {
     "paths": {
-      "json": "reports/launch_analysis_run_13.json",
-      "markdown": "reports/launch_analysis_run_13.md",
-      "csv": "reports/launch_analysis_run_13.csv",
+      "json": "reports/launch_analysis_run_15.json",
+      "markdown": "reports/launch_analysis_run_15.md",
+      "csv": "reports/launch_analysis_run_15.csv",
       "latest_json": "reports/launch_analysis_latest.json",
       "latest_markdown": "reports/launch_analysis_latest.md",
       "latest_csv": "reports/launch_analysis_latest.csv"
     },
     "current_batch": {
-      "novel_count": 19,
+      "novel_count": 21,
       "data_quality": {
-        "core_metrics_complete": 19,
+        "core_metrics_complete": 21,
         "partial_metrics": 0,
         "unavailable_or_removed": 0,
         "missing_detail": 0,
@@ -184,31 +208,31 @@
         "followers_per_1000_views": 0.0,
         "followers_per_chapter": 0.0,
         "views_per_chapter": 7.0,
-        "launch_index": 37.19
+        "launch_index": 39.33
       },
       "leaders": {
         "overall_launch_index": {
-          "fiction_id": "180761",
-          "title": "I Clicked the Link",
-          "value": 48.73,
+          "fiction_id": "180798",
+          "title": "The Fallen Star from the Fallen World",
+          "value": 80.74,
           "metric": "launch_index"
         },
         "followers": {
-          "fiction_id": "180777",
-          "title": "A Name Twice Given",
-          "value": 0,
+          "fiction_id": "180798",
+          "title": "The Fallen Star from the Fallen World",
+          "value": 1,
           "metric": "followers"
         },
         "views": {
-          "fiction_id": "180761",
-          "title": "I Clicked the Link",
-          "value": 13,
+          "fiction_id": "180778",
+          "title": "The Tithe",
+          "value": 109,
           "metric": "total_views"
         },
         "conversion": {
-          "fiction_id": "180777",
-          "title": "A Name Twice Given",
-          "value": 0.0,
+          "fiction_id": "180795",
+          "title": "Living Her Best Afterlife",
+          "value": 142.86,
           "metric": "followers_per_1000_views"
         },
         "follower_momentum": null,
@@ -218,31 +242,31 @@
       "exceptions": []
     },
     "rolling_cohort": {
-      "novel_count": 298,
+      "novel_count": 340,
       "data_quality": {
-        "core_metrics_complete": 221,
+        "core_metrics_complete": 281,
         "partial_metrics": 1,
         "unavailable_or_removed": 2,
-        "missing_detail": 74,
-        "core_coverage_pct": 74.16,
-        "resolved_coverage_pct": 74.83
+        "missing_detail": 56,
+        "core_coverage_pct": 82.65,
+        "resolved_coverage_pct": 83.24
       },
       "medians": {
         "followers": 0.0,
-        "total_views": 13.0,
+        "total_views": 12.0,
         "chapter_count": 1.0,
         "followers_per_day": 0.0,
-        "views_per_day": 24.62,
+        "views_per_day": 23.0,
         "followers_per_1000_views": 0.0,
         "followers_per_chapter": 0.0,
-        "views_per_chapter": 10.67,
-        "launch_index": 42.58
+        "views_per_chapter": 10.0,
+        "launch_index": 41.99
       },
       "leaders": {
         "overall_launch_index": {
           "fiction_id": "180704",
           "title": "Awakening in the Altered World",
-          "value": 99.37,
+          "value": 99.35,
           "metric": "launch_index"
         },
         "followers": {
@@ -263,8 +287,18 @@
           "value": 333.33,
           "metric": "followers_per_1000_views"
         },
-        "follower_momentum": null,
-        "view_momentum": null,
+        "follower_momentum": {
+          "fiction_id": "180563",
+          "title": "The Dead Arrive At Dawn",
+          "value": 0.0,
+          "metric": "follower_growth_per_day"
+        },
+        "view_momentum": {
+          "fiction_id": "180563",
+          "title": "The Dead Arrive At Dawn",
+          "value": 0.0,
+          "metric": "view_growth_per_day"
+        },
         "best_current_rs_rank": null
       },
       "exceptions": [
@@ -291,150 +325,6 @@
           "availability": "unavailable",
           "http_status": 404,
           "next_detail_retry_utc": "2026-07-23T17:48:36Z"
-        },
-        {
-          "fiction_id": "180550",
-          "title": "",
-          "data_status": "missing",
-          "availability": "unknown",
-          "http_status": null,
-          "next_detail_retry_utc": null
-        },
-        {
-          "fiction_id": "180549",
-          "title": "",
-          "data_status": "missing",
-          "availability": "unknown",
-          "http_status": null,
-          "next_detail_retry_utc": null
-        },
-        {
-          "fiction_id": "180548",
-          "title": "",
-          "data_status": "missing",
-          "availability": "unknown",
-          "http_status": null,
-          "next_detail_retry_utc": null
-        },
-        {
-          "fiction_id": "180547",
-          "title": "",
-          "data_status": "missing",
-          "availability": "unknown",
-          "http_status": null,
-          "next_detail_retry_utc": null
-        },
-        {
-          "fiction_id": "180546",
-          "title": "",
-          "data_status": "missing",
-          "availability": "unknown",
-          "http_status": null,
-          "next_detail_retry_utc": null
-        },
-        {
-          "fiction_id": "180545",
-          "title": "",
-          "data_status": "missing",
-          "availability": "unknown",
-          "http_status": null,
-          "next_detail_retry_utc": null
-        },
-        {
-          "fiction_id": "180544",
-          "title": "",
-          "data_status": "missing",
-          "availability": "unknown",
-          "http_status": null,
-          "next_detail_retry_utc": null
-        },
-        {
-          "fiction_id": "180543",
-          "title": "",
-          "data_status": "missing",
-          "availability": "unknown",
-          "http_status": null,
-          "next_detail_retry_utc": null
-        },
-        {
-          "fiction_id": "180542",
-          "title": "",
-          "data_status": "missing",
-          "availability": "unknown",
-          "http_status": null,
-          "next_detail_retry_utc": null
-        },
-        {
-          "fiction_id": "180541",
-          "title": "",
-          "data_status": "missing",
-          "availability": "unknown",
-          "http_status": null,
-          "next_detail_retry_utc": null
-        },
-        {
-          "fiction_id": "180540",
-          "title": "",
-          "data_status": "missing",
-          "availability": "unknown",
-          "http_status": null,
-          "next_detail_retry_utc": null
-        },
-        {
-          "fiction_id": "180539",
-          "title": "",
-          "data_status": "missing",
-          "availability": "unknown",
-          "http_status": null,
-          "next_detail_retry_utc": null
-        },
-        {
-          "fiction_id": "180538",
-          "title": "",
-          "data_status": "missing",
-          "availability": "unknown",
-          "http_status": null,
-          "next_detail_retry_utc": null
-        },
-        {
-          "fiction_id": "180537",
-          "title": "",
-          "data_status": "missing",
-          "availability": "unknown",
-          "http_status": null,
-          "next_detail_retry_utc": null
-        },
-        {
-          "fiction_id": "180536",
-          "title": "",
-          "data_status": "missing",
-          "availability": "unknown",
-          "http_status": null,
-          "next_detail_retry_utc": null
-        },
-        {
-          "fiction_id": "180535",
-          "title": "",
-          "data_status": "missing",
-          "availability": "unknown",
-          "http_status": null,
-          "next_detail_retry_utc": null
-        },
-        {
-          "fiction_id": "180534",
-          "title": "",
-          "data_status": "missing",
-          "availability": "unknown",
-          "http_status": null,
-          "next_detail_retry_utc": null
-        },
-        {
-          "fiction_id": "180533",
-          "title": "",
-          "data_status": "missing",
-          "availability": "unknown",
-          "http_status": null,
-          "next_detail_retry_utc": null
         },
         {
           "fiction_id": "180531",
@@ -890,9 +780,6 @@
   "errors": [
     "newest_detail_coverage: missing core launch metrics for 180563"
   ],
-  "warnings": [
-    "detail 180629: HTTPStatusError: Client error '404 Not Found' for url 'https://www.royalroad.com/fiction/180629/the-consequence'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
-    "detail 180611: HTTPStatusError: Client error '404 Not Found' for url 'https://www.royalroad.com/fiction/180611/the-stage-is-still-standing'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404"
-  ],
-  "validation_report": "reports/validation_run_13.json"
+  "warnings": [],
+  "validation_report": "reports/validation_run_15.json"
 }

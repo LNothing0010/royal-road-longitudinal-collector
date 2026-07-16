@@ -1,34 +1,36 @@
 # Royal Road launch analysis
 
-- Run: `13` at `2026-07-16T17:48:36Z`
-- Newly detected this run: **19**
+- Run: `15` at `2026-07-16T20:38:34Z`
+- Newly detected this run: **21**
 - Current-batch core metric coverage: **100.0%**
-- Rolling 168h cohort: **298 novels**
-- Rolling resolved coverage: **74.83%**
+- Rolling 168h cohort: **340 novels**
+- Rolling resolved coverage: **83.24%**
 
 ## Newly published fiction captured this run
 
 | Novel | Author | Status | Followers | Views | Chapters | F/1k views | Launch index |
 |---|---|---:|---:|---:|---:|---:|---:|
-| [A Name Twice Given](https://www.royalroad.com/fiction/180777/a-name-twice-given) | Lotharios | complete | 0 | 6 | 1 | 0.00 | 35.19 |
-| [Detrás del follaje (Español)](https://www.royalroad.com/fiction/180776/detras-del-follaje-espanol) | Medianoche del Alma | complete | 0 | 8 | 1 | 0.00 | 39.30 |
-| [Rick The Wanderer](https://www.royalroad.com/fiction/180775/rick-the-wanderer) | Coswick | complete | 0 | 8 | 1 | 0.00 | 39.30 |
-| [Lunar Observations](https://www.royalroad.com/fiction/180774/lunar-observations) | Catsenti | complete | 0 | 6 | 1 | 0.00 | 35.19 |
-| [A Fall of Gods](https://www.royalroad.com/fiction/180773/a-fall-of-gods) | Allie_Mersel | complete | 0 | 5 | 1 | 0.00 | 32.58 |
-| [Silent Reset](https://www.royalroad.com/fiction/180772/silent-reset) | Edge Sharp | complete | 0 | 6 | 1 | 0.00 | 35.19 |
-| [Zagor Mariell: Chronicles of the Unchosen](https://www.royalroad.com/fiction/180771/zagor-mariell-chronicles-of-the-unchosen) | Zerreda Mariell | complete | 0 | 7 | 1 | 0.00 | 37.19 |
-| [THE WORLD: THE COSMOS-ANCHOR](https://www.royalroad.com/fiction/180770/the-world-the-cosmos-anchor) | MEDO1222 | complete | 0 | 6 | 1 | 0.00 | 35.19 |
-| [Blueprints for a Fulfilling Life: An Engineer in Another World](https://www.royalroad.com/fiction/180769/blueprints-for-a-fulfilling-life-an-engineer-in) | Blindout | complete | 0 | 7 | 1 | 0.00 | 37.19 |
-| [Бункер](https://www.royalroad.com/fiction/180768/bunker) | Urban Pacifist | complete | 0 | 4 | 1 | 0.00 | 31.53 |
-| [Happily Never After](https://www.royalroad.com/fiction/180767/happily-never-after) | EarthWyrmGym | complete | 0 | 4 | 1 | 0.00 | 31.53 |
-| [Burning away amongst the tea leaves](https://www.royalroad.com/fiction/180766/burning-away-amongst-the-tea-leaves) | TapestryOfAlktraz | complete | 0 | 5 | 1 | 0.00 | 32.58 |
-| [Broker: The Chained Dragon](https://www.royalroad.com/fiction/180765/broker-the-chained-dragon) | YOU-niverse | complete | 0 | 11 | 1 | 0.00 | 45.67 |
-| [Zombies of the Three Kingdoms](https://www.royalroad.com/fiction/180764/zombies-of-the-three-kingdoms) | jasperyuan | complete | 0 | 11 | 1 | 0.00 | 45.67 |
-| [Destiny: Nightfall](https://www.royalroad.com/fiction/180763/destiny-nightfall) | OrionDeity | complete | 0 | 8 | 1 | 0.00 | 39.30 |
-| [Kagero: Rise Of The Cursed One](https://www.royalroad.com/fiction/180762/kagero-rise-of-the-cursed-one) | S AMY | complete | 0 | 8 | 1 | 0.00 | 39.30 |
-| [I Clicked the Link](https://www.royalroad.com/fiction/180761/i-clicked-the-link) | Gylden K. | complete | 0 | 13 | 1 | 0.00 | 48.73 |
-| [Life Record](https://www.royalroad.com/fiction/180760/life-record) | Mariana Hdz | complete | 0 | 9 | 1 | 0.00 | 41.51 |
-| [The Pretentious Cultivator](https://www.royalroad.com/fiction/180759/the-pretentious-cultivator) | Rayne Avery | complete | 0 | 12 | 1 | 0.00 | 47.50 |
+| [Where the Light Doesn't Reach](https://www.royalroad.com/fiction/180819/where-the-light-doesnt-reach) | GooseLucky | complete | 0 | 2 | 1 | 0.00 | 27.03 |
+| [The Fallen Star from the Fallen World](https://www.royalroad.com/fiction/180798/the-fallen-star-from-the-fallen-world) | Cruzixs | complete | 1 | 8 | 1 | 125.00 | 80.74 |
+| [Fusion Era I : The Magic Exchange Student](https://www.royalroad.com/fiction/180797/fusion-era-i-the-magic-exchange-student) | LeonardoYang | complete | 0 | 80 | 10 | 0.00 | 49.40 |
+| [University's Misfit](https://www.royalroad.com/fiction/180796/universitys-misfit) | Xzeen | complete | 0 | 10 | 1 | 0.00 | 45.82 |
+| [Living Her Best Afterlife](https://www.royalroad.com/fiction/180795/living-her-best-afterlife) | R. Pericles | complete | 1 | 7 | 1 | 142.86 | 78.87 |
+| [Danny Phantom: Split Soul Au](https://www.royalroad.com/fiction/180794/danny-phantom-split-soul-au) | TheOneWho | complete | 0 | 5 | 1 | 0.00 | 34.58 |
+| [The End of the Universe](https://www.royalroad.com/fiction/180793/the-end-of-the-universe) | Sareetaa | complete | 0 | 5 | 1 | 0.00 | 34.58 |
+| [The Verse Chronicles](https://www.royalroad.com/fiction/180792/the-verse-chronicles) | J M Young | complete | 0 | 5 | 1 | 0.00 | 34.58 |
+| [Unfinished](https://www.royalroad.com/fiction/180791/unfinished) | very good writer | complete | 0 | 5 | 1 | 0.00 | 34.58 |
+| [Fuego Bajo Nieve [Spanish]](https://www.royalroad.com/fiction/180790/fuego-bajo-nieve-spanish) | iPomelo | complete | 0 | 5 | 1 | 0.00 | 34.58 |
+| [Reverse Thriller](https://www.royalroad.com/fiction/180789/reverse-thriller) | Fukroda_taki | complete | 0 | 5 | 1 | 0.00 | 34.58 |
+| [Pi: Why I hate it.](https://www.royalroad.com/fiction/180788/pi-why-i-hate-it) | recursiveDisconnect | complete | 0 | 5 | 1 | 0.00 | 34.58 |
+| [Iconic - Ionic (Book 1)](https://www.royalroad.com/fiction/180787/iconic-ionic-book-1) | Bergand | complete | 0 | 23 | 3 | 0.00 | 47.31 |
+| [Futureman in Another World](https://www.royalroad.com/fiction/180785/futureman-in-another-world) | Kastiel98 | complete | 0 | 6 | 1 | 0.00 | 37.22 |
+| [The Thirteenth Month of Blackvale](https://www.royalroad.com/fiction/180784/the-thirteenth-month-of-blackvale) | caterpillar | complete | 0 | 7 | 1 | 0.00 | 39.33 |
+| [Eranthis](https://www.royalroad.com/fiction/180783/eranthis) | Jack Bean | complete | 0 | 6 | 1 | 0.00 | 37.22 |
+| [Tower Vr Chicken](https://www.royalroad.com/fiction/180782/tower-vr-chicken) | PuffinMuffin | complete | 0 | 7 | 1 | 0.00 | 39.33 |
+| [Expedition protocol](https://www.royalroad.com/fiction/180781/expedition-protocol) | jelly-rig | complete | 0 | 7 | 1 | 0.00 | 39.33 |
+| [Chalk & Runes [OP Archmage & Academy LitRPG)](https://www.royalroad.com/fiction/180780/chalk-runes-op-archmage-academy-litrpg) | hayyanu | complete | 0 | 9 | 1 | 0.00 | 43.71 |
+| [The Observer](https://www.royalroad.com/fiction/180779/the-observer) | Word Smith | complete | 0 | 24 | 2 | 0.00 | 52.92 |
+| [The Tithe](https://www.royalroad.com/fiction/180778/the-tithe) | Hermann Kruger | complete | 0 | 109 | 12 | 0.00 | 51.08 |
 
 ## Current-batch medians
 
@@ -40,41 +42,41 @@
 - `followers_per_1000_views`: **0.00**
 - `followers_per_chapter`: **0.00**
 - `views_per_chapter`: **7.00**
-- `launch_index`: **37.19**
+- `launch_index`: **39.33**
 
 ## Rolling 168h leaderboard
 
 | # | Novel | Age h | Followers | Views | F/day | Views/day | Conversion | Index | RS |
 |---:|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| 1 | [Awakening in the Altered World](https://www.royalroad.com/fiction/180704/awakening-in-the-altered-world) | 21.29 | 73 | 543 | 82.28 | 612.05 | 134.44 | 99.37 | — |
-| 2 | [One Glitch From Disaster — a LitRPG Isekai Adventure](https://www.royalroad.com/fiction/180686/one-glitch-from-disaster-a-litrpg-isekai-adventure) | 21.97 | 20 | 148 | 21.84 | 161.65 | 135.14 | 97.82 | — |
-| 3 | [The Red Stone](https://www.royalroad.com/fiction/180662/the-red-stone) | 24.25 | 6 | 112 | 5.94 | 110.82 | 53.57 | 94.90 | — |
-| 4 | [PHOENIX – Book One: Beneath the Wall](https://www.royalroad.com/fiction/180752/phoenix-book-one-beneath-the-wall) | 10.28 | 5 | 168 | 11.67 | 392.22 | 29.76 | 92.12 | — |
-| 5 | [Anastasia's Keystone [Living System LitRPG Lite]](https://www.royalroad.com/fiction/180659/anastasias-keystone-living-system-litrpg-lite) | 22.51 | 3 | 92 | 3.20 | 98.11 | 32.61 | 91.00 | — |
-| 6 | [—](https://www.royalroad.com/fiction/180744/requiem-for-the-rain-the-silent-storm) | 10.29 | 2 | 20 | 4.67 | 46.67 | 100.00 | 90.89 | — |
-| 7 | [The Soulweaver - Stealing Souls to Cultivate [LitRPG/ Dungeon Crawler]](https://www.royalroad.com/fiction/180712/the-soulweaver-stealing-souls-to-cultivate-litrpg) | 18.16 | 8 | 256 | 10.58 | 338.41 | 31.25 | 90.86 | — |
-| 8 | [Misfiled Between Worlds](https://www.royalroad.com/fiction/180698/misfiled-between-worlds) | 21.18 | 4 | 37 | 4.53 | 41.93 | 108.11 | 90.12 | — |
-| 9 | [BrautzHeim-The dawn of Empire](https://www.royalroad.com/fiction/180572/brautzheim-the-dawn-of-empire) | 17.32 | 2 | 42 | 2.77 | 58.21 | 47.62 | 89.82 | — |
-| 10 | [Dungeon Exploiter](https://www.royalroad.com/fiction/180596/dungeon-exploiter) | 31.10 | 4 | 595 | 3.09 | 459.16 | 6.72 | 88.27 | — |
-| 11 | [The Crimson Rose](https://www.royalroad.com/fiction/180559/the-crimson-rose) | 19.21 | 2 | 76 | 2.50 | 94.95 | 26.32 | 88.27 | — |
-| 12 | [Beneath the Golden Beam [Progression Fantasy]](https://www.royalroad.com/fiction/180613/beneath-the-golden-beam-progression-fantasy) | 19.80 | 4 | 112 | 4.85 | 135.72 | 35.71 | 87.34 | — |
-| 13 | [The Girl Who Stole the Gods](https://www.royalroad.com/fiction/180691/the-girl-who-stole-the-gods) | 22.07 | 2 | 77 | 2.17 | 83.72 | 25.97 | 86.39 | — |
-| 14 | [Fae Marked Mates](https://www.royalroad.com/fiction/180595/fae-marked-mates) | 12.35 | 1 | 33 | 1.94 | 64.14 | 30.30 | 86.20 | — |
-| 15 | [At the Altar of Dragons](https://www.royalroad.com/fiction/180628/at-the-altar-of-dragons) | 5.90 | 2 | 26 | 8.00 | 104.00 | 76.92 | 85.87 | — |
-| 16 | [Vanguard Of The Void](https://www.royalroad.com/fiction/180554/vanguard-of-the-void) | 30.21 | 3 | 44 | 2.38 | 34.96 | 68.18 | 84.89 | — |
-| 17 | [The Composer's Emergency Debut Protocol](https://www.royalroad.com/fiction/180630/the-composers-emergency-debut-protocol) | 15.84 | 1 | 72 | 1.52 | 109.10 | 13.89 | 84.79 | — |
-| 18 | [The Exiled Prince's Kingdom Evolution](https://www.royalroad.com/fiction/180658/the-exiled-princes-kingdom-evolution) | 25.81 | 2 | 73 | 1.86 | 67.89 | 27.40 | 84.77 | — |
-| 19 | [Angel & Demon: The Inquisition](https://www.royalroad.com/fiction/180710/angel-demon-the-inquisition) | 10.29 | 1 | 15 | 2.33 | 35.00 | 66.67 | 84.57 | — |
-| 20 | [The Young Miss Who Refused To Die](https://www.royalroad.com/fiction/180633/the-young-miss-who-refused-to-die) | 25.03 | 2 | 44 | 1.92 | 42.18 | 45.45 | 83.72 | — |
+| 1 | [Awakening in the Altered World](https://www.royalroad.com/fiction/180704/awakening-in-the-altered-world) | 24.13 | 73 | 543 | 72.62 | 540.18 | 134.44 | 99.35 | — |
+| 2 | [One Glitch From Disaster — a LitRPG Isekai Adventure](https://www.royalroad.com/fiction/180686/one-glitch-from-disaster-a-litrpg-isekai-adventure) | 24.81 | 20 | 148 | 19.35 | 143.19 | 135.14 | 97.61 | — |
+| 3 | [The Iron Lord](https://www.royalroad.com/fiction/180535/the-iron-lord) | 37.64 | 24 | 317 | 15.30 | 202.12 | 75.71 | 96.83 | — |
+| 4 | [The Red Stone](https://www.royalroad.com/fiction/180662/the-red-stone) | 27.09 | 6 | 112 | 5.32 | 99.23 | 53.57 | 94.68 | — |
+| 5 | [The Apex Evolution](https://www.royalroad.com/fiction/180540/the-apex-evolution) | 38.22 | 7 | 104 | 4.40 | 65.31 | 67.31 | 93.36 | — |
+| 6 | [PHOENIX – Book One: Beneath the Wall](https://www.royalroad.com/fiction/180752/phoenix-book-one-beneath-the-wall) | 13.11 | 5 | 168 | 9.15 | 307.49 | 29.76 | 91.81 | — |
+| 7 | [The Soulweaver - Stealing Souls to Cultivate [LitRPG/ Dungeon Crawler]](https://www.royalroad.com/fiction/180712/the-soulweaver-stealing-souls-to-cultivate-litrpg) | 20.99 | 8 | 256 | 9.15 | 292.74 | 31.25 | 90.73 | — |
+| 8 | [Anastasia's Keystone [Living System LitRPG Lite]](https://www.royalroad.com/fiction/180659/anastasias-keystone-living-system-litrpg-lite) | 25.34 | 3 | 92 | 2.84 | 87.14 | 32.61 | 90.47 | — |
+| 9 | [Misfiled Between Worlds](https://www.royalroad.com/fiction/180698/misfiled-between-worlds) | 24.01 | 4 | 37 | 4.00 | 36.98 | 108.11 | 90.20 | — |
+| 10 | [—](https://www.royalroad.com/fiction/180744/requiem-for-the-rain-the-silent-storm) | 13.12 | 2 | 20 | 3.66 | 36.59 | 100.00 | 89.75 | — |
+| 11 | [BrautzHeim-The dawn of Empire](https://www.royalroad.com/fiction/180572/brautzheim-the-dawn-of-empire) | 20.15 | 2 | 42 | 2.38 | 50.02 | 47.62 | 89.47 | — |
+| 12 | [Dungeon Exploiter](https://www.royalroad.com/fiction/180596/dungeon-exploiter) | 33.93 | 4 | 595 | 2.83 | 420.83 | 6.72 | 88.52 | — |
+| 13 | [The Crimson Rose](https://www.royalroad.com/fiction/180559/the-crimson-rose) | 22.04 | 2 | 76 | 2.18 | 82.75 | 26.32 | 87.80 | — |
+| 14 | [Beneath the Golden Beam [Progression Fantasy]](https://www.royalroad.com/fiction/180613/beneath-the-golden-beam-progression-fantasy) | 22.64 | 4 | 112 | 4.24 | 118.74 | 35.71 | 87.65 | — |
+| 15 | [The Girl Who Stole the Gods](https://www.royalroad.com/fiction/180691/the-girl-who-stole-the-gods) | 24.91 | 2 | 77 | 1.93 | 74.20 | 25.97 | 87.32 | — |
+| 16 | [At the Altar of Dragons](https://www.royalroad.com/fiction/180628/at-the-altar-of-dragons) | 8.73 | 2 | 26 | 5.50 | 71.47 | 76.92 | 85.69 | — |
+| 17 | [Fae Marked Mates](https://www.royalroad.com/fiction/180595/fae-marked-mates) | 15.18 | 1 | 33 | 1.58 | 52.17 | 30.30 | 85.69 | — |
+| 18 | [The Exiled Prince's Kingdom Evolution](https://www.royalroad.com/fiction/180658/the-exiled-princes-kingdom-evolution) | 28.64 | 2 | 73 | 1.68 | 61.17 | 27.40 | 85.39 | — |
+| 19 | [The Composer's Emergency Debut Protocol](https://www.royalroad.com/fiction/180630/the-composers-emergency-debut-protocol) | 18.67 | 1 | 72 | 1.29 | 92.55 | 13.89 | 85.19 | — |
+| 20 | [Vanguard Of The Void](https://www.royalroad.com/fiction/180554/vanguard-of-the-void) | 33.04 | 3 | 44 | 2.18 | 31.96 | 68.18 | 84.62 | — |
 
 ## Leaders by dimension
 
-- **overall_launch_index**: Awakening in the Altered World — `launch_index=99.37`
+- **overall_launch_index**: Awakening in the Altered World — `launch_index=99.35`
 - **followers**: Awakening in the Altered World — `followers=73`
 - **views**: Dungeon Exploiter — `total_views=595`
 - **conversion**: The Spirit Smith [Isekai LitRPG | Crafting | Magic | Spirit Tamer] — `followers_per_1000_views=333.33`
-- **follower_momentum**: insufficient data
-- **view_momentum**: insufficient data
+- **follower_momentum**: The Dead Arrive At Dawn — `follower_growth_per_day=0.00`
+- **view_momentum**: The Dead Arrive At Dawn — `view_growth_per_day=0.00`
 - **best_current_rs_rank**: insufficient data
 
 ## Data-quality exceptions
@@ -82,24 +84,6 @@
 - `180563` **The Dead Arrive At Dawn** — partial; availability=available; HTTP=200; next retry=—
 - `180629` **** — unavailable; availability=unavailable; HTTP=404; next retry=2026-07-23T17:48:36Z
 - `180611` **** — unavailable; availability=unavailable; HTTP=404; next retry=2026-07-23T17:48:36Z
-- `180550` **** — missing; availability=unknown; HTTP=—; next retry=—
-- `180549` **** — missing; availability=unknown; HTTP=—; next retry=—
-- `180548` **** — missing; availability=unknown; HTTP=—; next retry=—
-- `180547` **** — missing; availability=unknown; HTTP=—; next retry=—
-- `180546` **** — missing; availability=unknown; HTTP=—; next retry=—
-- `180545` **** — missing; availability=unknown; HTTP=—; next retry=—
-- `180544` **** — missing; availability=unknown; HTTP=—; next retry=—
-- `180543` **** — missing; availability=unknown; HTTP=—; next retry=—
-- `180542` **** — missing; availability=unknown; HTTP=—; next retry=—
-- `180541` **** — missing; availability=unknown; HTTP=—; next retry=—
-- `180540` **** — missing; availability=unknown; HTTP=—; next retry=—
-- `180539` **** — missing; availability=unknown; HTTP=—; next retry=—
-- `180538` **** — missing; availability=unknown; HTTP=—; next retry=—
-- `180537` **** — missing; availability=unknown; HTTP=—; next retry=—
-- `180536` **** — missing; availability=unknown; HTTP=—; next retry=—
-- `180535` **** — missing; availability=unknown; HTTP=—; next retry=—
-- `180534` **** — missing; availability=unknown; HTTP=—; next retry=—
-- `180533` **** — missing; availability=unknown; HTTP=—; next retry=—
 - `180531` **** — missing; availability=unknown; HTTP=—; next retry=—
 - `180530` **** — missing; availability=unknown; HTTP=—; next retry=—
 - `180529` **** — missing; availability=unknown; HTTP=—; next retry=—
