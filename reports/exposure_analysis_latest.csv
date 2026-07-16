@@ -1,41 +1,80 @@
 source_name,fiction_id,title,author,url,entry_lower_utc,first_seen_utc,last_seen_utc,exit_upper_utc,active_at_window_end,sample_count,best_rank,median_rank,residence_lower_minutes,residence_upper_minutes,residence_estimated_minutes,position_weighted_minutes,entry_hour_utc
-latest_updates_live,173628,,,https://www.royalroad.com/fiction/173628/high-school-welcome-to-heaven-in-hell,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,1,1,0.0,,7.5,15.0,20
-latest_updates_live,179970,,,https://www.royalroad.com/fiction/179970/beneath-his-frozen-heart,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,2,2,0.0,,7.5,9.464,20
-latest_updates_live,180786,,,https://www.royalroad.com/fiction/180786/crossover-cruise-lines,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,3,3,0.0,,7.5,7.5,20
-latest_updates_live,162904,,,https://www.royalroad.com/fiction/162904/my-girlfriend-is-santa-claus-together-we-must,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,4,4,0.0,,7.5,6.46,20
-latest_updates_live,152818,,,https://www.royalroad.com/fiction/152818/where-the-sky-broke,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,5,5,0.0,,7.5,5.803,20
-latest_updates_live,177835,,,https://www.royalroad.com/fiction/177835/the-scentwright-of-loam-citadel,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,6,6,0.0,,7.5,5.343,20
-latest_updates_live,168645,,,https://www.royalroad.com/fiction/168645/exploit-hero-physics-accurate-magic,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,7,7,0.0,,7.5,5.0,20
-latest_updates_live,179275,,,https://www.royalroad.com/fiction/179275/the-ones-left-outside-a-demon-virus-bunker-revolution,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,8,8,0.0,,7.5,4.732,20
-latest_updates_live,177685,,,https://www.royalroad.com/fiction/177685/paco-slays-a-dragon,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,9,9,0.0,,7.5,4.515,20
-latest_updates_live,122374,,,https://www.royalroad.com/fiction/122374/stars-dancing-telepathypsychicsromance,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,10,10,0.0,,7.5,4.336,20
-latest_updates_live,142833,,,https://www.royalroad.com/fiction/142833/seventh-vol-1-complete-tragic-yuri-happy-ending,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,11,11,0.0,,7.5,4.184,20
-latest_updates_live,155085,,,https://www.royalroad.com/fiction/155085/goddess-tricked-me-into-saving-her-world,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,12,12,0.0,,7.5,4.054,20
-latest_updates_live,179550,,,https://www.royalroad.com/fiction/179550/a-proper-omega,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,13,13,0.0,,7.5,3.94,20
-latest_updates_live,168365,,,https://www.royalroad.com/fiction/168365/i-refuse-to-die-looking-ugly,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,14,14,0.0,,7.5,3.839,20
-latest_updates_live,169306,,,https://www.royalroad.com/fiction/169306/ashes-to-empathy,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,15,15,0.0,,7.5,3.75,20
-latest_updates_live,159931,,,https://www.royalroad.com/fiction/159931/game-over-book-1-overworld,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,16,16,0.0,,7.5,3.67,20
-latest_updates_live,173952,,KSH,https://www.royalroad.com/fiction/173952/arsenal-mage-why-does-every-weapon-give-me-a-new,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,17,17,0.0,,7.5,3.597,20
-latest_updates_live,171123,,Josh Shoniix,https://www.royalroad.com/fiction/171123/i-made-a-railgun-with-lightning-magic-litrpg-op,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,18,18,0.0,,7.5,3.531,20
-latest_updates_live,110816,,,https://www.royalroad.com/fiction/110816/infinity-reborn,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,19,19,0.0,,7.5,3.471,20
-latest_updates_live,177940,,,https://www.royalroad.com/fiction/177940/the-viscountess-is-clever-romancekingdom-building,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,20,20,0.0,,7.5,3.415,20
-newest_live,180818,,,https://www.royalroad.com/fiction/180818/the-future-written-in-blood,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,1,1,0.0,,7.5,15.0,20
-newest_live,180817,,,https://www.royalroad.com/fiction/180817/grey-blood-the-zero-bloodline,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,2,2,0.0,,7.5,9.464,20
-newest_live,180816,,,https://www.royalroad.com/fiction/180816/jimseung-ui-segye-wonsi-segyee-tteol-eojida-baegsaseum-ui,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,3,3,0.0,,7.5,7.5,20
-newest_live,180815,,,https://www.royalroad.com/fiction/180815/humanity-lives-in-bubbles,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,4,4,0.0,,7.5,6.46,20
-newest_live,180814,,,https://www.royalroad.com/fiction/180814/the-12th-dimension,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,5,5,0.0,,7.5,5.803,20
-newest_live,180813,,,https://www.royalroad.com/fiction/180813/very-ordinary-fantasy-slice-of-life,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,6,6,0.0,,7.5,5.343,20
-newest_live,180812,,,https://www.royalroad.com/fiction/180812/weak-links,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,7,7,0.0,,7.5,5.0,20
-newest_live,180811,,,https://www.royalroad.com/fiction/180811/a-ghost-from-the-cradle-of-terra,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,8,8,0.0,,7.5,4.732,20
-newest_live,180810,,,https://www.royalroad.com/fiction/180810/the-great-overthrow-a-souls-like-litrpg,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,9,9,0.0,,7.5,4.515,20
-newest_live,180809,,,https://www.royalroad.com/fiction/180809/memory-bleed,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,10,10,0.0,,7.5,4.336,20
-newest_live,180808,,,https://www.royalroad.com/fiction/180808/until-the-last-star,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,11,11,0.0,,7.5,4.184,20
-newest_live,180807,,,https://www.royalroad.com/fiction/180807/sentiment-once-written,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,12,12,0.0,,7.5,4.054,20
-newest_live,180806,,,https://www.royalroad.com/fiction/180806/the-spirit-manager-of-jeff,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,13,13,0.0,,7.5,3.94,20
-newest_live,180805,,,https://www.royalroad.com/fiction/180805/the-mediocre-psychic,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,14,14,0.0,,7.5,3.839,20
-newest_live,180804,,,https://www.royalroad.com/fiction/180804/the-veil-of-silent-blades,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,15,15,0.0,,7.5,3.75,20
-newest_live,180803,,,https://www.royalroad.com/fiction/180803/stolen-away-riftwalker,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,16,16,0.0,,7.5,3.67,20
-newest_live,180802,,,https://www.royalroad.com/fiction/180802/wash-after-reading,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,17,17,0.0,,7.5,3.597,20
-newest_live,180801,,,https://www.royalroad.com/fiction/180801/the-long-way-to-truth,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,18,18,0.0,,7.5,3.531,20
-newest_live,180800,,,https://www.royalroad.com/fiction/180800/the-ashes-of-veyr,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,19,19,0.0,,7.5,3.471,20
-newest_live,180799,,,https://www.royalroad.com/fiction/180799/judgement-pewter-dusk,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,,True,1,20,20,0.0,,7.5,3.415,20
+latest_updates_live,177683,,,https://www.royalroad.com/fiction/177683/echoes-of-harmony,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,1,1,0.0,,101.833,203.667,23
+latest_updates_live,180863,,,https://www.royalroad.com/fiction/180863/all-that-is-left,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,2,2,0.0,,101.833,128.499,23
+latest_updates_live,180862,,,https://www.royalroad.com/fiction/180862/la-brasa-interior-espanol,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,4,4,0.0,,101.833,87.714,23
+latest_updates_live,152859,,,https://www.royalroad.com/fiction/152859/the-sixth-campaign,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,5,5,0.0,,101.833,78.789,23
+latest_updates_live,136957,,,https://www.royalroad.com/fiction/136957/after-being-discharged-my-life-changed-completely,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,6,6,0.0,,101.833,72.548,23
+latest_updates_live,180861,,,https://www.royalroad.com/fiction/180861/jaqine-life-is-complicated,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,7,7,0.0,,101.833,67.889,23
+latest_updates_live,180711,,zetsu12,https://www.royalroad.com/fiction/180711/project-paradise-vol-1-the-boss,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,8,8,0.0,,101.833,64.25,23
+latest_updates_live,180860,,,https://www.royalroad.com/fiction/180860/the-guardians-moment-guardian-book-one,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,9,9,0.0,,101.833,61.31,23
+latest_updates_live,180859,,,https://www.royalroad.com/fiction/180859/fragments-of-a-forgotten-dao,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,10,10,0.0,,101.833,58.873,23
+latest_updates_live,180858,,,https://www.royalroad.com/fiction/180858/cursebound,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,11,11,0.0,,101.833,56.811,23
+latest_updates_live,131030,,,https://www.royalroad.com/fiction/131030/gods-die-in-silence-dark-fantasy-steampunk-isekai,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,12,12,0.0,,101.833,55.039,23
+latest_updates_live,180857,,,https://www.royalroad.com/fiction/180857/the-chronicles-of-the-usurper,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,13,13,0.0,,101.833,53.493,23
+latest_updates_live,180856,,,https://www.royalroad.com/fiction/180856/frail-lily-on-the-sidewalk,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,14,14,0.0,,101.833,52.13,23
+latest_updates_live,170755,,,https://www.royalroad.com/fiction/170755/gacha-fugitive-survival-gamelit,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,15,15,0.0,,101.833,50.917,23
+latest_updates_live,136085,,,https://www.royalroad.com/fiction/136085/factor-gravity,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,16,16,0.0,,101.833,49.827,23
+latest_updates_live,169596,,NewDay365,https://www.royalroad.com/fiction/169596/sarah-smith-master-of-illusions-pokemon-au,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,17,17,0.0,,101.833,48.842,23
+latest_updates_live,180855,,,https://www.royalroad.com/fiction/180855/game-over-kira,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,18,18,0.0,,101.833,47.945,23
+latest_updates_live,119548,,,https://www.royalroad.com/fiction/119548/hide-and-seek,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,19,19,0.0,,101.833,47.124,23
+latest_updates_live,176874,,,https://www.royalroad.com/fiction/176874/dawnshipper-epic-progression-fantasy-magic-system,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,20,20,0.0,,101.833,46.369,23
+latest_updates_live,173628,,,https://www.royalroad.com/fiction/173628/high-school-welcome-to-heaven-in-hell,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,1,1,0.0,203.667,101.833,203.667,20
+latest_updates_live,179970,,,https://www.royalroad.com/fiction/179970/beneath-his-frozen-heart,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,2,2,0.0,203.667,101.833,128.499,20
+latest_updates_live,162904,,,https://www.royalroad.com/fiction/162904/my-girlfriend-is-santa-claus-together-we-must,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,4,4,0.0,203.667,101.833,87.714,20
+latest_updates_live,152818,,,https://www.royalroad.com/fiction/152818/where-the-sky-broke,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,5,5,0.0,203.667,101.833,78.789,20
+latest_updates_live,177835,,,https://www.royalroad.com/fiction/177835/the-scentwright-of-loam-citadel,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,6,6,0.0,203.667,101.833,72.548,20
+latest_updates_live,168645,,,https://www.royalroad.com/fiction/168645/exploit-hero-physics-accurate-magic,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,7,7,0.0,203.667,101.833,67.889,20
+latest_updates_live,179275,,,https://www.royalroad.com/fiction/179275/the-ones-left-outside-a-demon-virus-bunker-revolution,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,8,8,0.0,203.667,101.833,64.25,20
+latest_updates_live,177685,,,https://www.royalroad.com/fiction/177685/paco-slays-a-dragon,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,9,9,0.0,203.667,101.833,61.31,20
+latest_updates_live,122374,,,https://www.royalroad.com/fiction/122374/stars-dancing-telepathypsychicsromance,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,10,10,0.0,203.667,101.833,58.873,20
+latest_updates_live,142833,,,https://www.royalroad.com/fiction/142833/seventh-vol-1-complete-tragic-yuri-happy-ending,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,11,11,0.0,203.667,101.833,56.811,20
+latest_updates_live,155085,,,https://www.royalroad.com/fiction/155085/goddess-tricked-me-into-saving-her-world,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,12,12,0.0,203.667,101.833,55.039,20
+latest_updates_live,179550,,,https://www.royalroad.com/fiction/179550/a-proper-omega,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,13,13,0.0,203.667,101.833,53.493,20
+latest_updates_live,168365,,,https://www.royalroad.com/fiction/168365/i-refuse-to-die-looking-ugly,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,14,14,0.0,203.667,101.833,52.13,20
+latest_updates_live,169306,,,https://www.royalroad.com/fiction/169306/ashes-to-empathy,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,15,15,0.0,203.667,101.833,50.917,20
+latest_updates_live,159931,,,https://www.royalroad.com/fiction/159931/game-over-book-1-overworld,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,16,16,0.0,203.667,101.833,49.827,20
+latest_updates_live,173952,,KSH,https://www.royalroad.com/fiction/173952/arsenal-mage-why-does-every-weapon-give-me-a-new,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,17,17,0.0,203.667,101.833,48.842,20
+latest_updates_live,171123,,Josh Shoniix,https://www.royalroad.com/fiction/171123/i-made-a-railgun-with-lightning-magic-litrpg-op,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,18,18,0.0,203.667,101.833,47.945,20
+latest_updates_live,110816,,,https://www.royalroad.com/fiction/110816/infinity-reborn,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,19,19,0.0,203.667,101.833,47.124,20
+latest_updates_live,177940,,,https://www.royalroad.com/fiction/177940/the-viscountess-is-clever-romancekingdom-building,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,20,20,0.0,203.667,101.833,46.369,20
+latest_updates_live,180786,,Matt996,https://www.royalroad.com/fiction/180786/crossover-cruise-lines,,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,,True,2,3,3.0,203.667,,305.5,203.667,20
+newest_live,180863,,,https://www.royalroad.com/fiction/180863/all-that-is-left,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,1,1,0.0,,101.833,203.667,23
+newest_live,180862,,,https://www.royalroad.com/fiction/180862/la-brasa-interior-espanol,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,2,2,0.0,,101.833,128.499,23
+newest_live,180861,,,https://www.royalroad.com/fiction/180861/jaqine-life-is-complicated,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,3,3,0.0,,101.833,101.833,23
+newest_live,180860,,,https://www.royalroad.com/fiction/180860/the-guardians-moment-guardian-book-one,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,4,4,0.0,,101.833,87.714,23
+newest_live,180859,,,https://www.royalroad.com/fiction/180859/fragments-of-a-forgotten-dao,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,5,5,0.0,,101.833,78.789,23
+newest_live,180858,,,https://www.royalroad.com/fiction/180858/cursebound,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,6,6,0.0,,101.833,72.548,23
+newest_live,180857,,,https://www.royalroad.com/fiction/180857/the-chronicles-of-the-usurper,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,7,7,0.0,,101.833,67.889,23
+newest_live,180856,,,https://www.royalroad.com/fiction/180856/frail-lily-on-the-sidewalk,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,8,8,0.0,,101.833,64.25,23
+newest_live,180855,,,https://www.royalroad.com/fiction/180855/game-over-kira,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,9,9,0.0,,101.833,61.31,23
+newest_live,180854,,,https://www.royalroad.com/fiction/180854/unnecessaries,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,10,10,0.0,,101.833,58.873,23
+newest_live,180853,,,https://www.royalroad.com/fiction/180853/to-another-worlad,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,11,11,0.0,,101.833,56.811,23
+newest_live,180852,,,https://www.royalroad.com/fiction/180852/opening-reward-max-level-divine-art,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,12,12,0.0,,101.833,55.039,23
+newest_live,180851,,,https://www.royalroad.com/fiction/180851/supreme-father-system,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,13,13,0.0,,101.833,53.493,23
+newest_live,180850,,,https://www.royalroad.com/fiction/180850/the-cultivation-engineer-from-a-broken-furnace,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,14,14,0.0,,101.833,52.13,23
+newest_live,180849,,,https://www.royalroad.com/fiction/180849/reconnect,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,15,15,0.0,,101.833,50.917,23
+newest_live,180848,,,https://www.royalroad.com/fiction/180848/legend-of-the-golden-princess,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,16,16,0.0,,101.833,49.827,23
+newest_live,180847,,,https://www.royalroad.com/fiction/180847/deep-love-with-a-stranger,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,17,17,0.0,,101.833,48.842,23
+newest_live,180846,,,https://www.royalroad.com/fiction/180846/beneath-the-silver-mask-tale-of-vaishing-gala,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,18,18,0.0,,101.833,47.945,23
+newest_live,180845,,,https://www.royalroad.com/fiction/180845/faza-back-in-time,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,19,19,0.0,,101.833,47.124,23
+newest_live,180844,,,https://www.royalroad.com/fiction/180844/beck,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,2026-07-16T23:38:15Z,,True,1,20,20,0.0,,101.833,46.369,23
+newest_live,180818,The Future Written in Blood,Mehmona Jabeen,https://www.royalroad.com/fiction/180818/the-future-written-in-blood,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,1,1,0.0,203.667,101.833,203.667,20
+newest_live,180817,Grey Blood: The Zero Bloodline,Neon Raven,https://www.royalroad.com/fiction/180817/grey-blood-the-zero-bloodline,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,2,2,0.0,203.667,101.833,128.499,20
+newest_live,180816,Jimseung-ui segye • Wonsi segyee tteol-eojida baegsaseum-ui nag-in I [Korean],Pandora Luz De Luna,https://www.royalroad.com/fiction/180816/jimseung-ui-segye-wonsi-segyee-tteol-eojida-baegsaseum-ui,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,3,3,0.0,203.667,101.833,101.833,20
+newest_live,180815,Humanity Lives in Bubbles,BadRiddle,https://www.royalroad.com/fiction/180815/humanity-lives-in-bubbles,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,4,4,0.0,203.667,101.833,87.714,20
+newest_live,180814,The 12th Dimension,Rudr bhatnagar,https://www.royalroad.com/fiction/180814/the-12th-dimension,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,5,5,0.0,203.667,101.833,78.789,20
+newest_live,180813,Very Ordinary Fantasy Slice of Life,WritingMan,https://www.royalroad.com/fiction/180813/very-ordinary-fantasy-slice-of-life,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,6,6,0.0,203.667,101.833,72.548,20
+newest_live,180812,Weak Links,Sinful Succubus,https://www.royalroad.com/fiction/180812/weak-links,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,7,7,0.0,203.667,101.833,67.889,20
+newest_live,180811,A Ghost from the Cradle of Terra,Scriptor Et Fabulator,https://www.royalroad.com/fiction/180811/a-ghost-from-the-cradle-of-terra,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,8,8,0.0,203.667,101.833,64.25,20
+newest_live,180810,The Great Overthrow [A Souls-like LitRPG],o7ariri,https://www.royalroad.com/fiction/180810/the-great-overthrow-a-souls-like-litrpg,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,9,9,0.0,203.667,101.833,61.31,20
+newest_live,180809,MEMORY BLEED,dane900,https://www.royalroad.com/fiction/180809/memory-bleed,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,10,10,0.0,203.667,101.833,58.873,20
+newest_live,180808,Until The Last Star,dane900,https://www.royalroad.com/fiction/180808/until-the-last-star,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,11,11,0.0,203.667,101.833,56.811,20
+newest_live,180807,"Sentiment, once written",Duntres,https://www.royalroad.com/fiction/180807/sentiment-once-written,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,12,12,0.0,203.667,101.833,55.039,20
+newest_live,180806,The Spirit Manager of Jeff,PJCana,https://www.royalroad.com/fiction/180806/the-spirit-manager-of-jeff,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,13,13,0.0,203.667,101.833,53.493,20
+newest_live,180805,The Mediocre Psychic,allseingfool_7,https://www.royalroad.com/fiction/180805/the-mediocre-psychic,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,14,14,0.0,203.667,101.833,52.13,20
+newest_live,180804,The Veil of Silent Blades,CassiniAura,https://www.royalroad.com/fiction/180804/the-veil-of-silent-blades,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,15,15,0.0,203.667,101.833,50.917,20
+newest_live,180803,Stolen Away: Riftwalker,R3WORK,https://www.royalroad.com/fiction/180803/stolen-away-riftwalker,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,16,16,0.0,203.667,101.833,49.827,20
+newest_live,180802,Wash After Reading,Jasmine Olivas,https://www.royalroad.com/fiction/180802/wash-after-reading,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,17,17,0.0,203.667,101.833,48.842,20
+newest_live,180801,The Long way to truth,Brian242002,https://www.royalroad.com/fiction/180801/the-long-way-to-truth,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,18,18,0.0,203.667,101.833,47.945,20
+newest_live,180800,The Ashes of Veyr,A. Veyr Nox,https://www.royalroad.com/fiction/180800/the-ashes-of-veyr,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,19,19,0.0,203.667,101.833,47.124,20
+newest_live,180799,Judgement: Pewter Dusk,Ilya,https://www.royalroad.com/fiction/180799/judgement-pewter-dusk,,2026-07-16T20:14:35Z,2026-07-16T20:14:35Z,2026-07-16T23:38:15Z,False,1,20,20,0.0,203.667,101.833,46.369,20
