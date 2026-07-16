@@ -12,6 +12,7 @@ from .exporter import export_archive
 from .exposure import run_exposure_collection, write_exposure_analysis
 from .impression_model import write_impression_report
 from .launch_analysis import write_launch_analysis
+from .longitudinal import run_longitudinal_refresh
 from .queries import diagnostics_seed, fiction_history, latest_source, new_entrants
 from .storage import Storage
 from .validation import validate_latest
@@ -25,6 +26,18 @@ def main() -> None:
     collect = sub.add_parser("collect")
     collect.add_argument("--no-details", action="store_true")
     sub.add_parser("collect-exposure")
+    longitudinal = sub.add_parser("refresh-longitudinal")
+    longitudinal.add_argument(
+        "--max-fictions",
+        type=int,
+        default=None,
+        help="Optional cap; omitted or 0 refreshes the entire tracked cohort.",
+    )
+    longitudinal.add_argument(
+        "--analysis-only",
+        action="store_true",
+        help="Recompute and persist analysis without network detail requests.",
+    )
     sub.add_parser("backfill-catalog")
     sub.add_parser("catalog-status")
     analyze = sub.add_parser("analyze-launches")
@@ -72,6 +85,18 @@ def main() -> None:
         print(
             json.dumps(
                 run_exposure_collection(settings),
+                indent=2,
+                ensure_ascii=False,
+            )
+        )
+    elif args.command == "refresh-longitudinal":
+        print(
+            json.dumps(
+                run_longitudinal_refresh(
+                    settings,
+                    max_fictions=args.max_fictions,
+                    analysis_only=args.analysis_only,
+                ),
                 indent=2,
                 ensure_ascii=False,
             )
