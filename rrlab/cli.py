@@ -8,6 +8,7 @@ from .collector import run_collection
 from .config import SOURCE_MAP, Settings
 from .doctor import print_doctor
 from .exporter import export_archive
+from .exposure import run_exposure_collection, write_exposure_analysis
 from .launch_analysis import write_launch_analysis
 from .queries import diagnostics_seed, fiction_history, latest_source, new_entrants
 from .storage import Storage
@@ -21,11 +22,14 @@ def main() -> None:
     sub.add_parser("init-db")
     collect = sub.add_parser("collect")
     collect.add_argument("--no-details", action="store_true")
+    sub.add_parser("collect-exposure")
     sub.add_parser("backfill-catalog")
     sub.add_parser("catalog-status")
     analyze = sub.add_parser("analyze-launches")
     analyze.add_argument("--run-id", type=int)
     analyze.add_argument("--lookback-hours", type=int, default=168)
+    exposure = sub.add_parser("analyze-exposure")
+    exposure.add_argument("--lookback-hours", type=int, default=168)
     sub.add_parser("export")
     sub.add_parser("validate-latest")
     latest = sub.add_parser("latest")
@@ -53,6 +57,14 @@ def main() -> None:
                 ensure_ascii=False,
             )
         )
+    elif args.command == "collect-exposure":
+        print(
+            json.dumps(
+                run_exposure_collection(settings),
+                indent=2,
+                ensure_ascii=False,
+            )
+        )
     elif args.command == "backfill-catalog":
         print(json.dumps(run_catalog_backfill(settings), indent=2, ensure_ascii=False))
     elif args.command == "catalog-status":
@@ -62,6 +74,13 @@ def main() -> None:
             settings.db_path,
             settings.report_dir,
             args.run_id,
+            lookback_hours=args.lookback_hours,
+        )
+        print(json.dumps(output, indent=2, ensure_ascii=False))
+    elif args.command == "analyze-exposure":
+        output = write_exposure_analysis(
+            settings.db_path,
+            settings.report_dir,
             lookback_hours=args.lookback_hours,
         )
         print(json.dumps(output, indent=2, ensure_ascii=False))
