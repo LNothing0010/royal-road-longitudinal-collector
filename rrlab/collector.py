@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+from collections.abc import Sequence
 from datetime import datetime, timezone
 
 from . import __version__
@@ -16,6 +17,94 @@ from .models import SourceSnapshot
 from .parsers import parse_detail_html, parse_listing_html
 from .storage import Storage
 from .validation import validate_run
+
+
+def _ordered_required_detail_candidates(
+    storage: Storage,
+    fiction_ids: Sequence[str],
+) -> list[dict]:
+    ordered_ids = list(dict.fromkeys(str(fiction_id) for fiction_id in fiction_ids))
+    if not ordered_ids:
+        return []
+
+    placeholders = ",".join("?" for _ in ordered_ids)
+    with storage.connect() as conn:
+        rows = conn.execute(
+            f"""
+            SELECT fiction_id, url, first_seen_utc
+            FROM fiction
+            WHERE fiction_id IN ({placeholders})
+            """,
+            ordered_ids,
+        ).fetchall()
+
+    by_id = {str(row["fiction_id"]): dict(row) for row in rows}
+    return [
+        {
+            **by_id[fiction_id],
+            "priority": 200,
+            "required_initial_detail": True,
+        }
+        for fiction_id in ordered_ids
+        if fiction_id in by_id
+    ]
+
+
+def _build_detail_plan(
+    required_candidates: Sequence[dict],
+    regular_candidates: Sequence[dict],
+    detail_limit: int,
+) -> list[dict]:
+    plan: list[dict] = []
+    seen: set[str] = set()
+
+    for candidate in required_candidates:
+        fiction_id = str(candidate["fiction_id"])
+        if fiction_id in seen:
+            continue
+        plan.append({**candidate, "required_initial_detail": True})
+        seen.add(fiction_id)
+
+    target_count = max(detail_limit, len(plan))
+    for candidate in regular_candidates:
+        if len(plan) >= target_count:
+            break
+        fiction_id = str(candidate["fiction_id"])
+        if fiction_id in seen:
+            continue
+        plan.append({**candidate, "required_initial_detail": False})
+        seen.add(fiction_id)
+
+    return plan
+
+
+def _missing_new_fiction_metrics(
+    storage: Storage,
+    run_id: int,
+    fiction_ids: Sequence[str],
+) -> list[str]:
+    ordered_ids = list(dict.fromkeys(str(fiction_id) for fiction_id in fiction_ids))
+    if not ordered_ids:
+        return []
+
+    placeholders = ",".join("?" for _ in ordered_ids)
+    with storage.connect() as conn:
+        rows = conn.execute(
+            f"""
+            SELECT fiction_id
+            FROM metric_observation
+            WHERE run_id=?
+              AND source_name='fiction_detail'
+              AND fiction_id IN ({placeholders})
+              AND followers IS NOT NULL
+              AND total_views IS NOT NULL
+              AND chapter_count IS NOT NULL
+            """,
+            (run_id, *ordered_ids),
+        ).fetchall()
+
+    covered = {str(row["fiction_id"]) for row in rows}
+    return [fiction_id for fiction_id in ordered_ids if fiction_id not in covered]
 
 
 async def collect(settings: Settings | None = None, enrich_details: bool = True) -> dict:
@@ -71,14 +160,32 @@ async def collect(settings: Settings | None = None, enrich_details: bool = True)
                 storage.persist_source(run_id, empty)
                 source_results.append(empty)
 
+        new_fiction_ids = list(
+            dict.fromkeys(
+                str(fiction_id)
+                for fiction_id in ((frontier_summary or {}).get("new_fiction_ids") or [])
+            )
+        )
         detail_count = 0
+        missing_new_fiction_details: list[str] = []
+
         if enrich_details:
-            candidates = storage.detail_candidates(
+            required_candidates = _ordered_required_detail_candidates(
+                storage,
+                new_fiction_ids,
+            )
+            regular_candidates = storage.detail_candidates(
                 run_id,
-                settings.detail_limit_per_run,
+                settings.detail_limit_per_run + len(required_candidates),
                 settings.detail_refresh_hours,
                 settings.new_fiction_detail_hours,
             )
+            candidates = _build_detail_plan(
+                required_candidates,
+                regular_candidates,
+                settings.detail_limit_per_run,
+            )
+
             for candidate in candidates:
                 try:
                     fetched = await client.get(candidate["url"])
@@ -90,11 +197,20 @@ async def collect(settings: Settings | None = None, enrich_details: bool = True)
                     )
                     detail_count += 1
                 except Exception as exc:
-                    # Detail enrichment is optional. A malformed or temporarily changed
-                    # detail page must not invalidate a complete six-list RS snapshot.
                     detail_warnings.append(
                         f"detail {candidate['fiction_id']}: {type(exc).__name__}: {exc}"
                     )
+
+            missing_new_fiction_details = _missing_new_fiction_metrics(
+                storage,
+                run_id,
+                new_fiction_ids,
+            )
+            if missing_new_fiction_details:
+                source_errors.append(
+                    "newest_detail_coverage: missing core launch metrics for "
+                    + ",".join(missing_new_fiction_details)
+                )
 
         derive_run(settings.db_path, run_id)
         required_sources_complete = all(
@@ -125,6 +241,13 @@ async def collect(settings: Settings | None = None, enrich_details: bool = True)
             ],
             "newest_frontier": frontier_summary,
             "details_enriched": detail_count,
+            "new_fiction_details_expected": len(new_fiction_ids),
+            "new_fiction_details_enriched": (
+                len(new_fiction_ids) - len(missing_new_fiction_details)
+                if enrich_details
+                else 0
+            ),
+            "new_fiction_details_missing": missing_new_fiction_details,
             "errors": source_errors,
             "warnings": detail_warnings,
             "validation_report": str(validation_path),
