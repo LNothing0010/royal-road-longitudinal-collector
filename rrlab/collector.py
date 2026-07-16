@@ -61,7 +61,7 @@ def _ordered_required_detail_candidates(
                       AND mo.total_views IS NOT NULL
                       AND mo.chapter_count IS NOT NULL
                   )
-                ORDER BY f.first_seen_utc ASC, f.fiction_id ASC
+                ORDER BY f.first_seen_utc DESC, f.fiction_id DESC
                 LIMIT ?
                 """,
                 (backlog_limit + len(ordered_ids),),
