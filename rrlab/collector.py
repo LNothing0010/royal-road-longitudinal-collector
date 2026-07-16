@@ -5,6 +5,12 @@ from collections.abc import Sequence
 from datetime import datetime, timezone
 
 from . import __version__
+from .availability import (
+    detail_retry_suppressed_ids,
+    ensure_detail_fetch_state,
+    record_detail_failure,
+    record_detail_success,
+)
 from .catalog import (
     collect_newest_frontier,
     persist_frontier_state,
@@ -13,6 +19,7 @@ from .catalog import (
 from .config import SOURCES, Settings
 from .derive import derive_run
 from .http_source import PublicHtmlClient
+from .launch_analysis import write_launch_analysis
 from .models import SourceSnapshot
 from .parsers import parse_detail_html, parse_listing_html
 from .storage import Storage
@@ -24,6 +31,7 @@ def _ordered_required_detail_candidates(
     fiction_ids: Sequence[str],
     backlog_limit: int,
 ) -> list[dict]:
+    ensure_detail_fetch_state(storage)
     ordered_ids = list(dict.fromkeys(str(fiction_id) for fiction_id in fiction_ids))
     explicit_rows: list[dict] = []
     backlog_rows: list[dict] = []
@@ -51,7 +59,14 @@ def _ordered_required_detail_candidates(
                 """
                 SELECT f.fiction_id, f.url, f.first_seen_utc
                 FROM fiction AS f
-                WHERE f.first_seen_source='newest'
+                WHERE (
+                    f.first_seen_source='newest'
+                    OR EXISTS (
+                      SELECT 1 FROM listing_membership AS newest_membership
+                      WHERE newest_membership.fiction_id=f.fiction_id
+                        AND newest_membership.source_name='newest'
+                    )
+                  )
                   AND NOT EXISTS (
                     SELECT 1
                     FROM metric_observation AS mo
@@ -60,6 +75,16 @@ def _ordered_required_detail_candidates(
                       AND mo.followers IS NOT NULL
                       AND mo.total_views IS NOT NULL
                       AND mo.chapter_count IS NOT NULL
+                  )
+                  AND NOT EXISTS (
+                    SELECT 1
+                    FROM detail_fetch_state AS dfs
+                    WHERE dfs.fiction_id=f.fiction_id
+                      AND dfs.availability='unavailable'
+                      AND (
+                        dfs.next_retry_utc IS NULL
+                        OR julianday(dfs.next_retry_utc)>julianday('now')
+                      )
                   )
                 ORDER BY f.first_seen_utc DESC, f.fiction_id DESC
                 LIMIT ?
@@ -154,11 +179,14 @@ async def collect(settings: Settings | None = None, enrich_details: bool = True)
     timestamp = datetime.now(timezone.utc).replace(microsecond=0)
     storage = Storage(settings.db_path, settings.raw_dir)
     run_id = storage.begin_run(timestamp, __version__)
+    ensure_detail_fetch_state(storage)
     client = PublicHtmlClient(settings)
     source_results: list[SourceSnapshot] = []
     source_errors: list[str] = []
     detail_warnings: list[str] = []
     frontier_summary: dict | None = None
+    launch_analysis_output: dict | None = None
+
     try:
         for spec in SOURCES:
             try:
@@ -186,7 +214,7 @@ async def collect(settings: Settings | None = None, enrich_details: bool = True)
                         fetched.text if settings.save_raw_html else None,
                     )
                 source_results.append(snapshot)
-            except Exception as exc:  # keep the run append-only even if one source fails
+            except Exception as exc:
                 message = f"{spec.name}: {type(exc).__name__}: {exc}"
                 source_errors.append(message)
                 empty = SourceSnapshot(
@@ -210,6 +238,8 @@ async def collect(settings: Settings | None = None, enrich_details: bool = True)
         )
         detail_count = 0
         missing_new_fiction_details: list[str] = []
+        unavailable_required_details: list[str] = []
+        detail_failure_states: list[dict] = []
 
         if enrich_details:
             required_candidates = _ordered_required_detail_candidates(
@@ -223,13 +253,27 @@ async def collect(settings: Settings | None = None, enrich_details: bool = True)
                 settings.detail_refresh_hours,
                 settings.new_fiction_detail_hours,
             )
+            suppressed_regular_ids = detail_retry_suppressed_ids(
+                storage,
+                tuple(str(candidate["fiction_id"]) for candidate in regular_candidates),
+                timestamp,
+            )
+            regular_candidates = [
+                candidate
+                for candidate in regular_candidates
+                if str(candidate["fiction_id"]) not in suppressed_regular_ids
+            ]
             candidates = _build_detail_plan(
                 required_candidates,
                 regular_candidates,
                 settings.detail_limit_per_run,
             )
 
+            required_id_set = {
+                str(candidate["fiction_id"]) for candidate in required_candidates
+            }
             for candidate in candidates:
+                fiction_id = str(candidate["fiction_id"])
                 try:
                     fetched = await client.get(candidate["url"])
                     detail = parse_detail_html(fetched.text, candidate["url"], timestamp)
@@ -238,21 +282,35 @@ async def collect(settings: Settings | None = None, enrich_details: bool = True)
                         detail,
                         fetched.text if settings.save_raw_html else None,
                     )
+                    record_detail_success(storage, fiction_id, timestamp)
                     detail_count += 1
                 except Exception as exc:
+                    state = record_detail_failure(storage, fiction_id, timestamp, exc)
+                    detail_failure_states.append(state)
                     detail_warnings.append(
-                        f"detail {candidate['fiction_id']}: {type(exc).__name__}: {exc}"
+                        f"detail {fiction_id}: {type(exc).__name__}: {exc}"
                     )
+                    if (
+                        fiction_id in required_id_set
+                        and state["availability"] == "unavailable"
+                    ):
+                        unavailable_required_details.append(fiction_id)
 
             required_detail_ids = [
                 str(candidate["fiction_id"])
                 for candidate in required_candidates
             ]
-            missing_required_details = _missing_new_fiction_metrics(
+            raw_missing_required = _missing_new_fiction_metrics(
                 storage,
                 run_id,
                 required_detail_ids,
             )
+            unavailable_set = set(unavailable_required_details)
+            missing_required_details = [
+                fiction_id
+                for fiction_id in raw_missing_required
+                if fiction_id not in unavailable_set
+            ]
             missing_required_set = set(missing_required_details)
             missing_new_fiction_details = [
                 fiction_id
@@ -269,6 +327,17 @@ async def collect(settings: Settings | None = None, enrich_details: bool = True)
             missing_required_details = []
 
         derive_run(settings.db_path, run_id)
+        try:
+            launch_analysis_output = write_launch_analysis(
+                settings.db_path,
+                settings.report_dir,
+                run_id,
+                current_launch_ids=new_fiction_ids,
+                lookback_hours=168,
+            )
+        except Exception as exc:
+            source_errors.append(f"launch_analysis: {type(exc).__name__}: {exc}")
+
         required_sources_complete = all(
             snapshot.complete is not False
             for snapshot in source_results
@@ -283,6 +352,19 @@ async def collect(settings: Settings | None = None, enrich_details: bool = True)
         storage.finish_run(run_id, status, notes)
         validation_path = validate_run(settings.db_path, run_id, settings.report_dir)
         new_fiction_id_set = set(new_fiction_ids)
+        unavailable_set = set(unavailable_required_details)
+        unavailable_new_fictions = [
+            fiction_id for fiction_id in new_fiction_ids if fiction_id in unavailable_set
+        ]
+        analysis_summary = None
+        if launch_analysis_output:
+            report = launch_analysis_output["report"]
+            analysis_summary = {
+                "paths": launch_analysis_output["paths"],
+                "current_batch": report["current_batch"]["summary"],
+                "rolling_cohort": report["rolling_cohort"]["summary"],
+            }
+
         return {
             "run_id": run_id,
             "timestamp_utc": timestamp.isoformat(),
@@ -300,21 +382,31 @@ async def collect(settings: Settings | None = None, enrich_details: bool = True)
             "details_enriched": detail_count,
             "new_fiction_details_expected": len(new_fiction_ids),
             "new_fiction_details_enriched": (
-                len(new_fiction_ids) - len(missing_new_fiction_details)
+                len(new_fiction_ids)
+                - len(missing_new_fiction_details)
+                - len(unavailable_new_fictions)
                 if enrich_details
                 else 0
             ),
+            "new_fiction_details_unavailable": unavailable_new_fictions,
             "new_fiction_details_missing": missing_new_fiction_details,
             "new_fiction_backfill_requested": sum(
                 1
                 for candidate in required_candidates
                 if not candidate.get("current_launch", False)
             ),
+            "new_fiction_backfill_unavailable": [
+                fiction_id
+                for fiction_id in unavailable_required_details
+                if fiction_id not in new_fiction_id_set
+            ],
             "new_fiction_backfill_missing": [
                 fiction_id
                 for fiction_id in missing_required_details
                 if fiction_id not in new_fiction_id_set
             ],
+            "detail_failure_states": detail_failure_states,
+            "launch_analysis": analysis_summary,
             "errors": source_errors,
             "warnings": detail_warnings,
             "validation_report": str(validation_path),

@@ -81,12 +81,42 @@ jobs:
               raise SystemExit(f"SQLite integrity check failed before collection: {result}")
           PY
 
-      - name: Collect public Royal Road panel and complete Newest frontier
+      - name: Collect and analyze Royal Road launches
         if: steps.cadence.outputs.should_collect == 'true'
         run: |
           set -euo pipefail
           mkdir -p reports
           rrlab collect | tee reports/latest_run_output.json
+
+      - name: Validate launch analysis product
+        if: steps.cadence.outputs.should_collect == 'true'
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path("reports/launch_analysis_latest.json")
+          markdown = Path("reports/launch_analysis_latest.md")
+          csv_path = Path("reports/launch_analysis_latest.csv")
+          if not path.exists() or not markdown.exists() or not csv_path.exists():
+              raise SystemExit("Launch analysis JSON, Markdown or CSV was not generated")
+          report = json.loads(path.read_text(encoding="utf-8"))
+          for key in ("current_batch", "rolling_cohort", "methodology"):
+              if key not in report:
+                  raise SystemExit(f"Launch analysis is missing {key}")
+          current = report["current_batch"]["summary"]
+          quality = current["data_quality"]
+          unresolved = quality["partial_metrics"] + quality["missing_detail"]
+          if unresolved:
+              raise SystemExit(
+                  f"Current launch batch has {unresolved} unresolved metric records"
+              )
+          print(json.dumps({
+              "current_batch": current,
+              "rolling_summary": report["rolling_cohort"]["summary"],
+          }, indent=2))
+          PY
 
       - name: Validate complete prospective frontier
         if: steps.cadence.outputs.should_collect == 'true'
@@ -138,7 +168,8 @@ jobs:
           cadence_path = Path("reports/cadence_gate_latest.json")
           validation_path = Path("reports/validation_latest.json")
           frontier_path = Path("reports/frontier_latest.json")
-          lines = ["# Royal Road collection", ""]
+          launch_path = Path("reports/launch_analysis_latest.json")
+          lines = ["# Royal Road collection and launch intelligence", ""]
           cadence = {}
           if cadence_path.exists():
               cadence = json.loads(cadence_path.read_text(encoding="utf-8"))
@@ -164,6 +195,7 @@ jobs:
                   ]
               else:
                   lines.append("- No panel validation report was generated.")
+
               if frontier_path.exists():
                   frontier = json.loads(frontier_path.read_text(encoding="utf-8"))
                   lines += [
@@ -174,6 +206,42 @@ jobs:
                   ]
               else:
                   lines.append("- No frontier report was generated.")
+
+              if launch_path.exists():
+                  launch = json.loads(launch_path.read_text(encoding="utf-8"))
+                  current = launch["current_batch"]["summary"]
+                  rolling = launch["rolling_cohort"]["summary"]
+                  quality = current["data_quality"]
+                  lines += [
+                      "",
+                      "## Launch intelligence",
+                      "",
+                      f"- New novels in this run: **{current['novel_count']}**",
+                      f"- Current-batch core coverage: **{quality['core_coverage_pct']}%**",
+                      f"- Current-batch resolved coverage: **{quality['resolved_coverage_pct']}%**",
+                      f"- Rolling cohort size: **{rolling['novel_count']}**",
+                  ]
+                  leader_labels = {
+                      "overall_launch_index": "Overall launch leader",
+                      "followers": "Follower leader",
+                      "views": "View leader",
+                      "conversion": "Conversion leader",
+                      "follower_momentum": "Follower momentum leader",
+                      "best_current_rs_rank": "Best current RS rank",
+                  }
+                  for key, label in leader_labels.items():
+                      leader = rolling["leaders"].get(key)
+                      if leader:
+                          lines.append(
+                              f"- {label}: **{leader['title']}** "
+                              f"(`{leader['metric']}={leader['value']}`)"
+                          )
+                  lines.append("")
+                  lines.append(
+                      "See `reports/launch_analysis_latest.md` for the full table and exceptions."
+                  )
+              else:
+                  lines.append("- No launch analysis report was generated.")
           else:
               lines.append("- No Royal Road requests were made during this schedule opportunity.")
           summary.write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -186,7 +254,7 @@ jobs:
           name: royal-road-longitudinal-${{ github.run_id }}
           path: |
             data/export/royal_road_longitudinal_latest.zip
-            reports/*.json
+            reports/*
           if-no-files-found: warn
           retention-days: 90
 
