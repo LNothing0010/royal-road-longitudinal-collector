@@ -1,0 +1,139 @@
+name: Royal Road organic exposure sampler
+
+on:
+  schedule:
+    - cron: "6,21,36,51 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: royal-road-data-writer-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  sample:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      RR_USER_AGENT: ${{ secrets.RR_USER_AGENT }}
+      RR_DB_PATH: data/rrlab.sqlite
+      RR_RAW_DIR: data/raw
+      RR_REPORT_DIR: reports
+      RR_MIN_DELAY_SECONDS: "2.5"
+      RR_TIMEOUT_SECONDS: "45"
+      RR_SAVE_RAW_HTML: "0"
+      RR_USE_BROWSER_FALLBACK: "0"
+
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install exposure sampler
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check --retries 5 --timeout 60 -e .
+
+      - name: Collect homepage and live-list exposure
+        run: |
+          set -euo pipefail
+          mkdir -p reports
+          rrlab init-db
+          rrlab collect-exposure | tee reports/exposure_run_output_latest.json
+
+      - name: Validate exposure output
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import sqlite3
+          from pathlib import Path
+
+          output = json.loads(
+              Path("reports/exposure_run_output_latest.json").read_text(encoding="utf-8")
+          )
+          sources = {item["name"]: item["count"] for item in output.get("sources", [])}
+          for required in ("home_latest_updates", "latest_updates_live", "newest_live"):
+              if sources.get(required, 0) <= 0:
+                  raise SystemExit(f"Exposure surface {required} produced no rows")
+          for required in (
+              "reports/exposure_analysis_latest.json",
+              "reports/exposure_analysis_latest.md",
+              "reports/exposure_analysis_latest.csv",
+          ):
+              if not Path(required).exists() or Path(required).stat().st_size == 0:
+                  raise SystemExit(f"Missing exposure analysis output: {required}")
+          with sqlite3.connect("data/rrlab.sqlite") as conn:
+              integrity = conn.execute("PRAGMA integrity_check").fetchone()[0]
+          if integrity != "ok":
+              raise SystemExit(f"SQLite integrity check failed: {integrity}")
+          print(json.dumps(output.get("analysis_summary", {}), indent=2))
+          PY
+
+      - name: Write exposure summary
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          summary_path = Path(os.environ["GITHUB_STEP_SUMMARY"])
+          output_path = Path("reports/exposure_run_output_latest.json")
+          analysis_path = Path("reports/exposure_analysis_latest.json")
+          lines = ["# Royal Road organic exposure", ""]
+          if output_path.exists():
+              output = json.loads(output_path.read_text(encoding="utf-8"))
+              lines += [
+                  f"- Run ID: `{output.get('run_id')}`",
+                  f"- Status: `{output.get('status')}`",
+                  f"- Timestamp: `{output.get('timestamp_utc')}`",
+              ]
+              for source in output.get("sources", []):
+                  lines.append(f"- `{source.get('name')}` rows: `{source.get('count')}`")
+          if analysis_path.exists():
+              report = json.loads(analysis_path.read_text(encoding="utf-8"))
+              overview = report.get("summary", {})
+              lines += [
+                  "",
+                  "## Rolling analysis",
+                  f"- Samples: `{overview.get('latest_updates_samples')}`",
+                  f"- Homepage Latest median residence: `{overview.get('home_latest_median_residence_minutes')}` minutes",
+                  f"- Full Latest Updates median residence: `{overview.get('latest_updates_median_residence_minutes')}` minutes",
+                  f"- Newest median residence: `{overview.get('newest_median_residence_minutes')}` minutes",
+                  f"- Exposure/traction linkages: `{overview.get('traction_linkages')}`",
+              ]
+          summary_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+          PY
+
+      - name: Persist exposure data and reports
+        if: always()
+        run: |
+          set -euo pipefail
+          mkdir -p data reports
+          git config user.name "rr-longitudinal-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A -- data reports
+          if git diff --cached --quiet; then
+            echo "No exposure changes to commit"
+            exit 0
+          fi
+          git commit -m "Sample Royal Road exposure $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          for attempt in 1 2 3; do
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              exit 0
+            fi
+            echo "Push attempt ${attempt} failed; rebasing onto origin/${GITHUB_REF_NAME}"
+            git fetch origin "${GITHUB_REF_NAME}"
+            git rebase "origin/${GITHUB_REF_NAME}"
+            sleep $((attempt * 2))
+          done
+          echo "Unable to persist exposure data after three push attempts" >&2
+          exit 1
