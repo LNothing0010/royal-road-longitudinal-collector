@@ -37,7 +37,11 @@ def test_required_new_fictions_are_all_planned_before_regular_refreshes(tmp_path
     storage = Storage(tmp_path / "test.sqlite", tmp_path / "raw")
     _insert_fictions(storage, ["103", "101", "102"])
 
-    required = _ordered_required_detail_candidates(storage, ["103", "101", "102"])
+    required = _ordered_required_detail_candidates(
+        storage,
+        ["103", "101", "102"],
+        backlog_limit=0,
+    )
     regular = [
         {"fiction_id": "rs-1", "url": "https://example.com/rs-1"},
         {"fiction_id": "101", "url": "https://example.com/duplicate"},
@@ -60,7 +64,11 @@ def test_required_new_fictions_override_a_smaller_detail_limit(tmp_path: Path):
     storage = Storage(tmp_path / "test.sqlite", tmp_path / "raw")
     _insert_fictions(storage, ["201", "202", "203"])
 
-    required = _ordered_required_detail_candidates(storage, ["201", "202", "203"])
+    required = _ordered_required_detail_candidates(
+        storage,
+        ["201", "202", "203"],
+        backlog_limit=0,
+    )
     plan = _build_detail_plan(required, [], detail_limit=1)
 
     assert [candidate["fiction_id"] for candidate in plan] == ["201", "202", "203"]
@@ -94,3 +102,18 @@ def test_missing_launch_metrics_require_followers_views_and_chapters(tmp_path: P
         run_id,
         ["301", "302", "303"],
     ) == ["302", "303"]
+
+
+def test_missing_new_fiction_backlog_is_scheduled_after_current_launches(tmp_path: Path):
+    storage = Storage(tmp_path / "test.sqlite", tmp_path / "raw")
+    _insert_fictions(storage, ["401", "402", "403"])
+
+    required = _ordered_required_detail_candidates(
+        storage,
+        ["403"],
+        backlog_limit=1,
+    )
+
+    assert [candidate["fiction_id"] for candidate in required] == ["403", "401"]
+    assert required[0]["current_launch"] is True
+    assert required[1]["current_launch"] is False
