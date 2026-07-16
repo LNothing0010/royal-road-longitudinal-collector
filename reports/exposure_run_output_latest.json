@@ -1,0 +1,49 @@
+{
+  "run_id": 14,
+  "timestamp_utc": "2026-07-16T20:14:35Z",
+  "status": "partial",
+  "sources": [
+    {
+      "name": "home_latest_updates",
+      "count": 0,
+      "warnings": [
+        "homepage heading not found: Latest Updates",
+        "no homepage fiction parsed for home_latest_updates"
+      ]
+    },
+    {
+      "name": "home_rising_stars",
+      "count": 0,
+      "warnings": [
+        "homepage heading not found: Rising Stars",
+        "no homepage fiction parsed for home_rising_stars"
+      ]
+    },
+    {
+      "name": "latest_updates_live",
+      "count": 20,
+      "warnings": []
+    },
+    {
+      "name": "newest_live",
+      "count": 20,
+      "warnings": []
+    }
+  ],
+  "errors": [],
+  "analysis_summary": {
+    "status": "collecting_baseline",
+    "latest_updates_samples": 1,
+    "observed_window_hours": 168.0,
+    "home_latest_median_residence_minutes": null,
+    "latest_updates_median_residence_minutes": null,
+    "newest_median_residence_minutes": null,
+    "publication_windows": 20,
+    "traction_linkages": 0
+  },
+  "analysis_files": {
+    "json": "reports/exposure_analysis_latest.json",
+    "markdown": "reports/exposure_analysis_latest.md",
+    "csv": "reports/exposure_analysis_latest.csv"
+  }
+}

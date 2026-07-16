@@ -1,0 +1,15 @@
+{
+  "status": "uncalibrated",
+  "generated_utc": "2026-07-16T20:14:41.701240Z",
+  "methodology": {
+    "impression_definition": "A potential impression is a visit to Royal Road's official Latest Updates page while the fiction is present.",
+    "page_traffic_is_input": true,
+    "novel_views_used_to_estimate_page_traffic": false,
+    "novel_views_used_as_outcome": true,
+    "rank_handling": "Page visits are reported separately from top-5/top-10 membership; no unsupported scroll-depth probability is invented.",
+    "causal_claim": false
+  },
+  "traffic_rows": 0,
+  "calibrated_episodes": 0,
+  "episodes": []
+}

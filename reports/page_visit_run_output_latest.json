@@ -1,0 +1,10 @@
+{
+  "status": "uncalibrated",
+  "traffic_rows": 0,
+  "calibrated_episodes": 0,
+  "episode_count": 0,
+  "files": {
+    "json": "reports/page_visit_opportunity_latest.json",
+    "markdown": "reports/page_visit_opportunity_latest.md"
+  }
+}
