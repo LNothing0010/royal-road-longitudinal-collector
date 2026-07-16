@@ -43,5 +43,26 @@ jobs:
       - name: Tests
         run: pytest -q
 
-      - name: Ruff
-        run: ruff check rrlab tests
+      - name: Ruff diagnostics
+        id: ruff
+        continue-on-error: true
+        run: |
+          set +e
+          ruff check rrlab tests --output-format=json > ruff-diagnostics.json
+          status=$?
+          echo "status=${status}" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Upload Ruff diagnostics
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: ruff-diagnostics
+          path: ruff-diagnostics.json
+          if-no-files-found: error
+          retention-days: 1
+
+      - name: Enforce Ruff
+        if: always()
+        run: |
+          test "${{ steps.ruff.outputs.status }}" = "0"
