@@ -34,10 +34,14 @@ jobs:
           set -euo pipefail
           python -m pip install --disable-pip-version-check --retries 5 --timeout 60 -e ".[dev]"
 
-      - name: Static and runtime checks
-        run: |
-          set -euo pipefail
-          rrlab doctor
-          python -m compileall -q rrlab tests
-          pytest -q
-          ruff check rrlab tests
+      - name: Doctor
+        run: rrlab doctor
+
+      - name: Compile
+        run: python -m compileall -q rrlab tests
+
+      - name: Tests
+        run: pytest -q
+
+      - name: Ruff
+        run: ruff check rrlab tests
