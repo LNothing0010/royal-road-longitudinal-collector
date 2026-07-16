@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+from pathlib import Path
 
 from .catalog import catalog_status, run_catalog_backfill
 from .collector import run_collection
@@ -9,6 +10,7 @@ from .config import SOURCE_MAP, Settings
 from .doctor import print_doctor
 from .exporter import export_archive
 from .exposure import run_exposure_collection, write_exposure_analysis
+from .impression_model import write_impression_report
 from .launch_analysis import write_launch_analysis
 from .queries import diagnostics_seed, fiction_history, latest_source, new_entrants
 from .storage import Storage
@@ -30,6 +32,15 @@ def main() -> None:
     analyze.add_argument("--lookback-hours", type=int, default=168)
     exposure = sub.add_parser("analyze-exposure")
     exposure.add_argument("--lookback-hours", type=int, default=168)
+    impressions = sub.add_parser("estimate-impression-opportunity")
+    impressions.add_argument(
+        "--exposure-json",
+        default="reports/exposure_analysis_latest.json",
+    )
+    impressions.add_argument(
+        "--probe-csv",
+        default="data/traffic_probe.csv",
+    )
     sub.add_parser("export")
     sub.add_parser("validate-latest")
     latest = sub.add_parser("latest")
@@ -82,6 +93,13 @@ def main() -> None:
             settings.db_path,
             settings.report_dir,
             lookback_hours=args.lookback_hours,
+        )
+        print(json.dumps(output, indent=2, ensure_ascii=False))
+    elif args.command == "estimate-impression-opportunity":
+        output = write_impression_report(
+            Path(args.exposure_json),
+            Path(args.probe_csv),
+            settings.report_dir,
         )
         print(json.dumps(output, indent=2, ensure_ascii=False))
     elif args.command == "export":
