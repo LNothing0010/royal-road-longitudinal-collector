@@ -1,11 +1,12 @@
 # Royal Road Longitudinal Collector v0.4
 
-A longitudinal Royal Road research panel with two complementary coverage layers:
+A longitudinal Royal Road research panel with three complementary layers:
 
 1. an hourly, verified moving frontier that captures every fiction appearing ahead of the previous Newest Fictions anchor;
-2. a slow, bounded historical catalog backfill that walks the public Newest Fictions pagination with overlap and repeated verification passes.
+2. immediate detail snapshots and longitudinal public metrics for newly launched fiction;
+3. a slow, bounded historical catalog backfill that walks the public Newest Fictions pagination with overlap and repeated verification passes.
 
-The system also captures the six required Rising Stars lists, comparison cohorts outside Rising Stars, fiction-level public metrics and visible chapter activity.
+The system also captures the six required Rising Stars lists, comparison cohorts outside Rising Stars, visible chapter activity, and an automatic launch-intelligence product that turns collected rows into comparable cohorts, medians, leaders, growth rates and data-quality exceptions.
 
 ## Sources collected
 
@@ -36,6 +37,23 @@ Only fiction IDs positioned before the first prior anchor are labelled as newly 
 
 The frontier has a hard page ceiling. If the previous anchor is not reached, coverage is marked incomplete, the workflow fails visibly, the old anchor is retained, and all diagnostics are still persisted. Missing rows are never invented.
 
+## Launch intelligence
+
+A fiction-ID list is treated as discovery evidence, not as the final analytical output. Every successful panel run produces:
+
+- `reports/launch_analysis_latest.json` — structured current-batch and rolling-cohort analysis;
+- `reports/launch_analysis_latest.md` — human-readable tables, medians, leaders and exceptions;
+- `reports/launch_analysis_latest.csv` — flat recent-launch cohort for external analysis;
+- immutable run-specific versions of all three files.
+
+The **current batch** is the exact set of fiction IDs found before the verified frontier anchor in that run. The default **rolling cohort** contains all prospectively observed Newest fiction discovered during the previous 168 hours.
+
+Each row includes title, author, URL, discovery provenance, age, data availability, followers, views, chapters, ratings, age-normalized rates, follower conversion, per-chapter efficiency, longitudinal growth and current/first Rising Stars context.
+
+A transparent within-cohort launch index combines followers/day, views/day, followers per 1,000 views, followers/chapter, views/chapter and follower growth/day. Rising Stars status is deliberately excluded from the score because it is an outcome. See [`LAUNCH_ANALYSIS.md`](LAUNCH_ANALYSIS.md) for the full methodology.
+
+Removed or unavailable fiction is classified explicitly after HTTP 404/410 and retried weekly. Transient failures use exponential retry delays. These states appear in the report instead of silently lowering coverage or poisoning every subsequent run.
+
 ## Historical catalog backfill
 
 A separate daily workflow reads 75 new catalog pages per run with a three-page overlap. Its cursor is stored in `data/catalog_state.json`. When the public final page is reached, the pass is marked complete and another verification pass starts from page 2.
@@ -55,7 +73,7 @@ Historical backfill supplies a broad fiction registry and author/genre context. 
 - entries, exits and rank movement;
 - 1h, 6h, 12h, 24h, 3d and 7d deltas;
 - dynamic rank-50 cutoffs;
-- frontier completeness reports, backfill cursor state and repeated-pass status;
+- frontier completeness reports, launch analyses, availability/retry states, backfill cursor state and repeated-pass status;
 - immutable compressed JSON snapshots and optional compressed HTML.
 
 ## Local start
@@ -70,6 +88,7 @@ copy .env.example .env   # Windows
 rrlab doctor
 rrlab init-db
 rrlab collect
+rrlab analyze-launches
 rrlab catalog-status
 rrlab backfill-catalog
 rrlab export
@@ -80,11 +99,14 @@ Set a descriptive `RR_USER_AGENT` with a contact address. The collector is rate-
 ## Commands
 
 ```bash
-rrlab collect                 # hourly panel plus verified Newest frontier
-rrlab collect --no-details    # listing pages only
-rrlab backfill-catalog        # one bounded historical catalog chunk
-rrlab catalog-status          # frontier and backfill coverage state
-rrlab validate-latest         # latest Rising Stars panel, not a catalog-only run
+rrlab collect                              # panel, frontier, details and analysis
+rrlab collect --no-details                 # listing pages only
+rrlab analyze-launches                     # latest run, rolling 168-hour cohort
+rrlab analyze-launches --lookback-hours 72
+rrlab analyze-launches --run-id 12
+rrlab backfill-catalog                     # one bounded historical catalog chunk
+rrlab catalog-status                       # frontier and backfill coverage state
+rrlab validate-latest                      # latest Rising Stars panel
 rrlab latest rs_main
 rrlab latest catalog_backfill
 rrlab entrants rs_fantasy
@@ -97,7 +119,7 @@ rrlab export
 
 - **Royal Road hourly collection** receives redundant schedule opportunities at minutes 13, 33 and 53.
 - A persisted-data cadence gate performs a collection only when the latest complete six-list panel is at least 55 minutes old; manual dispatch always forces a run.
-- This compensates for delayed or dropped GitHub schedule events without increasing the intended collection rate beyond approximately hourly.
+- Each collection validates the current launch batch, writes JSON/Markdown/CSV analysis, and puts the main medians and leaders in the GitHub job summary.
 - **Royal Road catalog backfill** runs once daily at 03:37 UTC.
 - Both workflows share one write-concurrency group, so they cannot modify the SQLite database simultaneously.
 - Canonical data and diagnostics are committed even when a quality gate fails.
@@ -122,6 +144,8 @@ Tools include collection, catalog status, latest-source reading, entrant detecti
 
 - A prospective census is complete only from the first validated frontier baseline onward.
 - Historical catalog snapshots cannot recover metrics that were never observed at launch time.
+- The launch index is descriptive and cohort-relative; it is not a causal estimate or a guarantee of future performance.
+- Very young launches use a six-hour age floor to reduce unstable first-hour rates.
 - Royal Road does not expose every desired variable publicly.
 - Exact word count may be absent; page-based estimates are never mixed with exact counts.
 - Public promotion detection still needs evidence collection and manual review.
