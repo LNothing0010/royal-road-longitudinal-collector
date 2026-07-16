@@ -13,7 +13,13 @@ from .exposure import run_exposure_collection, write_exposure_analysis
 from .impression_model import write_impression_report
 from .launch_analysis import write_launch_analysis
 from .longitudinal import run_longitudinal_refresh
-from .queries import diagnostics_seed, fiction_history, latest_source, new_entrants
+from .queries import (
+    diagnostics_seed,
+    fiction_history,
+    latest_source,
+    longitudinal_history,
+    new_entrants,
+)
 from .storage import Storage
 from .validation import validate_latest
 
@@ -63,6 +69,10 @@ def main() -> None:
     history = sub.add_parser("history")
     history.add_argument("fiction_id")
     history.add_argument("--limit", type=int, default=500)
+    analysis_history = sub.add_parser("longitudinal-history")
+    analysis_history.add_argument("fiction_id")
+    analysis_history.add_argument("--limit", type=int, default=500)
+    analysis_history.add_argument("--analysis-version")
     diagnostics = sub.add_parser("diagnostics-seed")
     diagnostics.add_argument("--run-id", type=int)
     args = parser.parse_args()
@@ -155,6 +165,19 @@ def main() -> None:
         print(
             json.dumps(
                 fiction_history(settings.db_path, args.fiction_id, args.limit),
+                indent=2,
+                ensure_ascii=False,
+            )
+        )
+    elif args.command == "longitudinal-history":
+        print(
+            json.dumps(
+                longitudinal_history(
+                    settings.db_path,
+                    args.fiction_id,
+                    args.limit,
+                    args.analysis_version,
+                ),
                 indent=2,
                 ensure_ascii=False,
             )
