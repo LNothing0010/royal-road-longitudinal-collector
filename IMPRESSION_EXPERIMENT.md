@@ -1,123 +1,118 @@
-# Latest Updates impression-opportunity experiment
+# Latest Updates page-visit experiment
 
 ## Research question
 
-Does a short Latest Updates residence window during a high-traffic hour create the same, more or less opportunity-to-see than a longer residence window during a low-traffic hour?
+Does a short residence window on Royal Road's official Latest Updates page during a high-traffic hour create the same, more or less potential exposure than a longer residence window during a low-traffic hour?
 
 Example hypothesis:
 
-- 18:00–19:00 UTC: a fiction remains visible for 5 minutes;
-- 12:00–13:00 UTC: a fiction remains visible for 20 minutes;
-- the two windows may nevertheless produce similar potential impressions if the independent traffic factor is roughly four times higher in the shorter window.
+- 18:00–19:00 UTC: a fiction remains on page 1 for 5 minutes;
+- 12:00–13:00 UTC: a fiction remains on page 1 for 20 minutes;
+- the two windows may produce similar potential exposure if the page receives roughly four times as many visits per minute in the shorter window.
 
-The hypothesis is testable only when residence and traffic demand are measured independently.
+## Definitions
+
+- **Page visit:** an estimated visit to `royalroad.com/fictions/latest-updates`.
+- **Potential impression:** one page visit occurring while a fiction is present on page 1. This is an opportunity to see the fiction, not proof that the visitor scrolled to its rank.
+- **Fiction view:** a Royal Road view recorded on the fiction. Views are an outcome used to evaluate Latest Updates performance, not an input used to estimate page traffic.
 
 ## What the repository observes directly
 
-Every 15 minutes the exposure sampler records:
+Every five minutes the exposure sampler records:
 
-- membership and rank in Homepage Latest Updates;
 - membership and rank on Latest Updates page 1;
+- membership and rank in Homepage Latest Updates;
 - membership and rank on Newest Fictions page 1;
 - homepage Rising Stars membership and rank;
 - chapter timestamp when Royal Road exposes it;
 - entry and exit bounds between adjacent samples.
 
-This yields interval-censored residence. A fiction present at 12:00 and absent at 12:15 is not reported as having exactly 15 minutes of exposure; its disappearance occurred somewhere inside that interval.
+Residence remains interval-censored. A fiction present at 12:00 and absent at 12:05 disappeared somewhere inside that interval; the repository must not claim false second-level precision.
 
-## What the repository cannot observe publicly
+## External traffic sources
 
-Royal Road does not publish:
+Traffic estimates are imported from services such as Semrush or Similarweb.
 
-- visits to the homepage by minute;
-- visits to Latest Updates by minute;
-- card-level impressions;
-- scroll-depth or rank-specific viewability.
+Useful Semrush datasets include:
 
-Therefore residence time alone is not an impression count.
+- **Top Pages:** monthly estimated traffic for the exact Latest Updates page;
+- **Daily Traffic:** day-by-day traffic for a domain, subdomain, or subfolder;
+- domain/subfolder baselines used to contextualize the page share.
 
-## Independent traffic probe
+A monthly or daily page total does not identify hour-of-day demand. The 12:00–13:00 versus 18:00–19:00 experiment requires one of:
 
-Use at least two continuously running Royal Road ad campaigns, preferably one Leaderboard and one Rectangle, across the same seven-day period.
+1. hourly estimates for the exact Latest Updates page; or
+2. an exact-page daily/monthly baseline plus an hourly Royal Road domain series from the same provider and period.
 
-For each campaign record at 15-minute intervals:
+Estimates from different providers are never silently averaged into a single point. The report stores each provider estimate and reports minimum, median, maximum, and provider count.
+
+## Input schema
+
+Store observations at `data/external_page_traffic.csv`:
 
 ```csv
-observed_utc,campaign_id,ad_format,cumulative_impressions
-2026-07-20T00:00:00Z,leaderboard-week1,leaderboard,1000
-2026-07-20T00:15:00Z,leaderboard-week1,leaderboard,1280
-2026-07-20T00:00:00Z,rectangle-week1,rectangle,2000
-2026-07-20T00:15:00Z,rectangle-week1,rectangle,2550
+provider,target_url,scope,granularity,period_start_utc,period_end_utc,visits
+semrush,royalroad.com/fictions/latest-updates,page,month,2026-06-01T00:00:00Z,2026-07-01T00:00:00Z,1200000
+semrush,royalroad.com,domain,month,2026-06-01T00:00:00Z,2026-07-01T00:00:00Z,52080000
+provider-x,royalroad.com,domain,hour,2026-07-20T12:00:00Z,2026-07-20T13:00:00Z,85000
 ```
 
-Store the observations at `data/traffic_probe.csv`.
+Allowed scopes: `page`, `subfolder`, `domain`.
+Allowed granularities: `hour`, `day`, `month`.
 
-Royal Road defines an ad impression as each time an ad is served. The campaign is used as a traffic sensor, not as evidence that a specific Latest Updates card was seen.
+## Calculation
 
-## Calibration
+### Direct hourly page traffic
 
-For every campaign:
-
-1. calculate impression increments between adjacent snapshots;
-2. divide by elapsed minutes;
-3. normalize each campaign by its own median delivery rate;
-4. calculate the median normalized factor across campaigns for every UTC hour;
-5. reject resets, negative increments and intervals longer than 90 minutes.
-
-Two formats are used to detect campaign-specific pacing. If their normalized hourly curves disagree materially, the profile is not considered reliable.
-
-## Opportunity calculation
-
-For each fiction episode:
+When the provider supplies hourly visits to the exact page:
 
 ```text
-relative opportunity = Σ(duration minutes × independent traffic factor)
+potential page visits = hourly page visits × residence fraction of the hour
 ```
 
-The model reports separate observable rank bands:
+### Page baseline plus hourly domain traffic
 
-- any page-1 slot;
-- top 10;
-- top 5.
+When the provider supplies a page baseline and a matching domain baseline:
 
-It does not invent a scroll probability. Absolute card impressions remain unavailable unless Royal Road or another first-party source supplies page-specific visit and viewability data.
+```text
+page share = page baseline visits / domain baseline visits
+estimated page visits in window = hourly domain visits × page share × residence fraction
+```
 
-## Bias guardrail
+The page baseline and domain hourly series must come from the same provider. Cross-provider splicing is not allowed.
 
-The impression-opportunity model does not read:
+## Rank and viewability
 
-- fiction views;
-- followers;
-- favorites;
-- ratings;
-- click-through rate.
+A visit to page 1 is not proof that every card was visible. The report therefore records:
 
-Those variables are downstream outcomes. They may later be divided by independently estimated opportunity units to compare conversion, but they can never be used to infer the opportunity itself.
+- total page-visit opportunity;
+- whether the fiction was in the top 10;
+- whether the fiction was in the top 5.
 
-## Decision criteria
+No unsupported scroll-depth probability is invented. A future measured scroll curve may be added as a separate calibration layer.
 
-A first directional read requires:
+## Views as outcome
 
-- at least seven full days;
-- coverage of every UTC hour;
-- at least 48 valid 15-minute traffic intervals;
-- two ad formats with broadly consistent normalized traffic curves;
-- enough completed residence episodes per hour to report medians and interquartile ranges.
+Once page visits are independently estimated, fiction views may be evaluated as:
 
-A scheduling recommendation should compare:
+```text
+views per 1,000 estimated page visits = fiction view delta / estimated page visits × 1,000
+```
 
-- median residence by hour;
-- median independent traffic factor by hour;
-- relative opportunity for 5, 10 and 20 minutes;
-- observed distribution, not only the mean;
-- weekday and weekend separately once sample size permits.
+This statistic is descriptive. Views may also arise from followers, direct links, ads, shout-outs, search, Rising Stars, or other surfaces. Stronger causal analysis should use repeated chapter releases from the same fiction with fiction fixed effects, release-age controls, weekday/hour controls, and intervention flags.
+
+## Data-quality states
+
+- `ready`: at least one episode overlaps usable hourly page traffic or a valid same-provider page-share calibration.
+- `uncalibrated`: residence is known but page traffic cannot be allocated to the episode's hour.
+- provider spread: the report exposes disagreement between traffic-estimation services.
 
 ## Commands
 
 ```bash
 rrlab collect-exposure
 rrlab analyze-exposure --lookback-hours 168
-rrlab estimate-impression-opportunity \
+rrlab estimate-page-visit-opportunity \
   --exposure-json reports/exposure_analysis_latest.json \
-  --probe-csv data/traffic_probe.csv
+  --traffic-csv data/external_page_traffic.csv
 ```

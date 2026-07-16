@@ -1,0 +1,4 @@
+provider,target_url,scope,granularity,period_start_utc,period_end_utc,visits
+semrush,royalroad.com/fictions/latest-updates,page,month,2026-06-01T00:00:00Z,2026-07-01T00:00:00Z,0
+semrush,royalroad.com,domain,month,2026-06-01T00:00:00Z,2026-07-01T00:00:00Z,0
+external-hourly-provider,royalroad.com,domain,hour,2026-07-20T12:00:00Z,2026-07-20T13:00:00Z,0
