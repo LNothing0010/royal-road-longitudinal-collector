@@ -6,24 +6,44 @@
 
 | Fiction | Surface | Residence min | Est. page visits | Providers | View delta | Views / 1k page visits |
 |---|---|---:|---:|---:|---:|---:|
-| Memoir of an eternal being | latest_updates_live | 108.517 | — | 0 | — | — |
+|  | latest_updates_live | 89.242 | — | 0 | — | — |
+|  | latest_updates_live | 89.242 | — | 0 | — | — |
+|  | latest_updates_live | 89.242 | — | 0 | — | — |
+|  | latest_updates_live | 89.242 | — | 0 | — | — |
+|  | latest_updates_live | 89.242 | — | 0 | — | — |
+|  | latest_updates_live | 89.242 | — | 0 | — | — |
+|  | latest_updates_live | 89.242 | — | 0 | — | — |
+| Wash After Reading | latest_updates_live | 89.242 | — | 0 | 50 | — |
+|  | latest_updates_live | 89.242 | — | 0 | — | — |
+|  | latest_updates_live | 89.242 | — | 0 | — | — |
+|  | latest_updates_live | 89.242 | — | 0 | — | — |
+|  | latest_updates_live | 89.242 | — | 0 | — | — |
+|  | latest_updates_live | 89.242 | — | 0 | — | — |
+| Arsenal Mage! Why Does Every Weapon Give Me A New Skill? | latest_updates_live | 89.242 | — | 0 | 3451 | — |
+|  | latest_updates_live | 89.242 | — | 0 | — | — |
+|  | latest_updates_live | 89.242 | — | 0 | — | — |
+|  | latest_updates_live | 89.242 | — | 0 | — | — |
+|  | latest_updates_live | 89.242 | — | 0 | — | — |
+|  | latest_updates_live | 89.242 | — | 0 | — | — |
+|  | latest_updates_live | 89.242 | — | 0 | — | — |
+| Memoir of an eternal being | latest_updates_live | 108.517 | — | 0 | 40 | — |
 |  | latest_updates_live | 108.517 | — | 0 | — | — |
 |  | latest_updates_live | 108.517 | — | 0 | — | — |
 |  | latest_updates_live | 108.517 | — | 0 | — | — |
-| I Recruit bosses I Defeat [LITRPG][Mystery][Fantasy] | latest_updates_live | 108.517 | — | 0 | — | — |
+| I Recruit bosses I Defeat [LITRPG][Mystery][Fantasy] | latest_updates_live | 108.517 | — | 0 | 73 | — |
 |  | latest_updates_live | 108.517 | — | 0 | — | — |
 |  | latest_updates_live | 108.517 | — | 0 | — | — |
 |  | latest_updates_live | 108.517 | — | 0 | — | — |
-|  | latest_updates_live | 108.517 | — | 0 | — | — |
-| GALORIA-SEASON 3 | latest_updates_live | 108.517 | — | 0 | — | — |
-|  | latest_updates_live | 108.517 | — | 0 | — | — |
-|  | latest_updates_live | 108.517 | — | 0 | — | — |
-|  | latest_updates_live | 108.517 | — | 0 | — | — |
-|  | latest_updates_live | 108.517 | — | 0 | — | — |
-| Between Classes | latest_updates_live | 108.517 | — | 0 | — | — |
+| Star Island: A Hero’s path | latest_updates_live | 108.517 | — | 0 | — | — |
+| GALORIA-SEASON 3 | latest_updates_live | 108.517 | — | 0 | 15 | — |
+| I Am Just An Ordinary Cultivator | latest_updates_live | 108.517 | — | 0 | — | — |
 |  | latest_updates_live | 108.517 | — | 0 | — | — |
 |  | latest_updates_live | 108.517 | — | 0 | — | — |
 |  | latest_updates_live | 108.517 | — | 0 | — | — |
+| Between Classes | latest_updates_live | 108.517 | — | 0 | 6 | — |
+|  | latest_updates_live | 108.517 | — | 0 | — | — |
+| Fake Chosen One | latest_updates_live | 108.517 | — | 0 | — | — |
+| Piecemeal [Isekai LitRPG] | latest_updates_live | 108.517 | — | 0 | — | — |
 |  | latest_updates_live | 108.517 | — | 0 | — | — |
 |  | latest_updates_live | 108.517 | — | 0 | — | — |
 |  | latest_updates_live | 510.25 | — | 0 | — | — |
@@ -41,9 +61,9 @@
 | Frail Lily, On the Sidewalk | latest_updates_live | 510.25 | — | 0 | — | — |
 |  | latest_updates_live | 510.25 | — | 0 | — | — |
 |  | latest_updates_live | 510.25 | — | 0 | — | — |
+| Sarah Smith: Master of Illusions?!! (Pokemon AU) | latest_updates_live | 510.25 | — | 0 | — | — |
+| Game over, Kira! | latest_updates_live | 510.25 | — | 0 | — | — |
 |  | latest_updates_live | 510.25 | — | 0 | — | — |
-| Game over,, Kira! | latest_updates_live | 510.25 | — | 0 | — | — |
-|  | latest_updates_live | 510.25 | — | 0 | — | — |
 |  | latest_updates_live | 510.25 | — | 0 | — | — |
 |  | latest_updates_live | 101.833 | — | 0 | — | — |
 |  | latest_updates_live | 101.833 | — | 0 | — | — |
@@ -60,8 +80,8 @@
 |  | latest_updates_live | 101.833 | — | 0 | — | — |
 |  | latest_updates_live | 101.833 | — | 0 | — | — |
 |  | latest_updates_live | 101.833 | — | 0 | — | — |
-|  | latest_updates_live | 101.833 | — | 0 | 1241 | — |
-|  | latest_updates_live | 101.833 | — | 0 | — | — |
+| Arsenal Mage! Why Does Every Weapon Give Me A New Skill? | latest_updates_live | 101.833 | — | 0 | 3451 | — |
+| I Made A Railgun with Lightning Magic (LitRPG / OP MC / Isekai) | latest_updates_live | 101.833 | — | 0 | — | — |
 |  | latest_updates_live | 101.833 | — | 0 | — | — |
 |  | latest_updates_live | 101.833 | — | 0 | — | — |
 | Crossover Cruise Lines | latest_updates_live | 713.917 | — | 0 | — | — |
