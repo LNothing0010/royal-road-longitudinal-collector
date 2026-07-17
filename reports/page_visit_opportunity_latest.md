@@ -6,6 +6,26 @@
 
 | Fiction | Surface | Residence min | Est. page visits | Providers | View delta | Views / 1k page visits |
 |---|---|---:|---:|---:|---:|---:|
+| Memoir of an eternal being | latest_updates_live | 108.517 | — | 0 | — | — |
+|  | latest_updates_live | 108.517 | — | 0 | — | — |
+|  | latest_updates_live | 108.517 | — | 0 | — | — |
+|  | latest_updates_live | 108.517 | — | 0 | — | — |
+| I Recruit bosses I Defeat [LITRPG][Mystery][Fantasy] | latest_updates_live | 108.517 | — | 0 | — | — |
+|  | latest_updates_live | 108.517 | — | 0 | — | — |
+|  | latest_updates_live | 108.517 | — | 0 | — | — |
+|  | latest_updates_live | 108.517 | — | 0 | — | — |
+|  | latest_updates_live | 108.517 | — | 0 | — | — |
+| GALORIA-SEASON 3 | latest_updates_live | 108.517 | — | 0 | — | — |
+|  | latest_updates_live | 108.517 | — | 0 | — | — |
+|  | latest_updates_live | 108.517 | — | 0 | — | — |
+|  | latest_updates_live | 108.517 | — | 0 | — | — |
+|  | latest_updates_live | 108.517 | — | 0 | — | — |
+| Between Classes | latest_updates_live | 108.517 | — | 0 | — | — |
+|  | latest_updates_live | 108.517 | — | 0 | — | — |
+|  | latest_updates_live | 108.517 | — | 0 | — | — |
+|  | latest_updates_live | 108.517 | — | 0 | — | — |
+|  | latest_updates_live | 108.517 | — | 0 | — | — |
+|  | latest_updates_live | 108.517 | — | 0 | — | — |
 |  | latest_updates_live | 510.25 | — | 0 | — | — |
 | All that is left | latest_updates_live | 510.25 | — | 0 | — | — |
 | La Brasa Interior (ESPAÑOL) | latest_updates_live | 510.25 | — | 0 | — | — |
@@ -21,7 +41,7 @@
 | Frail Lily, On the Sidewalk | latest_updates_live | 510.25 | — | 0 | — | — |
 |  | latest_updates_live | 510.25 | — | 0 | — | — |
 |  | latest_updates_live | 510.25 | — | 0 | — | — |
-| Sarah Smith: Master of Illusions?!! (Pokemon AU) | latest_updates_live | 510.25 | — | 0 | — | — |
+|  | latest_updates_live | 510.25 | — | 0 | — | — |
 | Game over,, Kira! | latest_updates_live | 510.25 | — | 0 | — | — |
 |  | latest_updates_live | 510.25 | — | 0 | — | — |
 |  | latest_updates_live | 510.25 | — | 0 | — | — |
@@ -40,8 +60,8 @@
 |  | latest_updates_live | 101.833 | — | 0 | — | — |
 |  | latest_updates_live | 101.833 | — | 0 | — | — |
 |  | latest_updates_live | 101.833 | — | 0 | — | — |
-| Arsenal Mage! Why Does Every Weapon Give Me A New Skill? | latest_updates_live | 101.833 | — | 0 | — | — |
-| I Made A Railgun with Lightning Magic (LitRPG / OP MC / Isekai) | latest_updates_live | 101.833 | — | 0 | — | — |
+|  | latest_updates_live | 101.833 | — | 0 | 1241 | — |
+|  | latest_updates_live | 101.833 | — | 0 | — | — |
 |  | latest_updates_live | 101.833 | — | 0 | — | — |
 |  | latest_updates_live | 101.833 | — | 0 | — | — |
 | Crossover Cruise Lines | latest_updates_live | 713.917 | — | 0 | — | — |
