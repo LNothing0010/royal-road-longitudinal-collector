@@ -1,0 +1,31 @@
+{
+  "run_id": 18,
+  "timestamp_utc": "2026-07-17T07:32:45.215113Z",
+  "status": "complete",
+  "analysis_version": "longitudinal-launch-v1",
+  "newly_tracked": 562,
+  "tracked_candidates": 560,
+  "details_successful": 558,
+  "details_unavailable": 2,
+  "details_transient_failure": 0,
+  "analysis_summary": {
+    "tracked_fictions": 562,
+    "sampled_this_run": 558,
+    "not_sampled_this_run": 4,
+    "with_previous_observation": 523,
+    "positive_view_delta": 484,
+    "positive_follower_delta": 193,
+    "median_view_delta": 12.0,
+    "median_follower_delta": 0.0
+  },
+  "analysis_paths": {
+    "json": "reports/longitudinal_analysis_run_18.json",
+    "markdown": "reports/longitudinal_analysis_run_18.md",
+    "csv": "reports/longitudinal_analysis_run_18.csv",
+    "latest_json": "reports/longitudinal_analysis_latest.json",
+    "latest_markdown": "reports/longitudinal_analysis_latest.md",
+    "latest_csv": "reports/longitudinal_analysis_latest.csv",
+    "history_csv": "reports/longitudinal_history_latest.csv"
+  },
+  "errors": []
+}
