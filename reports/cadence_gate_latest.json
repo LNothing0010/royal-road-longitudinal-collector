@@ -1,10 +1,10 @@
 {
-  "generated_utc": "2026-07-16T20:38:24.284176+00:00",
+  "generated_utc": "2026-07-17T00:14:47.841224+00:00",
   "should_collect": true,
   "reason": "panel_due",
   "minimum_age_minutes": 55.0,
   "last_complete_panel_utc": "2026-07-16T07:31:30Z",
-  "age_minutes": 786.905,
+  "age_minutes": 1003.297,
   "force": false,
   "trigger": "13,33,53 * * * *",
   "database_error": null
