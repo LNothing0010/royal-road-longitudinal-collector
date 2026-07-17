@@ -1,18 +1,18 @@
 # Royal Road organic exposure
 
-- Window: `2026-07-09T23:38:15Z` to `2026-07-16T23:38:15Z`
+- Window: `2026-07-10T16:38:45Z` to `2026-07-17T16:38:45Z`
 - Status: `collecting_baseline`
-- Latest Updates samples: `2`
+- Latest Updates samples: `3`
 - Direct homepage traffic is not public; this report measures section residence and position-weighted visibility.
 
 ## Surface residence
 
 | Surface | Samples | Unique fiction | Median residence | P25 | P75 |
 |---|---:|---:|---:|---:|---:|
-| Homepage — Latest Updates | 2 | 0 | — | — | — |
-| Homepage — Rising Stars | 2 | 0 | — | — | — |
-| Latest Updates page 1 | 2 | 39 | 101.833 | 101.833 | 101.833 |
-| Newest Fictions page 1 | 2 | 40 | 101.833 | 101.833 | 101.833 |
+| Homepage — Latest Updates | 3 | 0 | — | — | — |
+| Homepage — Rising Stars | 3 | 0 | — | — | — |
+| Latest Updates page 1 | 3 | 58 | 510.25 | 101.833 | 510.25 |
+| Newest Fictions page 1 | 3 | 60 | 306.041 | 101.833 | 510.25 |
 
 ## Best and most crowded UTC hours
 
@@ -20,26 +20,26 @@
 
 ## Recent publication windows
 
-- **** — published `2026-07-16T23:37:50Z` (exact_public_timestamp).
-- **** — published `2026-07-16T23:37:31Z` (exact_public_timestamp).
-- **** — published `2026-07-16T23:36:05Z` (exact_public_timestamp).
-- **** — published `2026-07-16T23:35:24Z` (exact_public_timestamp).
-- **** — published `2026-07-16T23:34:30Z` (exact_public_timestamp).
-- **** — published `2026-07-16T23:34:16Z` (exact_public_timestamp).
-- **** — published `2026-07-16T23:33:59Z` (exact_public_timestamp).
-- **** — published `2026-07-16T23:33:46Z` (exact_public_timestamp).
-- **** — published `2026-07-16T23:31:49Z` (exact_public_timestamp).
-- **** — published between `2026-07-16T20:14:35Z` and `2026-07-16T23:38:15Z` (interval_censored).
-- **** — published between `2026-07-16T20:14:35Z` and `2026-07-16T23:38:15Z` (interval_censored).
-- **** — published between `2026-07-16T20:14:35Z` and `2026-07-16T23:38:15Z` (interval_censored).
-- **** — published between `2026-07-16T20:14:35Z` and `2026-07-16T23:38:15Z` (interval_censored).
-- **** — published between `2026-07-16T20:14:35Z` and `2026-07-16T23:38:15Z` (interval_censored).
-- **** — published between `2026-07-16T20:14:35Z` and `2026-07-16T23:38:15Z` (interval_censored).
-- **** — published between `2026-07-16T20:14:35Z` and `2026-07-16T23:38:15Z` (interval_censored).
-- **** — published between `2026-07-16T20:14:35Z` and `2026-07-16T23:38:15Z` (interval_censored).
-- **** — published between `2026-07-16T20:14:35Z` and `2026-07-16T23:38:15Z` (interval_censored).
-- **** — published between `2026-07-16T20:14:35Z` and `2026-07-16T23:38:15Z` (interval_censored).
-- **** — published between `2026-07-16T20:14:35Z` and `2026-07-16T23:38:15Z` (interval_censored).
+- **** — published between `2026-07-16T23:38:15Z` and `2026-07-17T16:38:45Z` (interval_censored).
+- **** — published between `2026-07-16T23:38:15Z` and `2026-07-17T16:38:45Z` (interval_censored).
+- **** — published between `2026-07-16T23:38:15Z` and `2026-07-17T16:38:45Z` (interval_censored).
+- **** — published between `2026-07-16T23:38:15Z` and `2026-07-17T16:38:45Z` (interval_censored).
+- **** — published between `2026-07-16T23:38:15Z` and `2026-07-17T16:38:45Z` (interval_censored).
+- **** — published between `2026-07-16T23:38:15Z` and `2026-07-17T16:38:45Z` (interval_censored).
+- **** — published between `2026-07-16T23:38:15Z` and `2026-07-17T16:38:45Z` (interval_censored).
+- **** — published between `2026-07-16T23:38:15Z` and `2026-07-17T16:38:45Z` (interval_censored).
+- **** — published between `2026-07-16T23:38:15Z` and `2026-07-17T16:38:45Z` (interval_censored).
+- **** — published between `2026-07-16T23:38:15Z` and `2026-07-17T16:38:45Z` (interval_censored).
+- **** — published between `2026-07-16T23:38:15Z` and `2026-07-17T16:38:45Z` (interval_censored).
+- **** — published between `2026-07-16T23:38:15Z` and `2026-07-17T16:38:45Z` (interval_censored).
+- **** — published between `2026-07-16T23:38:15Z` and `2026-07-17T16:38:45Z` (interval_censored).
+- **** — published between `2026-07-16T23:38:15Z` and `2026-07-17T16:38:45Z` (interval_censored).
+- **** — published between `2026-07-16T23:38:15Z` and `2026-07-17T16:38:45Z` (interval_censored).
+- **** — published between `2026-07-16T23:38:15Z` and `2026-07-17T16:38:45Z` (interval_censored).
+- **** — published between `2026-07-16T23:38:15Z` and `2026-07-17T16:38:45Z` (interval_censored).
+- **** — published between `2026-07-16T23:38:15Z` and `2026-07-17T16:38:45Z` (interval_censored).
+- **** — published `2026-07-17T15:54:37Z` (exact_public_timestamp).
+- **** — published between `2026-07-16T23:38:15Z` and `2026-07-17T16:38:45Z` (interval_censored).
 
 ## Exposure-to-traction checks
 

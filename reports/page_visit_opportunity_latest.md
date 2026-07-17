@@ -6,6 +6,25 @@
 
 | Fiction | Surface | Residence min | Est. page visits | Providers | View delta | Views / 1k page visits |
 |---|---|---:|---:|---:|---:|---:|
+|  | latest_updates_live | 510.25 | — | 0 | — | — |
+| All that is left | latest_updates_live | 510.25 | — | 0 | — | — |
+| La Brasa Interior (ESPAÑOL) | latest_updates_live | 510.25 | — | 0 | — | — |
+|  | latest_updates_live | 510.25 | — | 0 | — | — |
+|  | latest_updates_live | 510.25 | — | 0 | — | — |
+| Jaqine: Life is Complicated | latest_updates_live | 510.25 | — | 0 | — | — |
+| Project P.A.R.A.D.I.S.E. Vol. 1: The Boss | latest_updates_live | 510.25 | — | 0 | — | — |
+| The Guardian's Moment (Guardian Book One) | latest_updates_live | 510.25 | — | 0 | — | — |
+| Fragments of a Forgotten Dao | latest_updates_live | 510.25 | — | 0 | — | — |
+| Cursebound | latest_updates_live | 510.25 | — | 0 | — | — |
+|  | latest_updates_live | 510.25 | — | 0 | — | — |
+| The Chronicles of the Usurper | latest_updates_live | 510.25 | — | 0 | — | — |
+| Frail Lily, On the Sidewalk | latest_updates_live | 510.25 | — | 0 | — | — |
+|  | latest_updates_live | 510.25 | — | 0 | — | — |
+|  | latest_updates_live | 510.25 | — | 0 | — | — |
+| Sarah Smith: Master of Illusions?!! (Pokemon AU) | latest_updates_live | 510.25 | — | 0 | — | — |
+| Game over,, Kira! | latest_updates_live | 510.25 | — | 0 | — | — |
+|  | latest_updates_live | 510.25 | — | 0 | — | — |
+|  | latest_updates_live | 510.25 | — | 0 | — | — |
 |  | latest_updates_live | 101.833 | — | 0 | — | — |
 |  | latest_updates_live | 101.833 | — | 0 | — | — |
 |  | latest_updates_live | 101.833 | — | 0 | — | — |
@@ -21,10 +40,10 @@
 |  | latest_updates_live | 101.833 | — | 0 | — | — |
 |  | latest_updates_live | 101.833 | — | 0 | — | — |
 |  | latest_updates_live | 101.833 | — | 0 | — | — |
+| Arsenal Mage! Why Does Every Weapon Give Me A New Skill? | latest_updates_live | 101.833 | — | 0 | — | — |
+| I Made A Railgun with Lightning Magic (LitRPG / OP MC / Isekai) | latest_updates_live | 101.833 | — | 0 | — | — |
 |  | latest_updates_live | 101.833 | — | 0 | — | — |
 |  | latest_updates_live | 101.833 | — | 0 | — | — |
-|  | latest_updates_live | 101.833 | — | 0 | — | — |
-|  | latest_updates_live | 101.833 | — | 0 | — | — |
-|  | latest_updates_live | 305.5 | — | 0 | — | — |
+| Crossover Cruise Lines | latest_updates_live | 713.917 | — | 0 | — | — |
 
 > A monthly or daily page total alone cannot identify 12:00–13:00 versus 18:00–19:00. An hourly page series, or an hourly domain series combined with a page/domain baseline from the same provider and period, is required.
