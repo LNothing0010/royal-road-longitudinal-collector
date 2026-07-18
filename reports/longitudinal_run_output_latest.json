@@ -1,36 +1,31 @@
 {
-  "run_id": 24,
-  "timestamp_utc": "2026-07-17T20:32:06.067749Z",
-  "status": "partial",
+  "run_id": 27,
+  "timestamp_utc": "2026-07-17T23:37:09.141777Z",
+  "status": "complete",
   "analysis_version": "longitudinal-launch-v1",
-  "newly_tracked": 157,
-  "tracked_candidates": 715,
-  "details_successful": 708,
-  "details_unavailable": 3,
-  "details_transient_failure": 4,
+  "newly_tracked": 39,
+  "tracked_candidates": 751,
+  "details_successful": 749,
+  "details_unavailable": 2,
+  "details_transient_failure": 0,
   "analysis_summary": {
-    "tracked_fictions": 719,
-    "sampled_this_run": 708,
-    "not_sampled_this_run": 11,
-    "with_previous_observation": 713,
-    "positive_view_delta": 626,
-    "positive_follower_delta": 135,
-    "median_view_delta": 4.0,
+    "tracked_fictions": 758,
+    "sampled_this_run": 749,
+    "not_sampled_this_run": 9,
+    "with_previous_observation": 752,
+    "positive_view_delta": 296,
+    "positive_follower_delta": 86,
+    "median_view_delta": 0.0,
     "median_follower_delta": 0.0
   },
   "analysis_paths": {
-    "json": "reports/longitudinal_analysis_run_24.json",
-    "markdown": "reports/longitudinal_analysis_run_24.md",
-    "csv": "reports/longitudinal_analysis_run_24.csv",
+    "json": "reports/longitudinal_analysis_run_27.json",
+    "markdown": "reports/longitudinal_analysis_run_27.md",
+    "csv": "reports/longitudinal_analysis_run_27.csv",
     "latest_json": "reports/longitudinal_analysis_latest.json",
     "latest_markdown": "reports/longitudinal_analysis_latest.md",
     "latest_csv": "reports/longitudinal_analysis_latest.csv",
     "history_csv": "reports/longitudinal_history_latest.csv"
   },
-  "errors": [
-    "detail 180633: HTTPStatusError: Server error '503 Service Unavailable' for url 'https://www.royalroad.com/fiction/180633/the-young-miss-who-refused-to-die'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503",
-    "detail 180632: HTTPStatusError: Server error '503 Service Unavailable' for url 'https://www.royalroad.com/fiction/180632/after-unity'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503",
-    "detail 180631: HTTPStatusError: Server error '503 Service Unavailable' for url 'https://www.royalroad.com/fiction/180631/the-extras-extra-life'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503",
-    "detail 180503: HTTPStatusError: Server error '502 Bad Gateway' for url 'https://www.royalroad.com/fiction/180503/my-avatar-is-a-bit-over-powered'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
-  ]
+  "errors": []
 }
