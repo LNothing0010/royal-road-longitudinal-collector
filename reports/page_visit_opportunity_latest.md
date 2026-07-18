@@ -6,20 +6,40 @@
 
 | Fiction | Surface | Residence min | Est. page visits | Providers | View delta | Views / 1k page visits |
 |---|---|---:|---:|---:|---:|---:|
+|  | latest_updates_live | 218.875 | — | 0 | — | — |
+| Virus Terminal: Zero. La vez que Rencarne en un Virus [Spanish] | latest_updates_live | 218.875 | — | 0 | — | — |
+|  | latest_updates_live | 218.875 | — | 0 | — | — |
+|  | latest_updates_live | 218.875 | — | 0 | — | — |
+|  | latest_updates_live | 218.875 | — | 0 | — | — |
+|  | latest_updates_live | 218.875 | — | 0 | — | — |
+|  | latest_updates_live | 218.875 | — | 0 | — | — |
+|  | latest_updates_live | 218.875 | — | 0 | — | — |
+|  | latest_updates_live | 218.875 | — | 0 | — | — |
+|  | latest_updates_live | 218.875 | — | 0 | — | — |
+|  | latest_updates_live | 218.875 | — | 0 | — | — |
+|  | latest_updates_live | 218.875 | — | 0 | — | — |
+|  | latest_updates_live | 218.875 | — | 0 | — | — |
+|  | latest_updates_live | 218.875 | — | 0 | — | — |
+|  | latest_updates_live | 218.875 | — | 0 | — | — |
+|  | latest_updates_live | 218.875 | — | 0 | — | — |
+|  | latest_updates_live | 218.875 | — | 0 | — | — |
+| About This Dark Lord [A Classic Fantasy Hero's Journey] 2nd Edition | latest_updates_live | 218.875 | — | 0 | — | — |
+|  | latest_updates_live | 218.875 | — | 0 | — | — |
+|  | latest_updates_live | 218.875 | — | 0 | — | — |
+|  | latest_updates_live | 89.242 | — | 0 | — | — |
+|  | latest_updates_live | 89.242 | — | 0 | — | — |
+| Faex Metalli | latest_updates_live | 89.242 | — | 0 | 0 | — |
+|  | latest_updates_live | 89.242 | — | 0 | — | — |
+|  | latest_updates_live | 89.242 | — | 0 | — | — |
+| ACÂİB: The Last of Everything | latest_updates_live | 89.242 | — | 0 | 0 | — |
+|  | latest_updates_live | 89.242 | — | 0 | — | — |
+| Wash After Reading | latest_updates_live | 89.242 | — | 0 | 66 | — |
 |  | latest_updates_live | 89.242 | — | 0 | — | — |
 |  | latest_updates_live | 89.242 | — | 0 | — | — |
 |  | latest_updates_live | 89.242 | — | 0 | — | — |
 |  | latest_updates_live | 89.242 | — | 0 | — | — |
 |  | latest_updates_live | 89.242 | — | 0 | — | — |
-|  | latest_updates_live | 89.242 | — | 0 | — | — |
-|  | latest_updates_live | 89.242 | — | 0 | — | — |
-| Wash After Reading | latest_updates_live | 89.242 | — | 0 | 50 | — |
-|  | latest_updates_live | 89.242 | — | 0 | — | — |
-|  | latest_updates_live | 89.242 | — | 0 | — | — |
-|  | latest_updates_live | 89.242 | — | 0 | — | — |
-|  | latest_updates_live | 89.242 | — | 0 | — | — |
-|  | latest_updates_live | 89.242 | — | 0 | — | — |
-| Arsenal Mage! Why Does Every Weapon Give Me A New Skill? | latest_updates_live | 89.242 | — | 0 | 3451 | — |
+| Arsenal Mage! Why Does Every Weapon Give Me A New Skill? | latest_updates_live | 89.242 | — | 0 | 4335 | — |
 |  | latest_updates_live | 89.242 | — | 0 | — | — |
 |  | latest_updates_live | 89.242 | — | 0 | — | — |
 |  | latest_updates_live | 89.242 | — | 0 | — | — |
@@ -80,7 +100,7 @@
 |  | latest_updates_live | 101.833 | — | 0 | — | — |
 |  | latest_updates_live | 101.833 | — | 0 | — | — |
 |  | latest_updates_live | 101.833 | — | 0 | — | — |
-| Arsenal Mage! Why Does Every Weapon Give Me A New Skill? | latest_updates_live | 101.833 | — | 0 | 3451 | — |
+| Arsenal Mage! Why Does Every Weapon Give Me A New Skill? | latest_updates_live | 101.833 | — | 0 | 4335 | — |
 | I Made A Railgun with Lightning Magic (LitRPG / OP MC / Isekai) | latest_updates_live | 101.833 | — | 0 | — | — |
 |  | latest_updates_live | 101.833 | — | 0 | — | — |
 |  | latest_updates_live | 101.833 | — | 0 | — | — |
