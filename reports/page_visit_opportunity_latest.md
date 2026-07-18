@@ -6,6 +6,26 @@
 
 | Fiction | Surface | Residence min | Est. page visits | Providers | View delta | Views / 1k page visits |
 |---|---|---:|---:|---:|---:|---:|
+|  | latest_updates_live | 417.975 | — | 0 | — | — |
+|  | latest_updates_live | 417.975 | — | 0 | — | — |
+| Flames In The Water | latest_updates_live | 417.975 | — | 0 | 19 | — |
+| Avery: More Blood | latest_updates_live | 417.975 | — | 0 | 4 | — |
+| BLOOD FALL: the bad ending | latest_updates_live | 417.975 | — | 0 | 63 | — |
+|  | latest_updates_live | 417.975 | — | 0 | — | — |
+|  | latest_updates_live | 417.975 | — | 0 | — | — |
+|  | latest_updates_live | 417.975 | — | 0 | — | — |
+|  | latest_updates_live | 417.975 | — | 0 | — | — |
+| House of the dragon. The Crimson Crown | latest_updates_live | 417.975 | — | 0 | 35 | — |
+| Silver Chronicles | latest_updates_live | 417.975 | — | 0 | 35 | — |
+|  | latest_updates_live | 417.975 | — | 0 | — | — |
+|  | latest_updates_live | 417.975 | — | 0 | — | — |
+|  | latest_updates_live | 417.975 | — | 0 | — | — |
+|  | latest_updates_live | 417.975 | — | 0 | — | — |
+|  | latest_updates_live | 417.975 | — | 0 | — | — |
+| Aurora Scroll | latest_updates_live | 417.975 | — | 0 | 841 | — |
+| Call of the tower | latest_updates_live | 417.975 | — | 0 | 8 | — |
+|  | latest_updates_live | 417.975 | — | 0 | — | — |
+| The Vertex Paradox | latest_updates_live | 417.975 | — | 0 | 4 | — |
 |  | latest_updates_live | 218.875 | — | 0 | — | — |
 | Virus Terminal: Zero. La vez que Rencarne en un Virus [Spanish] | latest_updates_live | 218.875 | — | 0 | — | — |
 |  | latest_updates_live | 218.875 | — | 0 | — | — |
@@ -86,24 +106,5 @@
 |  | latest_updates_live | 510.25 | — | 0 | — | — |
 |  | latest_updates_live | 510.25 | — | 0 | — | — |
 |  | latest_updates_live | 101.833 | — | 0 | — | — |
-|  | latest_updates_live | 101.833 | — | 0 | — | — |
-|  | latest_updates_live | 101.833 | — | 0 | — | — |
-|  | latest_updates_live | 101.833 | — | 0 | — | — |
-|  | latest_updates_live | 101.833 | — | 0 | — | — |
-|  | latest_updates_live | 101.833 | — | 0 | — | — |
-|  | latest_updates_live | 101.833 | — | 0 | — | — |
-|  | latest_updates_live | 101.833 | — | 0 | — | — |
-|  | latest_updates_live | 101.833 | — | 0 | — | — |
-|  | latest_updates_live | 101.833 | — | 0 | — | — |
-|  | latest_updates_live | 101.833 | — | 0 | — | — |
-|  | latest_updates_live | 101.833 | — | 0 | — | — |
-|  | latest_updates_live | 101.833 | — | 0 | — | — |
-|  | latest_updates_live | 101.833 | — | 0 | — | — |
-|  | latest_updates_live | 101.833 | — | 0 | — | — |
-| Arsenal Mage! Why Does Every Weapon Give Me A New Skill? | latest_updates_live | 101.833 | — | 0 | 4335 | — |
-| I Made A Railgun with Lightning Magic (LitRPG / OP MC / Isekai) | latest_updates_live | 101.833 | — | 0 | — | — |
-|  | latest_updates_live | 101.833 | — | 0 | — | — |
-|  | latest_updates_live | 101.833 | — | 0 | — | — |
-| Crossover Cruise Lines | latest_updates_live | 713.917 | — | 0 | — | — |
 
 > A monthly or daily page total alone cannot identify 12:00–13:00 versus 18:00–19:00. An hourly page series, or an hourly domain series combined with a page/domain baseline from the same provider and period, is required.

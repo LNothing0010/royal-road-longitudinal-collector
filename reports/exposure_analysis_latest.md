@@ -1,18 +1,18 @@
 # Royal Road organic exposure
 
-- Window: `2026-07-11T06:32:01Z` to `2026-07-18T06:32:01Z`
+- Window: `2026-07-11T20:27:58Z` to `2026-07-18T20:27:58Z`
 - Status: `collecting_baseline`
-- Latest Updates samples: `6`
+- Latest Updates samples: `7`
 - Direct homepage traffic is not public; this report measures section residence and position-weighted visibility.
 
 ## Surface residence
 
 | Surface | Samples | Unique fiction | Median residence | P25 | P75 |
 |---|---:|---:|---:|---:|---:|
-| Homepage — Latest Updates | 6 | 0 | — | — | — |
-| Homepage — Rising Stars | 6 | 0 | — | — | — |
-| Latest Updates page 1 | 6 | 116 | 108.517 | 101.833 | 218.875 |
-| Newest Fictions page 1 | 6 | 102 | 218.875 | 101.833 | 397.358 |
+| Homepage — Latest Updates | 7 | 0 | — | — | — |
+| Homepage — Rising Stars | 7 | 0 | — | — | — |
+| Latest Updates page 1 | 7 | 136 | 218.875 | 101.833 | 417.975 |
+| Newest Fictions page 1 | 7 | 122 | 397.358 | 108.517 | 417.975 |
 
 ## Best and most crowded UTC hours
 
@@ -20,31 +20,31 @@
 
 ## Recent publication windows
 
-- **** — published between `2026-07-17T23:14:16Z` and `2026-07-18T06:32:01Z` (interval_censored).
-- **** — published between `2026-07-17T23:14:16Z` and `2026-07-18T06:32:01Z` (interval_censored).
-- **** — published between `2026-07-17T23:14:16Z` and `2026-07-18T06:32:01Z` (interval_censored).
-- **** — published between `2026-07-17T23:14:16Z` and `2026-07-18T06:32:01Z` (interval_censored).
-- **** — published between `2026-07-17T23:14:16Z` and `2026-07-18T06:32:01Z` (interval_censored).
-- **** — published between `2026-07-17T23:14:16Z` and `2026-07-18T06:32:01Z` (interval_censored).
-- **** — published between `2026-07-17T23:14:16Z` and `2026-07-18T06:32:01Z` (interval_censored).
-- **** — published between `2026-07-17T23:14:16Z` and `2026-07-18T06:32:01Z` (interval_censored).
-- **** — published between `2026-07-17T23:14:16Z` and `2026-07-18T06:32:01Z` (interval_censored).
-- **** — published between `2026-07-17T23:14:16Z` and `2026-07-18T06:32:01Z` (interval_censored).
-- **** — published between `2026-07-17T23:14:16Z` and `2026-07-18T06:32:01Z` (interval_censored).
-- **** — published between `2026-07-17T23:14:16Z` and `2026-07-18T06:32:01Z` (interval_censored).
-- **** — published between `2026-07-17T23:14:16Z` and `2026-07-18T06:32:01Z` (interval_censored).
-- **** — published between `2026-07-17T23:14:16Z` and `2026-07-18T06:32:01Z` (interval_censored).
-- **** — published between `2026-07-17T23:14:16Z` and `2026-07-18T06:32:01Z` (interval_censored).
-- **** — published between `2026-07-17T23:14:16Z` and `2026-07-18T06:32:01Z` (interval_censored).
-- **** — published between `2026-07-17T23:14:16Z` and `2026-07-18T06:32:01Z` (interval_censored).
-- **** — published between `2026-07-17T23:14:16Z` and `2026-07-18T06:32:01Z` (interval_censored).
-- **** — published `2026-07-17T23:34:24Z` (exact_public_timestamp).
-- **** — published `2026-07-17T23:34:02Z` (exact_public_timestamp).
+- **** — published between `2026-07-18T06:32:01Z` and `2026-07-18T20:27:58Z` (interval_censored).
+- **** — published between `2026-07-18T06:32:01Z` and `2026-07-18T20:27:58Z` (interval_censored).
+- **** — published between `2026-07-18T06:32:01Z` and `2026-07-18T20:27:58Z` (interval_censored).
+- **** — published between `2026-07-18T06:32:01Z` and `2026-07-18T20:27:58Z` (interval_censored).
+- **** — published between `2026-07-18T06:32:01Z` and `2026-07-18T20:27:58Z` (interval_censored).
+- **** — published between `2026-07-18T06:32:01Z` and `2026-07-18T20:27:58Z` (interval_censored).
+- **** — published between `2026-07-18T06:32:01Z` and `2026-07-18T20:27:58Z` (interval_censored).
+- **** — published between `2026-07-18T06:32:01Z` and `2026-07-18T20:27:58Z` (interval_censored).
+- **** — published between `2026-07-18T06:32:01Z` and `2026-07-18T20:27:58Z` (interval_censored).
+- **** — published between `2026-07-18T06:32:01Z` and `2026-07-18T20:27:58Z` (interval_censored).
+- **** — published between `2026-07-18T06:32:01Z` and `2026-07-18T20:27:58Z` (interval_censored).
+- **** — published between `2026-07-18T06:32:01Z` and `2026-07-18T20:27:58Z` (interval_censored).
+- **** — published between `2026-07-18T06:32:01Z` and `2026-07-18T20:27:58Z` (interval_censored).
+- **** — published between `2026-07-18T06:32:01Z` and `2026-07-18T20:27:58Z` (interval_censored).
+- **** — published between `2026-07-18T06:32:01Z` and `2026-07-18T20:27:58Z` (interval_censored).
+- **** — published between `2026-07-18T06:32:01Z` and `2026-07-18T20:27:58Z` (interval_censored).
+- **** — published between `2026-07-18T06:32:01Z` and `2026-07-18T20:27:58Z` (interval_censored).
+- **** — published between `2026-07-18T06:32:01Z` and `2026-07-18T20:27:58Z` (interval_censored).
+- **** — published between `2026-07-18T06:32:01Z` and `2026-07-18T20:27:58Z` (interval_censored).
+- **** — published between `2026-07-18T06:32:01Z` and `2026-07-18T20:27:58Z` (interval_censored).
 
 ## Exposure-to-traction checks
 
-- `home_weighted_exposure_vs_view_delta`: n=`47`, correlation=`None`, status=`descriptive_only`.
-- `latest_updates_exposure_vs_view_delta`: n=`47`, correlation=`0.588`, status=`descriptive_only`.
-- `home_weighted_exposure_vs_follower_delta`: n=`47`, correlation=`None`, status=`descriptive_only`.
+- `home_weighted_exposure_vs_view_delta`: n=`75`, correlation=`None`, status=`descriptive_only`.
+- `latest_updates_exposure_vs_view_delta`: n=`75`, correlation=`0.1909`, status=`descriptive_only`.
+- `home_weighted_exposure_vs_follower_delta`: n=`75`, correlation=`None`, status=`descriptive_only`.
 
 > Correlation is descriptive. Publication quality, existing audience, genre, chapter count, ads, shout-outs and time since launch remain confounders.
