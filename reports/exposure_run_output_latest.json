@@ -1,6 +1,6 @@
 {
-  "run_id": 35,
-  "timestamp_utc": "2026-07-18T20:27:58Z",
+  "run_id": 38,
+  "timestamp_utc": "2026-07-18T23:37:15Z",
   "status": "partial",
   "sources": [
     {
@@ -33,13 +33,13 @@
   "errors": [],
   "analysis_summary": {
     "status": "collecting_baseline",
-    "latest_updates_samples": 7,
+    "latest_updates_samples": 8,
     "observed_window_hours": 168.0,
     "home_latest_median_residence_minutes": null,
-    "latest_updates_median_residence_minutes": 218.875,
-    "newest_median_residence_minutes": 397.358,
-    "publication_windows": 122,
-    "traction_linkages": 75
+    "latest_updates_median_residence_minutes": 108.517,
+    "newest_median_residence_minutes": 306.275,
+    "publication_windows": 134,
+    "traction_linkages": 98
   },
   "analysis_files": {
     "json": "reports/exposure_analysis_latest.json",
