@@ -1,6 +1,6 @@
 {
-  "run_id": 26,
-  "timestamp_utc": "2026-07-17T23:34:16+00:00",
+  "run_id": 30,
+  "timestamp_utc": "2026-07-18T07:09:30+00:00",
   "status": "complete",
   "sources": [
     {
@@ -66,32 +66,46 @@
   ],
   "newest_frontier": {
     "mode": "prospective_newest_census",
-    "timestamp_utc": "2026-07-17T23:34:16+00:00",
+    "timestamp_utc": "2026-07-18T07:09:30+00:00",
     "pages_fetched": 3,
     "first_page": 1,
     "last_page": 3,
     "boundary_page": 2,
-    "boundary_index": 10,
+    "boundary_index": 0,
     "boundary_reached": true,
     "coverage_complete": true,
     "max_pages": 25,
     "overlap_pages_after_anchor": 1,
-    "anchor_count_before": 100,
+    "anchor_count_before": 40,
     "scanned_unique_fictions": 60,
     "observed_unique_fictions": 40,
-    "new_fictions": 8,
+    "new_fictions": 2,
     "new_fiction_ids": [
-      "181085",
-      "181084",
-      "181083",
-      "181082",
-      "181081",
-      "181080",
-      "181079",
-      "181078"
+      "181105",
+      "181104"
     ],
     "overlap_unknown_fictions_excluded": 0,
     "next_anchor_ids": [
+      "181105",
+      "181104",
+      "181103",
+      "181102",
+      "181101",
+      "181100",
+      "181099",
+      "181098",
+      "181097",
+      "181096",
+      "181095",
+      "181094",
+      "181093",
+      "181092",
+      "181091",
+      "181090",
+      "181089",
+      "181088",
+      "181087",
+      "181086",
       "181085",
       "181084",
       "181083",
@@ -111,53 +125,33 @@
       "181069",
       "181068",
       "181067",
-      "181066",
-      "181065",
-      "181064",
-      "181063",
-      "181062",
-      "181061",
-      "181060",
-      "181059",
-      "181058",
-      "181057",
-      "181056",
-      "181055",
-      "181054",
-      "181053",
-      "181052",
-      "181051",
-      "181050",
-      "181049",
-      "181048",
-      "181047",
-      "181046"
+      "181066"
     ],
     "initialize_anchor": false,
     "warnings": []
   },
   "details_enriched": 40,
-  "new_fiction_details_expected": 8,
-  "new_fiction_details_enriched": 8,
+  "new_fiction_details_expected": 2,
+  "new_fiction_details_enriched": 2,
   "new_fiction_details_unavailable": [],
   "new_fiction_details_missing": [],
-  "new_fiction_backfill_requested": 22,
+  "new_fiction_backfill_requested": 18,
   "new_fiction_backfill_unavailable": [],
   "new_fiction_backfill_missing": [],
   "detail_failure_states": [],
   "launch_analysis": {
     "paths": {
-      "json": "reports/launch_analysis_run_26.json",
-      "markdown": "reports/launch_analysis_run_26.md",
-      "csv": "reports/launch_analysis_run_26.csv",
+      "json": "reports/launch_analysis_run_30.json",
+      "markdown": "reports/launch_analysis_run_30.md",
+      "csv": "reports/launch_analysis_run_30.csv",
       "latest_json": "reports/launch_analysis_latest.json",
       "latest_markdown": "reports/launch_analysis_latest.md",
       "latest_csv": "reports/launch_analysis_latest.csv"
     },
     "current_batch": {
-      "novel_count": 8,
+      "novel_count": 2,
       "data_quality": {
-        "core_metrics_complete": 8,
+        "core_metrics_complete": 2,
         "partial_metrics": 0,
         "unavailable_or_removed": 0,
         "missing_detail": 0,
@@ -166,37 +160,37 @@
       },
       "medians": {
         "followers": 0.0,
-        "total_views": 0.0,
-        "chapter_count": 1.0,
+        "total_views": 7.5,
+        "chapter_count": 1.5,
         "followers_per_day": 0.0,
-        "views_per_day": 0.0,
+        "views_per_day": 30.0,
         "followers_per_1000_views": 0.0,
         "followers_per_chapter": 0.0,
-        "views_per_chapter": 0.0,
-        "launch_index": 19.65
+        "views_per_chapter": 5.5,
+        "launch_index": 35.16
       },
       "leaders": {
         "overall_launch_index": {
-          "fiction_id": "181078",
-          "title": "Когда Луна Упала с Неба [Russian]",
-          "value": 27.85,
+          "fiction_id": "181104",
+          "title": "Woman In White",
+          "value": 35.42,
           "metric": "launch_index"
         },
         "followers": {
-          "fiction_id": "181085",
-          "title": "The Wall: A Friending Novel",
+          "fiction_id": "181105",
+          "title": "Imaginary Beast Tamer",
           "value": 0,
           "metric": "followers"
         },
         "views": {
-          "fiction_id": "181078",
-          "title": "Когда Луна Упала с Неба [Russian]",
-          "value": 3,
+          "fiction_id": "181104",
+          "title": "Woman In White",
+          "value": 8,
           "metric": "total_views"
         },
         "conversion": {
-          "fiction_id": "181079",
-          "title": "Unknown adventure",
+          "fiction_id": "181105",
+          "title": "Imaginary Beast Tamer",
           "value": 0.0,
           "metric": "followers_per_1000_views"
         },
@@ -207,71 +201,87 @@
       "exceptions": []
     },
     "rolling_cohort": {
-      "novel_count": 602,
+      "novel_count": 622,
       "data_quality": {
-        "core_metrics_complete": 596,
-        "partial_metrics": 2,
+        "core_metrics_complete": 614,
+        "partial_metrics": 4,
         "unavailable_or_removed": 4,
         "missing_detail": 0,
-        "core_coverage_pct": 99.0,
-        "resolved_coverage_pct": 99.67
+        "core_coverage_pct": 98.71,
+        "resolved_coverage_pct": 99.36
       },
       "medians": {
         "followers": 0.0,
-        "total_views": 23.0,
+        "total_views": 25.0,
         "chapter_count": 2.0,
         "followers_per_day": 0.0,
-        "views_per_day": 27.89,
+        "views_per_day": 23.38,
         "followers_per_1000_views": 0.0,
         "followers_per_chapter": 0.0,
-        "views_per_chapter": 12.67,
-        "launch_index": 42.17
+        "views_per_chapter": 13.0,
+        "launch_index": 41.74
       },
       "leaders": {
         "overall_launch_index": {
           "fiction_id": "181059",
           "title": "Empty Sea: SSS Villain Stuck in an NPC World",
-          "value": 99.33,
+          "value": 99.27,
           "metric": "launch_index"
         },
         "followers": {
           "fiction_id": "180704",
           "title": "",
-          "value": 323,
+          "value": 345,
           "metric": "followers"
         },
         "views": {
           "fiction_id": "180704",
           "title": "",
-          "value": 3304,
+          "value": 3850,
           "metric": "total_views"
         },
         "conversion": {
           "fiction_id": "180657",
           "title": "The Spirit Smith [Isekai LitRPG | Crafting | Magic | Spirit Tamer]",
-          "value": 346.15,
+          "value": 423.08,
           "metric": "followers_per_1000_views"
         },
         "follower_momentum": {
           "fiction_id": "180704",
           "title": "",
-          "value": 162.12,
+          "value": 138.81,
           "metric": "follower_growth_per_day"
         },
         "view_momentum": {
           "fiction_id": "180704",
           "title": "",
-          "value": 1790.43,
+          "value": 1687.64,
           "metric": "view_growth_per_day"
         },
         "best_current_rs_rank": {
           "fiction_id": "180704",
           "title": "",
-          "value": 44,
+          "value": 42,
           "metric": "current_best_rs_rank"
         }
       },
       "exceptions": [
+        {
+          "fiction_id": "180823",
+          "title": "The Unmade King",
+          "data_status": "partial",
+          "availability": "available",
+          "http_status": 200,
+          "next_detail_retry_utc": null
+        },
+        {
+          "fiction_id": "180990",
+          "title": "Bound by force",
+          "data_status": "partial",
+          "availability": "available",
+          "http_status": 200,
+          "next_detail_retry_utc": null
+        },
         {
           "fiction_id": "180676",
           "title": "Blackhart [Turkish]",
@@ -325,5 +335,5 @@
   },
   "errors": [],
   "warnings": [],
-  "validation_report": "reports/validation_run_26.json"
+  "validation_report": "reports/validation_run_30.json"
 }

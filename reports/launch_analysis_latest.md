@@ -1,73 +1,69 @@
 # Royal Road launch analysis
 
-- Run: `26` at `2026-07-17T23:34:16Z`
-- Newly detected this run: **8**
+- Run: `30` at `2026-07-18T07:09:30Z`
+- Newly detected this run: **2**
 - Current-batch core metric coverage: **100.0%**
-- Rolling 168h cohort: **602 novels**
-- Rolling resolved coverage: **99.67%**
+- Rolling 168h cohort: **622 novels**
+- Rolling resolved coverage: **99.36%**
 
 ## Newly published fiction captured this run
 
 | Novel | Author | Status | Followers | Views | Chapters | F/1k views | Launch index |
 |---|---|---:|---:|---:|---:|---:|---:|
-| [The Wall: A Friending Novel](https://www.royalroad.com/fiction/181085/the-wall-a-friending-novel) | Allenishere2026 | complete | 0 | 0 | 1 | — | 19.65 |
-| [Bonds Beyond Boundaries](https://www.royalroad.com/fiction/181084/bonds-beyond-boundaries) | Midnight Shadow | complete | 0 | 0 | 1 | — | 19.65 |
-| [THE AMAZING ADHAM ADVENTURES](https://www.royalroad.com/fiction/181083/the-amazing-adham-adventures) | adma98487 | complete | 0 | 0 | 1 | — | 19.65 |
-| [Resonance: Volume One - Awakening](https://www.royalroad.com/fiction/181082/resonance-volume-one-awakening) | NJBlacKnight | complete | 0 | 0 | 1 | — | 19.65 |
-| [Throne of Vindication](https://www.royalroad.com/fiction/181081/throne-of-vindication) | Wersime | complete | 0 | 0 | 1 | — | 19.65 |
-| [Neighborhood Politics](https://www.royalroad.com/fiction/181080/neighborhood-politics) | InkAndWonder | complete | 0 | 0 | 1 | — | 19.65 |
-| [Unknown adventure](https://www.royalroad.com/fiction/181079/unknown-adventure) | OwariX | complete | 0 | 2 | 1 | 0.00 | 25.61 |
-| [Когда Луна Упала с Неба [Russian]](https://www.royalroad.com/fiction/181078/kogda-luna-upala-s-neba-russian) | A viewer trying to write | complete | 0 | 3 | 1 | 0.00 | 27.85 |
+| [Imaginary Beast Tamer](https://www.royalroad.com/fiction/181105/imaginary-beast-tamer) | Loga pen | complete | 0 | 7 | 1 | 0.00 | 34.89 |
+| [Woman In White](https://www.royalroad.com/fiction/181104/woman-in-white) | Ijayyoma | complete | 0 | 8 | 2 | 0.00 | 35.42 |
 
 ## Current-batch medians
 
 - `followers`: **0.00**
-- `total_views`: **0.00**
-- `chapter_count`: **1.00**
+- `total_views`: **7.50**
+- `chapter_count`: **1.50**
 - `followers_per_day`: **0.00**
-- `views_per_day`: **0.00**
+- `views_per_day`: **30.00**
 - `followers_per_1000_views`: **0.00**
 - `followers_per_chapter`: **0.00**
-- `views_per_chapter`: **0.00**
-- `launch_index`: **19.65**
+- `views_per_chapter`: **5.50**
+- `launch_index`: **35.16**
 
 ## Rolling 168h leaderboard
 
 | # | Novel | Age h | Followers | Views | F/day | Views/day | Conversion | Index | RS |
 |---:|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| 1 | [Empty Sea: SSS Villain Stuck in an NPC World](https://www.royalroad.com/fiction/181059/empty-sea-sss-villain-stuck-in-an-npc-world) | 6.05 | 44 | 303 | 174.67 | 1,202.87 | 145.21 | 99.33 | — |
-| 2 | [—](https://www.royalroad.com/fiction/180704/awakening-in-the-altered-world) | 51.05 | 323 | 3,304 | 151.84 | 1,553.19 | 97.76 | 99.03 | #44 |
-| 3 | [Solo Gene Hunter (A genetic progression fantasy/Litprg)](https://www.royalroad.com/fiction/180925/solo-gene-hunter-a-genetic-progression-fantasylitprg) | 13.55 | 15 | 206 | 26.56 | 364.80 | 72.82 | 97.77 | — |
-| 4 | [The Iron Lord](https://www.royalroad.com/fiction/180535/the-iron-lord) | 64.57 | 40 | 543 | 14.87 | 201.83 | 73.66 | 97.72 | — |
-| 5 | [The Soulweaver - Stealing Souls to Cultivate [LitRPG/ Dungeon Crawler]](https://www.royalroad.com/fiction/180712/the-soulweaver-stealing-souls-to-cultivate-litrpg) | 47.92 | 51 | 928 | 25.54 | 464.81 | 54.96 | 97.44 | — |
-| 6 | [One Glitch From Disaster — a LitRPG Isekai Adventure](https://www.royalroad.com/fiction/180686/one-glitch-from-disaster-a-litrpg-isekai-adventure) | 51.73 | 27 | 268 | 12.53 | 124.33 | 100.75 | 96.09 | — |
-| 7 | [The Fallen Star from the Fallen World](https://www.royalroad.com/fiction/180798/the-fallen-star-from-the-fallen-world) | 18.05 | 6 | 61 | 7.98 | 81.12 | 98.36 | 93.58 | — |
-| 8 | [Tales of Caelum](https://www.royalroad.com/fiction/181006/tales-of-caelum) | 10.69 | 4 | 65 | 8.98 | 145.91 | 61.54 | 93.36 | — |
-| 9 | [The Mana Paragon [An Isekai Fantasy LitRPG]](https://www.royalroad.com/fiction/181075/the-mana-paragon-an-isekai-fantasy-litrpg) | 2.41 | 5 | 177 | 20.00 | 708.00 | 28.25 | 93.28 | — |
-| 10 | [The Long way to truth](https://www.royalroad.com/fiction/180801/the-long-way-to-truth) | 18.75 | 7 | 291 | 8.96 | 372.38 | 24.05 | 91.62 | — |
-| 11 | [The Red Stone](https://www.royalroad.com/fiction/180662/the-red-stone) | 54.02 | 8 | 158 | 3.55 | 70.20 | 50.63 | 90.82 | — |
-| 12 | [I Am Just An Ordinary Cultivator](https://www.royalroad.com/fiction/180754/i-am-just-an-ordinary-cultivator) | 38.30 | 5 | 261 | 3.13 | 163.53 | 19.16 | 90.82 | — |
-| 13 | [Dungeon Exploiter](https://www.royalroad.com/fiction/180596/dungeon-exploiter) | 60.86 | 9 | 1,167 | 3.55 | 460.19 | 7.71 | 89.24 | — |
-| 14 | [Chalk & Runes [OP Archmage & Academy LitRPG)](https://www.royalroad.com/fiction/180780/chalk-runes-op-archmage-academy-litrpg) | 25.52 | 3 | 133 | 2.82 | 125.06 | 22.56 | 88.77 | — |
-| 15 | [The Tower's Last Chronicle](https://www.royalroad.com/fiction/181068/the-towers-last-chronicle) | 4.51 | 2 | 36 | 8.00 | 144.00 | 55.56 | 87.71 | — |
-| 16 | [Salvage Class](https://www.royalroad.com/fiction/180888/salvage-class) | 19.89 | 2 | 147 | 2.41 | 177.42 | 13.61 | 87.18 | — |
-| 17 | [Anastasia's Keystone [Living System LitRPG Lite]](https://www.royalroad.com/fiction/180659/anastasias-keystone-living-system-litrpg-lite) | 52.27 | 4 | 142 | 1.84 | 65.20 | 28.17 | 86.53 | — |
-| 18 | [The Riven Circle — 23rd Arcana [Progression Fantasy, Superimposed Realms]](https://www.royalroad.com/fiction/181062/the-riven-circle-23rd-arcana-progression-fantasy) | 4.05 | 1 | 127 | 4.00 | 508.00 | 7.87 | 86.32 | — |
-| 19 | [WHOLE AT NOON [PROGRESSION/ISEKAI]](https://www.royalroad.com/fiction/180653/whole-at-noon-progressionisekai) | 55.35 | 3 | 162 | 1.30 | 70.25 | 18.52 | 85.96 | — |
-| 20 | [The Blackwell (A Worm Fanfiction)](https://www.royalroad.com/fiction/180496/the-blackwell-a-worm-fanfiction) | 73.40 | 4 | 457 | 1.31 | 149.42 | 8.75 | 85.75 | — |
+| 1 | [Empty Sea: SSS Villain Stuck in an NPC World](https://www.royalroad.com/fiction/181059/empty-sea-sss-villain-stuck-in-an-npc-world) | 13.63 | 61 | 437 | 107.39 | 769.32 | 139.59 | 99.27 | — |
+| 2 | [—](https://www.royalroad.com/fiction/180704/awakening-in-the-altered-world) | 58.64 | 345 | 3,850 | 141.20 | 1,575.69 | 89.61 | 98.94 | #42 |
+| 3 | [Solo Gene Hunter (A genetic progression fantasy/Litprg)](https://www.royalroad.com/fiction/180925/solo-gene-hunter-a-genetic-progression-fantasylitprg) | 21.14 | 20 | 248 | 22.71 | 281.56 | 80.65 | 97.77 | — |
+| 4 | [The Iron Lord](https://www.royalroad.com/fiction/180535/the-iron-lord) | 72.16 | 44 | 606 | 14.63 | 201.56 | 72.61 | 97.43 | — |
+| 5 | [The Soulweaver - Stealing Souls to Cultivate [LitRPG/ Dungeon Crawler]](https://www.royalroad.com/fiction/180712/the-soulweaver-stealing-souls-to-cultivate-litrpg) | 55.50 | 54 | 1,084 | 23.35 | 468.73 | 49.82 | 96.90 | — |
+| 6 | [One Glitch From Disaster — a LitRPG Isekai Adventure](https://www.royalroad.com/fiction/180686/one-glitch-from-disaster-a-litrpg-isekai-adventure) | 59.32 | 27 | 288 | 10.92 | 116.52 | 93.75 | 96.41 | — |
+| 7 | [Bright Light [Isekai. Female mc. Lit-RPG. Progression]](https://www.royalroad.com/fiction/181091/bright-light-isekai-female-mc-lit-rpg-progression) | 0.62 | 9 | 22 | 36.00 | 88.00 | 409.09 | 95.88 | — |
+| 8 | [The Fallen Star from the Fallen World](https://www.royalroad.com/fiction/180798/the-fallen-star-from-the-fallen-world) | 25.64 | 8 | 93 | 7.49 | 87.07 | 86.02 | 93.85 | — |
+| 9 | [Tales of Caelum](https://www.royalroad.com/fiction/181006/tales-of-caelum) | 18.28 | 5 | 74 | 6.56 | 97.16 | 67.57 | 93.59 | — |
+| 10 | [—](https://www.royalroad.com/fiction/181075/the-mana-paragon-an-isekai-fantasy-litrpg) | 9.99 | 6 | 245 | 14.41 | 588.29 | 24.49 | 93.37 | — |
+| 11 | [The Bastard Thief](https://www.royalroad.com/fiction/181053/the-bastard-thief) | 14.86 | 3 | 55 | 4.85 | 88.84 | 54.55 | 91.97 | — |
+| 12 | [The Red Stone](https://www.royalroad.com/fiction/180662/the-red-stone) | 61.60 | 9 | 163 | 3.51 | 63.50 | 55.21 | 91.49 | — |
+| 13 | [The Long way to truth](https://www.royalroad.com/fiction/180801/the-long-way-to-truth) | 26.34 | 7 | 355 | 6.38 | 323.44 | 19.72 | 90.93 | — |
+| 14 | [I Am Just An Ordinary Cultivator](https://www.royalroad.com/fiction/180754/i-am-just-an-ordinary-cultivator) | 45.89 | 5 | 289 | 2.61 | 151.14 | 17.30 | 90.03 | — |
+| 15 | [Where the Wind Ends](https://www.royalroad.com/fiction/180906/where-the-wind-ends) | 27.68 | 3 | 70 | 2.60 | 60.70 | 42.86 | 89.76 | — |
+| 16 | [—](https://www.royalroad.com/fiction/181077/the-thorn-of-the-world) | 7.92 | 1 | 19 | 3.03 | 57.57 | 52.63 | 89.45 | — |
+| 17 | [Dungeon Exploiter](https://www.royalroad.com/fiction/180596/dungeon-exploiter) | 68.45 | 9 | 1,209 | 3.16 | 423.91 | 7.44 | 88.59 | — |
+| 18 | [Chalk & Runes [OP Archmage & Academy LitRPG)](https://www.royalroad.com/fiction/180780/chalk-runes-op-archmage-academy-litrpg) | 33.11 | 3 | 137 | 2.17 | 99.30 | 21.90 | 88.11 | — |
+| 19 | [PATHOGEN](https://www.royalroad.com/fiction/181050/pathogen) | 8.79 | 2 | 38 | 5.46 | 103.73 | 52.63 | 87.65 | — |
+| 20 | [So I'm a Cat Now?](https://www.royalroad.com/fiction/180497/so-im-a-cat-now) | 45.83 | 4 | 63 | 2.09 | 32.99 | 63.49 | 87.18 | — |
 
 ## Leaders by dimension
 
-- **overall_launch_index**: Empty Sea: SSS Villain Stuck in an NPC World — `launch_index=99.33`
-- **followers**:  — `followers=323`
-- **views**:  — `total_views=3,304`
-- **conversion**: The Spirit Smith [Isekai LitRPG | Crafting | Magic | Spirit Tamer] — `followers_per_1000_views=346.15`
-- **follower_momentum**:  — `follower_growth_per_day=162.12`
-- **view_momentum**:  — `view_growth_per_day=1,790.43`
-- **best_current_rs_rank**:  — `current_best_rs_rank=44`
+- **overall_launch_index**: Empty Sea: SSS Villain Stuck in an NPC World — `launch_index=99.27`
+- **followers**:  — `followers=345`
+- **views**:  — `total_views=3,850`
+- **conversion**: The Spirit Smith [Isekai LitRPG | Crafting | Magic | Spirit Tamer] — `followers_per_1000_views=423.08`
+- **follower_momentum**:  — `follower_growth_per_day=138.81`
+- **view_momentum**:  — `view_growth_per_day=1,687.64`
+- **best_current_rs_rank**:  — `current_best_rs_rank=42`
 
 ## Data-quality exceptions
 
+- `180823` **The Unmade King** — partial; availability=available; HTTP=200; next retry=—
+- `180990` **Bound by force** — partial; availability=available; HTTP=200; next retry=—
 - `180676` **Blackhart [Turkish]** — partial; availability=available; HTTP=200; next retry=—
 - `180663` **Beyond the Shield: The Laws of the World Are Not Written for Me (WN)** — partial; availability=available; HTTP=200; next retry=—
 - `180629` **** — unavailable; availability=unavailable; HTTP=404; next retry=2026-07-23T17:48:36Z
