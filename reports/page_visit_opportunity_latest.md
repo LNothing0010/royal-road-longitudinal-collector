@@ -6,13 +6,33 @@
 
 | Fiction | Surface | Residence min | Est. page visits | Providers | View delta | Views / 1k page visits |
 |---|---|---:|---:|---:|---:|---:|
-| MOKYEON | latest_updates_live | 477.742 | — | 0 | — | — |
+|  | latest_updates_live | 182.358 | — | 0 | — | — |
+|  | latest_updates_live | 182.358 | — | 0 | — | — |
+|  | latest_updates_live | 182.358 | — | 0 | — | — |
+|  | latest_updates_live | 182.358 | — | 0 | — | — |
+|  | latest_updates_live | 182.358 | — | 0 | — | — |
+|  | latest_updates_live | 182.358 | — | 0 | 40 | — |
+|  | latest_updates_live | 182.358 | — | 0 | — | — |
+|  | latest_updates_live | 182.358 | — | 0 | — | — |
+|  | latest_updates_live | 182.358 | — | 0 | — | — |
+|  | latest_updates_live | 182.358 | — | 0 | — | — |
+|  | latest_updates_live | 182.358 | — | 0 | — | — |
+|  | latest_updates_live | 182.358 | — | 0 | — | — |
+|  | latest_updates_live | 182.358 | — | 0 | — | — |
+|  | latest_updates_live | 182.358 | — | 0 | — | — |
+|  | latest_updates_live | 182.358 | — | 0 | — | — |
+|  | latest_updates_live | 182.358 | — | 0 | — | — |
+|  | latest_updates_live | 182.358 | — | 0 | 117 | — |
+| Ascension Protocol [A System Apocalypse LitRPG] | latest_updates_live | 182.358 | — | 0 | — | — |
+|  | latest_updates_live | 182.358 | — | 0 | — | — |
+|  | latest_updates_live | 182.358 | — | 0 | — | — |
+|  | latest_updates_live | 477.742 | — | 0 | — | — |
 | New Beginnings - A Pokemon Slice of Life. [OC/Isekai/Move Tutor/Breeder] | latest_updates_live | 477.742 | — | 0 | — | — |
 |  | latest_updates_live | 477.742 | — | 0 | — | — |
 |  | latest_updates_live | 477.742 | — | 0 | — | — |
-| APOCALYPSE QUEEN: RISE OF THE SYSTEM | latest_updates_live | 477.742 | — | 0 | — | — |
+|  | latest_updates_live | 477.742 | — | 0 | — | — |
 | Kagero: Rise Of The Cursed One | latest_updates_live | 477.742 | — | 0 | — | — |
-| The Adopted Noble Is Not Human [A Superhuman in a Fantasy World] | latest_updates_live | 477.742 | — | 0 | — | — |
+|  | latest_updates_live | 477.742 | — | 0 | — | — |
 |  | latest_updates_live | 477.742 | — | 0 | — | — |
 | Fallen Elementals | latest_updates_live | 477.742 | — | 0 | — | — |
 | The End of our Time: A Tale of Lie | latest_updates_live | 477.742 | — | 0 | — | — |
@@ -86,25 +106,5 @@
 | About This Dark Lord [A Classic Fantasy Hero's Journey] 2nd Edition | latest_updates_live | 218.875 | — | 0 | — | — |
 |  | latest_updates_live | 218.875 | — | 0 | — | — |
 |  | latest_updates_live | 218.875 | — | 0 | — | — |
-|  | latest_updates_live | 89.242 | — | 0 | — | — |
-|  | latest_updates_live | 89.242 | — | 0 | — | — |
-| Faex Metalli | latest_updates_live | 89.242 | — | 0 | 0 | — |
-|  | latest_updates_live | 89.242 | — | 0 | — | — |
-|  | latest_updates_live | 89.242 | — | 0 | — | — |
-| ACÂİB: The Last of Everything | latest_updates_live | 89.242 | — | 0 | 0 | — |
-|  | latest_updates_live | 89.242 | — | 0 | — | — |
-| Wash After Reading | latest_updates_live | 89.242 | — | 0 | 66 | — |
-|  | latest_updates_live | 89.242 | — | 0 | — | — |
-|  | latest_updates_live | 89.242 | — | 0 | — | — |
-|  | latest_updates_live | 89.242 | — | 0 | — | — |
-|  | latest_updates_live | 89.242 | — | 0 | — | — |
-|  | latest_updates_live | 89.242 | — | 0 | — | — |
-| Arsenal Mage! Why Does Every Weapon Give Me A New Skill? | latest_updates_live | 89.242 | — | 0 | 4335 | — |
-|  | latest_updates_live | 89.242 | — | 0 | — | — |
-|  | latest_updates_live | 89.242 | — | 0 | — | — |
-|  | latest_updates_live | 89.242 | — | 0 | — | — |
-|  | latest_updates_live | 89.242 | — | 0 | — | — |
-|  | latest_updates_live | 89.242 | — | 0 | — | — |
-|  | latest_updates_live | 89.242 | — | 0 | — | — |
 
 > A monthly or daily page total alone cannot identify 12:00–13:00 versus 18:00–19:00. An hourly page series, or an hourly domain series combined with a page/domain baseline from the same provider and period, is required.
