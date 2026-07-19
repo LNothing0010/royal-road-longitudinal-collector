@@ -6,24 +6,44 @@
 
 | Fiction | Surface | Residence min | Est. page visits | Providers | View delta | Views / 1k page visits |
 |---|---|---:|---:|---:|---:|---:|
+| MOKYEON | latest_updates_live | 477.742 | — | 0 | — | — |
+| New Beginnings - A Pokemon Slice of Life. [OC/Isekai/Move Tutor/Breeder] | latest_updates_live | 477.742 | — | 0 | — | — |
+|  | latest_updates_live | 477.742 | — | 0 | — | — |
+|  | latest_updates_live | 477.742 | — | 0 | — | — |
+| APOCALYPSE QUEEN: RISE OF THE SYSTEM | latest_updates_live | 477.742 | — | 0 | — | — |
+| Kagero: Rise Of The Cursed One | latest_updates_live | 477.742 | — | 0 | — | — |
+| The Adopted Noble Is Not Human [A Superhuman in a Fantasy World] | latest_updates_live | 477.742 | — | 0 | — | — |
+|  | latest_updates_live | 477.742 | — | 0 | — | — |
+| Fallen Elementals | latest_updates_live | 477.742 | — | 0 | — | — |
+| The End of our Time: A Tale of Lie | latest_updates_live | 477.742 | — | 0 | — | — |
+|  | latest_updates_live | 477.742 | — | 0 | — | — |
+| Ranker: Soul Sheer | latest_updates_live | 477.742 | — | 0 | — | — |
+| The Lineage of the Condemned | latest_updates_live | 477.742 | — | 0 | — | — |
+|  | latest_updates_live | 477.742 | — | 0 | — | — |
+|  | latest_updates_live | 477.742 | — | 0 | — | — |
+|  | latest_updates_live | 477.742 | — | 0 | — | — |
+|  | latest_updates_live | 477.742 | — | 0 | — | — |
+|  | latest_updates_live | 477.742 | — | 0 | — | — |
+| Jaeger | latest_updates_live | 477.742 | — | 0 | — | — |
+|  | latest_updates_live | 477.742 | — | 0 | — | — |
 | The Empty Vow | latest_updates_live | 94.642 | — | 0 | 28 | — |
 |  | latest_updates_live | 94.642 | — | 0 | — | — |
 |  | latest_updates_live | 94.642 | — | 0 | — | — |
-| Fractured Divergence - The Cosmic Jailer | latest_updates_live | 94.642 | — | 0 | — | — |
-|  | latest_updates_live | 94.642 | — | 0 | — | — |
-|  | latest_updates_live | 94.642 | — | 0 | — | — |
+| The Cosmic Jailer - Fractured Divergence | latest_updates_live | 94.642 | — | 0 | — | — |
+| Primarch of Fire and Blood (Game of thrones x 40k) | latest_updates_live | 94.642 | — | 0 | — | — |
+| Desecration | latest_updates_live | 94.642 | — | 0 | — | — |
 |  | latest_updates_live | 94.642 | — | 0 | — | — |
 | Harlem Arcana | latest_updates_live | 94.642 | — | 0 | 8 | — |
 | Twilight of the Mages: Age of Ash | latest_updates_live | 94.642 | — | 0 | — | — |
 |  | latest_updates_live | 94.642 | — | 0 | — | — |
 |  | latest_updates_live | 94.642 | — | 0 | — | — |
 |  | latest_updates_live | 94.642 | — | 0 | — | — |
-|  | latest_updates_live | 94.642 | — | 0 | — | — |
+| A French Canadian in an other world | latest_updates_live | 94.642 | — | 0 | — | — |
 | Eight Counts & Eight Plates | latest_updates_live | 94.642 | — | 0 | 2 | — |
-|  | latest_updates_live | 94.642 | — | 0 | — | — |
+| Holy Souls | latest_updates_live | 94.642 | — | 0 | — | — |
 |  | latest_updates_live | 94.642 | — | 0 | — | — |
 | Iconic - Ionic (Book 1) | latest_updates_live | 94.642 | — | 0 | — | — |
-|  | latest_updates_live | 94.642 | — | 0 | — | — |
+| Heart: I wanted to be a hero. I ended up being something else entirely. | latest_updates_live | 94.642 | — | 0 | — | — |
 |  | latest_updates_live | 94.642 | — | 0 | — | — |
 |  | latest_updates_live | 94.642 | — | 0 | — | — |
 |  | latest_updates_live | 417.975 | — | 0 | — | — |
@@ -86,25 +106,5 @@
 |  | latest_updates_live | 89.242 | — | 0 | — | — |
 |  | latest_updates_live | 89.242 | — | 0 | — | — |
 |  | latest_updates_live | 89.242 | — | 0 | — | — |
-| Memoir of an eternal being | latest_updates_live | 108.517 | — | 0 | 40 | — |
-|  | latest_updates_live | 108.517 | — | 0 | — | — |
-|  | latest_updates_live | 108.517 | — | 0 | — | — |
-|  | latest_updates_live | 108.517 | — | 0 | — | — |
-| I Recruit bosses I Defeat [LITRPG][Mystery][Fantasy] | latest_updates_live | 108.517 | — | 0 | 73 | — |
-|  | latest_updates_live | 108.517 | — | 0 | — | — |
-|  | latest_updates_live | 108.517 | — | 0 | — | — |
-|  | latest_updates_live | 108.517 | — | 0 | — | — |
-| Star Island: A Hero’s path | latest_updates_live | 108.517 | — | 0 | — | — |
-| GALORIA-SEASON 3 | latest_updates_live | 108.517 | — | 0 | 15 | — |
-| I Am Just An Ordinary Cultivator | latest_updates_live | 108.517 | — | 0 | — | — |
-|  | latest_updates_live | 108.517 | — | 0 | — | — |
-|  | latest_updates_live | 108.517 | — | 0 | — | — |
-|  | latest_updates_live | 108.517 | — | 0 | — | — |
-| Between Classes | latest_updates_live | 108.517 | — | 0 | 6 | — |
-|  | latest_updates_live | 108.517 | — | 0 | — | — |
-| Fake Chosen One | latest_updates_live | 108.517 | — | 0 | — | — |
-| Piecemeal [Isekai LitRPG] | latest_updates_live | 108.517 | — | 0 | — | — |
-|  | latest_updates_live | 108.517 | — | 0 | — | — |
-|  | latest_updates_live | 108.517 | — | 0 | — | — |
 
 > A monthly or daily page total alone cannot identify 12:00–13:00 versus 18:00–19:00. An hourly page series, or an hourly domain series combined with a page/domain baseline from the same provider and period, is required.
