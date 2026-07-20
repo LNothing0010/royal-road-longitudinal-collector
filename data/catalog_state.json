@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "backfill_next_page": 452,
+  "backfill_next_page": 527,
   "backfill_pass": 1,
   "frontier_anchor_ids": [
     "181335",
@@ -87,10 +87,10 @@
   "frontier_last_run_utc": "2026-07-19T18:42:47+00:00",
   "frontier_last_complete": true,
   "frontier_last_pages_fetched": 5,
-  "updated_utc": "2026-07-19T18:43:13.270513Z",
-  "backfill_last_page_seen": 6615,
-  "backfill_last_run_utc": "2026-07-19T10:02:37+00:00",
-  "backfill_last_start_page": 374,
-  "backfill_last_end_page": 451,
-  "backfill_last_new_fictions": 1323
+  "updated_utc": "2026-07-20T12:10:54.666218Z",
+  "backfill_last_page_seen": 6626,
+  "backfill_last_run_utc": "2026-07-20T12:06:24+00:00",
+  "backfill_last_start_page": 449,
+  "backfill_last_end_page": 526,
+  "backfill_last_new_fictions": 1220
 }
