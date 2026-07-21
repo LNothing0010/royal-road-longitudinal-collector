@@ -1,84 +1,85 @@
 # Royal Road launch analysis
 
-- Run: `55` at `2026-07-21T00:09:53Z`
-- Newly detected this run: **22**
+- Run: `56` at `2026-07-21T09:37:05Z`
+- Newly detected this run: **23**
 - Current-batch core metric coverage: **100.0%**
-- Rolling 168h cohort: **1192 novels**
-- Rolling resolved coverage: **98.99%**
+- Rolling 168h cohort: **1215 novels**
+- Rolling resolved coverage: **99.01%**
 
 ## Newly published fiction captured this run
 
 | Novel | Author | Status | Followers | Views | Chapters | F/1k views | Launch index |
 |---|---|---:|---:|---:|---:|---:|---:|
-| [Deadweight](https://www.royalroad.com/fiction/181686/deadweight) | James Gore | complete | 0 | 0 | 1 | — | 18.76 |
-| [Ashes of the Ninth Sword](https://www.royalroad.com/fiction/181685/ashes-of-the-ninth-sword) | Ann110 | complete | 0 | 6 | 1 | 0.00 | 33.80 |
-| [Chronicles of Survival in the Eternal Wasteland](https://www.royalroad.com/fiction/181684/chronicles-of-survival-in-the-eternal-wasteland) | 511IsHungry | complete | 0 | 7 | 1 | 0.00 | 35.76 |
-| [Blood Oath](https://www.royalroad.com/fiction/181683/blood-oath) | meecchh | complete | 0 | 3 | 1 | 0.00 | 28.91 |
-| [Power Above All](https://www.royalroad.com/fiction/181682/power-above-all) | Pocketcat | complete | 0 | 8 | 1 | 0.00 | 37.24 |
-| [Fallen Light](https://www.royalroad.com/fiction/181681/fallen-light) | Nanashiii | complete | 0 | 4 | 2 | 0.00 | 30.21 |
-| [Sting Theory](https://www.royalroad.com/fiction/181680/sting-theory) | davotron | complete | 0 | 4 | 1 | 0.00 | 30.28 |
-| [The Silt Archive of Nerevaris](https://www.royalroad.com/fiction/181679/the-silt-archive-of-nerevaris) | Lazy_lady | complete | 0 | 4 | 1 | 0.00 | 30.28 |
-| [A Transformation To Love](https://www.royalroad.com/fiction/181678/a-transformation-to-love) | Tracyz | complete | 0 | 6 | 1 | 0.00 | 33.80 |
-| [i accidentally deleted human free will with a smartphone app and now my aunt is a text to speech robot](https://www.royalroad.com/fiction/181677/i-accidentally-deleted-human-free-will-with-a) | CreeperPeepers | complete | 1 | 6 | 1 | 166.67 | 76.74 |
-| [The Woven Dark](https://www.royalroad.com/fiction/181676/the-woven-dark) | Nameless018 | complete | 0 | 6 | 1 | 0.00 | 33.80 |
-| [A CAUTIOUS SORCERER SOUGHT THE EMPEROR](https://www.royalroad.com/fiction/181675/a-cautious-sorcerer-sought-the-emperor) | Sangmin | complete | 0 | 6 | 1 | 0.00 | 33.80 |
-| [Echo of Betrayal](https://www.royalroad.com/fiction/181674/echo-of-betrayal) | Asfair | complete | 0 | 5 | 1 | 0.00 | 32.14 |
-| [Obsession, Chapter 1.](https://www.royalroad.com/fiction/181673/obsession-chapter-1) | Tsvetan | complete | 0 | 6 | 1 | 0.00 | 33.80 |
-| [FISSION](https://www.royalroad.com/fiction/181672/fission) | BACKOM | complete | 0 | 61 | 10 | 0.00 | 44.07 |
-| [The Fear-Eater's Arena](https://www.royalroad.com/fiction/181671/the-fear-eaters-arena) | Ray JY HUNG | complete | 2 | 12 | 2 | 166.67 | 82.93 |
-| [Expense of a God](https://www.royalroad.com/fiction/181670/expense-of-a-god) | CandyStealer991 | complete | 0 | 44 | 4 | 0.00 | 46.12 |
-| [SCALECITY](https://www.royalroad.com/fiction/181669/scalecity) | dollasbebi | complete | 1 | 7 | 1 | 142.86 | 78.58 |
-| [Null](https://www.royalroad.com/fiction/181668/null) | Hitou | complete | 0 | 28 | 3 | 0.00 | 43.98 |
-| [THE KARMA OF NATURE](https://www.royalroad.com/fiction/181667/the-karma-of-nature) | NewbieWriter | complete | 0 | 8 | 1 | 0.00 | 37.24 |
-| [Empyreon Earth](https://www.royalroad.com/fiction/181666/empyreon-earth) | Ana Blackwood | complete | 0 | 127 | 19 | 0.00 | 44.42 |
-| [The Buddha Killer](https://www.royalroad.com/fiction/181665/the-buddha-killer) | 47apanchal | complete | 0 | 8 | 1 | 0.00 | 37.24 |
+| [The Final Piece: The Origin](https://www.royalroad.com/fiction/181710/the-final-piece-the-origin) | rm_mystory | complete | 0 | 2 | 1 | 0.00 | 27.75 |
+| [THE UNKNOWN](https://www.royalroad.com/fiction/181709/the-unknown) | Elara wynter | complete | 1 | 12 | 2 | 83.33 | 81.98 |
+| [Heaven's Order](https://www.royalroad.com/fiction/181708/heavens-order) | grecy | complete | 0 | 10 | 1 | 0.00 | 41.74 |
+| [Vinx the Mercenary Minx](https://www.royalroad.com/fiction/181707/vinx-the-mercenary-minx) | MookieSpitz | complete | 1 | 10 | 1 | 100.00 | 84.50 |
+| [The Empty Body: Remastered](https://www.royalroad.com/fiction/181706/the-empty-body-remastered) | Ansh Barma | complete | 0 | 8 | 1 | 0.00 | 39.27 |
+| [The Last Reflection](https://www.royalroad.com/fiction/181705/the-last-reflection) | M_A_Hoath | complete | 0 | 58 | 6 | 0.00 | 45.53 |
+| [Bound by The Ruin](https://www.royalroad.com/fiction/181704/bound-by-the-ruin) | Jahdshh | complete | 1 | 9 | 1 | 111.11 | 83.41 |
+| [How Dan saved the world - somehow](https://www.royalroad.com/fiction/181703/how-dan-saved-the-world-somehow) | T.C. Rowan | complete | 0 | 7 | 1 | 0.00 | 38.07 |
+| [Downpour](https://www.royalroad.com/fiction/181702/downpour) | chuzpah | complete | 1 | 20 | 2 | 50.00 | 84.57 |
+| [Miss Muffet and the Hollow Silk](https://www.royalroad.com/fiction/181701/miss-muffet-and-the-hollow-silk) | chuzpah | complete | 0 | 27 | 3 | 0.00 | 44.24 |
+| [Daughters of Destiny: The Black Lotus Legacy](https://www.royalroad.com/fiction/181700/daughters-of-destiny-the-black-lotus-legacy) | NightLotus | complete | 1 | 8 | 1 | 125.00 | 82.20 |
+| [Reincarnation Roulette: One Life Per Roll](https://www.royalroad.com/fiction/181699/reincarnation-roulette-one-life-per-roll) | Bejo | complete | 1 | 11 | 1 | 90.91 | 85.45 |
+| [My Harem Academia](https://www.royalroad.com/fiction/181698/my-harem-academia) | lordsanctify | complete | 0 | 16 | 1 | 0.00 | 48.93 |
+| [My goblin legion: Roman Army Kingdoom Building](https://www.royalroad.com/fiction/181697/my-goblin-legion-roman-army-kingdoom-building) | LauritoOh | complete | 4 | 31 | 2 | 129.03 | 94.32 |
+| [THE UNVEILING ECHOS](https://www.royalroad.com/fiction/181696/the-unveiling-echos) | Meeia haroon | complete | 1 | 26 | 1 | 38.46 | 93.96 |
+| [Second Chance](https://www.royalroad.com/fiction/181695/second-chance) | Y.K__t | complete | 0 | 97 | 20 | 0.00 | 43.93 |
+| [The Domination of the Failure Summoner](https://www.royalroad.com/fiction/181694/the-domination-of-the-failure-summoner) | Miki Shou | complete | 0 | 42 | 4 | 0.00 | 45.69 |
+| [Phantom](https://www.royalroad.com/fiction/181692/phantom) | TheSenselessWriter | complete | 0 | 8 | 1 | 0.00 | 39.27 |
+| [Unchained God: Volume II](https://www.royalroad.com/fiction/181691/unchained-god-volume-ii) | bzidzik | complete | 0 | 12 | 1 | 0.00 | 44.07 |
+| [Tales of destruction](https://www.royalroad.com/fiction/181690/tales-of-destruction) | AshSah | complete | 1 | 16 | 1 | 62.50 | 90.83 |
+| [Six Clover](https://www.royalroad.com/fiction/181689/six-clover) | Atiqur Rahman | complete | 1 | 65 | 5 | 15.38 | 82.95 |
+| [I Want to Be the Heavenly Saber](https://www.royalroad.com/fiction/181688/i-want-to-be-the-heavenly-saber) | DDLaoHuynh | complete | 1 | 125 | 10 | 8.00 | 80.61 |
+| [I Am Legion](https://www.royalroad.com/fiction/181687/i-am-legion) | Asharan | complete | 2 | 13 | 1 | 153.85 | 89.59 |
 
 ## Current-batch medians
 
-- `followers`: **0.00**
-- `total_views`: **6.00**
+- `followers`: **1.00**
+- `total_views`: **13.00**
 - `chapter_count`: **1.00**
-- `followers_per_day`: **0.00**
-- `views_per_day`: **24.00**
-- `followers_per_1000_views`: **0.00**
-- `followers_per_chapter`: **0.00**
-- `views_per_chapter`: **6.00**
-- `launch_index`: **34.78**
+- `followers_per_day`: **2.65**
+- `views_per_day`: **52.00**
+- `followers_per_1000_views`: **8.00**
+- `followers_per_chapter`: **0.10**
+- `views_per_chapter`: **10.00**
+- `launch_index`: **80.61**
 
 ## Rolling 168h leaderboard
 
 | # | Novel | Age h | Followers | Views | F/day | Views/day | Conversion | Index | RS |
 |---:|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| 1 | [—](https://www.royalroad.com/fiction/181480/max-level-vampire-rebuilds-the-demon-kingdom) | 23.06 | 144 | 1,147 | 149.84 | 1,193.51 | 125.54 | 99.62 | #31 |
-| 2 | [—](https://www.royalroad.com/fiction/181059/empty-sea-sss-villain-stuck-in-an-npc-world) | 78.64 | 109 | 1,247 | 33.27 | 380.57 | 87.41 | 99.02 | #42 |
-| 3 | [—](https://www.royalroad.com/fiction/180704/awakening-in-the-altered-world) | 123.65 | 571 | 10,382 | 110.83 | 2,015.15 | 55.00 | 98.42 | #17 |
-| 4 | [Gifted](https://www.royalroad.com/fiction/181303/gifted) | 32.62 | 66 | 144 | 48.56 | 105.95 | 458.33 | 98.22 | — |
-| 5 | [Solo Gene Hunter (A genetic progression fantasy/Litprg)](https://www.royalroad.com/fiction/180925/solo-gene-hunter-a-genetic-progression-fantasylitprg) | 86.15 | 59 | 918 | 16.44 | 255.75 | 64.27 | 98.22 | — |
-| 6 | [12 Steps to Transcendence: A Skill-Grinding LitRPG](https://www.royalroad.com/fiction/181591/12-steps-to-transcendence-a-skill-grinding-litrpg) | 10.46 | 17 | 202 | 39.00 | 463.42 | 84.16 | 97.85 | — |
-| 7 | [The Iron Lord](https://www.royalroad.com/fiction/180535/the-iron-lord) | 137.16 | 72 | 1,489 | 12.60 | 260.54 | 48.35 | 97.64 | — |
-| 8 | [From Worlds Beyond](https://www.royalroad.com/fiction/181102/from-worlds-beyond) | 11.96 | 14 | 116 | 28.09 | 232.73 | 120.69 | 97.28 | — |
-| 9 | [The Spirit Smith [Isekai LitRPG \| Crafting \| Magic \| Spirit Tamer]](https://www.royalroad.com/fiction/180657/the-spirit-smith-isekai-litrpg-crafting-magic) | 33.06 | 25 | 199 | 18.15 | 144.45 | 125.63 | 97.25 | — |
-| 10 | [Bright Light [Isekai. Female mc. Lit-RPG. Progression]](https://www.royalroad.com/fiction/181091/bright-light-isekai-female-mc-lit-rpg-progression) | 60.57 | 23 | 344 | 9.11 | 136.30 | 66.86 | 97.12 | — |
-| 11 | [The Soulweaver - Stealing Souls to Cultivate [LitRPG/ Dungeon Crawler]](https://www.royalroad.com/fiction/180712/the-soulweaver-stealing-souls-to-cultivate-litrpg) | 120.51 | 67 | 1,956 | 13.34 | 389.54 | 34.25 | 96.98 | — |
-| 12 | [So I Got Reincarnated as an Ant](https://www.royalroad.com/fiction/181213/so-i-got-reincarnated-as-an-ant) | 34.68 | 13 | 310 | 9.00 | 214.54 | 41.94 | 96.34 | — |
-| 13 | [Please Fall for the Male Lead (Not Me)](https://www.royalroad.com/fiction/181265/please-fall-for-the-male-lead-not-me) | 33.17 | 11 | 250 | 7.96 | 180.87 | 44.00 | 96.27 | — |
-| 14 | [This Young Lady Doesn't Like Losing!](https://www.royalroad.com/fiction/181576/this-young-lady-doesnt-like-losing) | 8.63 | 6 | 26 | 16.68 | 72.30 | 230.77 | 96.09 | — |
-| 15 | [One Glitch From Disaster — a LitRPG Isekai Adventure](https://www.royalroad.com/fiction/180686/one-glitch-from-disaster-a-litrpg-isekai-adventure) | 124.33 | 28 | 422 | 5.41 | 81.46 | 66.35 | 95.19 | — |
-| 16 | [The Mana Paragon [An Isekai Fantasy LitRPG]](https://www.royalroad.com/fiction/181075/the-mana-paragon-an-isekai-fantasy-litrpg) | 75.00 | 13 | 463 | 4.16 | 148.16 | 28.08 | 94.89 | — |
-| 17 | [The Pharmacist They Didn't Mean to Summon](https://www.royalroad.com/fiction/180998/the-pharmacist-they-didnt-mean-to-summon) | 84.16 | 15 | 349 | 4.28 | 99.53 | 42.98 | 94.73 | — |
-| 18 | [Jericho Stands [Medieval GameLit, Adventure, Fantasy]](https://www.royalroad.com/fiction/181476/jericho-stands-medieval-gamelit-adventure-fantasy) | 24.10 | 11 | 60 | 10.96 | 59.76 | 183.33 | 94.52 | — |
-| 19 | [The Fallen Star from the Fallen World](https://www.royalroad.com/fiction/180798/the-fallen-star-from-the-fallen-world) | 90.64 | 14 | 546 | 3.71 | 144.57 | 25.64 | 94.23 | — |
-| 20 | [Xianxia-English Dictionary](https://www.royalroad.com/fiction/181474/xianxia-english-dictionary) | 17.26 | 4 | 43 | 5.56 | 59.78 | 93.02 | 93.83 | — |
+| 1 | [—](https://www.royalroad.com/fiction/181480/max-level-vampire-rebuilds-the-demon-kingdom) | 32.52 | 144 | 1,147 | 106.28 | 846.55 | 125.54 | 99.59 | #19 |
+| 2 | [—](https://www.royalroad.com/fiction/181059/empty-sea-sss-villain-stuck-in-an-npc-world) | 88.09 | 109 | 1,247 | 29.70 | 339.73 | 87.41 | 99.01 | #43 |
+| 3 | [Gifted](https://www.royalroad.com/fiction/181303/gifted) | 42.07 | 66 | 144 | 37.65 | 82.14 | 458.33 | 98.40 | — |
+| 4 | [—](https://www.royalroad.com/fiction/180704/awakening-in-the-altered-world) | 133.10 | 571 | 10,382 | 102.96 | 1,872.03 | 55.00 | 98.32 | #14 |
+| 5 | [Solo Gene Hunter (A genetic progression fantasy/Litprg)](https://www.royalroad.com/fiction/180925/solo-gene-hunter-a-genetic-progression-fantasylitprg) | 95.60 | 59 | 918 | 14.81 | 230.46 | 64.27 | 98.19 | — |
+| 6 | [12 Steps to Transcendence: A Skill-Grinding LitRPG](https://www.royalroad.com/fiction/181591/12-steps-to-transcendence-a-skill-grinding-litrpg) | 19.91 | 17 | 202 | 20.49 | 243.44 | 84.16 | 97.61 | — |
+| 7 | [The Iron Lord](https://www.royalroad.com/fiction/180535/the-iron-lord) | 146.62 | 72 | 1,489 | 11.79 | 243.74 | 48.35 | 97.60 | — |
+| 8 | [The Spirit Smith [Isekai LitRPG \| Crafting \| Magic \| Spirit Tamer]](https://www.royalroad.com/fiction/180657/the-spirit-smith-isekai-litrpg-crafting-magic) | 42.52 | 25 | 199 | 14.11 | 112.33 | 125.63 | 97.22 | — |
+| 9 | [Bright Light [Isekai. Female mc. Lit-RPG. Progression]](https://www.royalroad.com/fiction/181091/bright-light-isekai-female-mc-lit-rpg-progression) | 70.02 | 23 | 344 | 7.88 | 117.90 | 66.86 | 97.20 | — |
+| 10 | [From Worlds Beyond](https://www.royalroad.com/fiction/181102/from-worlds-beyond) | 21.42 | 14 | 116 | 15.69 | 130.00 | 120.69 | 96.91 | — |
+| 11 | [The Soulweaver - Stealing Souls to Cultivate [LitRPG/ Dungeon Crawler]](https://www.royalroad.com/fiction/180712/the-soulweaver-stealing-souls-to-cultivate-litrpg) | 129.96 | 67 | 1,956 | 12.37 | 361.21 | 34.25 | 96.89 | — |
+| 12 | [Please Fall for the Male Lead (Not Me)](https://www.royalroad.com/fiction/181265/please-fall-for-the-male-lead-not-me) | 42.63 | 11 | 250 | 6.19 | 140.76 | 44.00 | 96.22 | — |
+| 13 | [So I Got Reincarnated as an Ant](https://www.royalroad.com/fiction/181213/so-i-got-reincarnated-as-an-ant) | 44.13 | 13 | 310 | 7.07 | 168.59 | 41.94 | 96.16 | — |
+| 14 | [One Glitch From Disaster — a LitRPG Isekai Adventure](https://www.royalroad.com/fiction/180686/one-glitch-from-disaster-a-litrpg-isekai-adventure) | 133.78 | 28 | 422 | 5.02 | 75.71 | 66.35 | 95.95 | — |
+| 15 | [The Pharmacist They Didn't Mean to Summon](https://www.royalroad.com/fiction/180998/the-pharmacist-they-didnt-mean-to-summon) | 93.61 | 15 | 349 | 3.85 | 89.47 | 42.98 | 95.00 | — |
+| 16 | [The Mana Paragon [An Isekai Fantasy LitRPG]](https://www.royalroad.com/fiction/181075/the-mana-paragon-an-isekai-fantasy-litrpg) | 84.45 | 13 | 463 | 3.69 | 131.57 | 28.08 | 94.99 | — |
+| 17 | [The Fallen Star from the Fallen World](https://www.royalroad.com/fiction/180798/the-fallen-star-from-the-fallen-world) | 100.10 | 14 | 546 | 3.36 | 130.92 | 25.64 | 94.50 | — |
+| 18 | [Jericho Stands [Medieval GameLit, Adventure, Fantasy]](https://www.royalroad.com/fiction/181476/jericho-stands-medieval-gamelit-adventure-fantasy) | 33.55 | 11 | 60 | 7.87 | 42.92 | 183.33 | 94.36 | — |
+| 19 | [My goblin legion: Roman Army Kingdoom Building](https://www.royalroad.com/fiction/181697/my-goblin-legion-roman-army-kingdoom-building) | 5.45 | 4 | 31 | 16.00 | 124.00 | 129.03 | 94.32 | — |
+| 20 | [This Young Lady Doesn't Like Losing!](https://www.royalroad.com/fiction/181576/this-young-lady-doesnt-like-losing) | 18.08 | 6 | 26 | 7.96 | 34.51 | 230.77 | 94.19 | — |
 
 ## Leaders by dimension
 
-- **overall_launch_index**:  — `launch_index=99.62`
+- **overall_launch_index**:  — `launch_index=99.59`
 - **followers**:  — `followers=571`
 - **views**:  — `total_views=10,382`
 - **conversion**: Gifted — `followers_per_1000_views=458.33`
 - **follower_momentum**:  — `follower_growth_per_day=192.93`
 - **view_momentum**:  — `view_growth_per_day=2,202.95`
-- **best_current_rs_rank**:  — `current_best_rs_rank=17`
+- **best_current_rs_rank**:  — `current_best_rs_rank=14`
 
 ## Data-quality exceptions
 
