@@ -6,11 +6,31 @@
 
 | Fiction | Surface | Residence min | Est. page visits | Providers | View delta | Views / 1k page visits |
 |---|---|---:|---:|---:|---:|---:|
+|  | latest_updates_live | 187.217 | — | 0 | — | — |
+|  | latest_updates_live | 187.217 | — | 0 | — | — |
+|  | latest_updates_live | 187.217 | — | 0 | — | — |
+|  | latest_updates_live | 187.217 | — | 0 | — | — |
+|  | latest_updates_live | 187.217 | — | 0 | — | — |
+|  | latest_updates_live | 187.217 | — | 0 | — | — |
+| The General's Diary (Etherra saga, vol. 1) | latest_updates_live | 187.217 | — | 0 | — | — |
+|  | latest_updates_live | 187.217 | — | 0 | — | — |
+|  | latest_updates_live | 187.217 | — | 0 | — | — |
+|  | latest_updates_live | 187.217 | — | 0 | — | — |
+|  | latest_updates_live | 187.217 | — | 0 | — | — |
+|  | latest_updates_live | 187.217 | — | 0 | — | — |
+|  | latest_updates_live | 187.217 | — | 0 | — | — |
+|  | latest_updates_live | 187.217 | — | 0 | — | — |
+|  | latest_updates_live | 187.217 | — | 0 | — | — |
+|  | latest_updates_live | 187.217 | — | 0 | — | — |
+|  | latest_updates_live | 187.217 | — | 0 | — | — |
+|  | latest_updates_live | 187.217 | — | 0 | — | — |
+|  | latest_updates_live | 187.217 | — | 0 | — | — |
+| Book 1: A Blossom Beyond Heaven | latest_updates_live | 187.217 | — | 0 | — | — |
 |  | latest_updates_live | 755.55 | — | 0 | — | — |
 |  | latest_updates_live | 755.55 | — | 0 | — | — |
 | Bound by force | latest_updates_live | 755.55 | — | 0 | — | — |
 |  | latest_updates_live | 755.55 | — | 0 | — | — |
-| The chronicle of the last bloom | latest_updates_live | 755.55 | — | 0 | — | — |
+| The Chronicle of the Last Bloom | latest_updates_live | 755.55 | — | 0 | — | — |
 |  | latest_updates_live | 755.55 | — | 0 | — | — |
 | Virat: Abandoned by Destiny | latest_updates_live | 755.55 | — | 0 | — | — |
 |  | latest_updates_live | 755.55 | — | 0 | — | — |
@@ -46,7 +66,7 @@
 |  | latest_updates_live | 325.8 | — | 0 | — | — |
 |  | latest_updates_live | 325.8 | — | 0 | — | — |
 |  | latest_updates_live | 325.8 | — | 0 | — | — |
-| The Soulweaver - Stealing Souls to Cultivate [LitRPG/ Dungeon Crawler] | latest_updates_live | 182.358 | — | 0 | — | — |
+| The Soulweaver - A Soul Cultivation LitRPG/Dungeon Crawler | latest_updates_live | 182.358 | — | 0 | — | — |
 |  | latest_updates_live | 182.358 | — | 0 | — | — |
 |  | latest_updates_live | 182.358 | — | 0 | — | — |
 |  | latest_updates_live | 182.358 | — | 0 | — | — |
@@ -72,7 +92,7 @@
 |  | latest_updates_live | 477.742 | — | 0 | — | — |
 | APOCALYPSE QUEEN: RISE OF THE SYSTEM | latest_updates_live | 477.742 | — | 0 | — | — |
 | Kagero: Rise Of The Cursed One | latest_updates_live | 477.742 | — | 0 | — | — |
-|  | latest_updates_live | 477.742 | — | 0 | — | — |
+| The Adopted Noble Is Not Human [A Superhuman in a Fantasy World] | latest_updates_live | 477.742 | — | 0 | — | — |
 |  | latest_updates_live | 477.742 | — | 0 | — | — |
 | Fallen Elementals | latest_updates_live | 477.742 | — | 0 | — | — |
 | The End of our Time: A Tale of Lie | latest_updates_live | 477.742 | — | 0 | — | — |
@@ -86,25 +106,5 @@
 |  | latest_updates_live | 477.742 | — | 0 | — | — |
 | Jaeger | latest_updates_live | 477.742 | — | 0 | — | — |
 |  | latest_updates_live | 477.742 | — | 0 | — | — |
-| The Empty Vow | latest_updates_live | 94.642 | — | 0 | 28 | — |
-|  | latest_updates_live | 94.642 | — | 0 | — | — |
-|  | latest_updates_live | 94.642 | — | 0 | — | — |
-| The Cosmic Jailer - Fractured Divergence | latest_updates_live | 94.642 | — | 0 | — | — |
-| Primarch of Fire and Blood (Game of thrones x 40k) | latest_updates_live | 94.642 | — | 0 | — | — |
-| Desecration | latest_updates_live | 94.642 | — | 0 | — | — |
-|  | latest_updates_live | 94.642 | — | 0 | — | — |
-| Harlem Arcana | latest_updates_live | 94.642 | — | 0 | 8 | — |
-| Twilight of the Mages: Age of Ash | latest_updates_live | 94.642 | — | 0 | — | — |
-|  | latest_updates_live | 94.642 | — | 0 | — | — |
-|  | latest_updates_live | 94.642 | — | 0 | — | — |
-|  | latest_updates_live | 94.642 | — | 0 | — | — |
-| A French Canadian in an other world | latest_updates_live | 94.642 | — | 0 | — | — |
-| Eight Counts & Eight Plates | latest_updates_live | 94.642 | — | 0 | 2 | — |
-| Holy Souls | latest_updates_live | 94.642 | — | 0 | — | — |
-|  | latest_updates_live | 94.642 | — | 0 | — | — |
-| Iconic - Ionic (Book 1) | latest_updates_live | 94.642 | — | 0 | — | — |
-| Heart: I wanted to be a hero. I ended up being something else entirely. | latest_updates_live | 94.642 | — | 0 | — | — |
-|  | latest_updates_live | 94.642 | — | 0 | — | — |
-|  | latest_updates_live | 94.642 | — | 0 | — | — |
 
 > A monthly or daily page total alone cannot identify 12:00–13:00 versus 18:00–19:00. An hourly page series, or an hourly domain series combined with a page/domain baseline from the same provider and period, is required.
