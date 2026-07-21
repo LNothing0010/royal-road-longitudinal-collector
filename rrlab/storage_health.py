@@ -5,6 +5,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from .config import Settings
+
 
 def _tree_stats(root: Path) -> dict[str, int]:
     if not root.exists():
@@ -54,3 +56,13 @@ def write_storage_health(
     path = report_dir / "storage_health_latest.json"
     path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     return path
+
+
+def main() -> None:
+    settings = Settings()
+    path = write_storage_health(settings.db_path, settings.raw_dir, settings.report_dir)
+    print(path.read_text(encoding="utf-8"), end="")
+
+
+if __name__ == "__main__":
+    main()
