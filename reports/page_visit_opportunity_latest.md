@@ -6,6 +6,26 @@
 
 | Fiction | Surface | Residence min | Est. page visits | Providers | View delta | Views / 1k page visits |
 |---|---|---:|---:|---:|---:|---:|
+| White Wisteria | latest_updates_live | 142.825 | — | 0 | 17 | — |
+|  | latest_updates_live | 142.825 | — | 0 | — | — |
+|  | latest_updates_live | 142.825 | — | 0 | — | — |
+|  | latest_updates_live | 142.825 | — | 0 | — | — |
+| The Shepherd of Monsters | latest_updates_live | 142.825 | — | 0 | 9 | — |
+|  | latest_updates_live | 142.825 | — | 0 | — | — |
+| I Am Invincible After Deducing The Soulnet | latest_updates_live | 142.825 | — | 0 | 215 | — |
+| My Golden Wife | latest_updates_live | 142.825 | — | 0 | 84 | — |
+|  | latest_updates_live | 142.825 | — | 0 | — | — |
+|  | latest_updates_live | 142.825 | — | 0 | — | — |
+| A Flutter in the Ash | latest_updates_live | 142.825 | — | 0 | 4 | — |
+|  | latest_updates_live | 142.825 | — | 0 | — | — |
+| El La Nora Chronicles | latest_updates_live | 142.825 | — | 0 | 4 | — |
+| A MYTERY HIDE | latest_updates_live | 142.825 | — | 0 | 4 | — |
+|  | latest_updates_live | 142.825 | — | 0 | — | — |
+| Sovereign of Immortals（Xianxia novel, 250K words updated.） | latest_updates_live | 142.825 | — | 0 | — | — |
+|  | latest_updates_live | 142.825 | — | 0 | — | — |
+|  | latest_updates_live | 142.825 | — | 0 | — | — |
+| Becoming V2 | latest_updates_live | 142.825 | — | 0 | 4 | — |
+| The Marvelous Misadventures of the great Sir Edwin | latest_updates_live | 142.825 | — | 0 | 3 | — |
 |  | latest_updates_live | 187.217 | — | 0 | — | — |
 |  | latest_updates_live | 187.217 | — | 0 | — | — |
 |  | latest_updates_live | 187.217 | — | 0 | — | — |
@@ -64,7 +84,7 @@
 |  | latest_updates_live | 325.8 | — | 0 | — | — |
 | Gifted being - villain arc | latest_updates_live | 325.8 | — | 0 | — | — |
 |  | latest_updates_live | 325.8 | — | 0 | — | — |
-|  | latest_updates_live | 325.8 | — | 0 | — | — |
+| The Squire [A Local's POV about Transmigrators] | latest_updates_live | 325.8 | — | 0 | — | — |
 |  | latest_updates_live | 325.8 | — | 0 | — | — |
 | The Soulweaver - A Soul Cultivation LitRPG/Dungeon Crawler | latest_updates_live | 182.358 | — | 0 | — | — |
 |  | latest_updates_live | 182.358 | — | 0 | — | — |
@@ -86,25 +106,5 @@
 | Ascension Protocol [A System Apocalypse LitRPG] | latest_updates_live | 182.358 | — | 0 | — | — |
 |  | latest_updates_live | 182.358 | — | 0 | — | — |
 |  | latest_updates_live | 182.358 | — | 0 | — | — |
-| MOKYEON | latest_updates_live | 477.742 | — | 0 | — | — |
-| New Beginnings - A Pokemon Slice of Life. [OC/Isekai/Move Tutor/Breeder] | latest_updates_live | 477.742 | — | 0 | — | — |
-|  | latest_updates_live | 477.742 | — | 0 | — | — |
-|  | latest_updates_live | 477.742 | — | 0 | — | — |
-| APOCALYPSE QUEEN: RISE OF THE SYSTEM | latest_updates_live | 477.742 | — | 0 | — | — |
-| Kagero: Rise Of The Cursed One | latest_updates_live | 477.742 | — | 0 | — | — |
-| The Adopted Noble Is Not Human [A Superhuman in a Fantasy World] | latest_updates_live | 477.742 | — | 0 | — | — |
-|  | latest_updates_live | 477.742 | — | 0 | — | — |
-| Fallen Elementals | latest_updates_live | 477.742 | — | 0 | — | — |
-| The End of our Time: A Tale of Lie | latest_updates_live | 477.742 | — | 0 | — | — |
-|  | latest_updates_live | 477.742 | — | 0 | — | — |
-| Ranker: Soul Sheer | latest_updates_live | 477.742 | — | 0 | — | — |
-| The Lineage of the Condemned | latest_updates_live | 477.742 | — | 0 | — | — |
-|  | latest_updates_live | 477.742 | — | 0 | — | — |
-|  | latest_updates_live | 477.742 | — | 0 | — | — |
-|  | latest_updates_live | 477.742 | — | 0 | — | — |
-|  | latest_updates_live | 477.742 | — | 0 | — | — |
-|  | latest_updates_live | 477.742 | — | 0 | — | — |
-| Jaeger | latest_updates_live | 477.742 | — | 0 | — | — |
-|  | latest_updates_live | 477.742 | — | 0 | — | — |
 
 > A monthly or daily page total alone cannot identify 12:00–13:00 versus 18:00–19:00. An hourly page series, or an hourly domain series combined with a page/domain baseline from the same provider and period, is required.
