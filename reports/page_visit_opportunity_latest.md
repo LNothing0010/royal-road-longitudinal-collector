@@ -6,6 +6,26 @@
 
 | Fiction | Surface | Residence min | Est. page visits | Providers | View delta | Views / 1k page visits |
 |---|---|---:|---:|---:|---:|---:|
+|  | latest_updates_live | 108.058 | — | 0 | — | — |
+|  | latest_updates_live | 108.058 | — | 0 | — | — |
+|  | latest_updates_live | 108.058 | — | 0 | — | — |
+|  | latest_updates_live | 108.058 | — | 0 | — | — |
+|  | latest_updates_live | 108.058 | — | 0 | — | — |
+|  | latest_updates_live | 108.058 | — | 0 | — | — |
+|  | latest_updates_live | 108.058 | — | 0 | — | — |
+|  | latest_updates_live | 108.058 | — | 0 | — | — |
+|  | latest_updates_live | 108.058 | — | 0 | — | — |
+|  | latest_updates_live | 108.058 | — | 0 | — | — |
+|  | latest_updates_live | 108.058 | — | 0 | — | — |
+|  | latest_updates_live | 108.058 | — | 0 | — | — |
+|  | latest_updates_live | 108.058 | — | 0 | — | — |
+|  | latest_updates_live | 108.058 | — | 0 | — | — |
+|  | latest_updates_live | 108.058 | — | 0 | — | — |
+|  | latest_updates_live | 108.058 | — | 0 | — | — |
+|  | latest_updates_live | 108.058 | — | 0 | — | — |
+|  | latest_updates_live | 108.058 | — | 0 | — | — |
+|  | latest_updates_live | 108.058 | — | 0 | — | — |
+|  | latest_updates_live | 108.058 | — | 0 | — | — |
 |  | latest_updates_live | 312.192 | — | 0 | — | — |
 |  | latest_updates_live | 312.192 | — | 0 | — | — |
 | All the Protagonists are Missing | latest_updates_live | 312.192 | — | 0 | — | — |
@@ -86,25 +106,5 @@
 |  | latest_updates_live | 142.825 | — | 0 | — | — |
 | Becoming V2 | latest_updates_live | 142.825 | — | 0 | 4 | — |
 | The Marvelous Misadventures of the great Sir Edwin | latest_updates_live | 142.825 | — | 0 | 3 | — |
-|  | latest_updates_live | 187.217 | — | 0 | — | — |
-|  | latest_updates_live | 187.217 | — | 0 | — | — |
-|  | latest_updates_live | 187.217 | — | 0 | — | — |
-|  | latest_updates_live | 187.217 | — | 0 | — | — |
-|  | latest_updates_live | 187.217 | — | 0 | — | — |
-|  | latest_updates_live | 187.217 | — | 0 | — | — |
-| The General's Diary (Etherra saga, vol. 1) | latest_updates_live | 187.217 | — | 0 | — | — |
-|  | latest_updates_live | 187.217 | — | 0 | — | — |
-|  | latest_updates_live | 187.217 | — | 0 | — | — |
-|  | latest_updates_live | 187.217 | — | 0 | — | — |
-|  | latest_updates_live | 187.217 | — | 0 | — | — |
-|  | latest_updates_live | 187.217 | — | 0 | — | — |
-|  | latest_updates_live | 187.217 | — | 0 | — | — |
-|  | latest_updates_live | 187.217 | — | 0 | — | — |
-|  | latest_updates_live | 187.217 | — | 0 | — | — |
-|  | latest_updates_live | 187.217 | — | 0 | — | — |
-|  | latest_updates_live | 187.217 | — | 0 | — | — |
-|  | latest_updates_live | 187.217 | — | 0 | — | — |
-|  | latest_updates_live | 187.217 | — | 0 | — | — |
-| Book 1: A Blossom Beyond Heaven | latest_updates_live | 187.217 | — | 0 | — | — |
 
 > A monthly or daily page total alone cannot identify 12:00–13:00 versus 18:00–19:00. An hourly page series, or an hourly domain series combined with a page/domain baseline from the same provider and period, is required.
