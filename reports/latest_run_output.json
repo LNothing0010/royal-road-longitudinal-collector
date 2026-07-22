@@ -1,6 +1,6 @@
 {
-  "run_id": 67,
-  "timestamp_utc": "2026-07-22T00:04:00+00:00",
+  "run_id": 70,
+  "timestamp_utc": "2026-07-22T09:37:07+00:00",
   "status": "complete",
   "sources": [
     {
@@ -41,7 +41,7 @@
     },
     {
       "name": "newest",
-      "count": 40,
+      "count": 20,
       "complete": true,
       "warnings": []
     },
@@ -66,107 +66,69 @@
   ],
   "newest_frontier": {
     "mode": "prospective_newest_census",
-    "timestamp_utc": "2026-07-22T00:04:00+00:00",
-    "pages_fetched": 3,
+    "timestamp_utc": "2026-07-22T09:37:07+00:00",
+    "pages_fetched": 2,
     "first_page": 1,
-    "last_page": 3,
-    "boundary_page": 2,
-    "boundary_index": 17,
+    "last_page": 2,
+    "boundary_page": 1,
+    "boundary_index": 13,
     "boundary_reached": true,
     "coverage_complete": true,
     "max_pages": 25,
     "overlap_pages_after_anchor": 1,
-    "anchor_count_before": 60,
-    "scanned_unique_fictions": 60,
-    "observed_unique_fictions": 40,
-    "new_fictions": 17,
-    "new_fiction_ids": [
-      "181882",
-      "181881",
-      "181880",
-      "181879",
-      "181878",
-      "181877",
-      "181876",
-      "181875",
-      "181874",
-      "181873",
-      "181872",
-      "181871",
-      "181870",
-      "181869",
-      "181868",
-      "181867",
-      "181866"
-    ],
+    "anchor_count_before": 40,
+    "scanned_unique_fictions": 40,
+    "observed_unique_fictions": 20,
+    "new_fictions": 0,
+    "new_fiction_ids": [],
     "overlap_unknown_fictions_excluded": 0,
     "next_anchor_ids": [
+      "181915",
+      "181914",
+      "181913",
+      "181912",
+      "181911",
+      "181910",
+      "181909",
+      "181908",
+      "181907",
+      "181906",
+      "181905",
+      "181904",
+      "181903",
       "181902",
       "181901",
       "181900",
       "181899",
       "181898",
       "181897",
-      "181896",
-      "181895",
-      "181894",
-      "181893",
-      "181892",
-      "181891",
-      "181890",
-      "181889",
-      "181888",
-      "181887",
-      "181886",
-      "181885",
-      "181884",
-      "181883",
-      "181882",
-      "181881",
-      "181880",
-      "181879",
-      "181878",
-      "181877",
-      "181876",
-      "181875",
-      "181874",
-      "181873",
-      "181872",
-      "181871",
-      "181870",
-      "181869",
-      "181868",
-      "181867",
-      "181866",
-      "181865",
-      "181864",
-      "181863"
+      "181896"
     ],
     "initialize_anchor": false,
     "warnings": []
   },
   "details_enriched": 40,
-  "new_fiction_details_expected": 17,
-  "new_fiction_details_enriched": 17,
+  "new_fiction_details_expected": 0,
+  "new_fiction_details_enriched": 0,
   "new_fiction_details_unavailable": [],
   "new_fiction_details_missing": [],
-  "new_fiction_backfill_requested": 20,
+  "new_fiction_backfill_requested": 13,
   "new_fiction_backfill_unavailable": [],
   "new_fiction_backfill_missing": [],
   "detail_failure_states": [],
   "launch_analysis": {
     "paths": {
-      "json": "reports/launch_analysis_run_67.json",
-      "markdown": "reports/launch_analysis_run_67.md",
-      "csv": "reports/launch_analysis_run_67.csv",
+      "json": "reports/launch_analysis_run_70.json",
+      "markdown": "reports/launch_analysis_run_70.md",
+      "csv": "reports/launch_analysis_run_70.csv",
       "latest_json": "reports/launch_analysis_latest.json",
       "latest_markdown": "reports/launch_analysis_latest.md",
       "latest_csv": "reports/launch_analysis_latest.csv"
     },
     "current_batch": {
-      "novel_count": 17,
+      "novel_count": 0,
       "data_quality": {
-        "core_metrics_complete": 17,
+        "core_metrics_complete": 0,
         "partial_metrics": 0,
         "unavailable_or_removed": 0,
         "missing_detail": 0,
@@ -174,41 +136,21 @@
         "resolved_coverage_pct": 100.0
       },
       "medians": {
-        "followers": 0.0,
-        "total_views": 7.0,
-        "chapter_count": 1.0,
-        "followers_per_day": 0.0,
-        "views_per_day": 28.0,
-        "followers_per_1000_views": 0.0,
-        "followers_per_chapter": 0.0,
-        "views_per_chapter": 7.0,
-        "launch_index": 36.61
+        "followers": null,
+        "total_views": null,
+        "chapter_count": null,
+        "followers_per_day": null,
+        "views_per_day": null,
+        "followers_per_1000_views": null,
+        "followers_per_chapter": null,
+        "views_per_chapter": null,
+        "launch_index": null
       },
       "leaders": {
-        "overall_launch_index": {
-          "fiction_id": "181879",
-          "title": "As the Villain, Shouldn't There Be a Limit to My Power?",
-          "value": 82.24,
-          "metric": "launch_index"
-        },
-        "followers": {
-          "fiction_id": "181879",
-          "title": "As the Villain, Shouldn't There Be a Limit to My Power?",
-          "value": 1,
-          "metric": "followers"
-        },
-        "views": {
-          "fiction_id": "181868",
-          "title": "Wings of the Crimson Rebirth",
-          "value": 115,
-          "metric": "total_views"
-        },
-        "conversion": {
-          "fiction_id": "181879",
-          "title": "As the Villain, Shouldn't There Be a Limit to My Power?",
-          "value": 111.11,
-          "metric": "followers_per_1000_views"
-        },
+        "overall_launch_index": null,
+        "followers": null,
+        "views": null,
+        "conversion": null,
         "follower_momentum": null,
         "view_momentum": null,
         "best_current_rs_rank": null
@@ -216,67 +158,67 @@
       "exceptions": []
     },
     "rolling_cohort": {
-      "novel_count": 1368,
+      "novel_count": 1356,
       "data_quality": {
-        "core_metrics_complete": 1349,
+        "core_metrics_complete": 1337,
         "partial_metrics": 17,
         "unavailable_or_removed": 2,
         "missing_detail": 0,
-        "core_coverage_pct": 98.61,
-        "resolved_coverage_pct": 98.76
+        "core_coverage_pct": 98.6,
+        "resolved_coverage_pct": 98.75
       },
       "medians": {
         "followers": 0.0,
-        "total_views": 30.5,
+        "total_views": 33.0,
         "chapter_count": 2.0,
         "followers_per_day": 0.0,
-        "views_per_day": 17.76,
+        "views_per_day": 15.31,
         "followers_per_1000_views": 0.0,
         "followers_per_chapter": 0.0,
         "views_per_chapter": 14.0,
-        "launch_index": 40.34
+        "launch_index": 40.31
       },
       "leaders": {
         "overall_launch_index": {
           "fiction_id": "181480",
           "title": "",
-          "value": 99.46,
+          "value": 99.23,
           "metric": "launch_index"
         },
         "followers": {
           "fiction_id": "180704",
           "title": "",
-          "value": 727,
+          "value": 830,
           "metric": "followers"
         },
         "views": {
           "fiction_id": "180704",
           "title": "",
-          "value": 13337,
+          "value": 16302,
           "metric": "total_views"
         },
         "conversion": {
           "fiction_id": "181303",
           "title": "Gifted",
-          "value": 413.04,
+          "value": 406.25,
           "metric": "followers_per_1000_views"
         },
         "follower_momentum": {
-          "fiction_id": "181480",
+          "fiction_id": "181591",
           "title": "",
-          "value": 175.24,
+          "value": 179.07,
           "metric": "follower_growth_per_day"
         },
         "view_momentum": {
           "fiction_id": "181591",
           "title": "",
-          "value": 2803.1,
+          "value": 3163.66,
           "metric": "view_growth_per_day"
         },
         "best_current_rs_rank": {
           "fiction_id": "181480",
           "title": "",
-          "value": 9,
+          "value": 6,
           "metric": "current_best_rs_rank"
         }
       },
@@ -438,5 +380,5 @@
   },
   "errors": [],
   "warnings": [],
-  "validation_report": "reports/validation_run_67.json"
+  "validation_report": "reports/validation_run_70.json"
 }
