@@ -6,14 +6,34 @@
 
 | Fiction | Surface | Residence min | Est. page visits | Providers | View delta | Views / 1k page visits |
 |---|---|---:|---:|---:|---:|---:|
+|  | latest_updates_live | 312.192 | — | 0 | — | — |
+|  | latest_updates_live | 312.192 | — | 0 | — | — |
+| All the Protagonists are Missing | latest_updates_live | 312.192 | — | 0 | — | — |
+|  | latest_updates_live | 312.192 | — | 0 | 483 | — |
+| Halfway Honest, Somewhat Strong | latest_updates_live | 312.192 | — | 0 | — | — |
+|  | latest_updates_live | 312.192 | — | 0 | — | — |
+| Stellar Command (Star Wars/ Stellaris SI) | latest_updates_live | 312.192 | — | 0 | — | — |
+|  | latest_updates_live | 312.192 | — | 0 | — | — |
+|  | latest_updates_live | 312.192 | — | 0 | — | — |
+| Buried By The Gods [A Godslayer Progression LitRPG] | latest_updates_live | 312.192 | — | 0 | — | — |
+|  | latest_updates_live | 312.192 | — | 0 | 615 | — |
+|  | latest_updates_live | 312.192 | — | 0 | — | — |
+| Misery Inc. | latest_updates_live | 312.192 | — | 0 | — | — |
+|  | latest_updates_live | 312.192 | — | 0 | — | — |
+|  | latest_updates_live | 312.192 | — | 0 | — | — |
+| Naruto: Reborn as an Otsutsuki | latest_updates_live | 312.192 | — | 0 | — | — |
+| Eldritch Horror? No, I'm A Doctor | latest_updates_live | 312.192 | — | 0 | — | — |
+|  | latest_updates_live | 312.192 | — | 0 | — | — |
+| Dragon Hunter | latest_updates_live | 312.192 | — | 0 | — | — |
+|  | latest_updates_live | 312.192 | — | 0 | — | — |
 |  | latest_updates_live | 286.642 | — | 0 | — | — |
+| Cyber Arcana: The Architect of Dominion | latest_updates_live | 286.642 | — | 0 | — | — |
+| Timecore: Sons of the Moon | latest_updates_live | 286.642 | — | 0 | — | — |
 |  | latest_updates_live | 286.642 | — | 0 | — | — |
-|  | latest_updates_live | 286.642 | — | 0 | — | — |
-|  | latest_updates_live | 286.642 | — | 0 | — | — |
-|  | latest_updates_live | 286.642 | — | 0 | — | — |
+| Peace Hunter | latest_updates_live | 286.642 | — | 0 | — | — |
 | The Zero Resonance: The Silent Mark | latest_updates_live | 286.642 | — | 0 | 125 | — |
-|  | latest_updates_live | 286.642 | — | 0 | — | — |
-|  | latest_updates_live | 286.642 | — | 0 | — | — |
+| Mediocre Master: I Can See Your Hidden Potential! (A Xianxia Sect-Building LitRPG) | latest_updates_live | 286.642 | — | 0 | — | — |
+| The Apples of My Eye | latest_updates_live | 286.642 | — | 0 | — | — |
 | Kyokōsho | latest_updates_live | 286.642 | — | 0 | 18 | — |
 | 00:00 | latest_updates_live | 286.642 | — | 0 | — | — |
 |  | latest_updates_live | 286.642 | — | 0 | — | — |
@@ -32,19 +52,19 @@
 |  | latest_updates_live | 101.275 | — | 0 | — | — |
 |  | latest_updates_live | 101.275 | — | 0 | — | — |
 |  | latest_updates_live | 101.275 | — | 0 | — | — |
-|  | latest_updates_live | 101.275 | — | 0 | — | — |
+| SCAPE (Isekai/LitRPG-lite)(Vol 1 STUBBED)(Vol 2 Stubs June 14) | latest_updates_live | 101.275 | — | 0 | — | — |
 | The Rouge`s Omega | latest_updates_live | 101.275 | — | 0 | 16 | — |
 |  | latest_updates_live | 101.275 | — | 0 | — | — |
 |  | latest_updates_live | 101.275 | — | 0 | — | — |
 |  | latest_updates_live | 101.275 | — | 0 | — | — |
 | BORN OF SECRETS | latest_updates_live | 101.275 | — | 0 | — | — |
-|  | latest_updates_live | 101.275 | — | 0 | — | — |
+| Shadow and Royalty : An awakening of the unnamed | latest_updates_live | 101.275 | — | 0 | — | — |
 |  | latest_updates_live | 101.275 | — | 0 | — | — |
 | Saving grace | latest_updates_live | 101.275 | — | 0 | 9 | — |
 |  | latest_updates_live | 101.275 | — | 0 | — | — |
-|  | latest_updates_live | 101.275 | — | 0 | — | — |
-|  | latest_updates_live | 101.275 | — | 0 | — | — |
-|  | latest_updates_live | 101.275 | — | 0 | — | — |
+| Mastermind in the Night Sect [Xianxia, Sect-Management, Strong MC, Progression] | latest_updates_live | 101.275 | — | 0 | — | — |
+| REBORN AS A HIGH ELF SLAVE | latest_updates_live | 101.275 | — | 0 | — | — |
+| A Real Human Being (Frieren) | latest_updates_live | 101.275 | — | 0 | — | — |
 |  | latest_updates_live | 101.275 | — | 0 | — | — |
 | White Wisteria | latest_updates_live | 142.825 | — | 0 | 17 | — |
 |  | latest_updates_live | 142.825 | — | 0 | — | — |
@@ -61,7 +81,7 @@
 | El La Nora Chronicles | latest_updates_live | 142.825 | — | 0 | 4 | — |
 | A MYTERY HIDE | latest_updates_live | 142.825 | — | 0 | 4 | — |
 |  | latest_updates_live | 142.825 | — | 0 | — | — |
-| Sovereign of Immortals（Xianxia novel, 250K words updated.） | latest_updates_live | 142.825 | — | 0 | — | — |
+|  | latest_updates_live | 142.825 | — | 0 | — | — |
 |  | latest_updates_live | 142.825 | — | 0 | — | — |
 |  | latest_updates_live | 142.825 | — | 0 | — | — |
 | Becoming V2 | latest_updates_live | 142.825 | — | 0 | 4 | — |
@@ -86,25 +106,5 @@
 |  | latest_updates_live | 187.217 | — | 0 | — | — |
 |  | latest_updates_live | 187.217 | — | 0 | — | — |
 | Book 1: A Blossom Beyond Heaven | latest_updates_live | 187.217 | — | 0 | — | — |
-|  | latest_updates_live | 755.55 | — | 0 | — | — |
-|  | latest_updates_live | 755.55 | — | 0 | — | — |
-| Bound by force | latest_updates_live | 755.55 | — | 0 | — | — |
-|  | latest_updates_live | 755.55 | — | 0 | — | — |
-| The Chronicle of the Last Bloom | latest_updates_live | 755.55 | — | 0 | — | — |
-|  | latest_updates_live | 755.55 | — | 0 | — | — |
-| Virat: Abandoned by Destiny | latest_updates_live | 755.55 | — | 0 | — | — |
-|  | latest_updates_live | 755.55 | — | 0 | — | — |
-| The Blackwell (A Worm Fanfiction) | latest_updates_live | 755.55 | — | 0 | — | — |
-| The Mythos Weaver | latest_updates_live | 755.55 | — | 0 | 17 | — |
-|  | latest_updates_live | 755.55 | — | 0 | — | — |
-|  | latest_updates_live | 755.55 | — | 0 | — | — |
-|  | latest_updates_live | 755.55 | — | 0 | — | — |
-|  | latest_updates_live | 755.55 | — | 0 | — | — |
-|  | latest_updates_live | 755.55 | — | 0 | — | — |
-|  | latest_updates_live | 755.55 | — | 0 | — | — |
-| Bright Light [Isekai. Female mc. Lit-RPG. Progression] | latest_updates_live | 755.55 | — | 0 | 271 | — |
-|  | latest_updates_live | 755.55 | — | 0 | — | — |
-| Someone Else's Sky | latest_updates_live | 755.55 | — | 0 | — | — |
-|  | latest_updates_live | 755.55 | — | 0 | — | — |
 
 > A monthly or daily page total alone cannot identify 12:00–13:00 versus 18:00–19:00. An hourly page series, or an hourly domain series combined with a page/domain baseline from the same provider and period, is required.
