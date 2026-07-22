@@ -6,6 +6,26 @@
 
 | Fiction | Surface | Residence min | Est. page visits | Providers | View delta | Views / 1k page visits |
 |---|---|---:|---:|---:|---:|---:|
+|  | latest_updates_live | 286.642 | — | 0 | — | — |
+|  | latest_updates_live | 286.642 | — | 0 | — | — |
+|  | latest_updates_live | 286.642 | — | 0 | — | — |
+|  | latest_updates_live | 286.642 | — | 0 | — | — |
+|  | latest_updates_live | 286.642 | — | 0 | — | — |
+| The Zero Resonance: The Silent Mark | latest_updates_live | 286.642 | — | 0 | 125 | — |
+|  | latest_updates_live | 286.642 | — | 0 | — | — |
+|  | latest_updates_live | 286.642 | — | 0 | — | — |
+| Kyokōsho | latest_updates_live | 286.642 | — | 0 | 18 | — |
+| 00:00 | latest_updates_live | 286.642 | — | 0 | — | — |
+|  | latest_updates_live | 286.642 | — | 0 | — | — |
+|  | latest_updates_live | 286.642 | — | 0 | — | — |
+|  | latest_updates_live | 286.642 | — | 0 | — | — |
+| The Heavenly Screen Broadcasts My Daily Cultivation Life | latest_updates_live | 286.642 | — | 0 | — | — |
+| I Raised Mythic Sea Beasts in My Fish Tank | latest_updates_live | 286.642 | — | 0 | — | — |
+|  | latest_updates_live | 286.642 | — | 0 | — | — |
+|  | latest_updates_live | 286.642 | — | 0 | — | — |
+|  | latest_updates_live | 286.642 | — | 0 | — | — |
+|  | latest_updates_live | 286.642 | — | 0 | — | — |
+|  | latest_updates_live | 286.642 | — | 0 | — | — |
 | Awakener or Hunter? Why not both! GO Hukener!!! | latest_updates_live | 101.275 | — | 0 | — | — |
 |  | latest_updates_live | 101.275 | — | 0 | — | — |
 | The Cicada that Blooms in Autumn - Dark Progression Fantasy | latest_updates_live | 101.275 | — | 0 | — | — |
@@ -86,25 +106,5 @@
 |  | latest_updates_live | 755.55 | — | 0 | — | — |
 | Someone Else's Sky | latest_updates_live | 755.55 | — | 0 | — | — |
 |  | latest_updates_live | 755.55 | — | 0 | — | — |
-|  | latest_updates_live | 325.8 | — | 0 | — | — |
-|  | latest_updates_live | 325.8 | — | 0 | — | — |
-|  | latest_updates_live | 325.8 | — | 0 | — | — |
-|  | latest_updates_live | 325.8 | — | 0 | — | — |
-| A Grave of Black Ice | latest_updates_live | 325.8 | — | 0 | — | — |
-|  | latest_updates_live | 325.8 | — | 0 | — | — |
-|  | latest_updates_live | 325.8 | — | 0 | — | — |
-|  | latest_updates_live | 325.8 | — | 0 | — | — |
-|  | latest_updates_live | 325.8 | — | 0 | — | — |
-|  | latest_updates_live | 325.8 | — | 0 | — | — |
-|  | latest_updates_live | 325.8 | — | 0 | — | — |
-|  | latest_updates_live | 325.8 | — | 0 | — | — |
-|  | latest_updates_live | 325.8 | — | 0 | — | — |
-|  | latest_updates_live | 325.8 | — | 0 | — | — |
-|  | latest_updates_live | 325.8 | — | 0 | — | — |
-|  | latest_updates_live | 325.8 | — | 0 | — | — |
-| Gifted being - villain arc | latest_updates_live | 325.8 | — | 0 | — | — |
-|  | latest_updates_live | 325.8 | — | 0 | — | — |
-|  | latest_updates_live | 325.8 | — | 0 | — | — |
-|  | latest_updates_live | 325.8 | — | 0 | — | — |
 
 > A monthly or daily page total alone cannot identify 12:00–13:00 versus 18:00–19:00. An hourly page series, or an hourly domain series combined with a page/domain baseline from the same provider and period, is required.
