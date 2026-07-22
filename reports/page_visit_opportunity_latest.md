@@ -6,6 +6,26 @@
 
 | Fiction | Surface | Residence min | Est. page visits | Providers | View delta | Views / 1k page visits |
 |---|---|---:|---:|---:|---:|---:|
+| Awakener or Hunter? Why not both! GO Hukener!!! | latest_updates_live | 101.275 | — | 0 | — | — |
+|  | latest_updates_live | 101.275 | — | 0 | — | — |
+| The Cicada that Blooms in Autumn - Dark Progression Fantasy | latest_updates_live | 101.275 | — | 0 | — | — |
+|  | latest_updates_live | 101.275 | — | 0 | — | — |
+|  | latest_updates_live | 101.275 | — | 0 | — | — |
+|  | latest_updates_live | 101.275 | — | 0 | — | — |
+|  | latest_updates_live | 101.275 | — | 0 | — | — |
+| The Rouge`s Omega | latest_updates_live | 101.275 | — | 0 | 16 | — |
+|  | latest_updates_live | 101.275 | — | 0 | — | — |
+|  | latest_updates_live | 101.275 | — | 0 | — | — |
+|  | latest_updates_live | 101.275 | — | 0 | — | — |
+| BORN OF SECRETS | latest_updates_live | 101.275 | — | 0 | — | — |
+|  | latest_updates_live | 101.275 | — | 0 | — | — |
+|  | latest_updates_live | 101.275 | — | 0 | — | — |
+| Saving grace | latest_updates_live | 101.275 | — | 0 | 9 | — |
+|  | latest_updates_live | 101.275 | — | 0 | — | — |
+|  | latest_updates_live | 101.275 | — | 0 | — | — |
+|  | latest_updates_live | 101.275 | — | 0 | — | — |
+|  | latest_updates_live | 101.275 | — | 0 | — | — |
+|  | latest_updates_live | 101.275 | — | 0 | — | — |
 | White Wisteria | latest_updates_live | 142.825 | — | 0 | 17 | — |
 |  | latest_updates_live | 142.825 | — | 0 | — | — |
 |  | latest_updates_live | 142.825 | — | 0 | — | — |
@@ -84,27 +104,7 @@
 |  | latest_updates_live | 325.8 | — | 0 | — | — |
 | Gifted being - villain arc | latest_updates_live | 325.8 | — | 0 | — | — |
 |  | latest_updates_live | 325.8 | — | 0 | — | — |
-| The Squire [A Local's POV about Transmigrators] | latest_updates_live | 325.8 | — | 0 | — | — |
 |  | latest_updates_live | 325.8 | — | 0 | — | — |
-| The Soulweaver - A Soul Cultivation LitRPG/Dungeon Crawler | latest_updates_live | 182.358 | — | 0 | — | — |
-|  | latest_updates_live | 182.358 | — | 0 | — | — |
-|  | latest_updates_live | 182.358 | — | 0 | — | — |
-|  | latest_updates_live | 182.358 | — | 0 | — | — |
-|  | latest_updates_live | 182.358 | — | 0 | — | — |
-| Kael: Project Chimera (Rewrite) | latest_updates_live | 182.358 | — | 0 | 40 | — |
-|  | latest_updates_live | 182.358 | — | 0 | — | — |
-|  | latest_updates_live | 182.358 | — | 0 | — | — |
-|  | latest_updates_live | 182.358 | — | 0 | — | — |
-|  | latest_updates_live | 182.358 | — | 0 | — | — |
-|  | latest_updates_live | 182.358 | — | 0 | — | — |
-|  | latest_updates_live | 182.358 | — | 0 | — | — |
-|  | latest_updates_live | 182.358 | — | 0 | — | — |
-|  | latest_updates_live | 182.358 | — | 0 | — | — |
-|  | latest_updates_live | 182.358 | — | 0 | — | — |
-|  | latest_updates_live | 182.358 | — | 0 | — | — |
-| Blackmailed the Admin | latest_updates_live | 182.358 | — | 0 | 117 | — |
-| Ascension Protocol [A System Apocalypse LitRPG] | latest_updates_live | 182.358 | — | 0 | — | — |
-|  | latest_updates_live | 182.358 | — | 0 | — | — |
-|  | latest_updates_live | 182.358 | — | 0 | — | — |
+|  | latest_updates_live | 325.8 | — | 0 | — | — |
 
 > A monthly or daily page total alone cannot identify 12:00–13:00 versus 18:00–19:00. An hourly page series, or an hourly domain series combined with a page/domain baseline from the same provider and period, is required.
