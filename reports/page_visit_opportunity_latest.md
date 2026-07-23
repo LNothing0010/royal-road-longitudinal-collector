@@ -6,6 +6,26 @@
 
 | Fiction | Surface | Residence min | Est. page visits | Providers | View delta | Views / 1k page visits |
 |---|---|---:|---:|---:|---:|---:|
+|  | latest_updates_live | 143.333 | — | 0 | — | — |
+|  | latest_updates_live | 143.333 | — | 0 | — | — |
+|  | latest_updates_live | 143.333 | — | 0 | — | — |
+|  | latest_updates_live | 143.333 | — | 0 | — | — |
+|  | latest_updates_live | 143.333 | — | 0 | — | — |
+|  | latest_updates_live | 143.333 | — | 0 | 449 | — |
+|  | latest_updates_live | 143.333 | — | 0 | — | — |
+|  | latest_updates_live | 143.333 | — | 0 | — | — |
+|  | latest_updates_live | 143.333 | — | 0 | — | — |
+|  | latest_updates_live | 143.333 | — | 0 | — | — |
+|  | latest_updates_live | 143.333 | — | 0 | — | — |
+|  | latest_updates_live | 143.333 | — | 0 | — | — |
+|  | latest_updates_live | 143.333 | — | 0 | — | — |
+|  | latest_updates_live | 143.333 | — | 0 | — | — |
+|  | latest_updates_live | 143.333 | — | 0 | — | — |
+|  | latest_updates_live | 143.333 | — | 0 | — | — |
+|  | latest_updates_live | 143.333 | — | 0 | — | — |
+|  | latest_updates_live | 143.333 | — | 0 | — | — |
+|  | latest_updates_live | 143.333 | — | 0 | — | — |
+|  | latest_updates_live | 143.333 | — | 0 | — | — |
 |  | latest_updates_live | 155.75 | — | 0 | 30 | — |
 |  | latest_updates_live | 155.75 | — | 0 | — | — |
 |  | latest_updates_live | 155.75 | — | 0 | — | — |
@@ -86,25 +106,5 @@
 |  | latest_updates_live | 312.192 | — | 0 | — | — |
 | Dragon Hunter | latest_updates_live | 312.192 | — | 0 | — | — |
 |  | latest_updates_live | 312.192 | — | 0 | — | — |
-|  | latest_updates_live | 286.642 | — | 0 | — | — |
-| Cyber Arcana: The Architect of Dominion | latest_updates_live | 286.642 | — | 0 | — | — |
-| Timecore: Sons of the Moon | latest_updates_live | 286.642 | — | 0 | — | — |
-|  | latest_updates_live | 286.642 | — | 0 | — | — |
-| Peace Hunter | latest_updates_live | 286.642 | — | 0 | — | — |
-| The Zero Resonance: The Silent Mark | latest_updates_live | 286.642 | — | 0 | 125 | — |
-| Mediocre Master: I Can See Your Hidden Potential! (A Xianxia Sect-Building LitRPG) | latest_updates_live | 286.642 | — | 0 | — | — |
-| The Apples of My Eye | latest_updates_live | 286.642 | — | 0 | — | — |
-| Kyokōsho | latest_updates_live | 286.642 | — | 0 | 18 | — |
-| 00:00 | latest_updates_live | 286.642 | — | 0 | — | — |
-|  | latest_updates_live | 286.642 | — | 0 | — | — |
-|  | latest_updates_live | 286.642 | — | 0 | — | — |
-|  | latest_updates_live | 286.642 | — | 0 | — | — |
-| The Heavenly Screen Broadcasts My Daily Cultivation Life | latest_updates_live | 286.642 | — | 0 | — | — |
-|  | latest_updates_live | 286.642 | — | 0 | 26 | — |
-|  | latest_updates_live | 286.642 | — | 0 | — | — |
-|  | latest_updates_live | 286.642 | — | 0 | — | — |
-|  | latest_updates_live | 286.642 | — | 0 | — | — |
-|  | latest_updates_live | 286.642 | — | 0 | — | — |
-|  | latest_updates_live | 286.642 | — | 0 | — | — |
 
 > A monthly or daily page total alone cannot identify 12:00–13:00 versus 18:00–19:00. An hourly page series, or an hourly domain series combined with a page/domain baseline from the same provider and period, is required.
