@@ -6,6 +6,26 @@
 
 | Fiction | Surface | Residence min | Est. page visits | Providers | View delta | Views / 1k page visits |
 |---|---|---:|---:|---:|---:|---:|
+|  | latest_updates_live | 155.75 | — | 0 | 30 | — |
+|  | latest_updates_live | 155.75 | — | 0 | — | — |
+|  | latest_updates_live | 155.75 | — | 0 | — | — |
+|  | latest_updates_live | 155.75 | — | 0 | — | — |
+|  | latest_updates_live | 155.75 | — | 0 | — | — |
+|  | latest_updates_live | 155.75 | — | 0 | — | — |
+|  | latest_updates_live | 155.75 | — | 0 | — | — |
+|  | latest_updates_live | 155.75 | — | 0 | — | — |
+|  | latest_updates_live | 155.75 | — | 0 | 26 | — |
+|  | latest_updates_live | 155.75 | — | 0 | — | — |
+|  | latest_updates_live | 155.75 | — | 0 | — | — |
+|  | latest_updates_live | 155.75 | — | 0 | — | — |
+|  | latest_updates_live | 155.75 | — | 0 | — | — |
+|  | latest_updates_live | 155.75 | — | 0 | — | — |
+|  | latest_updates_live | 155.75 | — | 0 | — | — |
+|  | latest_updates_live | 155.75 | — | 0 | 334 | — |
+|  | latest_updates_live | 155.75 | — | 0 | — | — |
+|  | latest_updates_live | 155.75 | — | 0 | — | — |
+|  | latest_updates_live | 155.75 | — | 0 | — | — |
+|  | latest_updates_live | 155.75 | — | 0 | — | — |
 |  | latest_updates_live | 253.958 | — | 0 | 13 | — |
 |  | latest_updates_live | 253.958 | — | 0 | — | — |
 |  | latest_updates_live | 253.958 | — | 0 | 3541 | — |
@@ -86,25 +106,5 @@
 |  | latest_updates_live | 286.642 | — | 0 | — | — |
 |  | latest_updates_live | 286.642 | — | 0 | — | — |
 |  | latest_updates_live | 286.642 | — | 0 | — | — |
-| Awakener or Hunter? Why not both! GO Hukener!!! | latest_updates_live | 101.275 | — | 0 | — | — |
-|  | latest_updates_live | 101.275 | — | 0 | — | — |
-| The Cicada that Blooms in Autumn - Dark Progression Fantasy | latest_updates_live | 101.275 | — | 0 | — | — |
-|  | latest_updates_live | 101.275 | — | 0 | — | — |
-|  | latest_updates_live | 101.275 | — | 0 | — | — |
-|  | latest_updates_live | 101.275 | — | 0 | — | — |
-| SCAPE (Isekai/LitRPG-lite)(Vol 1 STUBBED)(Vol 2 Stubs June 14) | latest_updates_live | 101.275 | — | 0 | — | — |
-| The Rouge`s Omega | latest_updates_live | 101.275 | — | 0 | 16 | — |
-|  | latest_updates_live | 101.275 | — | 0 | — | — |
-|  | latest_updates_live | 101.275 | — | 0 | — | — |
-|  | latest_updates_live | 101.275 | — | 0 | — | — |
-| BORN OF SECRETS | latest_updates_live | 101.275 | — | 0 | — | — |
-| Shadow and Royalty : An awakening of the unnamed | latest_updates_live | 101.275 | — | 0 | — | — |
-|  | latest_updates_live | 101.275 | — | 0 | — | — |
-| Saving grace | latest_updates_live | 101.275 | — | 0 | 9 | — |
-|  | latest_updates_live | 101.275 | — | 0 | — | — |
-| Mastermind in the Night Sect [Xianxia, Sect-Management, Strong MC, Progression] | latest_updates_live | 101.275 | — | 0 | — | — |
-| REBORN AS A HIGH ELF SLAVE | latest_updates_live | 101.275 | — | 0 | — | — |
-| A Real Human Being (Frieren) | latest_updates_live | 101.275 | — | 0 | — | — |
-|  | latest_updates_live | 101.275 | — | 0 | — | — |
 
 > A monthly or daily page total alone cannot identify 12:00–13:00 versus 18:00–19:00. An hourly page series, or an hourly domain series combined with a page/domain baseline from the same provider and period, is required.
