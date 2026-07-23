@@ -6,6 +6,26 @@
 
 | Fiction | Surface | Residence min | Est. page visits | Providers | View delta | Views / 1k page visits |
 |---|---|---:|---:|---:|---:|---:|
+|  | latest_updates_live | 110.592 | — | 0 | — | — |
+|  | latest_updates_live | 110.592 | — | 0 | — | — |
+|  | latest_updates_live | 110.592 | — | 0 | — | — |
+|  | latest_updates_live | 110.592 | — | 0 | — | — |
+|  | latest_updates_live | 110.592 | — | 0 | — | — |
+|  | latest_updates_live | 110.592 | — | 0 | — | — |
+|  | latest_updates_live | 110.592 | — | 0 | — | — |
+|  | latest_updates_live | 110.592 | — | 0 | — | — |
+|  | latest_updates_live | 110.592 | — | 0 | — | — |
+|  | latest_updates_live | 110.592 | — | 0 | — | — |
+|  | latest_updates_live | 110.592 | — | 0 | — | — |
+|  | latest_updates_live | 110.592 | — | 0 | — | — |
+|  | latest_updates_live | 110.592 | — | 0 | — | — |
+|  | latest_updates_live | 110.592 | — | 0 | — | — |
+|  | latest_updates_live | 110.592 | — | 0 | — | — |
+|  | latest_updates_live | 110.592 | — | 0 | — | — |
+|  | latest_updates_live | 110.592 | — | 0 | — | — |
+|  | latest_updates_live | 110.592 | — | 0 | — | — |
+|  | latest_updates_live | 110.592 | — | 0 | — | — |
+|  | latest_updates_live | 110.592 | — | 0 | — | — |
 |  | latest_updates_live | 143.333 | — | 0 | — | — |
 |  | latest_updates_live | 143.333 | — | 0 | — | — |
 |  | latest_updates_live | 143.333 | — | 0 | — | — |
@@ -86,25 +106,5 @@
 |  | latest_updates_live | 108.058 | — | 0 | — | — |
 |  | latest_updates_live | 108.058 | — | 0 | — | — |
 |  | latest_updates_live | 108.058 | — | 0 | — | — |
-|  | latest_updates_live | 312.192 | — | 0 | — | — |
-|  | latest_updates_live | 312.192 | — | 0 | — | — |
-| All the Protagonists are Missing | latest_updates_live | 312.192 | — | 0 | — | — |
-|  | latest_updates_live | 312.192 | — | 0 | 483 | — |
-| Halfway Honest, Somewhat Strong | latest_updates_live | 312.192 | — | 0 | — | — |
-|  | latest_updates_live | 312.192 | — | 0 | — | — |
-| Stellar Command (Star Wars/ Stellaris SI) | latest_updates_live | 312.192 | — | 0 | — | — |
-|  | latest_updates_live | 312.192 | — | 0 | — | — |
-|  | latest_updates_live | 312.192 | — | 0 | — | — |
-| Buried By The Gods [A Godslayer Progression LitRPG] | latest_updates_live | 312.192 | — | 0 | — | — |
-|  | latest_updates_live | 312.192 | — | 0 | 615 | — |
-|  | latest_updates_live | 312.192 | — | 0 | — | — |
-| Misery Inc. | latest_updates_live | 312.192 | — | 0 | — | — |
-|  | latest_updates_live | 312.192 | — | 0 | — | — |
-|  | latest_updates_live | 312.192 | — | 0 | — | — |
-| Naruto: Reborn as an Otsutsuki | latest_updates_live | 312.192 | — | 0 | — | — |
-| Eldritch Horror? No, I'm A Doctor | latest_updates_live | 312.192 | — | 0 | — | — |
-|  | latest_updates_live | 312.192 | — | 0 | — | — |
-| Dragon Hunter | latest_updates_live | 312.192 | — | 0 | — | — |
-|  | latest_updates_live | 312.192 | — | 0 | — | — |
 
 > A monthly or daily page total alone cannot identify 12:00–13:00 versus 18:00–19:00. An hourly page series, or an hourly domain series combined with a page/domain baseline from the same provider and period, is required.
