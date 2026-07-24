@@ -1,6 +1,6 @@
 {
-  "run_id": 79,
-  "timestamp_utc": "2026-07-24T12:06:43Z",
+  "run_id": 80,
+  "timestamp_utc": "2026-07-24T17:57:59Z",
   "status": "partial",
   "sources": [
     {
@@ -38,8 +38,8 @@
     "home_latest_median_residence_minutes": null,
     "latest_updates_median_residence_minutes": 182.358,
     "newest_median_residence_minutes": 218.875,
-    "publication_windows": 377,
-    "traction_linkages": 177
+    "publication_windows": 381,
+    "traction_linkages": 157
   },
   "analysis_files": {
     "json": "reports/exposure_analysis_latest.json",
