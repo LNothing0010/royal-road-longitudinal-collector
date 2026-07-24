@@ -6,6 +6,26 @@
 
 | Fiction | Surface | Residence min | Est. page visits | Providers | View delta | Views / 1k page visits |
 |---|---|---:|---:|---:|---:|---:|
+|  | latest_updates_live | 114.392 | — | 0 | — | — |
+|  | latest_updates_live | 114.392 | — | 0 | — | — |
+|  | latest_updates_live | 114.392 | — | 0 | — | — |
+|  | latest_updates_live | 114.392 | — | 0 | — | — |
+|  | latest_updates_live | 114.392 | — | 0 | — | — |
+|  | latest_updates_live | 114.392 | — | 0 | — | — |
+|  | latest_updates_live | 114.392 | — | 0 | — | — |
+|  | latest_updates_live | 114.392 | — | 0 | — | — |
+|  | latest_updates_live | 114.392 | — | 0 | — | — |
+|  | latest_updates_live | 114.392 | — | 0 | — | — |
+|  | latest_updates_live | 114.392 | — | 0 | 44 | — |
+|  | latest_updates_live | 114.392 | — | 0 | — | — |
+|  | latest_updates_live | 114.392 | — | 0 | — | — |
+|  | latest_updates_live | 114.392 | — | 0 | — | — |
+|  | latest_updates_live | 114.392 | — | 0 | — | — |
+|  | latest_updates_live | 114.392 | — | 0 | — | — |
+|  | latest_updates_live | 114.392 | — | 0 | — | — |
+|  | latest_updates_live | 114.392 | — | 0 | — | — |
+|  | latest_updates_live | 114.392 | — | 0 | — | — |
+|  | latest_updates_live | 411.142 | — | 0 | — | — |
 |  | latest_updates_live | 175.633 | — | 0 | — | — |
 |  | latest_updates_live | 175.633 | — | 0 | — | — |
 |  | latest_updates_live | 175.633 | — | 0 | — | — |
@@ -86,25 +106,5 @@
 |  | latest_updates_live | 110.592 | — | 0 | — | — |
 |  | latest_updates_live | 110.592 | — | 0 | — | — |
 |  | latest_updates_live | 110.592 | — | 0 | — | — |
-|  | latest_updates_live | 143.333 | — | 0 | — | — |
-|  | latest_updates_live | 143.333 | — | 0 | — | — |
-|  | latest_updates_live | 143.333 | — | 0 | — | — |
-|  | latest_updates_live | 143.333 | — | 0 | — | — |
-|  | latest_updates_live | 143.333 | — | 0 | — | — |
-|  | latest_updates_live | 143.333 | — | 0 | 449 | — |
-|  | latest_updates_live | 143.333 | — | 0 | — | — |
-|  | latest_updates_live | 143.333 | — | 0 | — | — |
-|  | latest_updates_live | 143.333 | — | 0 | — | — |
-|  | latest_updates_live | 143.333 | — | 0 | — | — |
-|  | latest_updates_live | 143.333 | — | 0 | — | — |
-|  | latest_updates_live | 143.333 | — | 0 | — | — |
-|  | latest_updates_live | 143.333 | — | 0 | — | — |
-|  | latest_updates_live | 143.333 | — | 0 | — | — |
-|  | latest_updates_live | 143.333 | — | 0 | — | — |
-|  | latest_updates_live | 143.333 | — | 0 | — | — |
-|  | latest_updates_live | 143.333 | — | 0 | — | — |
-|  | latest_updates_live | 143.333 | — | 0 | — | — |
-|  | latest_updates_live | 143.333 | — | 0 | — | — |
-|  | latest_updates_live | 143.333 | — | 0 | — | — |
 
 > A monthly or daily page total alone cannot identify 12:00–13:00 versus 18:00–19:00. An hourly page series, or an hourly domain series combined with a page/domain baseline from the same provider and period, is required.
