@@ -1,6 +1,6 @@
 {
-  "run_id": 78,
-  "timestamp_utc": "2026-07-24T06:46:06Z",
+  "run_id": 79,
+  "timestamp_utc": "2026-07-24T12:06:43Z",
   "status": "partial",
   "sources": [
     {
@@ -33,12 +33,12 @@
   "errors": [],
   "analysis_summary": {
     "status": "collecting_baseline",
-    "latest_updates_samples": 21,
+    "latest_updates_samples": 22,
     "observed_window_hours": 168.0,
     "home_latest_median_residence_minutes": null,
-    "latest_updates_median_residence_minutes": 184.788,
+    "latest_updates_median_residence_minutes": 182.358,
     "newest_median_residence_minutes": 218.875,
-    "publication_windows": 368,
+    "publication_windows": 377,
     "traction_linkages": 177
   },
   "analysis_files": {
