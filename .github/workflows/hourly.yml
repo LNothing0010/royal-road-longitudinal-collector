@@ -54,12 +54,14 @@ jobs:
           python -m rrlab.cadence
 
       - name: Install collector
+        id: install
         if: steps.cadence.outputs.should_collect == 'true'
         run: |
           set -euo pipefail
           python -m pip install --disable-pip-version-check --retries 5 --timeout 60 -e ".[dev]"
 
       - name: Preflight
+        id: preflight
         if: steps.cadence.outputs.should_collect == 'true'
         run: |
           set -euo pipefail
@@ -82,6 +84,7 @@ jobs:
           PY
 
       - name: Collect and analyze Royal Road launches
+        id: collect_panel
         if: steps.cadence.outputs.should_collect == 'true'
         run: |
           set -euo pipefail
@@ -89,6 +92,7 @@ jobs:
           rrlab collect | tee reports/latest_run_output.json
 
       - name: Validate launch analysis product
+        id: validate_launch
         if: steps.cadence.outputs.should_collect == 'true'
         run: |
           set -euo pipefail
@@ -119,6 +123,7 @@ jobs:
           PY
 
       - name: Validate complete prospective frontier
+        id: validate_frontier
         if: steps.cadence.outputs.should_collect == 'true'
         run: |
           set -euo pipefail
@@ -140,12 +145,14 @@ jobs:
           PY
 
       - name: Validate Rising Stars panel
+        id: validate_panel
         if: steps.cadence.outputs.should_collect == 'true'
         run: |
           set -euo pipefail
           rrlab validate-latest | tee reports/latest_validation_output.json
 
       - name: Export canonical archive
+        id: export_archive
         if: always() && steps.cadence.outputs.should_collect == 'true'
         run: |
           set -euo pipefail
@@ -155,6 +162,60 @@ jobs:
           else
             echo "Collector or database unavailable; skipping export"
           fi
+
+      - name: Write workflow attempt diagnostics
+        id: attempt_diagnostics
+        if: always()
+        env:
+          RR_ATTEMPT_SHOULD_COLLECT: ${{ steps.cadence.outputs.should_collect }}
+          RR_ATTEMPT_INSTALL: ${{ steps.install.outcome }}
+          RR_ATTEMPT_PREFLIGHT: ${{ steps.preflight.outcome }}
+          RR_ATTEMPT_COLLECT: ${{ steps.collect_panel.outcome }}
+          RR_ATTEMPT_VALIDATE_LAUNCH: ${{ steps.validate_launch.outcome }}
+          RR_ATTEMPT_VALIDATE_FRONTIER: ${{ steps.validate_frontier.outcome }}
+          RR_ATTEMPT_VALIDATE_PANEL: ${{ steps.validate_panel.outcome }}
+          RR_ATTEMPT_EXPORT: ${{ steps.export_archive.outcome }}
+          RR_ATTEMPT_EVENT: ${{ github.event_name }}
+          RR_ATTEMPT_SCHEDULE: ${{ github.event.schedule }}
+          RR_ATTEMPT_RUN_ID: ${{ github.run_id }}
+          RR_ATTEMPT_RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          mkdir -p reports
+          python - <<'PY'
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          def value(name: str):
+              raw = os.environ.get(name, "")
+              return raw or None
+
+          payload = {
+              "generated_utc": datetime.now(timezone.utc).isoformat(),
+              "github_run_id": value("RR_ATTEMPT_RUN_ID"),
+              "github_run_attempt": value("RR_ATTEMPT_RUN_ATTEMPT"),
+              "event_name": value("RR_ATTEMPT_EVENT"),
+              "schedule": value("RR_ATTEMPT_SCHEDULE"),
+              "should_collect": value("RR_ATTEMPT_SHOULD_COLLECT") == "true",
+              "steps": {
+                  "install": value("RR_ATTEMPT_INSTALL"),
+                  "preflight": value("RR_ATTEMPT_PREFLIGHT"),
+                  "collect_panel": value("RR_ATTEMPT_COLLECT"),
+                  "validate_launch": value("RR_ATTEMPT_VALIDATE_LAUNCH"),
+                  "validate_frontier": value("RR_ATTEMPT_VALIDATE_FRONTIER"),
+                  "validate_panel": value("RR_ATTEMPT_VALIDATE_PANEL"),
+                  "export_archive": value("RR_ATTEMPT_EXPORT"),
+              },
+          }
+          payload["collection_succeeded"] = payload["steps"]["collect_panel"] == "success"
+          payload["panel_validation_succeeded"] = payload["steps"]["validate_panel"] == "success"
+          Path("reports/hourly_attempt_latest.json").write_text(
+              json.dumps(payload, indent=2) + "\n", encoding="utf-8"
+          )
+          print(json.dumps(payload, indent=2))
+          PY
 
       - name: Write run summary
         if: always()
@@ -166,6 +227,7 @@ jobs:
 
           summary = Path(os.environ["GITHUB_STEP_SUMMARY"])
           cadence_path = Path("reports/cadence_gate_latest.json")
+          attempt_path = Path("reports/hourly_attempt_latest.json")
           validation_path = Path("reports/validation_latest.json")
           frontier_path = Path("reports/frontier_latest.json")
           launch_path = Path("reports/launch_analysis_latest.json")
@@ -183,7 +245,16 @@ jobs:
           else:
               lines.append("- No cadence report was generated.")
 
-          if cadence.get("should_collect"):
+          attempt = {}
+          if attempt_path.exists():
+              attempt = json.loads(attempt_path.read_text(encoding="utf-8"))
+              lines += [
+                  f"- Collection step succeeded: `{attempt.get('collection_succeeded')}`",
+                  f"- Panel validation succeeded: `{attempt.get('panel_validation_succeeded')}`",
+                  f"- Step outcomes: `{attempt.get('steps')}`",
+              ]
+
+          if cadence.get("should_collect") and attempt.get("collection_succeeded"):
               if validation_path.exists():
                   report = json.loads(validation_path.read_text(encoding="utf-8"))
                   run = report.get("run") or {}
@@ -242,6 +313,8 @@ jobs:
                   )
               else:
                   lines.append("- No launch analysis report was generated.")
+          elif cadence.get("should_collect"):
+              lines.append("- Collection was due but did not complete; see hourly attempt diagnostics.")
           else:
               lines.append("- No Royal Road requests were made during this schedule opportunity.")
           summary.write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -260,6 +333,8 @@ jobs:
 
       - name: Persist canonical data and diagnostics
         if: always() && steps.cadence.outputs.should_collect == 'true'
+        env:
+          RR_COLLECTION_SUCCEEDED: ${{ steps.collect_panel.outcome == 'success' && '1' || '0' }}
         run: |
           set -euo pipefail
           mkdir -p data reports
@@ -270,7 +345,12 @@ jobs:
             echo "No canonical changes to commit"
             exit 0
           fi
-          git commit -m "Collect Royal Road snapshot $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          if [ "${RR_COLLECTION_SUCCEEDED}" = "1" ]; then
+            message="Collect Royal Road snapshot $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          else
+            message="Record failed Royal Road collection attempt $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          fi
+          git commit -m "${message}"
           for attempt in 1 2 3; do
             if git push origin "HEAD:${GITHUB_REF_NAME}"; then
               exit 0
