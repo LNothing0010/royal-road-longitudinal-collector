@@ -16,5 +16,8 @@ def test_hourly_workflow_persists_step_outcomes_and_truthful_commit_message():
 def test_stale_reports_are_not_presented_as_a_successful_current_run():
     workflow = Path(".github/workflows/hourly.yml").read_text(encoding="utf-8")
 
-    assert 'cadence.get("should_collect") and attempt.get("collection_succeeded")' in workflow
+    success_guard = (
+        'cadence.get("should_collect") and attempt.get("collection_succeeded")'
+    )
+    assert success_guard in workflow
     assert "Collection was due but did not complete" in workflow
