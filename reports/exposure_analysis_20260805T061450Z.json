@@ -1,0 +1,779 @@
+{
+  "generated_utc": "2026-08-05T06:15:05.865559Z",
+  "window_start_utc": "2026-07-29T06:14:50Z",
+  "window_end_utc": "2026-08-05T06:14:50Z",
+  "lookback_hours": 168,
+  "methodology": {
+    "traffic_measurement": "Royal Road does not expose homepage visit counts; section residence and position are used as organic exposure proxies.",
+    "residence": "Interval-censored between consecutive samples; reported as lower, upper and midpoint estimates.",
+    "position_weight": "minutes / log2(rank + 1)",
+    "causality": "Correlations are descriptive and do not establish that exposure caused traction."
+  },
+  "summary": {
+    "status": "collecting_baseline",
+    "latest_updates_samples": 1,
+    "observed_window_hours": 168.0,
+    "home_latest_median_residence_minutes": null,
+    "latest_updates_median_residence_minutes": null,
+    "newest_median_residence_minutes": null,
+    "publication_windows": 0,
+    "traction_linkages": 0
+  },
+  "surfaces": {
+    "home_latest_updates": {
+      "source_name": "home_latest_updates",
+      "sample_count": 1,
+      "first_sample_utc": "2026-08-05T06:14:50Z",
+      "last_sample_utc": "2026-08-05T06:14:50Z",
+      "median_cadence_minutes": 15.0,
+      "unique_fictions": 0,
+      "episode_count": 0,
+      "completed_episode_count": 0,
+      "median_residence_minutes": null,
+      "p25_residence_minutes": null,
+      "p75_residence_minutes": null,
+      "episodes": [],
+      "hourly": [
+        {
+          "hour_utc": 0,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 1,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 2,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 3,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 4,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 5,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 6,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": 0,
+          "max_new_entries_per_sample": 0
+        },
+        {
+          "hour_utc": 7,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 8,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 9,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 10,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 11,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 12,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 13,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 14,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 15,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 16,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 17,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 18,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 19,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 20,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 21,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 22,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 23,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        }
+      ]
+    },
+    "home_rising_stars": {
+      "source_name": "home_rising_stars",
+      "sample_count": 1,
+      "first_sample_utc": "2026-08-05T06:14:50Z",
+      "last_sample_utc": "2026-08-05T06:14:50Z",
+      "median_cadence_minutes": 15.0,
+      "unique_fictions": 0,
+      "episode_count": 0,
+      "completed_episode_count": 0,
+      "median_residence_minutes": null,
+      "p25_residence_minutes": null,
+      "p75_residence_minutes": null,
+      "episodes": [],
+      "hourly": [
+        {
+          "hour_utc": 0,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 1,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 2,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 3,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 4,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 5,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 6,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": 0,
+          "max_new_entries_per_sample": 0
+        },
+        {
+          "hour_utc": 7,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 8,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 9,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 10,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 11,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 12,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 13,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 14,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 15,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 16,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 17,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 18,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 19,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 20,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 21,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 22,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 23,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        }
+      ]
+    },
+    "latest_updates_live": {
+      "source_name": "latest_updates_live",
+      "sample_count": 1,
+      "first_sample_utc": "2026-08-05T06:14:50Z",
+      "last_sample_utc": "2026-08-05T06:14:50Z",
+      "median_cadence_minutes": 15.0,
+      "unique_fictions": 0,
+      "episode_count": 0,
+      "completed_episode_count": 0,
+      "median_residence_minutes": null,
+      "p25_residence_minutes": null,
+      "p75_residence_minutes": null,
+      "episodes": [],
+      "hourly": [
+        {
+          "hour_utc": 0,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 1,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 2,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 3,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 4,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 5,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 6,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": 0,
+          "max_new_entries_per_sample": 0
+        },
+        {
+          "hour_utc": 7,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 8,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 9,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 10,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 11,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 12,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 13,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 14,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 15,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 16,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 17,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 18,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 19,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 20,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 21,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 22,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 23,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        }
+      ]
+    },
+    "newest_live": {
+      "source_name": "newest_live",
+      "sample_count": 1,
+      "first_sample_utc": "2026-08-05T06:14:50Z",
+      "last_sample_utc": "2026-08-05T06:14:50Z",
+      "median_cadence_minutes": 15.0,
+      "unique_fictions": 0,
+      "episode_count": 0,
+      "completed_episode_count": 0,
+      "median_residence_minutes": null,
+      "p25_residence_minutes": null,
+      "p75_residence_minutes": null,
+      "episodes": [],
+      "hourly": [
+        {
+          "hour_utc": 0,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 1,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 2,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 3,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 4,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 5,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 6,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": 0,
+          "max_new_entries_per_sample": 0
+        },
+        {
+          "hour_utc": 7,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 8,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 9,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 10,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 11,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 12,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 13,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 14,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 15,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 16,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 17,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 18,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 19,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 20,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 21,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 22,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        },
+        {
+          "hour_utc": 23,
+          "completed_episodes": 0,
+          "median_residence_minutes": null,
+          "median_new_entries_per_sample": null,
+          "max_new_entries_per_sample": null
+        }
+      ]
+    }
+  },
+  "publication_windows": [],
+  "exposure_traction": [],
+  "correlations": {
+    "home_weighted_exposure_vs_view_delta": {
+      "n": 0,
+      "correlation": null,
+      "status": "insufficient_sample"
+    },
+    "latest_updates_exposure_vs_view_delta": {
+      "n": 0,
+      "correlation": null,
+      "status": "insufficient_sample"
+    },
+    "home_weighted_exposure_vs_follower_delta": {
+      "n": 0,
+      "correlation": null,
+      "status": "insufficient_sample"
+    }
+  }
+}

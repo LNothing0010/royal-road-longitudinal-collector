@@ -1,6 +1,6 @@
 {
-  "run_id": 81,
-  "timestamp_utc": "2026-07-24T21:46:46Z",
+  "run_id": 82,
+  "timestamp_utc": "2026-08-05T06:14:50Z",
   "status": "partial",
   "sources": [
     {
@@ -21,25 +21,32 @@
     },
     {
       "name": "latest_updates_live",
-      "count": 20,
-      "warnings": []
+      "count": 0,
+      "warnings": [
+        "source unavailable in exposure run"
+      ]
     },
     {
       "name": "newest_live",
-      "count": 20,
-      "warnings": []
+      "count": 0,
+      "warnings": [
+        "source unavailable in exposure run"
+      ]
     }
   ],
-  "errors": [],
+  "errors": [
+    "latest_updates_live: HTTPStatusError: Server error '500 Internal Server Error' for url 'https://www.royalroad.com/fictions/latest-updates'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500",
+    "newest_live: HTTPStatusError: Server error '500 Internal Server Error' for url 'https://www.royalroad.com/fictions/new'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500"
+  ],
   "analysis_summary": {
     "status": "collecting_baseline",
-    "latest_updates_samples": 22,
+    "latest_updates_samples": 1,
     "observed_window_hours": 168.0,
     "home_latest_median_residence_minutes": null,
-    "latest_updates_median_residence_minutes": 182.358,
-    "newest_median_residence_minutes": 187.217,
-    "publication_windows": 395,
-    "traction_linkages": 149
+    "latest_updates_median_residence_minutes": null,
+    "newest_median_residence_minutes": null,
+    "publication_windows": 0,
+    "traction_linkages": 0
   },
   "analysis_files": {
     "json": "reports/exposure_analysis_latest.json",
