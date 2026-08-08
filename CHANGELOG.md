@@ -6,6 +6,8 @@
 - Added a persisted-data cadence gate that runs the collector only when the latest complete six-list panel is at least 55 minutes old.
 - Kept manual workflow dispatch as a forced collection path.
 - Added cadence diagnostics and regression tests so redundant triggers do not increase the intended request rate.
+- Made the recent-404 availability regression test relative to execution time so its one-week retry window cannot expire simply because the calendar advances.
+- Pinned the development Ruff version to 0.15.22, the version verified by the last green Collector CI, preventing unreviewed lint-rule changes from blocking scheduled collection.
 
 ## 0.4.0 — 2026-07-14
 

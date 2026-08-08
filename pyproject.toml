@@ -15,7 +15,7 @@ dependencies = [
 browser = ["playwright>=1.48"]
 api = ["fastapi>=0.115", "uvicorn>=0.30"]
 mcp = ["mcp>=1.2"]
-dev = ["pytest>=8.3", "ruff>=0.7"]
+dev = ["pytest>=8.3", "ruff==0.15.22"]
 
 [project.scripts]
 rrlab = "rrlab.cli:main"
