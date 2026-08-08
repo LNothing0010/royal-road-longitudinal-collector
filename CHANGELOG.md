@@ -6,6 +6,8 @@
 - Added a persisted-data cadence gate that runs the collector only when the latest complete six-list panel is at least 55 minutes old.
 - Kept manual workflow dispatch as a forced collection path.
 - Added cadence diagnostics and regression tests so redundant triggers do not increase the intended request rate.
+- Added per-step hourly-attempt diagnostics so install, preflight, collection, validation and export failures remain attributable after scheduled runs.
+- Stopped labelling cadence-only or failed attempts as successful Royal Road snapshots; failed attempts now receive an explicit commit message and stale reports are not presented as current-run success.
 
 ## 0.4.0 — 2026-07-14
 
