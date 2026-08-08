@@ -67,7 +67,7 @@ def test_recent_404_is_excluded_from_backlog_even_if_first_seen_elsewhere(
 ):
     storage = Storage(tmp_path / "rrlab.sqlite", tmp_path / "raw")
     _seed(storage)
-    now = datetime(2026, 7, 16, tzinfo=timezone.utc)
+    now = datetime.now(timezone.utc)
     record_detail_failure(storage, "2", now, _not_found("https://example.com/2"))
 
     candidates = _ordered_required_detail_candidates(storage, [], backlog_limit=10)
