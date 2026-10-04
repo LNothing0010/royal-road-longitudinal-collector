@@ -1,6 +1,6 @@
 {
-  "run_id": 85,
-  "timestamp_utc": "2026-10-04T20:12:15Z",
+  "run_id": 86,
+  "timestamp_utc": "2026-10-04T23:25:23Z",
   "status": "partial",
   "sources": [
     {
@@ -39,7 +39,7 @@
   ],
   "analysis_summary": {
     "status": "collecting_baseline",
-    "latest_updates_samples": 3,
+    "latest_updates_samples": 4,
     "observed_window_hours": 168.0,
     "home_latest_median_residence_minutes": null,
     "latest_updates_median_residence_minutes": null,
