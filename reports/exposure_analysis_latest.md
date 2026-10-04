@@ -1,6 +1,6 @@
 # Royal Road organic exposure
 
-- Window: `2026-07-29T06:14:50Z` to `2026-08-05T06:14:50Z`
+- Window: `2026-09-27T12:48:18Z` to `2026-10-04T12:48:18Z`
 - Status: `collecting_baseline`
 - Latest Updates samples: `1`
 - Direct homepage traffic is not public; this report measures section residence and position-weighted visibility.

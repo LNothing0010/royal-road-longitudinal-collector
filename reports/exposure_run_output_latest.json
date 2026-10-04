@@ -1,22 +1,20 @@
 {
-  "run_id": 82,
-  "timestamp_utc": "2026-08-05T06:14:50Z",
+  "run_id": 83,
+  "timestamp_utc": "2026-10-04T12:48:18Z",
   "status": "partial",
   "sources": [
     {
       "name": "home_latest_updates",
       "count": 0,
       "warnings": [
-        "homepage heading not found: Latest Updates",
-        "no homepage fiction parsed for home_latest_updates"
+        "source unavailable in exposure run"
       ]
     },
     {
       "name": "home_rising_stars",
       "count": 0,
       "warnings": [
-        "homepage heading not found: Rising Stars",
-        "no homepage fiction parsed for home_rising_stars"
+        "source unavailable in exposure run"
       ]
     },
     {
@@ -35,8 +33,9 @@
     }
   ],
   "errors": [
-    "latest_updates_live: HTTPStatusError: Server error '500 Internal Server Error' for url 'https://www.royalroad.com/fictions/latest-updates'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500",
-    "newest_live: HTTPStatusError: Server error '500 Internal Server Error' for url 'https://www.royalroad.com/fictions/new'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500"
+    "home: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.royalroad.com/home'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+    "latest_updates_live: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.royalroad.com/fictions/latest-updates'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+    "newest_live: HTTPStatusError: Client error '403 Forbidden' for url 'https://www.royalroad.com/fictions/new'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
   ],
   "analysis_summary": {
     "status": "collecting_baseline",
