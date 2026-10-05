@@ -1,18 +1,18 @@
 # Royal Road organic exposure
 
-- Window: `2026-09-28T02:09:55Z` to `2026-10-05T02:09:55Z`
+- Window: `2026-09-28T08:57:12Z` to `2026-10-05T08:57:12Z`
 - Status: `collecting_baseline`
-- Latest Updates samples: `5`
+- Latest Updates samples: `6`
 - Direct homepage traffic is not public; this report measures section residence and position-weighted visibility.
 
 ## Surface residence
 
 | Surface | Samples | Unique fiction | Median residence | P25 | P75 |
 |---|---:|---:|---:|---:|---:|
-| Homepage — Latest Updates | 5 | 0 | — | — | — |
-| Homepage — Rising Stars | 5 | 0 | — | — | — |
-| Latest Updates page 1 | 5 | 0 | — | — | — |
-| Newest Fictions page 1 | 5 | 0 | — | — | — |
+| Homepage — Latest Updates | 6 | 0 | — | — | — |
+| Homepage — Rising Stars | 6 | 0 | — | — | — |
+| Latest Updates page 1 | 6 | 0 | — | — | — |
+| Newest Fictions page 1 | 6 | 0 | — | — | — |
 
 ## Best and most crowded UTC hours
 
