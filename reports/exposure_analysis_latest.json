@@ -1,7 +1,7 @@
 {
-  "generated_utc": "2026-10-04T23:25:43.130792Z",
-  "window_start_utc": "2026-09-27T23:25:23Z",
-  "window_end_utc": "2026-10-04T23:25:23Z",
+  "generated_utc": "2026-10-05T02:10:15.895791Z",
+  "window_start_utc": "2026-09-28T02:09:55Z",
+  "window_end_utc": "2026-10-05T02:09:55Z",
   "lookback_hours": 168,
   "methodology": {
     "traffic_measurement": "Royal Road does not expose homepage visit counts; section residence and position are used as organic exposure proxies.",
@@ -11,7 +11,7 @@
   },
   "summary": {
     "status": "collecting_baseline",
-    "latest_updates_samples": 4,
+    "latest_updates_samples": 5,
     "observed_window_hours": 168.0,
     "home_latest_median_residence_minutes": null,
     "latest_updates_median_residence_minutes": null,
@@ -22,10 +22,10 @@
   "surfaces": {
     "home_latest_updates": {
       "source_name": "home_latest_updates",
-      "sample_count": 4,
+      "sample_count": 5,
       "first_sample_utc": "2026-10-04T12:48:18Z",
-      "last_sample_utc": "2026-10-04T23:25:23Z",
-      "median_cadence_minutes": 193.133,
+      "last_sample_utc": "2026-10-05T02:09:55Z",
+      "median_cadence_minutes": 188.875,
       "unique_fictions": 0,
       "episode_count": 0,
       "completed_episode_count": 0,
@@ -52,8 +52,8 @@
           "hour_utc": 2,
           "completed_episodes": 0,
           "median_residence_minutes": null,
-          "median_new_entries_per_sample": null,
-          "max_new_entries_per_sample": null
+          "median_new_entries_per_sample": 0,
+          "max_new_entries_per_sample": 0
         },
         {
           "hour_utc": 3,
@@ -206,10 +206,10 @@
     },
     "home_rising_stars": {
       "source_name": "home_rising_stars",
-      "sample_count": 4,
+      "sample_count": 5,
       "first_sample_utc": "2026-10-04T12:48:18Z",
-      "last_sample_utc": "2026-10-04T23:25:23Z",
-      "median_cadence_minutes": 193.133,
+      "last_sample_utc": "2026-10-05T02:09:55Z",
+      "median_cadence_minutes": 188.875,
       "unique_fictions": 0,
       "episode_count": 0,
       "completed_episode_count": 0,
@@ -236,8 +236,8 @@
           "hour_utc": 2,
           "completed_episodes": 0,
           "median_residence_minutes": null,
-          "median_new_entries_per_sample": null,
-          "max_new_entries_per_sample": null
+          "median_new_entries_per_sample": 0,
+          "max_new_entries_per_sample": 0
         },
         {
           "hour_utc": 3,
@@ -390,10 +390,10 @@
     },
     "latest_updates_live": {
       "source_name": "latest_updates_live",
-      "sample_count": 4,
+      "sample_count": 5,
       "first_sample_utc": "2026-10-04T12:48:18Z",
-      "last_sample_utc": "2026-10-04T23:25:23Z",
-      "median_cadence_minutes": 193.133,
+      "last_sample_utc": "2026-10-05T02:09:55Z",
+      "median_cadence_minutes": 188.875,
       "unique_fictions": 0,
       "episode_count": 0,
       "completed_episode_count": 0,
@@ -420,8 +420,8 @@
           "hour_utc": 2,
           "completed_episodes": 0,
           "median_residence_minutes": null,
-          "median_new_entries_per_sample": null,
-          "max_new_entries_per_sample": null
+          "median_new_entries_per_sample": 0,
+          "max_new_entries_per_sample": 0
         },
         {
           "hour_utc": 3,
@@ -574,10 +574,10 @@
     },
     "newest_live": {
       "source_name": "newest_live",
-      "sample_count": 4,
+      "sample_count": 5,
       "first_sample_utc": "2026-10-04T12:48:18Z",
-      "last_sample_utc": "2026-10-04T23:25:23Z",
-      "median_cadence_minutes": 193.133,
+      "last_sample_utc": "2026-10-05T02:09:55Z",
+      "median_cadence_minutes": 188.875,
       "unique_fictions": 0,
       "episode_count": 0,
       "completed_episode_count": 0,
@@ -604,8 +604,8 @@
           "hour_utc": 2,
           "completed_episodes": 0,
           "median_residence_minutes": null,
-          "median_new_entries_per_sample": null,
-          "max_new_entries_per_sample": null
+          "median_new_entries_per_sample": 0,
+          "max_new_entries_per_sample": 0
         },
         {
           "hour_utc": 3,
