@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Added a deterministic storage-health report that accounts for SQLite, raw snapshots, reports and exports without changing retention or collection policy.
+- Added regression tests for file and byte accounting; Git object-history size remains an external repository-level metric.
 - Replaced the single hourly cron opportunity with three staggered schedule opportunities at minutes 13, 33 and 53.
 - Added a persisted-data cadence gate that runs the collector only when the latest complete six-list panel is at least 55 minutes old.
 - Kept manual workflow dispatch as a forced collection path.
